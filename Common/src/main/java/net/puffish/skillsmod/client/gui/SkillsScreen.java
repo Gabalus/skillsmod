@@ -2,11 +2,15 @@ package net.puffish.skillsmod.client.gui;
 
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.advancement.AdvancementObtainedStatus;
+import net.minecraft.client.gui.tooltip.HoveredTooltipPositioner;
 import net.minecraft.client.gui.tooltip.Tooltip;
 import net.minecraft.client.render.GameRenderer;
+import net.minecraft.resource.Resource;
+import net.minecraft.resource.ResourceManager;
 import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.OrderedText;
 import net.minecraft.text.Style;
@@ -17,6 +21,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 import net.puffish.skillsmod.SkillsMod;
 import net.puffish.skillsmod.api.Skill;
+import net.puffish.skillsmod.api.SkillsAPI;
 import net.puffish.skillsmod.client.SkillsClientMod;
 import net.puffish.skillsmod.client.config.ClientBackgroundConfig;
 import net.puffish.skillsmod.client.config.ClientFrameConfig;
@@ -31,14 +36,13 @@ import net.puffish.skillsmod.client.rendering.TextureBatchedRenderer;
 import net.puffish.skillsmod.common.BackgroundPosition;
 import net.puffish.skillsmod.util.Bounds2i;
 import org.joml.Vector2i;
+import org.joml.Vector2ic;
 import org.joml.Vector4f;
 import org.joml.Vector4fc;
 import org.lwjgl.glfw.GLFW;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Map;
-import java.util.Optional;
+import java.io.IOException;
+import java.util.*;
 import java.util.function.BiConsumer;
 
 public class SkillsScreen extends Screen {
@@ -82,6 +86,11 @@ public class SkillsScreen extends Screen {
 	private int contentPaddingLeft = 0;
 	private int contentPaddingRight = 0;
 	private int contentPaddingBottom = 0;
+
+	private int currentFrame = 0;
+	private int tickCounter = 0;
+	private static int totalFrames = -1;
+	private static final int TICKS_PER_FRAME = 1;
 
 	public SkillsScreen(Map<Identifier, ClientCategoryData> categories, Optional<Identifier> optCategoryId) {
 		super(ScreenTexts.EMPTY);
@@ -249,6 +258,23 @@ public class SkillsScreen extends Screen {
 		return super.keyPressed(keyCode, scanCode, modifiers);
 	}
 
+
+
+	@Override
+	public void tick() {
+		if (Screen.hasShiftDown()) {
+			tickCounter++;
+			int frames = totalFrames;
+			if (frames > 0 && tickCounter >= TICKS_PER_FRAME) {
+				tickCounter = 0;
+				currentFrame = (currentFrame + 1) % frames;
+			}
+		} else {
+			currentFrame = 0;
+			tickCounter = 0;
+		}
+	}
+
 	@Override
 	public void render(DrawContext context, int mouseX, int mouseY, float delta) {
 		this.syncCategory();
@@ -257,7 +283,50 @@ public class SkillsScreen extends Screen {
 		this.drawContent(context, mouseX, mouseY);
 		this.drawWindow(context, mouseX, mouseY);
 		this.drawTabs(context, mouseX, mouseY);
+		renderBackground(context);
+		optActiveCategoryData.ifPresentOrElse(
+				activeCategoryData -> drawVideo(context, mouseX, mouseY, activeCategoryData),
+				() -> drawContentWithoutCategory(context)
+		);
+
+
+
 	}
+
+	private void drawVideo(DrawContext context, int mouseX, int mouseY, ClientCategoryData activeCategoryData) {
+		var activeCategory = activeCategoryData.getConfig();
+		var mouse = getMousePos(mouseX, mouseY);
+		var transformedMouse = getTransformedMousePos(mouseX, mouseY, activeCategoryData);
+
+		if (isInsideContent(mouse)) {
+			var optHoveredSkill = activeCategory
+					.skills()
+					.values()
+					.stream()
+					.filter(skill -> activeCategory
+							.getDefinitionById(skill.definitionId())
+							.map(definition -> isInsideSkill(transformedMouse, skill, definition))
+							.orElse(false)
+					)
+					.findFirst();
+
+			optHoveredSkill.ifPresent(hoveredSkill -> {
+				var definition = activeCategory.definitions().get(hoveredSkill.definitionId());
+				if (definition == null) {
+					return;
+				}
+				if (Screen.hasShiftDown()&&definition.totalFrames()!=0) {
+					totalFrames=definition.totalFrames();
+				String frameName = String.format("frame_%04d.png", currentFrame + 1);
+				String videoPaths = activeCategory.id().getPath() + "/videos/" + definition.videoName() + '/' + frameName;
+				Identifier frameTexture = new Identifier(SkillsAPI.MOD_ID, videoPaths);
+
+				renderVideo(frameTexture, context, mouseX, mouseY);
+				}
+			});
+		}
+	}
+
 
 	@Override
 	public boolean mouseDragged(double mouseX, double mouseY, int button, double deltaX, double deltaY) {
@@ -517,6 +586,9 @@ public class SkillsScreen extends Screen {
 		RenderSystem.disableBlend();
 		RenderSystem.enableDepthTest();
 
+
+
+
 		context.enableScissor(
 				contentPaddingLeft - 4,
 				contentPaddingTop - 4,
@@ -591,12 +663,14 @@ public class SkillsScreen extends Screen {
 						definition.description().copy(),
 						Style.EMPTY.withFormatting(Formatting.GRAY)
 				)));
+
 				if (Screen.hasShiftDown()) {
 					lines.addAll(Tooltip.wrapLines(client, Texts.setStyleIfAbsent(
 							definition.extraDescription().copy(),
 							Style.EMPTY.withFormatting(Formatting.GRAY)
 					)));
 				}
+
 				if (client.options.advancedItemTooltips) {
 					lines.add(Text.literal(hoveredSkill.id()).formatted(Formatting.DARK_GRAY).asOrderedText());
 				}
@@ -656,6 +730,38 @@ public class SkillsScreen extends Screen {
 
 		matrices.pop();
 	}
+	public void renderVideo(Identifier frameTexture, DrawContext context, int mouseX, int mouseY) {
+		int textureWidth = 128;
+		int textureHeight = 128;
+
+		Vector2ic pos = HoveredTooltipPositioner.INSTANCE.getPosition(
+				this.width, this.height, mouseX, mouseY, textureWidth, textureHeight
+		);
+
+		int extraYOffset = 20;
+		int x = pos.x();
+		int y = pos.y() + extraYOffset;
+
+		context.getMatrices().push();
+
+		context.getMatrices().translate(0, 0, 200);
+
+
+		context.drawTexture(frameTexture, x, y, 0, 0, textureWidth, textureHeight);
+
+
+		context.drawCenteredTextWithShadow(
+				this.textRenderer,
+				Text.literal("Frame: " + currentFrame),
+				x + (textureWidth / 2),
+				y + textureHeight + 10,
+				0xFFFFFF
+		);
+
+
+		context.getMatrices().pop();
+	}
+
 
 	private void drawContentWithoutCategory(DrawContext context) {
 		var tmpX = contentPaddingLeft + (width - contentPaddingLeft - contentPaddingRight) / 2;

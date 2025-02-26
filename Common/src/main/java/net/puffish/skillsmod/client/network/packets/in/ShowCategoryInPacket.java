@@ -111,6 +111,8 @@ public class ShowCategoryInPacket implements InPacket {
 		var requiredSkills = buf.readInt();
 		var requiredPoints = buf.readInt();
 		var requiredSpentPoints = buf.readInt();
+		var totalFrames = buf.readInt();
+		var videoName = buf.readString();
 
 		return new ClientSkillDefinitionConfig(
 				id,
@@ -123,7 +125,9 @@ public class ShowCategoryInPacket implements InPacket {
 				cost,
 				requiredSkills,
 				requiredPoints,
-				requiredSpentPoints
+				requiredSpentPoints,
+				totalFrames,
+				videoName
 		);
 	}
 
