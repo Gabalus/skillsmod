@@ -1,0 +1,11 @@
+{
+	"normal": {
+		"bidirectional": [
+			["arcanist_start", "spell_damage"],
+			["spell_damage", "fire_damage"],
+			["fire_damage", "more_fire"],
+			["spell_damage", "maximum_mana"],
+			["maximum_mana", "cast_speed"]
+		]
+	}
+}
