@@ -11,6 +11,7 @@ import net.puffish.skillsmod.api.reward.RewardDisposeContext;
 import net.puffish.skillsmod.api.reward.RewardUpdateContext;
 import net.puffish.skillsmod.api.util.Problem;
 import net.puffish.skillsmod.api.util.Result;
+import net.puffish.skillsmod.arpg.compat.IronsSpellbooksCompat;
 import net.puffish.skillsmod.arpg.stat.ArpgModifierOperation;
 import net.puffish.skillsmod.arpg.stat.ArpgPlayerStats;
 import net.puffish.skillsmod.arpg.stat.ArpgStat;
@@ -99,8 +100,10 @@ public class ArpgStatReward implements Reward {
 			var id = ids.get(i);
 			if (i < count) {
 				ArpgPlayerStats.putModifier(player, id, modifier);
+				IronsSpellbooksCompat.applyModifier(player, id, modifier);
 			} else {
 				ArpgPlayerStats.removeModifier(player, id);
+				IronsSpellbooksCompat.removeModifier(player, id, modifier.stat());
 			}
 		}
 	}
@@ -110,6 +113,7 @@ public class ArpgStatReward implements Reward {
 		for (var player : context.getServer().getPlayerManager().getPlayerList()) {
 			for (var id : ids) {
 				ArpgPlayerStats.removeModifier(player, id);
+				IronsSpellbooksCompat.removeModifier(player, id, modifier.stat());
 			}
 		}
 		ids.clear();
