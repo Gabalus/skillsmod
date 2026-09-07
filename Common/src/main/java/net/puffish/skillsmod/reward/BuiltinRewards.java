@@ -1,5 +1,6 @@
 package net.puffish.skillsmod.reward;
 
+import net.puffish.skillsmod.arpg.reward.ArpgStatReward;
 import net.puffish.skillsmod.reward.builtin.AttributeReward;
 import net.puffish.skillsmod.reward.builtin.CommandReward;
 import net.puffish.skillsmod.reward.builtin.PointsReward;
@@ -9,6 +10,7 @@ import net.puffish.skillsmod.reward.builtin.TagReward;
 public class BuiltinRewards {
 	public static void register() {
 		AttributeReward.register();
+		ArpgStatReward.register();
 		CommandReward.register();
 		PointsReward.register();
 		ScoreboardReward.register();
