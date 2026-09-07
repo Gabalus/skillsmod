@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up Java 21
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: '21'
@@ -36,3 +36,12 @@ jobs:
 
       - name: Build NeoForge module
         run: ./gradlew :NeoForge:build --stacktrace
+
+      - name: Upload NeoForge test JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: puffish-skills-arpg-neoforge
+          path: |
+            NeoForge/build/libs/*.jar
+            !NeoForge/build/libs/*-sources.jar
+          if-no-files-found: error
