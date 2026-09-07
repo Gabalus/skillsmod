@@ -1,7 +1,5 @@
 {
 	"version": 3,
-	"show_warnings": true,
-	"categories": [
-		"arpg_test"
-	]
+
+	"show_warnings": true
 }
