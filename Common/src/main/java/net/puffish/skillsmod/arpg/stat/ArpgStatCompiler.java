@@ -19,6 +19,7 @@ public final class ArpgStatCompiler {
 				case REDUCED -> accumulator.increased -= modifier.value();
 				case MORE -> accumulator.multiplier *= 1.0 + modifier.value();
 				case LESS -> accumulator.multiplier *= 1.0 - modifier.value();
+				default -> throw new IllegalStateException("Unsupported ARPG modifier operation: " + modifier.operation());
 			}
 		}
 
