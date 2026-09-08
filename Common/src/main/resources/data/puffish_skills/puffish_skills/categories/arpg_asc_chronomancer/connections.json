@@ -1,0 +1,38 @@
+{
+  "normal": {
+    "bidirectional": [
+      [
+        "chronomancer_0",
+        "chronomancer_1"
+      ],
+      [
+        "chronomancer_1",
+        "chronomancer_2"
+      ],
+      [
+        "chronomancer_3",
+        "chronomancer_4"
+      ],
+      [
+        "chronomancer_4",
+        "chronomancer_5"
+      ],
+      [
+        "chronomancer_6",
+        "chronomancer_7"
+      ],
+      [
+        "chronomancer_7",
+        "chronomancer_8"
+      ],
+      [
+        "chronomancer_9",
+        "chronomancer_10"
+      ],
+      [
+        "chronomancer_10",
+        "chronomancer_11"
+      ]
+    ]
+  }
+}

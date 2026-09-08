@@ -1,0 +1,482 @@
+{
+  "grapple_0": {
+    "title": "Vanguard Grapple 1",
+    "description": "8% increased attack damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/grapple_0"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "grapple_1": {
+    "title": "Vanguard Grapple 2",
+    "description": "8% increased attack damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/grapple_1"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "grapple_2": {
+    "title": "Vanguard Grapple 3",
+    "description": "8% increased attack damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/grapple_2"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "grapple_3": {
+    "title": "Vanguard Grapple 4",
+    "description": "8% increased attack damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/grapple_3"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "grapple_4": {
+    "title": "Vanguard Grapple 5",
+    "description": "8% increased physical damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/grapple_4"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "grapple_5": {
+    "title": "Vanguard Grapple 6",
+    "description": "8% increased physical damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/grapple_5"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "grapple_6": {
+    "title": "Vanguard Grapple 7",
+    "description": "8% increased physical damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/grapple_6"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "grapple_7": {
+    "title": "Vanguard Grapple 8",
+    "description": "8% increased physical damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/grapple_7"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "grapple_8": {
+    "title": "Vanguard Grapple 9",
+    "description": "4% reduced resource cost",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/grapple_8"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "grapple_9": {
+    "title": "Vanguard Grapple 10",
+    "description": "4% reduced resource cost",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/grapple_9"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "grapple_10": {
+    "title": "Vanguard Grapple 11",
+    "description": "4% reduced resource cost",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/grapple_10"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "grapple_11": {
+    "title": "Vanguard Grapple 12",
+    "description": "4% reduced resource cost",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/grapple_11"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "grapple_12": {
+    "title": "Vanguard Grapple 13",
+    "description": "4% increased cooldown recovery",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/grapple_12"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "grapple_13": {
+    "title": "Vanguard Grapple 14",
+    "description": "4% increased cooldown recovery",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/grapple_13"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "grapple_14": {
+    "title": "Vanguard Grapple 15",
+    "description": "4% increased cooldown recovery",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/grapple_14"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "grapple_15": {
+    "title": "Vanguard Grapple 16",
+    "description": "4% increased cooldown recovery",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/grapple_15"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "grapple_16": {
+    "title": "Vanguard Grapple 17",
+    "description": "4% increased critical chance",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/grapple_16"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "grapple_17": {
+    "title": "Vanguard Grapple 18",
+    "description": "4% increased critical chance",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/grapple_17"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "grapple_18": {
+    "title": "Vanguard Grapple 19",
+    "description": "4% increased critical chance",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/grapple_18"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "grapple_19": {
+    "title": "Vanguard Grapple 20",
+    "description": "4% increased critical chance",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/grapple_19"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "grapple_20": {
+    "title": "Vanguard Grapple 21",
+    "description": "8% increased area damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/grapple_20"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "grapple_21": {
+    "title": "Vanguard Grapple 22",
+    "description": "8% increased area damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/grapple_21"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "grapple_22": {
+    "title": "Vanguard Grapple 23",
+    "description": "8% increased area damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/grapple_22"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "grapple_23": {
+    "title": "Vanguard Grapple 24",
+    "description": "8% increased area damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/grapple_23"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  }
+}

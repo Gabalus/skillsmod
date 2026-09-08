@@ -1,0 +1,74 @@
+{
+  "trickster_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "trickster_0",
+    "root": true
+  },
+  "trickster_1": {
+    "x": 0,
+    "y": 75,
+    "definition": "trickster_1",
+    "root": false
+  },
+  "trickster_2": {
+    "x": 0,
+    "y": 150,
+    "definition": "trickster_2",
+    "root": false
+  },
+  "trickster_3": {
+    "x": 95,
+    "y": 0,
+    "definition": "trickster_3",
+    "root": true
+  },
+  "trickster_4": {
+    "x": 95,
+    "y": 75,
+    "definition": "trickster_4",
+    "root": false
+  },
+  "trickster_5": {
+    "x": 95,
+    "y": 150,
+    "definition": "trickster_5",
+    "root": false
+  },
+  "trickster_6": {
+    "x": 190,
+    "y": 0,
+    "definition": "trickster_6",
+    "root": true
+  },
+  "trickster_7": {
+    "x": 190,
+    "y": 75,
+    "definition": "trickster_7",
+    "root": false
+  },
+  "trickster_8": {
+    "x": 190,
+    "y": 150,
+    "definition": "trickster_8",
+    "root": false
+  },
+  "trickster_9": {
+    "x": 285,
+    "y": 0,
+    "definition": "trickster_9",
+    "root": true
+  },
+  "trickster_10": {
+    "x": 285,
+    "y": 75,
+    "definition": "trickster_10",
+    "root": false
+  },
+  "trickster_11": {
+    "x": 285,
+    "y": 150,
+    "definition": "trickster_11",
+    "root": false
+  }
+}

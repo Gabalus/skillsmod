@@ -1,0 +1,290 @@
+{
+  "saboteur_0": {
+    "title": "Saboteur 1",
+    "description": "12% increased bleed damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "bleed_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "saboteur_1": {
+    "title": "Saboteur 2",
+    "description": "12% increased bleed damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "bleed_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "saboteur_2": {
+    "title": "Saboteur 3",
+    "description": "12% increased bleed damage; 25% more attack damage while moving.",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "bleed_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "momentum"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "saboteur_3": {
+    "title": "Saboteur 4",
+    "description": "12% increased ender damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "ender_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "saboteur_4": {
+    "title": "Saboteur 5",
+    "description": "12% increased ender damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "ender_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "saboteur_5": {
+    "title": "Saboteur 6",
+    "description": "12% increased ender damage; 25% more spell damage while moving.",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "ender_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "mobile_incantation"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "saboteur_6": {
+    "title": "Saboteur 7",
+    "description": "12% increased evasion",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "evasion",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "saboteur_7": {
+    "title": "Saboteur 8",
+    "description": "12% increased evasion",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "evasion",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "saboteur_8": {
+    "title": "Saboteur 9",
+    "description": "12% increased evasion; On crit: cooldown (cooldown 1s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "evasion",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "arcane_impact"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "saboteur_9": {
+    "title": "Saboteur 10",
+    "description": "0.05 flat critical multiplier",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "critical_multiplier",
+          "operation": "flat",
+          "value": 0.05
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "saboteur_10": {
+    "title": "Saboteur 11",
+    "description": "0.05 flat critical multiplier",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "critical_multiplier",
+          "operation": "flat",
+          "value": 0.05
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "saboteur_11": {
+    "title": "Saboteur 12",
+    "description": "0.05 flat critical multiplier; On kill: explode (cooldown 1s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "critical_multiplier",
+          "operation": "flat",
+          "value": 0.05
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "infernal_execution"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  }
+}

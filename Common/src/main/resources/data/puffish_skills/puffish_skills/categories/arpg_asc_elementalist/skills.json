@@ -1,0 +1,74 @@
+{
+  "elementalist_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "elementalist_0",
+    "root": true
+  },
+  "elementalist_1": {
+    "x": 0,
+    "y": 75,
+    "definition": "elementalist_1",
+    "root": false
+  },
+  "elementalist_2": {
+    "x": 0,
+    "y": 150,
+    "definition": "elementalist_2",
+    "root": false
+  },
+  "elementalist_3": {
+    "x": 95,
+    "y": 0,
+    "definition": "elementalist_3",
+    "root": true
+  },
+  "elementalist_4": {
+    "x": 95,
+    "y": 75,
+    "definition": "elementalist_4",
+    "root": false
+  },
+  "elementalist_5": {
+    "x": 95,
+    "y": 150,
+    "definition": "elementalist_5",
+    "root": false
+  },
+  "elementalist_6": {
+    "x": 190,
+    "y": 0,
+    "definition": "elementalist_6",
+    "root": true
+  },
+  "elementalist_7": {
+    "x": 190,
+    "y": 75,
+    "definition": "elementalist_7",
+    "root": false
+  },
+  "elementalist_8": {
+    "x": 190,
+    "y": 150,
+    "definition": "elementalist_8",
+    "root": false
+  },
+  "elementalist_9": {
+    "x": 285,
+    "y": 0,
+    "definition": "elementalist_9",
+    "root": true
+  },
+  "elementalist_10": {
+    "x": 285,
+    "y": 75,
+    "definition": "elementalist_10",
+    "root": false
+  },
+  "elementalist_11": {
+    "x": 285,
+    "y": 150,
+    "definition": "elementalist_11",
+    "root": false
+  }
+}

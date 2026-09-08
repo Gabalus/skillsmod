@@ -1,0 +1,14 @@
+{
+  "title": "Universal Passive Tree",
+  "description": "1,602 nodes. One primary start, shared borders, 270 notables, 66 keystones and six jewel sockets.",
+  "icon": {
+    "type": "texture",
+    "data": {
+      "texture": "minecraft:textures/item/nether_star.png"
+    }
+  },
+  "background": "minecraft:textures/block/deepslate_tiles.png",
+  "unlocked_by_default": false,
+  "starting_points": 0,
+  "spent_points_limit": 117
+}

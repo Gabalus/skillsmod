@@ -1,0 +1,482 @@
+{
+  "counterspell_0": {
+    "title": "Martial Counterspell 1",
+    "description": "8% increased attack damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/counterspell_0"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "counterspell_1": {
+    "title": "Martial Counterspell 2",
+    "description": "8% increased attack damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/counterspell_1"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "counterspell_2": {
+    "title": "Martial Counterspell 3",
+    "description": "8% increased attack damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/counterspell_2"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "counterspell_3": {
+    "title": "Martial Counterspell 4",
+    "description": "8% increased attack damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/counterspell_3"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "counterspell_4": {
+    "title": "Martial Counterspell 5",
+    "description": "8% increased physical damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/counterspell_4"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "counterspell_5": {
+    "title": "Martial Counterspell 6",
+    "description": "8% increased physical damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/counterspell_5"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "counterspell_6": {
+    "title": "Martial Counterspell 7",
+    "description": "8% increased physical damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/counterspell_6"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "counterspell_7": {
+    "title": "Martial Counterspell 8",
+    "description": "8% increased physical damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/counterspell_7"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "counterspell_8": {
+    "title": "Martial Counterspell 9",
+    "description": "4% reduced resource cost",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/counterspell_8"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "counterspell_9": {
+    "title": "Martial Counterspell 10",
+    "description": "4% reduced resource cost",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/counterspell_9"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "counterspell_10": {
+    "title": "Martial Counterspell 11",
+    "description": "4% reduced resource cost",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/counterspell_10"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "counterspell_11": {
+    "title": "Martial Counterspell 12",
+    "description": "4% reduced resource cost",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/counterspell_11"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "counterspell_12": {
+    "title": "Martial Counterspell 13",
+    "description": "4% increased cooldown recovery",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/counterspell_12"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "counterspell_13": {
+    "title": "Martial Counterspell 14",
+    "description": "4% increased cooldown recovery",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/counterspell_13"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "counterspell_14": {
+    "title": "Martial Counterspell 15",
+    "description": "4% increased cooldown recovery",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/counterspell_14"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "counterspell_15": {
+    "title": "Martial Counterspell 16",
+    "description": "4% increased cooldown recovery",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/counterspell_15"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "counterspell_16": {
+    "title": "Martial Counterspell 17",
+    "description": "4% increased critical chance",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/counterspell_16"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "counterspell_17": {
+    "title": "Martial Counterspell 18",
+    "description": "4% increased critical chance",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/counterspell_17"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "counterspell_18": {
+    "title": "Martial Counterspell 19",
+    "description": "4% increased critical chance",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/counterspell_18"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "counterspell_19": {
+    "title": "Martial Counterspell 20",
+    "description": "4% increased critical chance",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/counterspell_19"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "counterspell_20": {
+    "title": "Martial Counterspell 21",
+    "description": "8% increased area damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/counterspell_20"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "counterspell_21": {
+    "title": "Martial Counterspell 22",
+    "description": "8% increased area damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/counterspell_21"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "counterspell_22": {
+    "title": "Martial Counterspell 23",
+    "description": "8% increased area damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/counterspell_22"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "counterspell_23": {
+    "title": "Martial Counterspell 24",
+    "description": "8% increased area damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/counterspell_23"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  }
+}

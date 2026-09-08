@@ -1,0 +1,290 @@
+{
+  "trickster_0": {
+    "title": "Trickster 1",
+    "description": "12% increased ender damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "ender_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "trickster_1": {
+    "title": "Trickster 2",
+    "description": "12% increased ender damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "ender_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "trickster_2": {
+    "title": "Trickster 3",
+    "description": "12% increased ender damage; On kill: explode (cooldown 1s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "ender_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "infernal_execution"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "trickster_3": {
+    "title": "Trickster 4",
+    "description": "12% increased evasion",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "evasion",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "trickster_4": {
+    "title": "Trickster 5",
+    "description": "12% increased evasion",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "evasion",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "trickster_5": {
+    "title": "Trickster 6",
+    "description": "12% increased evasion; On block: buff (cooldown 1s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "evasion",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "arcane_bulwark"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "trickster_6": {
+    "title": "Trickster 7",
+    "description": "0.05 flat critical multiplier",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "critical_multiplier",
+          "operation": "flat",
+          "value": 0.05
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "trickster_7": {
+    "title": "Trickster 8",
+    "description": "0.05 flat critical multiplier",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "critical_multiplier",
+          "operation": "flat",
+          "value": 0.05
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "trickster_8": {
+    "title": "Trickster 9",
+    "description": "0.05 flat critical multiplier; On kill: heal (cooldown 1s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "critical_multiplier",
+          "operation": "flat",
+          "value": 0.05
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "sanguine_recovery"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "trickster_9": {
+    "title": "Trickster 10",
+    "description": "6% increased attack speed",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "attack_speed",
+          "operation": "increased",
+          "value": 0.06
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "trickster_10": {
+    "title": "Trickster 11",
+    "description": "6% increased attack speed",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "attack_speed",
+          "operation": "increased",
+          "value": 0.06
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "trickster_11": {
+    "title": "Trickster 12",
+    "description": "6% increased attack speed; On kill: mana (cooldown 1s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "attack_speed",
+          "operation": "increased",
+          "value": 0.06
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "soul_drinker"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  }
+}

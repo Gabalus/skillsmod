@@ -1,0 +1,38 @@
+{
+  "normal": {
+    "bidirectional": [
+      [
+        "necromancer_0",
+        "necromancer_1"
+      ],
+      [
+        "necromancer_1",
+        "necromancer_2"
+      ],
+      [
+        "necromancer_3",
+        "necromancer_4"
+      ],
+      [
+        "necromancer_4",
+        "necromancer_5"
+      ],
+      [
+        "necromancer_6",
+        "necromancer_7"
+      ],
+      [
+        "necromancer_7",
+        "necromancer_8"
+      ],
+      [
+        "necromancer_9",
+        "necromancer_10"
+      ],
+      [
+        "necromancer_10",
+        "necromancer_11"
+      ]
+    ]
+  }
+}

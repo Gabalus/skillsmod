@@ -1,0 +1,146 @@
+{
+  "cleave_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "cleave_0",
+    "root": true
+  },
+  "cleave_1": {
+    "x": 0,
+    "y": 70,
+    "definition": "cleave_1",
+    "root": false
+  },
+  "cleave_2": {
+    "x": 0,
+    "y": 140,
+    "definition": "cleave_2",
+    "root": false
+  },
+  "cleave_3": {
+    "x": 0,
+    "y": 210,
+    "definition": "cleave_3",
+    "root": false
+  },
+  "cleave_4": {
+    "x": 90,
+    "y": 0,
+    "definition": "cleave_4",
+    "root": true
+  },
+  "cleave_5": {
+    "x": 90,
+    "y": 70,
+    "definition": "cleave_5",
+    "root": false
+  },
+  "cleave_6": {
+    "x": 90,
+    "y": 140,
+    "definition": "cleave_6",
+    "root": false
+  },
+  "cleave_7": {
+    "x": 90,
+    "y": 210,
+    "definition": "cleave_7",
+    "root": false
+  },
+  "cleave_8": {
+    "x": 180,
+    "y": 0,
+    "definition": "cleave_8",
+    "root": true
+  },
+  "cleave_9": {
+    "x": 180,
+    "y": 70,
+    "definition": "cleave_9",
+    "root": false
+  },
+  "cleave_10": {
+    "x": 180,
+    "y": 140,
+    "definition": "cleave_10",
+    "root": false
+  },
+  "cleave_11": {
+    "x": 180,
+    "y": 210,
+    "definition": "cleave_11",
+    "root": false
+  },
+  "cleave_12": {
+    "x": 270,
+    "y": 0,
+    "definition": "cleave_12",
+    "root": true
+  },
+  "cleave_13": {
+    "x": 270,
+    "y": 70,
+    "definition": "cleave_13",
+    "root": false
+  },
+  "cleave_14": {
+    "x": 270,
+    "y": 140,
+    "definition": "cleave_14",
+    "root": false
+  },
+  "cleave_15": {
+    "x": 270,
+    "y": 210,
+    "definition": "cleave_15",
+    "root": false
+  },
+  "cleave_16": {
+    "x": 360,
+    "y": 0,
+    "definition": "cleave_16",
+    "root": true
+  },
+  "cleave_17": {
+    "x": 360,
+    "y": 70,
+    "definition": "cleave_17",
+    "root": false
+  },
+  "cleave_18": {
+    "x": 360,
+    "y": 140,
+    "definition": "cleave_18",
+    "root": false
+  },
+  "cleave_19": {
+    "x": 360,
+    "y": 210,
+    "definition": "cleave_19",
+    "root": false
+  },
+  "cleave_20": {
+    "x": 450,
+    "y": 0,
+    "definition": "cleave_20",
+    "root": true
+  },
+  "cleave_21": {
+    "x": 450,
+    "y": 70,
+    "definition": "cleave_21",
+    "root": false
+  },
+  "cleave_22": {
+    "x": 450,
+    "y": 140,
+    "definition": "cleave_22",
+    "root": false
+  },
+  "cleave_23": {
+    "x": 450,
+    "y": 210,
+    "definition": "cleave_23",
+    "root": false
+  }
+}

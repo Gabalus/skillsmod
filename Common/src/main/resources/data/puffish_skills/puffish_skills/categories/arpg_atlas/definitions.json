@@ -1,0 +1,314 @@
+{
+  "quantity_0": {
+    "title": "Quantity 1",
+    "description": "+5% item quantity in shards.",
+    "rewards": [],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/ender_eye.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "quantity_1": {
+    "title": "Quantity 2",
+    "description": "+5% item quantity in shards.",
+    "rewards": [],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/ender_eye.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "quantity_2": {
+    "title": "Quantity 3",
+    "description": "+5% item quantity in shards.",
+    "rewards": [],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/ender_eye.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "quantity_3": {
+    "title": "Quantity 4",
+    "description": "+5% item quantity in shards.",
+    "rewards": [],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/ender_eye.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "rarity_0": {
+    "title": "Rarity 1",
+    "description": "+3% rare item chance in shards.",
+    "rewards": [],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/ender_eye.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "rarity_1": {
+    "title": "Rarity 2",
+    "description": "+3% rare item chance in shards.",
+    "rewards": [],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/ender_eye.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "rarity_2": {
+    "title": "Rarity 3",
+    "description": "+3% rare item chance in shards.",
+    "rewards": [],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/ender_eye.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "rarity_3": {
+    "title": "Rarity 4",
+    "description": "+3% rare item chance in shards.",
+    "rewards": [],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/ender_eye.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "sustain_0": {
+    "title": "Sustain 1",
+    "description": "+5% chance for an extra shard.",
+    "rewards": [],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/ender_eye.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "sustain_1": {
+    "title": "Sustain 2",
+    "description": "+5% chance for an extra shard.",
+    "rewards": [],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/ender_eye.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "sustain_2": {
+    "title": "Sustain 3",
+    "description": "+5% chance for an extra shard.",
+    "rewards": [],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/ender_eye.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "sustain_3": {
+    "title": "Sustain 4",
+    "description": "+5% chance for an extra shard.",
+    "rewards": [],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/ender_eye.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "trials_0": {
+    "title": "Trials 1",
+    "description": "+10% trial experience.",
+    "rewards": [],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/ender_eye.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "trials_1": {
+    "title": "Trials 2",
+    "description": "+10% trial experience.",
+    "rewards": [],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/ender_eye.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "trials_2": {
+    "title": "Trials 3",
+    "description": "+10% trial experience.",
+    "rewards": [],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/ender_eye.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "trials_3": {
+    "title": "Trials 4",
+    "description": "+10% trial experience.",
+    "rewards": [],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/ender_eye.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "delve_0": {
+    "title": "Delve 1",
+    "description": "+10% delve experience.",
+    "rewards": [],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/ender_eye.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "delve_1": {
+    "title": "Delve 2",
+    "description": "+10% delve experience.",
+    "rewards": [],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/ender_eye.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "delve_2": {
+    "title": "Delve 3",
+    "description": "+10% delve experience.",
+    "rewards": [],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/ender_eye.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "delve_3": {
+    "title": "Delve 4",
+    "description": "+10% delve experience.",
+    "rewards": [],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/ender_eye.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "corruption_0": {
+    "title": "Corruption 1",
+    "description": "+1 corruption gained on a corrupted map clear.",
+    "rewards": [],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/ender_eye.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "corruption_1": {
+    "title": "Corruption 2",
+    "description": "+1 corruption gained on a corrupted map clear.",
+    "rewards": [],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/ender_eye.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "corruption_2": {
+    "title": "Corruption 3",
+    "description": "+1 corruption gained on a corrupted map clear.",
+    "rewards": [],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/ender_eye.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "corruption_3": {
+    "title": "Corruption 4",
+    "description": "+1 corruption gained on a corrupted map clear.",
+    "rewards": [],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/ender_eye.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  }
+}

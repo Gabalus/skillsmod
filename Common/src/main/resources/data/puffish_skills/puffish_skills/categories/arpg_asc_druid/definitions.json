@@ -1,0 +1,290 @@
+{
+  "druid_0": {
+    "title": "Druid 1",
+    "description": "12% increased nature damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "nature_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "druid_1": {
+    "title": "Druid 2",
+    "description": "12% increased nature damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "nature_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "druid_2": {
+    "title": "Druid 3",
+    "description": "12% increased nature damage; On crit: ward (cooldown 2s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "nature_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "frost_guard"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "druid_3": {
+    "title": "Druid 4",
+    "description": "12% increased blood damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "blood_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "druid_4": {
+    "title": "Druid 5",
+    "description": "12% increased blood damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "blood_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "druid_5": {
+    "title": "Druid 6",
+    "description": "12% increased blood damage; On crit: cooldown (cooldown 1s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "blood_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "lightning_reflexes"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "druid_6": {
+    "title": "Druid 7",
+    "description": "12% increased cold damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "cold_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "druid_7": {
+    "title": "Druid 8",
+    "description": "12% increased cold damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "cold_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "druid_8": {
+    "title": "Druid 9",
+    "description": "12% increased cold damage; On block: heal (cooldown 4s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "cold_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "unbroken"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "druid_9": {
+    "title": "Druid 10",
+    "description": "12% increased mana regeneration",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "mana_regeneration",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "druid_10": {
+    "title": "Druid 11",
+    "description": "12% increased mana regeneration",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "mana_regeneration",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "druid_11": {
+    "title": "Druid 12",
+    "description": "12% increased mana regeneration; On cast: mana (cooldown 4s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "mana_regeneration",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "spell_echo_fuel"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  }
+}

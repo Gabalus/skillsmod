@@ -1,0 +1,38 @@
+{
+  "normal": {
+    "bidirectional": [
+      [
+        "assassin_0",
+        "assassin_1"
+      ],
+      [
+        "assassin_1",
+        "assassin_2"
+      ],
+      [
+        "assassin_3",
+        "assassin_4"
+      ],
+      [
+        "assassin_4",
+        "assassin_5"
+      ],
+      [
+        "assassin_6",
+        "assassin_7"
+      ],
+      [
+        "assassin_7",
+        "assassin_8"
+      ],
+      [
+        "assassin_9",
+        "assassin_10"
+      ],
+      [
+        "assassin_10",
+        "assassin_11"
+      ]
+    ]
+  }
+}

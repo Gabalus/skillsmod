@@ -1,0 +1,146 @@
+{
+  "lightning_strike_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "lightning_strike_0",
+    "root": true
+  },
+  "lightning_strike_1": {
+    "x": 0,
+    "y": 70,
+    "definition": "lightning_strike_1",
+    "root": false
+  },
+  "lightning_strike_2": {
+    "x": 0,
+    "y": 140,
+    "definition": "lightning_strike_2",
+    "root": false
+  },
+  "lightning_strike_3": {
+    "x": 0,
+    "y": 210,
+    "definition": "lightning_strike_3",
+    "root": false
+  },
+  "lightning_strike_4": {
+    "x": 90,
+    "y": 0,
+    "definition": "lightning_strike_4",
+    "root": true
+  },
+  "lightning_strike_5": {
+    "x": 90,
+    "y": 70,
+    "definition": "lightning_strike_5",
+    "root": false
+  },
+  "lightning_strike_6": {
+    "x": 90,
+    "y": 140,
+    "definition": "lightning_strike_6",
+    "root": false
+  },
+  "lightning_strike_7": {
+    "x": 90,
+    "y": 210,
+    "definition": "lightning_strike_7",
+    "root": false
+  },
+  "lightning_strike_8": {
+    "x": 180,
+    "y": 0,
+    "definition": "lightning_strike_8",
+    "root": true
+  },
+  "lightning_strike_9": {
+    "x": 180,
+    "y": 70,
+    "definition": "lightning_strike_9",
+    "root": false
+  },
+  "lightning_strike_10": {
+    "x": 180,
+    "y": 140,
+    "definition": "lightning_strike_10",
+    "root": false
+  },
+  "lightning_strike_11": {
+    "x": 180,
+    "y": 210,
+    "definition": "lightning_strike_11",
+    "root": false
+  },
+  "lightning_strike_12": {
+    "x": 270,
+    "y": 0,
+    "definition": "lightning_strike_12",
+    "root": true
+  },
+  "lightning_strike_13": {
+    "x": 270,
+    "y": 70,
+    "definition": "lightning_strike_13",
+    "root": false
+  },
+  "lightning_strike_14": {
+    "x": 270,
+    "y": 140,
+    "definition": "lightning_strike_14",
+    "root": false
+  },
+  "lightning_strike_15": {
+    "x": 270,
+    "y": 210,
+    "definition": "lightning_strike_15",
+    "root": false
+  },
+  "lightning_strike_16": {
+    "x": 360,
+    "y": 0,
+    "definition": "lightning_strike_16",
+    "root": true
+  },
+  "lightning_strike_17": {
+    "x": 360,
+    "y": 70,
+    "definition": "lightning_strike_17",
+    "root": false
+  },
+  "lightning_strike_18": {
+    "x": 360,
+    "y": 140,
+    "definition": "lightning_strike_18",
+    "root": false
+  },
+  "lightning_strike_19": {
+    "x": 360,
+    "y": 210,
+    "definition": "lightning_strike_19",
+    "root": false
+  },
+  "lightning_strike_20": {
+    "x": 450,
+    "y": 0,
+    "definition": "lightning_strike_20",
+    "root": true
+  },
+  "lightning_strike_21": {
+    "x": 450,
+    "y": 70,
+    "definition": "lightning_strike_21",
+    "root": false
+  },
+  "lightning_strike_22": {
+    "x": 450,
+    "y": 140,
+    "definition": "lightning_strike_22",
+    "root": false
+  },
+  "lightning_strike_23": {
+    "x": 450,
+    "y": 210,
+    "definition": "lightning_strike_23",
+    "root": false
+  }
+}

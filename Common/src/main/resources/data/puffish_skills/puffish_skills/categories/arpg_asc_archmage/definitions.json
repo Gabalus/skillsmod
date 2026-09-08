@@ -1,0 +1,290 @@
+{
+  "archmage_0": {
+    "title": "Archmage 1",
+    "description": "12% increased fire damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "fire_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "archmage_1": {
+    "title": "Archmage 2",
+    "description": "12% increased fire damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "fire_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "archmage_2": {
+    "title": "Archmage 3",
+    "description": "12% increased fire damage; On crit: bleed (cooldown 1s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "fire_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "open_wounds"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "archmage_3": {
+    "title": "Archmage 4",
+    "description": "12% increased lightning damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "lightning_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "archmage_4": {
+    "title": "Archmage 5",
+    "description": "12% increased lightning damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "lightning_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "archmage_5": {
+    "title": "Archmage 6",
+    "description": "12% increased lightning damage; On crit: poison (cooldown 1s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "lightning_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "venom_tip"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "archmage_6": {
+    "title": "Archmage 7",
+    "description": "12% increased spell damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "spell_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "archmage_7": {
+    "title": "Archmage 8",
+    "description": "12% increased spell damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "spell_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "archmage_8": {
+    "title": "Archmage 9",
+    "description": "12% increased spell damage; On ailment: heal (cooldown 2s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "spell_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "cinder_heart"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "archmage_9": {
+    "title": "Archmage 10",
+    "description": "16 flat maximum mana",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "maximum_mana",
+          "operation": "flat",
+          "value": 16
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "archmage_10": {
+    "title": "Archmage 11",
+    "description": "16 flat maximum mana",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "maximum_mana",
+          "operation": "flat",
+          "value": 16
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "archmage_11": {
+    "title": "Archmage 12",
+    "description": "16 flat maximum mana; On ailment: mana (cooldown 2s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "maximum_mana",
+          "operation": "flat",
+          "value": 16
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "caustic_reservoir"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  }
+}

@@ -1,0 +1,278 @@
+{
+  "arcanist_ranger_0": {
+    "title": "Ranger / Arcanist 1",
+    "description": "9% increased projectile damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "projectile_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "arcanist_ranger_1": {
+    "title": "Ranger / Arcanist 2",
+    "description": "12 flat maximum mana",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "maximum_mana",
+          "operation": "flat",
+          "value": 12.0
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "arcanist_ranger_2": {
+    "title": "Ranger / Arcanist 3",
+    "description": "4.5% increased critical chance",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "critical_chance",
+          "operation": "increased",
+          "value": 0.045
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "arcanist_ranger_3": {
+    "title": "Ranger / Arcanist 4",
+    "description": "9% increased fire damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "fire_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "arcanist_ranger_4": {
+    "title": "Ranger / Arcanist 5",
+    "description": "4.5% increased movement speed",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "movement_speed",
+          "operation": "increased",
+          "value": 0.045
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "arcanist_ranger_5": {
+    "title": "Ranger / Arcanist 6",
+    "description": "9% increased spell damage; 25% more spell damage while shield.",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "spell_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "shield_scholar"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "arcanist_ranger_6": {
+    "title": "Ranger / Arcanist 7",
+    "description": "9% increased evasion",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "evasion",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "arcanist_ranger_7": {
+    "title": "Ranger / Arcanist 8",
+    "description": "4.5% increased cast speed",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "cast_speed",
+          "operation": "increased",
+          "value": 0.045
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "arcanist_ranger_8": {
+    "title": "Ranger / Arcanist 9",
+    "description": "9% increased poison damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "poison_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "arcanist_ranger_9": {
+    "title": "Ranger / Arcanist 10",
+    "description": "9% increased lightning damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "lightning_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "arcanist_ranger_10": {
+    "title": "Ranger / Arcanist 11",
+    "description": "9% increased projectile damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "projectile_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "arcanist_ranger_11": {
+    "title": "Ranger / Arcanist 12",
+    "description": "12 flat maximum mana; On kill: explode (cooldown 1s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "maximum_mana",
+          "operation": "flat",
+          "value": 12.0
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "infernal_execution"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  }
+}

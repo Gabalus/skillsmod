@@ -1,0 +1,74 @@
+{
+  "chronomancer_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "chronomancer_0",
+    "root": true
+  },
+  "chronomancer_1": {
+    "x": 0,
+    "y": 75,
+    "definition": "chronomancer_1",
+    "root": false
+  },
+  "chronomancer_2": {
+    "x": 0,
+    "y": 150,
+    "definition": "chronomancer_2",
+    "root": false
+  },
+  "chronomancer_3": {
+    "x": 95,
+    "y": 0,
+    "definition": "chronomancer_3",
+    "root": true
+  },
+  "chronomancer_4": {
+    "x": 95,
+    "y": 75,
+    "definition": "chronomancer_4",
+    "root": false
+  },
+  "chronomancer_5": {
+    "x": 95,
+    "y": 150,
+    "definition": "chronomancer_5",
+    "root": false
+  },
+  "chronomancer_6": {
+    "x": 190,
+    "y": 0,
+    "definition": "chronomancer_6",
+    "root": true
+  },
+  "chronomancer_7": {
+    "x": 190,
+    "y": 75,
+    "definition": "chronomancer_7",
+    "root": false
+  },
+  "chronomancer_8": {
+    "x": 190,
+    "y": 150,
+    "definition": "chronomancer_8",
+    "root": false
+  },
+  "chronomancer_9": {
+    "x": 285,
+    "y": 0,
+    "definition": "chronomancer_9",
+    "root": true
+  },
+  "chronomancer_10": {
+    "x": 285,
+    "y": 75,
+    "definition": "chronomancer_10",
+    "root": false
+  },
+  "chronomancer_11": {
+    "x": 285,
+    "y": 150,
+    "definition": "chronomancer_11",
+    "root": false
+  }
+}

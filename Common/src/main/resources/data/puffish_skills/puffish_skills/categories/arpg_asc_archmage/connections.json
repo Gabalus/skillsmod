@@ -1,0 +1,38 @@
+{
+  "normal": {
+    "bidirectional": [
+      [
+        "archmage_0",
+        "archmage_1"
+      ],
+      [
+        "archmage_1",
+        "archmage_2"
+      ],
+      [
+        "archmage_3",
+        "archmage_4"
+      ],
+      [
+        "archmage_4",
+        "archmage_5"
+      ],
+      [
+        "archmage_6",
+        "archmage_7"
+      ],
+      [
+        "archmage_7",
+        "archmage_8"
+      ],
+      [
+        "archmage_9",
+        "archmage_10"
+      ],
+      [
+        "archmage_10",
+        "archmage_11"
+      ]
+    ]
+  }
+}

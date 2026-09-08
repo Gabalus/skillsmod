@@ -1,0 +1,290 @@
+{
+  "elementalist_0": {
+    "title": "Elementalist 1",
+    "description": "12% increased cold damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "cold_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "elementalist_1": {
+    "title": "Elementalist 2",
+    "description": "12% increased cold damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "cold_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "elementalist_2": {
+    "title": "Elementalist 3",
+    "description": "12% increased cold damage; On block: counterspell (cooldown 15s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "cold_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "disruptive_guard"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "elementalist_3": {
+    "title": "Elementalist 4",
+    "description": "12% increased mana regeneration",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "mana_regeneration",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "elementalist_4": {
+    "title": "Elementalist 5",
+    "description": "12% increased mana regeneration",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "mana_regeneration",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "elementalist_5": {
+    "title": "Elementalist 6",
+    "description": "12% increased mana regeneration; On hit: heal (cooldown 2s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "mana_regeneration",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "predator"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "elementalist_6": {
+    "title": "Elementalist 7",
+    "description": "2 flat ward",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "ward",
+          "operation": "flat",
+          "value": 2
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "elementalist_7": {
+    "title": "Elementalist 8",
+    "description": "2 flat ward",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "ward",
+          "operation": "flat",
+          "value": 2
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "elementalist_8": {
+    "title": "Elementalist 9",
+    "description": "2 flat ward; On hit: ignite (cooldown 2s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "ward",
+          "operation": "flat",
+          "value": 2
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "scorching_touch"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "elementalist_9": {
+    "title": "Elementalist 10",
+    "description": "12% increased nature damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "nature_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "elementalist_10": {
+    "title": "Elementalist 11",
+    "description": "12% increased nature damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "nature_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "elementalist_11": {
+    "title": "Elementalist 12",
+    "description": "12% increased nature damage; On hit: bleed (cooldown 2s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "nature_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "puncture"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  }
+}

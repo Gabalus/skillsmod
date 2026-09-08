@@ -1,0 +1,74 @@
+{
+  "crusader_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "crusader_0",
+    "root": true
+  },
+  "crusader_1": {
+    "x": 0,
+    "y": 75,
+    "definition": "crusader_1",
+    "root": false
+  },
+  "crusader_2": {
+    "x": 0,
+    "y": 150,
+    "definition": "crusader_2",
+    "root": false
+  },
+  "crusader_3": {
+    "x": 95,
+    "y": 0,
+    "definition": "crusader_3",
+    "root": true
+  },
+  "crusader_4": {
+    "x": 95,
+    "y": 75,
+    "definition": "crusader_4",
+    "root": false
+  },
+  "crusader_5": {
+    "x": 95,
+    "y": 150,
+    "definition": "crusader_5",
+    "root": false
+  },
+  "crusader_6": {
+    "x": 190,
+    "y": 0,
+    "definition": "crusader_6",
+    "root": true
+  },
+  "crusader_7": {
+    "x": 190,
+    "y": 75,
+    "definition": "crusader_7",
+    "root": false
+  },
+  "crusader_8": {
+    "x": 190,
+    "y": 150,
+    "definition": "crusader_8",
+    "root": false
+  },
+  "crusader_9": {
+    "x": 285,
+    "y": 0,
+    "definition": "crusader_9",
+    "root": true
+  },
+  "crusader_10": {
+    "x": 285,
+    "y": 75,
+    "definition": "crusader_10",
+    "root": false
+  },
+  "crusader_11": {
+    "x": 285,
+    "y": 150,
+    "definition": "crusader_11",
+    "root": false
+  }
+}

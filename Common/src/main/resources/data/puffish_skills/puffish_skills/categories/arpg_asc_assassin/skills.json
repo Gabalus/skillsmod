@@ -1,0 +1,74 @@
+{
+  "assassin_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "assassin_0",
+    "root": true
+  },
+  "assassin_1": {
+    "x": 0,
+    "y": 75,
+    "definition": "assassin_1",
+    "root": false
+  },
+  "assassin_2": {
+    "x": 0,
+    "y": 150,
+    "definition": "assassin_2",
+    "root": false
+  },
+  "assassin_3": {
+    "x": 95,
+    "y": 0,
+    "definition": "assassin_3",
+    "root": true
+  },
+  "assassin_4": {
+    "x": 95,
+    "y": 75,
+    "definition": "assassin_4",
+    "root": false
+  },
+  "assassin_5": {
+    "x": 95,
+    "y": 150,
+    "definition": "assassin_5",
+    "root": false
+  },
+  "assassin_6": {
+    "x": 190,
+    "y": 0,
+    "definition": "assassin_6",
+    "root": true
+  },
+  "assassin_7": {
+    "x": 190,
+    "y": 75,
+    "definition": "assassin_7",
+    "root": false
+  },
+  "assassin_8": {
+    "x": 190,
+    "y": 150,
+    "definition": "assassin_8",
+    "root": false
+  },
+  "assassin_9": {
+    "x": 285,
+    "y": 0,
+    "definition": "assassin_9",
+    "root": true
+  },
+  "assassin_10": {
+    "x": 285,
+    "y": 75,
+    "definition": "assassin_10",
+    "root": false
+  },
+  "assassin_11": {
+    "x": 285,
+    "y": 150,
+    "definition": "assassin_11",
+    "root": false
+  }
+}

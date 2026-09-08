@@ -1,0 +1,38 @@
+{
+  "normal": {
+    "bidirectional": [
+      [
+        "warden_0",
+        "warden_1"
+      ],
+      [
+        "warden_1",
+        "warden_2"
+      ],
+      [
+        "warden_3",
+        "warden_4"
+      ],
+      [
+        "warden_4",
+        "warden_5"
+      ],
+      [
+        "warden_6",
+        "warden_7"
+      ],
+      [
+        "warden_7",
+        "warden_8"
+      ],
+      [
+        "warden_9",
+        "warden_10"
+      ],
+      [
+        "warden_10",
+        "warden_11"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "normal": {
+    "bidirectional": [
+      [
+        "crusader_0",
+        "crusader_1"
+      ],
+      [
+        "crusader_1",
+        "crusader_2"
+      ],
+      [
+        "crusader_3",
+        "crusader_4"
+      ],
+      [
+        "crusader_4",
+        "crusader_5"
+      ],
+      [
+        "crusader_6",
+        "crusader_7"
+      ],
+      [
+        "crusader_7",
+        "crusader_8"
+      ],
+      [
+        "crusader_9",
+        "crusader_10"
+      ],
+      [
+        "crusader_10",
+        "crusader_11"
+      ]
+    ]
+  }
+}

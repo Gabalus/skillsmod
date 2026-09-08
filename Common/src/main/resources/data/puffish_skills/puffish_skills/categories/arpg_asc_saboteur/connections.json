@@ -1,0 +1,38 @@
+{
+  "normal": {
+    "bidirectional": [
+      [
+        "saboteur_0",
+        "saboteur_1"
+      ],
+      [
+        "saboteur_1",
+        "saboteur_2"
+      ],
+      [
+        "saboteur_3",
+        "saboteur_4"
+      ],
+      [
+        "saboteur_4",
+        "saboteur_5"
+      ],
+      [
+        "saboteur_6",
+        "saboteur_7"
+      ],
+      [
+        "saboteur_7",
+        "saboteur_8"
+      ],
+      [
+        "saboteur_9",
+        "saboteur_10"
+      ],
+      [
+        "saboteur_10",
+        "saboteur_11"
+      ]
+    ]
+  }
+}

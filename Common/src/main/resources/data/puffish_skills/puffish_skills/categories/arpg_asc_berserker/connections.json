@@ -1,0 +1,38 @@
+{
+  "normal": {
+    "bidirectional": [
+      [
+        "berserker_0",
+        "berserker_1"
+      ],
+      [
+        "berserker_1",
+        "berserker_2"
+      ],
+      [
+        "berserker_3",
+        "berserker_4"
+      ],
+      [
+        "berserker_4",
+        "berserker_5"
+      ],
+      [
+        "berserker_6",
+        "berserker_7"
+      ],
+      [
+        "berserker_7",
+        "berserker_8"
+      ],
+      [
+        "berserker_9",
+        "berserker_10"
+      ],
+      [
+        "berserker_10",
+        "berserker_11"
+      ]
+    ]
+  }
+}

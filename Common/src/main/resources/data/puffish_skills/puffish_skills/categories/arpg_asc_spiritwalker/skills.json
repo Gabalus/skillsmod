@@ -1,0 +1,74 @@
+{
+  "spiritwalker_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "spiritwalker_0",
+    "root": true
+  },
+  "spiritwalker_1": {
+    "x": 0,
+    "y": 75,
+    "definition": "spiritwalker_1",
+    "root": false
+  },
+  "spiritwalker_2": {
+    "x": 0,
+    "y": 150,
+    "definition": "spiritwalker_2",
+    "root": false
+  },
+  "spiritwalker_3": {
+    "x": 95,
+    "y": 0,
+    "definition": "spiritwalker_3",
+    "root": true
+  },
+  "spiritwalker_4": {
+    "x": 95,
+    "y": 75,
+    "definition": "spiritwalker_4",
+    "root": false
+  },
+  "spiritwalker_5": {
+    "x": 95,
+    "y": 150,
+    "definition": "spiritwalker_5",
+    "root": false
+  },
+  "spiritwalker_6": {
+    "x": 190,
+    "y": 0,
+    "definition": "spiritwalker_6",
+    "root": true
+  },
+  "spiritwalker_7": {
+    "x": 190,
+    "y": 75,
+    "definition": "spiritwalker_7",
+    "root": false
+  },
+  "spiritwalker_8": {
+    "x": 190,
+    "y": 150,
+    "definition": "spiritwalker_8",
+    "root": false
+  },
+  "spiritwalker_9": {
+    "x": 285,
+    "y": 0,
+    "definition": "spiritwalker_9",
+    "root": true
+  },
+  "spiritwalker_10": {
+    "x": 285,
+    "y": 75,
+    "definition": "spiritwalker_10",
+    "root": false
+  },
+  "spiritwalker_11": {
+    "x": 285,
+    "y": 150,
+    "definition": "spiritwalker_11",
+    "root": false
+  }
+}

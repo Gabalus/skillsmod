@@ -1,0 +1,74 @@
+{
+  "rogue_templar_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "rogue_templar_0",
+    "root": true
+  },
+  "rogue_templar_1": {
+    "x": 75,
+    "y": 0,
+    "definition": "rogue_templar_1",
+    "root": false
+  },
+  "rogue_templar_2": {
+    "x": 150,
+    "y": 0,
+    "definition": "rogue_templar_2",
+    "root": false
+  },
+  "rogue_templar_3": {
+    "x": 225,
+    "y": 0,
+    "definition": "rogue_templar_3",
+    "root": false
+  },
+  "rogue_templar_4": {
+    "x": 0,
+    "y": 75,
+    "definition": "rogue_templar_4",
+    "root": false
+  },
+  "rogue_templar_5": {
+    "x": 75,
+    "y": 75,
+    "definition": "rogue_templar_5",
+    "root": false
+  },
+  "rogue_templar_6": {
+    "x": 150,
+    "y": 75,
+    "definition": "rogue_templar_6",
+    "root": false
+  },
+  "rogue_templar_7": {
+    "x": 225,
+    "y": 75,
+    "definition": "rogue_templar_7",
+    "root": false
+  },
+  "rogue_templar_8": {
+    "x": 0,
+    "y": 150,
+    "definition": "rogue_templar_8",
+    "root": false
+  },
+  "rogue_templar_9": {
+    "x": 75,
+    "y": 150,
+    "definition": "rogue_templar_9",
+    "root": false
+  },
+  "rogue_templar_10": {
+    "x": 150,
+    "y": 150,
+    "definition": "rogue_templar_10",
+    "root": false
+  },
+  "rogue_templar_11": {
+    "x": 225,
+    "y": 150,
+    "definition": "rogue_templar_11",
+    "root": false
+  }
+}

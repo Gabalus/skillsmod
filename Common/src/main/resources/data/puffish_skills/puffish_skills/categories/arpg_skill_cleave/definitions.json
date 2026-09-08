@@ -1,0 +1,482 @@
+{
+  "cleave_0": {
+    "title": "Cleave 1",
+    "description": "8% increased attack damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/cleave_0"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "cleave_1": {
+    "title": "Cleave 2",
+    "description": "8% increased attack damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/cleave_1"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "cleave_2": {
+    "title": "Cleave 3",
+    "description": "8% increased attack damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/cleave_2"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "cleave_3": {
+    "title": "Cleave 4",
+    "description": "8% increased attack damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/cleave_3"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "cleave_4": {
+    "title": "Cleave 5",
+    "description": "8% increased physical damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/cleave_4"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "cleave_5": {
+    "title": "Cleave 6",
+    "description": "8% increased physical damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/cleave_5"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "cleave_6": {
+    "title": "Cleave 7",
+    "description": "8% increased physical damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/cleave_6"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "cleave_7": {
+    "title": "Cleave 8",
+    "description": "8% increased physical damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/cleave_7"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "cleave_8": {
+    "title": "Cleave 9",
+    "description": "4% reduced resource cost",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/cleave_8"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "cleave_9": {
+    "title": "Cleave 10",
+    "description": "4% reduced resource cost",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/cleave_9"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "cleave_10": {
+    "title": "Cleave 11",
+    "description": "4% reduced resource cost",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/cleave_10"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "cleave_11": {
+    "title": "Cleave 12",
+    "description": "4% reduced resource cost",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/cleave_11"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "cleave_12": {
+    "title": "Cleave 13",
+    "description": "4% increased cooldown recovery",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/cleave_12"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "cleave_13": {
+    "title": "Cleave 14",
+    "description": "4% increased cooldown recovery",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/cleave_13"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "cleave_14": {
+    "title": "Cleave 15",
+    "description": "4% increased cooldown recovery",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/cleave_14"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "cleave_15": {
+    "title": "Cleave 16",
+    "description": "4% increased cooldown recovery",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/cleave_15"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "cleave_16": {
+    "title": "Cleave 17",
+    "description": "4% increased critical chance",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/cleave_16"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "cleave_17": {
+    "title": "Cleave 18",
+    "description": "4% increased critical chance",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/cleave_17"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "cleave_18": {
+    "title": "Cleave 19",
+    "description": "4% increased critical chance",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/cleave_18"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "cleave_19": {
+    "title": "Cleave 20",
+    "description": "4% increased critical chance",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/cleave_19"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "cleave_20": {
+    "title": "Cleave 21",
+    "description": "8% increased area damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/cleave_20"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "cleave_21": {
+    "title": "Cleave 22",
+    "description": "8% increased area damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/cleave_21"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "cleave_22": {
+    "title": "Cleave 23",
+    "description": "8% increased area damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/cleave_22"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "cleave_23": {
+    "title": "Cleave 24",
+    "description": "8% increased area damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/cleave_23"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  }
+}

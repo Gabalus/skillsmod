@@ -1,0 +1,146 @@
+{
+  "shield_charge_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "shield_charge_0",
+    "root": true
+  },
+  "shield_charge_1": {
+    "x": 0,
+    "y": 70,
+    "definition": "shield_charge_1",
+    "root": false
+  },
+  "shield_charge_2": {
+    "x": 0,
+    "y": 140,
+    "definition": "shield_charge_2",
+    "root": false
+  },
+  "shield_charge_3": {
+    "x": 0,
+    "y": 210,
+    "definition": "shield_charge_3",
+    "root": false
+  },
+  "shield_charge_4": {
+    "x": 90,
+    "y": 0,
+    "definition": "shield_charge_4",
+    "root": true
+  },
+  "shield_charge_5": {
+    "x": 90,
+    "y": 70,
+    "definition": "shield_charge_5",
+    "root": false
+  },
+  "shield_charge_6": {
+    "x": 90,
+    "y": 140,
+    "definition": "shield_charge_6",
+    "root": false
+  },
+  "shield_charge_7": {
+    "x": 90,
+    "y": 210,
+    "definition": "shield_charge_7",
+    "root": false
+  },
+  "shield_charge_8": {
+    "x": 180,
+    "y": 0,
+    "definition": "shield_charge_8",
+    "root": true
+  },
+  "shield_charge_9": {
+    "x": 180,
+    "y": 70,
+    "definition": "shield_charge_9",
+    "root": false
+  },
+  "shield_charge_10": {
+    "x": 180,
+    "y": 140,
+    "definition": "shield_charge_10",
+    "root": false
+  },
+  "shield_charge_11": {
+    "x": 180,
+    "y": 210,
+    "definition": "shield_charge_11",
+    "root": false
+  },
+  "shield_charge_12": {
+    "x": 270,
+    "y": 0,
+    "definition": "shield_charge_12",
+    "root": true
+  },
+  "shield_charge_13": {
+    "x": 270,
+    "y": 70,
+    "definition": "shield_charge_13",
+    "root": false
+  },
+  "shield_charge_14": {
+    "x": 270,
+    "y": 140,
+    "definition": "shield_charge_14",
+    "root": false
+  },
+  "shield_charge_15": {
+    "x": 270,
+    "y": 210,
+    "definition": "shield_charge_15",
+    "root": false
+  },
+  "shield_charge_16": {
+    "x": 360,
+    "y": 0,
+    "definition": "shield_charge_16",
+    "root": true
+  },
+  "shield_charge_17": {
+    "x": 360,
+    "y": 70,
+    "definition": "shield_charge_17",
+    "root": false
+  },
+  "shield_charge_18": {
+    "x": 360,
+    "y": 140,
+    "definition": "shield_charge_18",
+    "root": false
+  },
+  "shield_charge_19": {
+    "x": 360,
+    "y": 210,
+    "definition": "shield_charge_19",
+    "root": false
+  },
+  "shield_charge_20": {
+    "x": 450,
+    "y": 0,
+    "definition": "shield_charge_20",
+    "root": true
+  },
+  "shield_charge_21": {
+    "x": 450,
+    "y": 70,
+    "definition": "shield_charge_21",
+    "root": false
+  },
+  "shield_charge_22": {
+    "x": 450,
+    "y": 140,
+    "definition": "shield_charge_22",
+    "root": false
+  },
+  "shield_charge_23": {
+    "x": 450,
+    "y": 210,
+    "definition": "shield_charge_23",
+    "root": false
+  }
+}

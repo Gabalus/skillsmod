@@ -1,0 +1,482 @@
+{
+  "irons_spellbooks_icicle_0": {
+    "title": "Icicle 1",
+    "description": "8% increased spell damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/irons_spellbooks_icicle_0"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "irons_spellbooks_icicle_1": {
+    "title": "Icicle 2",
+    "description": "8% increased spell damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/irons_spellbooks_icicle_1"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "irons_spellbooks_icicle_2": {
+    "title": "Icicle 3",
+    "description": "8% increased spell damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/irons_spellbooks_icicle_2"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "irons_spellbooks_icicle_3": {
+    "title": "Icicle 4",
+    "description": "8% increased spell damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/irons_spellbooks_icicle_3"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "irons_spellbooks_icicle_4": {
+    "title": "Icicle 5",
+    "description": "8% increased cold damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/irons_spellbooks_icicle_4"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "irons_spellbooks_icicle_5": {
+    "title": "Icicle 6",
+    "description": "8% increased cold damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/irons_spellbooks_icicle_5"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "irons_spellbooks_icicle_6": {
+    "title": "Icicle 7",
+    "description": "8% increased cold damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/irons_spellbooks_icicle_6"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "irons_spellbooks_icicle_7": {
+    "title": "Icicle 8",
+    "description": "8% increased cold damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/irons_spellbooks_icicle_7"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "irons_spellbooks_icicle_8": {
+    "title": "Icicle 9",
+    "description": "4% reduced resource cost",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/irons_spellbooks_icicle_8"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "irons_spellbooks_icicle_9": {
+    "title": "Icicle 10",
+    "description": "4% reduced resource cost",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/irons_spellbooks_icicle_9"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "irons_spellbooks_icicle_10": {
+    "title": "Icicle 11",
+    "description": "4% reduced resource cost",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/irons_spellbooks_icicle_10"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "irons_spellbooks_icicle_11": {
+    "title": "Icicle 12",
+    "description": "4% reduced resource cost",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/irons_spellbooks_icicle_11"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "irons_spellbooks_icicle_12": {
+    "title": "Icicle 13",
+    "description": "4% increased cooldown recovery",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/irons_spellbooks_icicle_12"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "irons_spellbooks_icicle_13": {
+    "title": "Icicle 14",
+    "description": "4% increased cooldown recovery",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/irons_spellbooks_icicle_13"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "irons_spellbooks_icicle_14": {
+    "title": "Icicle 15",
+    "description": "4% increased cooldown recovery",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/irons_spellbooks_icicle_14"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "irons_spellbooks_icicle_15": {
+    "title": "Icicle 16",
+    "description": "4% increased cooldown recovery",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/irons_spellbooks_icicle_15"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "irons_spellbooks_icicle_16": {
+    "title": "Icicle 17",
+    "description": "4% increased critical chance",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/irons_spellbooks_icicle_16"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "irons_spellbooks_icicle_17": {
+    "title": "Icicle 18",
+    "description": "4% increased critical chance",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/irons_spellbooks_icicle_17"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "irons_spellbooks_icicle_18": {
+    "title": "Icicle 19",
+    "description": "4% increased critical chance",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/irons_spellbooks_icicle_18"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "irons_spellbooks_icicle_19": {
+    "title": "Icicle 20",
+    "description": "4% increased critical chance",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/irons_spellbooks_icicle_19"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "irons_spellbooks_icicle_20": {
+    "title": "Icicle 21",
+    "description": "8% increased area damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/irons_spellbooks_icicle_20"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "irons_spellbooks_icicle_21": {
+    "title": "Icicle 22",
+    "description": "8% increased area damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/irons_spellbooks_icicle_21"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "irons_spellbooks_icicle_22": {
+    "title": "Icicle 23",
+    "description": "8% increased area damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/irons_spellbooks_icicle_22"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "irons_spellbooks_icicle_23": {
+    "title": "Icicle 24",
+    "description": "8% increased area damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/irons_spellbooks_icicle_23"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  }
+}

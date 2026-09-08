@@ -1,0 +1,14 @@
+{
+  "title": "Warrior / Arcanist",
+  "description": "Twelve multiclass nodes; points unlock from level 20 to level 75.",
+  "icon": {
+    "type": "texture",
+    "data": {
+      "texture": "minecraft:textures/item/nether_star.png"
+    }
+  },
+  "background": "minecraft:textures/block/deepslate_tiles.png",
+  "unlocked_by_default": false,
+  "starting_points": 0,
+  "spent_points_limit": 12
+}

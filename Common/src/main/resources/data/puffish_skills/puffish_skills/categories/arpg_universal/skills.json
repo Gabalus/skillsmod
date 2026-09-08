@@ -1,0 +1,8018 @@
+{
+  "warrior_start": {
+    "x": 240,
+    "y": 0,
+    "definition": "warrior_start",
+    "root": true
+  },
+  "warrior/00/00": {
+    "x": 475,
+    "y": -136,
+    "definition": "warrior/00/00"
+  },
+  "warrior/00/01": {
+    "x": 470,
+    "y": -108,
+    "definition": "warrior/00/01"
+  },
+  "warrior/00/02": {
+    "x": 455,
+    "y": -83,
+    "definition": "warrior/00/02"
+  },
+  "warrior/00/03": {
+    "x": 432,
+    "y": -66,
+    "definition": "warrior/00/03"
+  },
+  "warrior/00/04": {
+    "x": 404,
+    "y": -58,
+    "definition": "warrior/00/04"
+  },
+  "warrior/00/05": {
+    "x": 376,
+    "y": -61,
+    "definition": "warrior/00/05"
+  },
+  "warrior/00/06": {
+    "x": 350,
+    "y": -74,
+    "definition": "warrior/00/06"
+  },
+  "warrior/00/07": {
+    "x": 331,
+    "y": -95,
+    "definition": "warrior/00/07"
+  },
+  "warrior/00/08": {
+    "x": 320,
+    "y": -122,
+    "definition": "warrior/00/08"
+  },
+  "warrior/00/09": {
+    "x": 320,
+    "y": -150,
+    "definition": "warrior/00/09"
+  },
+  "warrior/00/10": {
+    "x": 331,
+    "y": -177,
+    "definition": "warrior/00/10"
+  },
+  "warrior/00/11": {
+    "x": 350,
+    "y": -198,
+    "definition": "warrior/00/11"
+  },
+  "warrior/00/12": {
+    "x": 376,
+    "y": -211,
+    "definition": "warrior/00/12"
+  },
+  "warrior/00/13": {
+    "x": 404,
+    "y": -214,
+    "definition": "warrior/00/13"
+  },
+  "warrior/00/14": {
+    "x": 432,
+    "y": -206,
+    "definition": "warrior/00/14"
+  },
+  "warrior/00/15": {
+    "x": 455,
+    "y": -189,
+    "definition": "warrior/00/15"
+  },
+  "warrior/00/16": {
+    "x": 470,
+    "y": -164,
+    "definition": "warrior/00/16"
+  },
+  "warrior/01/00": {
+    "x": 492,
+    "y": -69,
+    "definition": "warrior/01/00"
+  },
+  "warrior/01/01": {
+    "x": 487,
+    "y": -41,
+    "definition": "warrior/01/01"
+  },
+  "warrior/01/02": {
+    "x": 472,
+    "y": -16,
+    "definition": "warrior/01/02"
+  },
+  "warrior/01/03": {
+    "x": 449,
+    "y": 1,
+    "definition": "warrior/01/03"
+  },
+  "warrior/01/04": {
+    "x": 421,
+    "y": 9,
+    "definition": "warrior/01/04"
+  },
+  "warrior/01/05": {
+    "x": 393,
+    "y": 6,
+    "definition": "warrior/01/05"
+  },
+  "warrior/01/06": {
+    "x": 367,
+    "y": -7,
+    "definition": "warrior/01/06"
+  },
+  "warrior/01/07": {
+    "x": 348,
+    "y": -28,
+    "definition": "warrior/01/07"
+  },
+  "warrior/01/08": {
+    "x": 337,
+    "y": -55,
+    "definition": "warrior/01/08"
+  },
+  "warrior/01/09": {
+    "x": 337,
+    "y": -83,
+    "definition": "warrior/01/09"
+  },
+  "warrior/01/10": {
+    "x": 348,
+    "y": -110,
+    "definition": "warrior/01/10"
+  },
+  "warrior/01/11": {
+    "x": 367,
+    "y": -131,
+    "definition": "warrior/01/11"
+  },
+  "warrior/01/12": {
+    "x": 393,
+    "y": -144,
+    "definition": "warrior/01/12"
+  },
+  "warrior/01/13": {
+    "x": 421,
+    "y": -147,
+    "definition": "warrior/01/13"
+  },
+  "warrior/01/14": {
+    "x": 449,
+    "y": -139,
+    "definition": "warrior/01/14"
+  },
+  "warrior/01/15": {
+    "x": 472,
+    "y": -122,
+    "definition": "warrior/01/15"
+  },
+  "warrior/01/16": {
+    "x": 487,
+    "y": -97,
+    "definition": "warrior/01/16"
+  },
+  "warrior/02/00": {
+    "x": 498,
+    "y": 0,
+    "definition": "warrior/02/00"
+  },
+  "warrior/02/01": {
+    "x": 493,
+    "y": 28,
+    "definition": "warrior/02/01"
+  },
+  "warrior/02/02": {
+    "x": 478,
+    "y": 53,
+    "definition": "warrior/02/02"
+  },
+  "warrior/02/03": {
+    "x": 455,
+    "y": 70,
+    "definition": "warrior/02/03"
+  },
+  "warrior/02/04": {
+    "x": 427,
+    "y": 78,
+    "definition": "warrior/02/04"
+  },
+  "warrior/02/05": {
+    "x": 399,
+    "y": 75,
+    "definition": "warrior/02/05"
+  },
+  "warrior/02/06": {
+    "x": 373,
+    "y": 62,
+    "definition": "warrior/02/06"
+  },
+  "warrior/02/07": {
+    "x": 354,
+    "y": 41,
+    "definition": "warrior/02/07"
+  },
+  "warrior/02/08": {
+    "x": 343,
+    "y": 14,
+    "definition": "warrior/02/08"
+  },
+  "warrior/02/09": {
+    "x": 343,
+    "y": -14,
+    "definition": "warrior/02/09"
+  },
+  "warrior/02/10": {
+    "x": 354,
+    "y": -41,
+    "definition": "warrior/02/10"
+  },
+  "warrior/02/11": {
+    "x": 373,
+    "y": -62,
+    "definition": "warrior/02/11"
+  },
+  "warrior/02/12": {
+    "x": 399,
+    "y": -75,
+    "definition": "warrior/02/12"
+  },
+  "warrior/02/13": {
+    "x": 427,
+    "y": -78,
+    "definition": "warrior/02/13"
+  },
+  "warrior/02/14": {
+    "x": 455,
+    "y": -70,
+    "definition": "warrior/02/14"
+  },
+  "warrior/02/15": {
+    "x": 478,
+    "y": -53,
+    "definition": "warrior/02/15"
+  },
+  "warrior/02/16": {
+    "x": 493,
+    "y": -28,
+    "definition": "warrior/02/16"
+  },
+  "warrior/03/00": {
+    "x": 492,
+    "y": 69,
+    "definition": "warrior/03/00"
+  },
+  "warrior/03/01": {
+    "x": 487,
+    "y": 97,
+    "definition": "warrior/03/01"
+  },
+  "warrior/03/02": {
+    "x": 472,
+    "y": 122,
+    "definition": "warrior/03/02"
+  },
+  "warrior/03/03": {
+    "x": 449,
+    "y": 139,
+    "definition": "warrior/03/03"
+  },
+  "warrior/03/04": {
+    "x": 421,
+    "y": 147,
+    "definition": "warrior/03/04"
+  },
+  "warrior/03/05": {
+    "x": 393,
+    "y": 144,
+    "definition": "warrior/03/05"
+  },
+  "warrior/03/06": {
+    "x": 367,
+    "y": 131,
+    "definition": "warrior/03/06"
+  },
+  "warrior/03/07": {
+    "x": 348,
+    "y": 110,
+    "definition": "warrior/03/07"
+  },
+  "warrior/03/08": {
+    "x": 337,
+    "y": 83,
+    "definition": "warrior/03/08"
+  },
+  "warrior/03/09": {
+    "x": 337,
+    "y": 55,
+    "definition": "warrior/03/09"
+  },
+  "warrior/03/10": {
+    "x": 348,
+    "y": 28,
+    "definition": "warrior/03/10"
+  },
+  "warrior/03/11": {
+    "x": 367,
+    "y": 7,
+    "definition": "warrior/03/11"
+  },
+  "warrior/03/12": {
+    "x": 393,
+    "y": -6,
+    "definition": "warrior/03/12"
+  },
+  "warrior/03/13": {
+    "x": 421,
+    "y": -9,
+    "definition": "warrior/03/13"
+  },
+  "warrior/03/14": {
+    "x": 449,
+    "y": -1,
+    "definition": "warrior/03/14"
+  },
+  "warrior/03/15": {
+    "x": 472,
+    "y": 16,
+    "definition": "warrior/03/15"
+  },
+  "warrior/03/16": {
+    "x": 487,
+    "y": 41,
+    "definition": "warrior/03/16"
+  },
+  "warrior/04/00": {
+    "x": 475,
+    "y": 136,
+    "definition": "warrior/04/00"
+  },
+  "warrior/04/01": {
+    "x": 470,
+    "y": 164,
+    "definition": "warrior/04/01"
+  },
+  "warrior/04/02": {
+    "x": 455,
+    "y": 189,
+    "definition": "warrior/04/02"
+  },
+  "warrior/04/03": {
+    "x": 432,
+    "y": 206,
+    "definition": "warrior/04/03"
+  },
+  "warrior/04/04": {
+    "x": 404,
+    "y": 214,
+    "definition": "warrior/04/04"
+  },
+  "warrior/04/05": {
+    "x": 376,
+    "y": 211,
+    "definition": "warrior/04/05"
+  },
+  "warrior/04/06": {
+    "x": 350,
+    "y": 198,
+    "definition": "warrior/04/06"
+  },
+  "warrior/04/07": {
+    "x": 331,
+    "y": 177,
+    "definition": "warrior/04/07"
+  },
+  "warrior/04/08": {
+    "x": 320,
+    "y": 150,
+    "definition": "warrior/04/08"
+  },
+  "warrior/04/09": {
+    "x": 320,
+    "y": 122,
+    "definition": "warrior/04/09"
+  },
+  "warrior/04/10": {
+    "x": 331,
+    "y": 95,
+    "definition": "warrior/04/10"
+  },
+  "warrior/04/11": {
+    "x": 350,
+    "y": 74,
+    "definition": "warrior/04/11"
+  },
+  "warrior/04/12": {
+    "x": 376,
+    "y": 61,
+    "definition": "warrior/04/12"
+  },
+  "warrior/04/13": {
+    "x": 404,
+    "y": 58,
+    "definition": "warrior/04/13"
+  },
+  "warrior/04/14": {
+    "x": 432,
+    "y": 66,
+    "definition": "warrior/04/14"
+  },
+  "warrior/04/15": {
+    "x": 455,
+    "y": 83,
+    "definition": "warrior/04/15"
+  },
+  "warrior/04/16": {
+    "x": 470,
+    "y": 108,
+    "definition": "warrior/04/16"
+  },
+  "warrior/05/00": {
+    "x": 788,
+    "y": -243,
+    "definition": "warrior/05/00"
+  },
+  "warrior/05/01": {
+    "x": 783,
+    "y": -215,
+    "definition": "warrior/05/01"
+  },
+  "warrior/05/02": {
+    "x": 768,
+    "y": -190,
+    "definition": "warrior/05/02"
+  },
+  "warrior/05/03": {
+    "x": 745,
+    "y": -173,
+    "definition": "warrior/05/03"
+  },
+  "warrior/05/04": {
+    "x": 717,
+    "y": -165,
+    "definition": "warrior/05/04"
+  },
+  "warrior/05/05": {
+    "x": 689,
+    "y": -168,
+    "definition": "warrior/05/05"
+  },
+  "warrior/05/06": {
+    "x": 663,
+    "y": -181,
+    "definition": "warrior/05/06"
+  },
+  "warrior/05/07": {
+    "x": 644,
+    "y": -202,
+    "definition": "warrior/05/07"
+  },
+  "warrior/05/08": {
+    "x": 633,
+    "y": -229,
+    "definition": "warrior/05/08"
+  },
+  "warrior/05/09": {
+    "x": 633,
+    "y": -257,
+    "definition": "warrior/05/09"
+  },
+  "warrior/05/10": {
+    "x": 644,
+    "y": -284,
+    "definition": "warrior/05/10"
+  },
+  "warrior/05/11": {
+    "x": 663,
+    "y": -305,
+    "definition": "warrior/05/11"
+  },
+  "warrior/05/12": {
+    "x": 689,
+    "y": -318,
+    "definition": "warrior/05/12"
+  },
+  "warrior/05/13": {
+    "x": 717,
+    "y": -321,
+    "definition": "warrior/05/13"
+  },
+  "warrior/05/14": {
+    "x": 745,
+    "y": -313,
+    "definition": "warrior/05/14"
+  },
+  "warrior/05/15": {
+    "x": 768,
+    "y": -296,
+    "definition": "warrior/05/15"
+  },
+  "warrior/05/16": {
+    "x": 783,
+    "y": -271,
+    "definition": "warrior/05/16"
+  },
+  "warrior/06/00": {
+    "x": 818,
+    "y": -123,
+    "definition": "warrior/06/00"
+  },
+  "warrior/06/01": {
+    "x": 813,
+    "y": -95,
+    "definition": "warrior/06/01"
+  },
+  "warrior/06/02": {
+    "x": 798,
+    "y": -70,
+    "definition": "warrior/06/02"
+  },
+  "warrior/06/03": {
+    "x": 775,
+    "y": -53,
+    "definition": "warrior/06/03"
+  },
+  "warrior/06/04": {
+    "x": 747,
+    "y": -45,
+    "definition": "warrior/06/04"
+  },
+  "warrior/06/05": {
+    "x": 719,
+    "y": -48,
+    "definition": "warrior/06/05"
+  },
+  "warrior/06/06": {
+    "x": 693,
+    "y": -61,
+    "definition": "warrior/06/06"
+  },
+  "warrior/06/07": {
+    "x": 674,
+    "y": -82,
+    "definition": "warrior/06/07"
+  },
+  "warrior/06/08": {
+    "x": 663,
+    "y": -109,
+    "definition": "warrior/06/08"
+  },
+  "warrior/06/09": {
+    "x": 663,
+    "y": -137,
+    "definition": "warrior/06/09"
+  },
+  "warrior/06/10": {
+    "x": 674,
+    "y": -164,
+    "definition": "warrior/06/10"
+  },
+  "warrior/06/11": {
+    "x": 693,
+    "y": -185,
+    "definition": "warrior/06/11"
+  },
+  "warrior/06/12": {
+    "x": 719,
+    "y": -198,
+    "definition": "warrior/06/12"
+  },
+  "warrior/06/13": {
+    "x": 747,
+    "y": -201,
+    "definition": "warrior/06/13"
+  },
+  "warrior/06/14": {
+    "x": 775,
+    "y": -193,
+    "definition": "warrior/06/14"
+  },
+  "warrior/06/15": {
+    "x": 798,
+    "y": -176,
+    "definition": "warrior/06/15"
+  },
+  "warrior/06/16": {
+    "x": 813,
+    "y": -151,
+    "definition": "warrior/06/16"
+  },
+  "warrior/07/00": {
+    "x": 828,
+    "y": 0,
+    "definition": "warrior/07/00"
+  },
+  "warrior/07/01": {
+    "x": 823,
+    "y": 28,
+    "definition": "warrior/07/01"
+  },
+  "warrior/07/02": {
+    "x": 808,
+    "y": 53,
+    "definition": "warrior/07/02"
+  },
+  "warrior/07/03": {
+    "x": 785,
+    "y": 70,
+    "definition": "warrior/07/03"
+  },
+  "warrior/07/04": {
+    "x": 757,
+    "y": 78,
+    "definition": "warrior/07/04"
+  },
+  "warrior/07/05": {
+    "x": 729,
+    "y": 75,
+    "definition": "warrior/07/05"
+  },
+  "warrior/07/06": {
+    "x": 703,
+    "y": 62,
+    "definition": "warrior/07/06"
+  },
+  "warrior/07/07": {
+    "x": 684,
+    "y": 41,
+    "definition": "warrior/07/07"
+  },
+  "warrior/07/08": {
+    "x": 673,
+    "y": 14,
+    "definition": "warrior/07/08"
+  },
+  "warrior/07/09": {
+    "x": 673,
+    "y": -14,
+    "definition": "warrior/07/09"
+  },
+  "warrior/07/10": {
+    "x": 684,
+    "y": -41,
+    "definition": "warrior/07/10"
+  },
+  "warrior/07/11": {
+    "x": 703,
+    "y": -62,
+    "definition": "warrior/07/11"
+  },
+  "warrior/07/12": {
+    "x": 729,
+    "y": -75,
+    "definition": "warrior/07/12"
+  },
+  "warrior/07/13": {
+    "x": 757,
+    "y": -78,
+    "definition": "warrior/07/13"
+  },
+  "warrior/07/14": {
+    "x": 785,
+    "y": -70,
+    "definition": "warrior/07/14"
+  },
+  "warrior/07/15": {
+    "x": 808,
+    "y": -53,
+    "definition": "warrior/07/15"
+  },
+  "warrior/07/16": {
+    "x": 823,
+    "y": -28,
+    "definition": "warrior/07/16"
+  },
+  "warrior/08/00": {
+    "x": 818,
+    "y": 123,
+    "definition": "warrior/08/00"
+  },
+  "warrior/08/01": {
+    "x": 813,
+    "y": 151,
+    "definition": "warrior/08/01"
+  },
+  "warrior/08/02": {
+    "x": 798,
+    "y": 176,
+    "definition": "warrior/08/02"
+  },
+  "warrior/08/03": {
+    "x": 775,
+    "y": 193,
+    "definition": "warrior/08/03"
+  },
+  "warrior/08/04": {
+    "x": 747,
+    "y": 201,
+    "definition": "warrior/08/04"
+  },
+  "warrior/08/05": {
+    "x": 719,
+    "y": 198,
+    "definition": "warrior/08/05"
+  },
+  "warrior/08/06": {
+    "x": 693,
+    "y": 185,
+    "definition": "warrior/08/06"
+  },
+  "warrior/08/07": {
+    "x": 674,
+    "y": 164,
+    "definition": "warrior/08/07"
+  },
+  "warrior/08/08": {
+    "x": 663,
+    "y": 137,
+    "definition": "warrior/08/08"
+  },
+  "warrior/08/09": {
+    "x": 663,
+    "y": 109,
+    "definition": "warrior/08/09"
+  },
+  "warrior/08/10": {
+    "x": 674,
+    "y": 82,
+    "definition": "warrior/08/10"
+  },
+  "warrior/08/11": {
+    "x": 693,
+    "y": 61,
+    "definition": "warrior/08/11"
+  },
+  "warrior/08/12": {
+    "x": 719,
+    "y": 48,
+    "definition": "warrior/08/12"
+  },
+  "warrior/08/13": {
+    "x": 747,
+    "y": 45,
+    "definition": "warrior/08/13"
+  },
+  "warrior/08/14": {
+    "x": 775,
+    "y": 53,
+    "definition": "warrior/08/14"
+  },
+  "warrior/08/15": {
+    "x": 798,
+    "y": 70,
+    "definition": "warrior/08/15"
+  },
+  "warrior/08/16": {
+    "x": 813,
+    "y": 95,
+    "definition": "warrior/08/16"
+  },
+  "warrior/09/00": {
+    "x": 788,
+    "y": 243,
+    "definition": "warrior/09/00"
+  },
+  "warrior/09/01": {
+    "x": 783,
+    "y": 271,
+    "definition": "warrior/09/01"
+  },
+  "warrior/09/02": {
+    "x": 768,
+    "y": 296,
+    "definition": "warrior/09/02"
+  },
+  "warrior/09/03": {
+    "x": 745,
+    "y": 313,
+    "definition": "warrior/09/03"
+  },
+  "warrior/09/04": {
+    "x": 717,
+    "y": 321,
+    "definition": "warrior/09/04"
+  },
+  "warrior/09/05": {
+    "x": 689,
+    "y": 318,
+    "definition": "warrior/09/05"
+  },
+  "warrior/09/06": {
+    "x": 663,
+    "y": 305,
+    "definition": "warrior/09/06"
+  },
+  "warrior/09/07": {
+    "x": 644,
+    "y": 284,
+    "definition": "warrior/09/07"
+  },
+  "warrior/09/08": {
+    "x": 633,
+    "y": 257,
+    "definition": "warrior/09/08"
+  },
+  "warrior/09/09": {
+    "x": 633,
+    "y": 229,
+    "definition": "warrior/09/09"
+  },
+  "warrior/09/10": {
+    "x": 644,
+    "y": 202,
+    "definition": "warrior/09/10"
+  },
+  "warrior/09/11": {
+    "x": 663,
+    "y": 181,
+    "definition": "warrior/09/11"
+  },
+  "warrior/09/12": {
+    "x": 689,
+    "y": 168,
+    "definition": "warrior/09/12"
+  },
+  "warrior/09/13": {
+    "x": 717,
+    "y": 165,
+    "definition": "warrior/09/13"
+  },
+  "warrior/09/14": {
+    "x": 745,
+    "y": 173,
+    "definition": "warrior/09/14"
+  },
+  "warrior/09/15": {
+    "x": 768,
+    "y": 190,
+    "definition": "warrior/09/15"
+  },
+  "warrior/09/16": {
+    "x": 783,
+    "y": 215,
+    "definition": "warrior/09/16"
+  },
+  "warrior/10/00": {
+    "x": 1100,
+    "y": -350,
+    "definition": "warrior/10/00"
+  },
+  "warrior/10/01": {
+    "x": 1095,
+    "y": -322,
+    "definition": "warrior/10/01"
+  },
+  "warrior/10/02": {
+    "x": 1080,
+    "y": -297,
+    "definition": "warrior/10/02"
+  },
+  "warrior/10/03": {
+    "x": 1057,
+    "y": -280,
+    "definition": "warrior/10/03"
+  },
+  "warrior/10/04": {
+    "x": 1029,
+    "y": -272,
+    "definition": "warrior/10/04"
+  },
+  "warrior/10/05": {
+    "x": 1001,
+    "y": -275,
+    "definition": "warrior/10/05"
+  },
+  "warrior/10/06": {
+    "x": 975,
+    "y": -288,
+    "definition": "warrior/10/06"
+  },
+  "warrior/10/07": {
+    "x": 956,
+    "y": -309,
+    "definition": "warrior/10/07"
+  },
+  "warrior/10/08": {
+    "x": 945,
+    "y": -336,
+    "definition": "warrior/10/08"
+  },
+  "warrior/10/09": {
+    "x": 945,
+    "y": -364,
+    "definition": "warrior/10/09"
+  },
+  "warrior/10/10": {
+    "x": 956,
+    "y": -391,
+    "definition": "warrior/10/10"
+  },
+  "warrior/10/11": {
+    "x": 975,
+    "y": -412,
+    "definition": "warrior/10/11"
+  },
+  "warrior/10/12": {
+    "x": 1001,
+    "y": -425,
+    "definition": "warrior/10/12"
+  },
+  "warrior/10/13": {
+    "x": 1029,
+    "y": -428,
+    "definition": "warrior/10/13"
+  },
+  "warrior/10/14": {
+    "x": 1057,
+    "y": -420,
+    "definition": "warrior/10/14"
+  },
+  "warrior/10/15": {
+    "x": 1080,
+    "y": -403,
+    "definition": "warrior/10/15"
+  },
+  "warrior/10/16": {
+    "x": 1095,
+    "y": -378,
+    "definition": "warrior/10/16"
+  },
+  "warrior/11/00": {
+    "x": 1143,
+    "y": -177,
+    "definition": "warrior/11/00"
+  },
+  "warrior/11/01": {
+    "x": 1138,
+    "y": -149,
+    "definition": "warrior/11/01"
+  },
+  "warrior/11/02": {
+    "x": 1123,
+    "y": -124,
+    "definition": "warrior/11/02"
+  },
+  "warrior/11/03": {
+    "x": 1100,
+    "y": -107,
+    "definition": "warrior/11/03"
+  },
+  "warrior/11/04": {
+    "x": 1072,
+    "y": -99,
+    "definition": "warrior/11/04"
+  },
+  "warrior/11/05": {
+    "x": 1044,
+    "y": -102,
+    "definition": "warrior/11/05"
+  },
+  "warrior/11/06": {
+    "x": 1018,
+    "y": -115,
+    "definition": "warrior/11/06"
+  },
+  "warrior/11/07": {
+    "x": 999,
+    "y": -136,
+    "definition": "warrior/11/07"
+  },
+  "warrior/11/08": {
+    "x": 988,
+    "y": -163,
+    "definition": "warrior/11/08"
+  },
+  "warrior/11/09": {
+    "x": 988,
+    "y": -191,
+    "definition": "warrior/11/09"
+  },
+  "warrior/11/10": {
+    "x": 999,
+    "y": -218,
+    "definition": "warrior/11/10"
+  },
+  "warrior/11/11": {
+    "x": 1018,
+    "y": -239,
+    "definition": "warrior/11/11"
+  },
+  "warrior/11/12": {
+    "x": 1044,
+    "y": -252,
+    "definition": "warrior/11/12"
+  },
+  "warrior/11/13": {
+    "x": 1072,
+    "y": -255,
+    "definition": "warrior/11/13"
+  },
+  "warrior/11/14": {
+    "x": 1100,
+    "y": -247,
+    "definition": "warrior/11/14"
+  },
+  "warrior/11/15": {
+    "x": 1123,
+    "y": -230,
+    "definition": "warrior/11/15"
+  },
+  "warrior/11/16": {
+    "x": 1138,
+    "y": -205,
+    "definition": "warrior/11/16"
+  },
+  "warrior/12/00": {
+    "x": 1158,
+    "y": 0,
+    "definition": "warrior/12/00"
+  },
+  "warrior/12/01": {
+    "x": 1153,
+    "y": 28,
+    "definition": "warrior/12/01"
+  },
+  "warrior/12/02": {
+    "x": 1138,
+    "y": 53,
+    "definition": "warrior/12/02"
+  },
+  "warrior/12/03": {
+    "x": 1115,
+    "y": 70,
+    "definition": "warrior/12/03"
+  },
+  "warrior/12/04": {
+    "x": 1087,
+    "y": 78,
+    "definition": "warrior/12/04"
+  },
+  "warrior/12/05": {
+    "x": 1059,
+    "y": 75,
+    "definition": "warrior/12/05"
+  },
+  "warrior/12/06": {
+    "x": 1033,
+    "y": 62,
+    "definition": "warrior/12/06"
+  },
+  "warrior/12/07": {
+    "x": 1014,
+    "y": 41,
+    "definition": "warrior/12/07"
+  },
+  "warrior/12/08": {
+    "x": 1003,
+    "y": 14,
+    "definition": "warrior/12/08"
+  },
+  "warrior/12/09": {
+    "x": 1003,
+    "y": -14,
+    "definition": "warrior/12/09"
+  },
+  "warrior/12/10": {
+    "x": 1014,
+    "y": -41,
+    "definition": "warrior/12/10"
+  },
+  "warrior/12/11": {
+    "x": 1033,
+    "y": -62,
+    "definition": "warrior/12/11"
+  },
+  "warrior/12/12": {
+    "x": 1059,
+    "y": -75,
+    "definition": "warrior/12/12"
+  },
+  "warrior/12/13": {
+    "x": 1087,
+    "y": -78,
+    "definition": "warrior/12/13"
+  },
+  "warrior/12/14": {
+    "x": 1115,
+    "y": -70,
+    "definition": "warrior/12/14"
+  },
+  "warrior/12/15": {
+    "x": 1138,
+    "y": -53,
+    "definition": "warrior/12/15"
+  },
+  "warrior/12/16": {
+    "x": 1153,
+    "y": -28,
+    "definition": "warrior/12/16"
+  },
+  "warrior/13/00": {
+    "x": 1143,
+    "y": 177,
+    "definition": "warrior/13/00"
+  },
+  "warrior/13/01": {
+    "x": 1138,
+    "y": 205,
+    "definition": "warrior/13/01"
+  },
+  "warrior/13/02": {
+    "x": 1123,
+    "y": 230,
+    "definition": "warrior/13/02"
+  },
+  "warrior/13/03": {
+    "x": 1100,
+    "y": 247,
+    "definition": "warrior/13/03"
+  },
+  "warrior/13/04": {
+    "x": 1072,
+    "y": 255,
+    "definition": "warrior/13/04"
+  },
+  "warrior/13/05": {
+    "x": 1044,
+    "y": 252,
+    "definition": "warrior/13/05"
+  },
+  "warrior/13/06": {
+    "x": 1018,
+    "y": 239,
+    "definition": "warrior/13/06"
+  },
+  "warrior/13/07": {
+    "x": 999,
+    "y": 218,
+    "definition": "warrior/13/07"
+  },
+  "warrior/13/08": {
+    "x": 988,
+    "y": 191,
+    "definition": "warrior/13/08"
+  },
+  "warrior/13/09": {
+    "x": 988,
+    "y": 163,
+    "definition": "warrior/13/09"
+  },
+  "warrior/13/10": {
+    "x": 999,
+    "y": 136,
+    "definition": "warrior/13/10"
+  },
+  "warrior/13/11": {
+    "x": 1018,
+    "y": 115,
+    "definition": "warrior/13/11"
+  },
+  "warrior/13/12": {
+    "x": 1044,
+    "y": 102,
+    "definition": "warrior/13/12"
+  },
+  "warrior/13/13": {
+    "x": 1072,
+    "y": 99,
+    "definition": "warrior/13/13"
+  },
+  "warrior/13/14": {
+    "x": 1100,
+    "y": 107,
+    "definition": "warrior/13/14"
+  },
+  "warrior/13/15": {
+    "x": 1123,
+    "y": 124,
+    "definition": "warrior/13/15"
+  },
+  "warrior/13/16": {
+    "x": 1138,
+    "y": 149,
+    "definition": "warrior/13/16"
+  },
+  "warrior/14/00": {
+    "x": 1100,
+    "y": 350,
+    "definition": "warrior/14/00"
+  },
+  "warrior/14/01": {
+    "x": 1095,
+    "y": 378,
+    "definition": "warrior/14/01"
+  },
+  "warrior/14/02": {
+    "x": 1080,
+    "y": 403,
+    "definition": "warrior/14/02"
+  },
+  "warrior/14/03": {
+    "x": 1057,
+    "y": 420,
+    "definition": "warrior/14/03"
+  },
+  "warrior/14/04": {
+    "x": 1029,
+    "y": 428,
+    "definition": "warrior/14/04"
+  },
+  "warrior/14/05": {
+    "x": 1001,
+    "y": 425,
+    "definition": "warrior/14/05"
+  },
+  "warrior/14/06": {
+    "x": 975,
+    "y": 412,
+    "definition": "warrior/14/06"
+  },
+  "warrior/14/07": {
+    "x": 956,
+    "y": 391,
+    "definition": "warrior/14/07"
+  },
+  "warrior/14/08": {
+    "x": 945,
+    "y": 364,
+    "definition": "warrior/14/08"
+  },
+  "warrior/14/09": {
+    "x": 945,
+    "y": 336,
+    "definition": "warrior/14/09"
+  },
+  "warrior/14/10": {
+    "x": 956,
+    "y": 309,
+    "definition": "warrior/14/10"
+  },
+  "warrior/14/11": {
+    "x": 975,
+    "y": 288,
+    "definition": "warrior/14/11"
+  },
+  "warrior/14/12": {
+    "x": 1001,
+    "y": 275,
+    "definition": "warrior/14/12"
+  },
+  "warrior/14/13": {
+    "x": 1029,
+    "y": 272,
+    "definition": "warrior/14/13"
+  },
+  "warrior/14/14": {
+    "x": 1057,
+    "y": 280,
+    "definition": "warrior/14/14"
+  },
+  "warrior/14/15": {
+    "x": 1080,
+    "y": 297,
+    "definition": "warrior/14/15"
+  },
+  "warrior/14/16": {
+    "x": 1095,
+    "y": 322,
+    "definition": "warrior/14/16"
+  },
+  "keystone/iron_will": {
+    "x": 1279,
+    "y": -518,
+    "definition": "keystone/iron_will"
+  },
+  "keystone/blood_magic": {
+    "x": 1434,
+    "y": -456,
+    "definition": "keystone/blood_magic"
+  },
+  "keystone/iron_fortress": {
+    "x": 1343,
+    "y": -316,
+    "definition": "keystone/iron_fortress"
+  },
+  "keystone/elemental_avatar": {
+    "x": 1487,
+    "y": -231,
+    "definition": "keystone/elemental_avatar"
+  },
+  "keystone/infernal_edge": {
+    "x": 1376,
+    "y": -106,
+    "definition": "keystone/infernal_edge"
+  },
+  "keystone/winter_steel": {
+    "x": 1505,
+    "y": 0,
+    "definition": "keystone/winter_steel"
+  },
+  "keystone/stormforged": {
+    "x": 1376,
+    "y": 106,
+    "definition": "keystone/stormforged"
+  },
+  "keystone/bloodletting": {
+    "x": 1487,
+    "y": 231,
+    "definition": "keystone/bloodletting"
+  },
+  "keystone/thorned_blade": {
+    "x": 1343,
+    "y": 316,
+    "definition": "keystone/thorned_blade"
+  },
+  "keystone/consecrated_steel": {
+    "x": 1434,
+    "y": 456,
+    "definition": "keystone/consecrated_steel"
+  },
+  "keystone/last_stand": {
+    "x": 1279,
+    "y": 518,
+    "definition": "keystone/last_stand"
+  },
+  "ranger_start": {
+    "x": 120,
+    "y": 208,
+    "definition": "ranger_start",
+    "root": true
+  },
+  "ranger/00/00": {
+    "x": 395,
+    "y": 276,
+    "definition": "ranger/00/00"
+  },
+  "ranger/00/01": {
+    "x": 390,
+    "y": 304,
+    "definition": "ranger/00/01"
+  },
+  "ranger/00/02": {
+    "x": 375,
+    "y": 329,
+    "definition": "ranger/00/02"
+  },
+  "ranger/00/03": {
+    "x": 352,
+    "y": 346,
+    "definition": "ranger/00/03"
+  },
+  "ranger/00/04": {
+    "x": 324,
+    "y": 354,
+    "definition": "ranger/00/04"
+  },
+  "ranger/00/05": {
+    "x": 296,
+    "y": 351,
+    "definition": "ranger/00/05"
+  },
+  "ranger/00/06": {
+    "x": 270,
+    "y": 338,
+    "definition": "ranger/00/06"
+  },
+  "ranger/00/07": {
+    "x": 251,
+    "y": 317,
+    "definition": "ranger/00/07"
+  },
+  "ranger/00/08": {
+    "x": 240,
+    "y": 290,
+    "definition": "ranger/00/08"
+  },
+  "ranger/00/09": {
+    "x": 240,
+    "y": 262,
+    "definition": "ranger/00/09"
+  },
+  "ranger/00/10": {
+    "x": 251,
+    "y": 235,
+    "definition": "ranger/00/10"
+  },
+  "ranger/00/11": {
+    "x": 270,
+    "y": 214,
+    "definition": "ranger/00/11"
+  },
+  "ranger/00/12": {
+    "x": 296,
+    "y": 201,
+    "definition": "ranger/00/12"
+  },
+  "ranger/00/13": {
+    "x": 324,
+    "y": 198,
+    "definition": "ranger/00/13"
+  },
+  "ranger/00/14": {
+    "x": 352,
+    "y": 206,
+    "definition": "ranger/00/14"
+  },
+  "ranger/00/15": {
+    "x": 375,
+    "y": 223,
+    "definition": "ranger/00/15"
+  },
+  "ranger/00/16": {
+    "x": 390,
+    "y": 248,
+    "definition": "ranger/00/16"
+  },
+  "ranger/01/00": {
+    "x": 345,
+    "y": 324,
+    "definition": "ranger/01/00"
+  },
+  "ranger/01/01": {
+    "x": 340,
+    "y": 352,
+    "definition": "ranger/01/01"
+  },
+  "ranger/01/02": {
+    "x": 325,
+    "y": 377,
+    "definition": "ranger/01/02"
+  },
+  "ranger/01/03": {
+    "x": 302,
+    "y": 394,
+    "definition": "ranger/01/03"
+  },
+  "ranger/01/04": {
+    "x": 274,
+    "y": 402,
+    "definition": "ranger/01/04"
+  },
+  "ranger/01/05": {
+    "x": 246,
+    "y": 399,
+    "definition": "ranger/01/05"
+  },
+  "ranger/01/06": {
+    "x": 220,
+    "y": 386,
+    "definition": "ranger/01/06"
+  },
+  "ranger/01/07": {
+    "x": 201,
+    "y": 365,
+    "definition": "ranger/01/07"
+  },
+  "ranger/01/08": {
+    "x": 190,
+    "y": 338,
+    "definition": "ranger/01/08"
+  },
+  "ranger/01/09": {
+    "x": 190,
+    "y": 310,
+    "definition": "ranger/01/09"
+  },
+  "ranger/01/10": {
+    "x": 201,
+    "y": 283,
+    "definition": "ranger/01/10"
+  },
+  "ranger/01/11": {
+    "x": 220,
+    "y": 262,
+    "definition": "ranger/01/11"
+  },
+  "ranger/01/12": {
+    "x": 246,
+    "y": 249,
+    "definition": "ranger/01/12"
+  },
+  "ranger/01/13": {
+    "x": 274,
+    "y": 246,
+    "definition": "ranger/01/13"
+  },
+  "ranger/01/14": {
+    "x": 302,
+    "y": 254,
+    "definition": "ranger/01/14"
+  },
+  "ranger/01/15": {
+    "x": 325,
+    "y": 271,
+    "definition": "ranger/01/15"
+  },
+  "ranger/01/16": {
+    "x": 340,
+    "y": 296,
+    "definition": "ranger/01/16"
+  },
+  "ranger/02/00": {
+    "x": 288,
+    "y": 364,
+    "definition": "ranger/02/00"
+  },
+  "ranger/02/01": {
+    "x": 283,
+    "y": 392,
+    "definition": "ranger/02/01"
+  },
+  "ranger/02/02": {
+    "x": 268,
+    "y": 417,
+    "definition": "ranger/02/02"
+  },
+  "ranger/02/03": {
+    "x": 245,
+    "y": 434,
+    "definition": "ranger/02/03"
+  },
+  "ranger/02/04": {
+    "x": 217,
+    "y": 442,
+    "definition": "ranger/02/04"
+  },
+  "ranger/02/05": {
+    "x": 189,
+    "y": 439,
+    "definition": "ranger/02/05"
+  },
+  "ranger/02/06": {
+    "x": 163,
+    "y": 426,
+    "definition": "ranger/02/06"
+  },
+  "ranger/02/07": {
+    "x": 144,
+    "y": 405,
+    "definition": "ranger/02/07"
+  },
+  "ranger/02/08": {
+    "x": 133,
+    "y": 378,
+    "definition": "ranger/02/08"
+  },
+  "ranger/02/09": {
+    "x": 133,
+    "y": 350,
+    "definition": "ranger/02/09"
+  },
+  "ranger/02/10": {
+    "x": 144,
+    "y": 323,
+    "definition": "ranger/02/10"
+  },
+  "ranger/02/11": {
+    "x": 163,
+    "y": 302,
+    "definition": "ranger/02/11"
+  },
+  "ranger/02/12": {
+    "x": 189,
+    "y": 289,
+    "definition": "ranger/02/12"
+  },
+  "ranger/02/13": {
+    "x": 217,
+    "y": 286,
+    "definition": "ranger/02/13"
+  },
+  "ranger/02/14": {
+    "x": 245,
+    "y": 294,
+    "definition": "ranger/02/14"
+  },
+  "ranger/02/15": {
+    "x": 268,
+    "y": 311,
+    "definition": "ranger/02/15"
+  },
+  "ranger/02/16": {
+    "x": 283,
+    "y": 336,
+    "definition": "ranger/02/16"
+  },
+  "ranger/03/00": {
+    "x": 225,
+    "y": 393,
+    "definition": "ranger/03/00"
+  },
+  "ranger/03/01": {
+    "x": 220,
+    "y": 421,
+    "definition": "ranger/03/01"
+  },
+  "ranger/03/02": {
+    "x": 205,
+    "y": 446,
+    "definition": "ranger/03/02"
+  },
+  "ranger/03/03": {
+    "x": 182,
+    "y": 463,
+    "definition": "ranger/03/03"
+  },
+  "ranger/03/04": {
+    "x": 154,
+    "y": 471,
+    "definition": "ranger/03/04"
+  },
+  "ranger/03/05": {
+    "x": 126,
+    "y": 468,
+    "definition": "ranger/03/05"
+  },
+  "ranger/03/06": {
+    "x": 100,
+    "y": 455,
+    "definition": "ranger/03/06"
+  },
+  "ranger/03/07": {
+    "x": 81,
+    "y": 434,
+    "definition": "ranger/03/07"
+  },
+  "ranger/03/08": {
+    "x": 70,
+    "y": 407,
+    "definition": "ranger/03/08"
+  },
+  "ranger/03/09": {
+    "x": 70,
+    "y": 379,
+    "definition": "ranger/03/09"
+  },
+  "ranger/03/10": {
+    "x": 81,
+    "y": 352,
+    "definition": "ranger/03/10"
+  },
+  "ranger/03/11": {
+    "x": 100,
+    "y": 331,
+    "definition": "ranger/03/11"
+  },
+  "ranger/03/12": {
+    "x": 126,
+    "y": 318,
+    "definition": "ranger/03/12"
+  },
+  "ranger/03/13": {
+    "x": 154,
+    "y": 315,
+    "definition": "ranger/03/13"
+  },
+  "ranger/03/14": {
+    "x": 182,
+    "y": 323,
+    "definition": "ranger/03/14"
+  },
+  "ranger/03/15": {
+    "x": 205,
+    "y": 340,
+    "definition": "ranger/03/15"
+  },
+  "ranger/03/16": {
+    "x": 220,
+    "y": 365,
+    "definition": "ranger/03/16"
+  },
+  "ranger/04/00": {
+    "x": 159,
+    "y": 412,
+    "definition": "ranger/04/00"
+  },
+  "ranger/04/01": {
+    "x": 154,
+    "y": 440,
+    "definition": "ranger/04/01"
+  },
+  "ranger/04/02": {
+    "x": 139,
+    "y": 465,
+    "definition": "ranger/04/02"
+  },
+  "ranger/04/03": {
+    "x": 116,
+    "y": 482,
+    "definition": "ranger/04/03"
+  },
+  "ranger/04/04": {
+    "x": 88,
+    "y": 490,
+    "definition": "ranger/04/04"
+  },
+  "ranger/04/05": {
+    "x": 60,
+    "y": 487,
+    "definition": "ranger/04/05"
+  },
+  "ranger/04/06": {
+    "x": 34,
+    "y": 474,
+    "definition": "ranger/04/06"
+  },
+  "ranger/04/07": {
+    "x": 15,
+    "y": 453,
+    "definition": "ranger/04/07"
+  },
+  "ranger/04/08": {
+    "x": 4,
+    "y": 426,
+    "definition": "ranger/04/08"
+  },
+  "ranger/04/09": {
+    "x": 4,
+    "y": 398,
+    "definition": "ranger/04/09"
+  },
+  "ranger/04/10": {
+    "x": 15,
+    "y": 371,
+    "definition": "ranger/04/10"
+  },
+  "ranger/04/11": {
+    "x": 34,
+    "y": 350,
+    "definition": "ranger/04/11"
+  },
+  "ranger/04/12": {
+    "x": 60,
+    "y": 337,
+    "definition": "ranger/04/12"
+  },
+  "ranger/04/13": {
+    "x": 88,
+    "y": 334,
+    "definition": "ranger/04/13"
+  },
+  "ranger/04/14": {
+    "x": 116,
+    "y": 342,
+    "definition": "ranger/04/14"
+  },
+  "ranger/04/15": {
+    "x": 139,
+    "y": 359,
+    "definition": "ranger/04/15"
+  },
+  "ranger/04/16": {
+    "x": 154,
+    "y": 384,
+    "definition": "ranger/04/16"
+  },
+  "ranger/05/00": {
+    "x": 643,
+    "y": 493,
+    "definition": "ranger/05/00"
+  },
+  "ranger/05/01": {
+    "x": 638,
+    "y": 521,
+    "definition": "ranger/05/01"
+  },
+  "ranger/05/02": {
+    "x": 623,
+    "y": 546,
+    "definition": "ranger/05/02"
+  },
+  "ranger/05/03": {
+    "x": 600,
+    "y": 563,
+    "definition": "ranger/05/03"
+  },
+  "ranger/05/04": {
+    "x": 572,
+    "y": 571,
+    "definition": "ranger/05/04"
+  },
+  "ranger/05/05": {
+    "x": 544,
+    "y": 568,
+    "definition": "ranger/05/05"
+  },
+  "ranger/05/06": {
+    "x": 518,
+    "y": 555,
+    "definition": "ranger/05/06"
+  },
+  "ranger/05/07": {
+    "x": 499,
+    "y": 534,
+    "definition": "ranger/05/07"
+  },
+  "ranger/05/08": {
+    "x": 488,
+    "y": 507,
+    "definition": "ranger/05/08"
+  },
+  "ranger/05/09": {
+    "x": 488,
+    "y": 479,
+    "definition": "ranger/05/09"
+  },
+  "ranger/05/10": {
+    "x": 499,
+    "y": 452,
+    "definition": "ranger/05/10"
+  },
+  "ranger/05/11": {
+    "x": 518,
+    "y": 431,
+    "definition": "ranger/05/11"
+  },
+  "ranger/05/12": {
+    "x": 544,
+    "y": 418,
+    "definition": "ranger/05/12"
+  },
+  "ranger/05/13": {
+    "x": 572,
+    "y": 415,
+    "definition": "ranger/05/13"
+  },
+  "ranger/05/14": {
+    "x": 600,
+    "y": 423,
+    "definition": "ranger/05/14"
+  },
+  "ranger/05/15": {
+    "x": 623,
+    "y": 440,
+    "definition": "ranger/05/15"
+  },
+  "ranger/05/16": {
+    "x": 638,
+    "y": 465,
+    "definition": "ranger/05/16"
+  },
+  "ranger/06/00": {
+    "x": 555,
+    "y": 579,
+    "definition": "ranger/06/00"
+  },
+  "ranger/06/01": {
+    "x": 550,
+    "y": 607,
+    "definition": "ranger/06/01"
+  },
+  "ranger/06/02": {
+    "x": 535,
+    "y": 632,
+    "definition": "ranger/06/02"
+  },
+  "ranger/06/03": {
+    "x": 512,
+    "y": 649,
+    "definition": "ranger/06/03"
+  },
+  "ranger/06/04": {
+    "x": 484,
+    "y": 657,
+    "definition": "ranger/06/04"
+  },
+  "ranger/06/05": {
+    "x": 456,
+    "y": 654,
+    "definition": "ranger/06/05"
+  },
+  "ranger/06/06": {
+    "x": 430,
+    "y": 641,
+    "definition": "ranger/06/06"
+  },
+  "ranger/06/07": {
+    "x": 411,
+    "y": 620,
+    "definition": "ranger/06/07"
+  },
+  "ranger/06/08": {
+    "x": 400,
+    "y": 593,
+    "definition": "ranger/06/08"
+  },
+  "ranger/06/09": {
+    "x": 400,
+    "y": 565,
+    "definition": "ranger/06/09"
+  },
+  "ranger/06/10": {
+    "x": 411,
+    "y": 538,
+    "definition": "ranger/06/10"
+  },
+  "ranger/06/11": {
+    "x": 430,
+    "y": 517,
+    "definition": "ranger/06/11"
+  },
+  "ranger/06/12": {
+    "x": 456,
+    "y": 504,
+    "definition": "ranger/06/12"
+  },
+  "ranger/06/13": {
+    "x": 484,
+    "y": 501,
+    "definition": "ranger/06/13"
+  },
+  "ranger/06/14": {
+    "x": 512,
+    "y": 509,
+    "definition": "ranger/06/14"
+  },
+  "ranger/06/15": {
+    "x": 535,
+    "y": 526,
+    "definition": "ranger/06/15"
+  },
+  "ranger/06/16": {
+    "x": 550,
+    "y": 551,
+    "definition": "ranger/06/16"
+  },
+  "ranger/07/00": {
+    "x": 453,
+    "y": 650,
+    "definition": "ranger/07/00"
+  },
+  "ranger/07/01": {
+    "x": 448,
+    "y": 678,
+    "definition": "ranger/07/01"
+  },
+  "ranger/07/02": {
+    "x": 433,
+    "y": 703,
+    "definition": "ranger/07/02"
+  },
+  "ranger/07/03": {
+    "x": 410,
+    "y": 720,
+    "definition": "ranger/07/03"
+  },
+  "ranger/07/04": {
+    "x": 382,
+    "y": 728,
+    "definition": "ranger/07/04"
+  },
+  "ranger/07/05": {
+    "x": 354,
+    "y": 725,
+    "definition": "ranger/07/05"
+  },
+  "ranger/07/06": {
+    "x": 328,
+    "y": 712,
+    "definition": "ranger/07/06"
+  },
+  "ranger/07/07": {
+    "x": 309,
+    "y": 691,
+    "definition": "ranger/07/07"
+  },
+  "ranger/07/08": {
+    "x": 298,
+    "y": 664,
+    "definition": "ranger/07/08"
+  },
+  "ranger/07/09": {
+    "x": 298,
+    "y": 636,
+    "definition": "ranger/07/09"
+  },
+  "ranger/07/10": {
+    "x": 309,
+    "y": 609,
+    "definition": "ranger/07/10"
+  },
+  "ranger/07/11": {
+    "x": 328,
+    "y": 588,
+    "definition": "ranger/07/11"
+  },
+  "ranger/07/12": {
+    "x": 354,
+    "y": 575,
+    "definition": "ranger/07/12"
+  },
+  "ranger/07/13": {
+    "x": 382,
+    "y": 572,
+    "definition": "ranger/07/13"
+  },
+  "ranger/07/14": {
+    "x": 410,
+    "y": 580,
+    "definition": "ranger/07/14"
+  },
+  "ranger/07/15": {
+    "x": 433,
+    "y": 597,
+    "definition": "ranger/07/15"
+  },
+  "ranger/07/16": {
+    "x": 448,
+    "y": 622,
+    "definition": "ranger/07/16"
+  },
+  "ranger/08/00": {
+    "x": 341,
+    "y": 702,
+    "definition": "ranger/08/00"
+  },
+  "ranger/08/01": {
+    "x": 336,
+    "y": 730,
+    "definition": "ranger/08/01"
+  },
+  "ranger/08/02": {
+    "x": 321,
+    "y": 755,
+    "definition": "ranger/08/02"
+  },
+  "ranger/08/03": {
+    "x": 298,
+    "y": 772,
+    "definition": "ranger/08/03"
+  },
+  "ranger/08/04": {
+    "x": 270,
+    "y": 780,
+    "definition": "ranger/08/04"
+  },
+  "ranger/08/05": {
+    "x": 242,
+    "y": 777,
+    "definition": "ranger/08/05"
+  },
+  "ranger/08/06": {
+    "x": 216,
+    "y": 764,
+    "definition": "ranger/08/06"
+  },
+  "ranger/08/07": {
+    "x": 197,
+    "y": 743,
+    "definition": "ranger/08/07"
+  },
+  "ranger/08/08": {
+    "x": 186,
+    "y": 716,
+    "definition": "ranger/08/08"
+  },
+  "ranger/08/09": {
+    "x": 186,
+    "y": 688,
+    "definition": "ranger/08/09"
+  },
+  "ranger/08/10": {
+    "x": 197,
+    "y": 661,
+    "definition": "ranger/08/10"
+  },
+  "ranger/08/11": {
+    "x": 216,
+    "y": 640,
+    "definition": "ranger/08/11"
+  },
+  "ranger/08/12": {
+    "x": 242,
+    "y": 627,
+    "definition": "ranger/08/12"
+  },
+  "ranger/08/13": {
+    "x": 270,
+    "y": 624,
+    "definition": "ranger/08/13"
+  },
+  "ranger/08/14": {
+    "x": 298,
+    "y": 632,
+    "definition": "ranger/08/14"
+  },
+  "ranger/08/15": {
+    "x": 321,
+    "y": 649,
+    "definition": "ranger/08/15"
+  },
+  "ranger/08/16": {
+    "x": 336,
+    "y": 674,
+    "definition": "ranger/08/16"
+  },
+  "ranger/09/00": {
+    "x": 222,
+    "y": 736,
+    "definition": "ranger/09/00"
+  },
+  "ranger/09/01": {
+    "x": 217,
+    "y": 764,
+    "definition": "ranger/09/01"
+  },
+  "ranger/09/02": {
+    "x": 202,
+    "y": 789,
+    "definition": "ranger/09/02"
+  },
+  "ranger/09/03": {
+    "x": 179,
+    "y": 806,
+    "definition": "ranger/09/03"
+  },
+  "ranger/09/04": {
+    "x": 151,
+    "y": 814,
+    "definition": "ranger/09/04"
+  },
+  "ranger/09/05": {
+    "x": 123,
+    "y": 811,
+    "definition": "ranger/09/05"
+  },
+  "ranger/09/06": {
+    "x": 97,
+    "y": 798,
+    "definition": "ranger/09/06"
+  },
+  "ranger/09/07": {
+    "x": 78,
+    "y": 777,
+    "definition": "ranger/09/07"
+  },
+  "ranger/09/08": {
+    "x": 67,
+    "y": 750,
+    "definition": "ranger/09/08"
+  },
+  "ranger/09/09": {
+    "x": 67,
+    "y": 722,
+    "definition": "ranger/09/09"
+  },
+  "ranger/09/10": {
+    "x": 78,
+    "y": 695,
+    "definition": "ranger/09/10"
+  },
+  "ranger/09/11": {
+    "x": 97,
+    "y": 674,
+    "definition": "ranger/09/11"
+  },
+  "ranger/09/12": {
+    "x": 123,
+    "y": 661,
+    "definition": "ranger/09/12"
+  },
+  "ranger/09/13": {
+    "x": 151,
+    "y": 658,
+    "definition": "ranger/09/13"
+  },
+  "ranger/09/14": {
+    "x": 179,
+    "y": 666,
+    "definition": "ranger/09/14"
+  },
+  "ranger/09/15": {
+    "x": 202,
+    "y": 683,
+    "definition": "ranger/09/15"
+  },
+  "ranger/09/16": {
+    "x": 217,
+    "y": 708,
+    "definition": "ranger/09/16"
+  },
+  "ranger/10/00": {
+    "x": 892,
+    "y": 710,
+    "definition": "ranger/10/00"
+  },
+  "ranger/10/01": {
+    "x": 887,
+    "y": 738,
+    "definition": "ranger/10/01"
+  },
+  "ranger/10/02": {
+    "x": 872,
+    "y": 763,
+    "definition": "ranger/10/02"
+  },
+  "ranger/10/03": {
+    "x": 849,
+    "y": 780,
+    "definition": "ranger/10/03"
+  },
+  "ranger/10/04": {
+    "x": 821,
+    "y": 788,
+    "definition": "ranger/10/04"
+  },
+  "ranger/10/05": {
+    "x": 793,
+    "y": 785,
+    "definition": "ranger/10/05"
+  },
+  "ranger/10/06": {
+    "x": 767,
+    "y": 772,
+    "definition": "ranger/10/06"
+  },
+  "ranger/10/07": {
+    "x": 748,
+    "y": 751,
+    "definition": "ranger/10/07"
+  },
+  "ranger/10/08": {
+    "x": 737,
+    "y": 724,
+    "definition": "ranger/10/08"
+  },
+  "ranger/10/09": {
+    "x": 737,
+    "y": 696,
+    "definition": "ranger/10/09"
+  },
+  "ranger/10/10": {
+    "x": 748,
+    "y": 669,
+    "definition": "ranger/10/10"
+  },
+  "ranger/10/11": {
+    "x": 767,
+    "y": 648,
+    "definition": "ranger/10/11"
+  },
+  "ranger/10/12": {
+    "x": 793,
+    "y": 635,
+    "definition": "ranger/10/12"
+  },
+  "ranger/10/13": {
+    "x": 821,
+    "y": 632,
+    "definition": "ranger/10/13"
+  },
+  "ranger/10/14": {
+    "x": 849,
+    "y": 640,
+    "definition": "ranger/10/14"
+  },
+  "ranger/10/15": {
+    "x": 872,
+    "y": 657,
+    "definition": "ranger/10/15"
+  },
+  "ranger/10/16": {
+    "x": 887,
+    "y": 682,
+    "definition": "ranger/10/16"
+  },
+  "ranger/11/00": {
+    "x": 764,
+    "y": 834,
+    "definition": "ranger/11/00"
+  },
+  "ranger/11/01": {
+    "x": 759,
+    "y": 862,
+    "definition": "ranger/11/01"
+  },
+  "ranger/11/02": {
+    "x": 744,
+    "y": 887,
+    "definition": "ranger/11/02"
+  },
+  "ranger/11/03": {
+    "x": 721,
+    "y": 904,
+    "definition": "ranger/11/03"
+  },
+  "ranger/11/04": {
+    "x": 693,
+    "y": 912,
+    "definition": "ranger/11/04"
+  },
+  "ranger/11/05": {
+    "x": 665,
+    "y": 909,
+    "definition": "ranger/11/05"
+  },
+  "ranger/11/06": {
+    "x": 639,
+    "y": 896,
+    "definition": "ranger/11/06"
+  },
+  "ranger/11/07": {
+    "x": 620,
+    "y": 875,
+    "definition": "ranger/11/07"
+  },
+  "ranger/11/08": {
+    "x": 609,
+    "y": 848,
+    "definition": "ranger/11/08"
+  },
+  "ranger/11/09": {
+    "x": 609,
+    "y": 820,
+    "definition": "ranger/11/09"
+  },
+  "ranger/11/10": {
+    "x": 620,
+    "y": 793,
+    "definition": "ranger/11/10"
+  },
+  "ranger/11/11": {
+    "x": 639,
+    "y": 772,
+    "definition": "ranger/11/11"
+  },
+  "ranger/11/12": {
+    "x": 665,
+    "y": 759,
+    "definition": "ranger/11/12"
+  },
+  "ranger/11/13": {
+    "x": 693,
+    "y": 756,
+    "definition": "ranger/11/13"
+  },
+  "ranger/11/14": {
+    "x": 721,
+    "y": 764,
+    "definition": "ranger/11/14"
+  },
+  "ranger/11/15": {
+    "x": 744,
+    "y": 781,
+    "definition": "ranger/11/15"
+  },
+  "ranger/11/16": {
+    "x": 759,
+    "y": 806,
+    "definition": "ranger/11/16"
+  },
+  "ranger/12/00": {
+    "x": 618,
+    "y": 935,
+    "definition": "ranger/12/00"
+  },
+  "ranger/12/01": {
+    "x": 613,
+    "y": 963,
+    "definition": "ranger/12/01"
+  },
+  "ranger/12/02": {
+    "x": 598,
+    "y": 988,
+    "definition": "ranger/12/02"
+  },
+  "ranger/12/03": {
+    "x": 575,
+    "y": 1005,
+    "definition": "ranger/12/03"
+  },
+  "ranger/12/04": {
+    "x": 547,
+    "y": 1013,
+    "definition": "ranger/12/04"
+  },
+  "ranger/12/05": {
+    "x": 519,
+    "y": 1010,
+    "definition": "ranger/12/05"
+  },
+  "ranger/12/06": {
+    "x": 493,
+    "y": 997,
+    "definition": "ranger/12/06"
+  },
+  "ranger/12/07": {
+    "x": 474,
+    "y": 976,
+    "definition": "ranger/12/07"
+  },
+  "ranger/12/08": {
+    "x": 463,
+    "y": 949,
+    "definition": "ranger/12/08"
+  },
+  "ranger/12/09": {
+    "x": 463,
+    "y": 921,
+    "definition": "ranger/12/09"
+  },
+  "ranger/12/10": {
+    "x": 474,
+    "y": 894,
+    "definition": "ranger/12/10"
+  },
+  "ranger/12/11": {
+    "x": 493,
+    "y": 873,
+    "definition": "ranger/12/11"
+  },
+  "ranger/12/12": {
+    "x": 519,
+    "y": 860,
+    "definition": "ranger/12/12"
+  },
+  "ranger/12/13": {
+    "x": 547,
+    "y": 857,
+    "definition": "ranger/12/13"
+  },
+  "ranger/12/14": {
+    "x": 575,
+    "y": 865,
+    "definition": "ranger/12/14"
+  },
+  "ranger/12/15": {
+    "x": 598,
+    "y": 882,
+    "definition": "ranger/12/15"
+  },
+  "ranger/12/16": {
+    "x": 613,
+    "y": 907,
+    "definition": "ranger/12/16"
+  },
+  "ranger/13/00": {
+    "x": 457,
+    "y": 1011,
+    "definition": "ranger/13/00"
+  },
+  "ranger/13/01": {
+    "x": 452,
+    "y": 1039,
+    "definition": "ranger/13/01"
+  },
+  "ranger/13/02": {
+    "x": 437,
+    "y": 1064,
+    "definition": "ranger/13/02"
+  },
+  "ranger/13/03": {
+    "x": 414,
+    "y": 1081,
+    "definition": "ranger/13/03"
+  },
+  "ranger/13/04": {
+    "x": 386,
+    "y": 1089,
+    "definition": "ranger/13/04"
+  },
+  "ranger/13/05": {
+    "x": 358,
+    "y": 1086,
+    "definition": "ranger/13/05"
+  },
+  "ranger/13/06": {
+    "x": 332,
+    "y": 1073,
+    "definition": "ranger/13/06"
+  },
+  "ranger/13/07": {
+    "x": 313,
+    "y": 1052,
+    "definition": "ranger/13/07"
+  },
+  "ranger/13/08": {
+    "x": 302,
+    "y": 1025,
+    "definition": "ranger/13/08"
+  },
+  "ranger/13/09": {
+    "x": 302,
+    "y": 997,
+    "definition": "ranger/13/09"
+  },
+  "ranger/13/10": {
+    "x": 313,
+    "y": 970,
+    "definition": "ranger/13/10"
+  },
+  "ranger/13/11": {
+    "x": 332,
+    "y": 949,
+    "definition": "ranger/13/11"
+  },
+  "ranger/13/12": {
+    "x": 358,
+    "y": 936,
+    "definition": "ranger/13/12"
+  },
+  "ranger/13/13": {
+    "x": 386,
+    "y": 933,
+    "definition": "ranger/13/13"
+  },
+  "ranger/13/14": {
+    "x": 414,
+    "y": 941,
+    "definition": "ranger/13/14"
+  },
+  "ranger/13/15": {
+    "x": 437,
+    "y": 958,
+    "definition": "ranger/13/15"
+  },
+  "ranger/13/16": {
+    "x": 452,
+    "y": 983,
+    "definition": "ranger/13/16"
+  },
+  "ranger/14/00": {
+    "x": 286,
+    "y": 1060,
+    "definition": "ranger/14/00"
+  },
+  "ranger/14/01": {
+    "x": 281,
+    "y": 1088,
+    "definition": "ranger/14/01"
+  },
+  "ranger/14/02": {
+    "x": 266,
+    "y": 1113,
+    "definition": "ranger/14/02"
+  },
+  "ranger/14/03": {
+    "x": 243,
+    "y": 1130,
+    "definition": "ranger/14/03"
+  },
+  "ranger/14/04": {
+    "x": 215,
+    "y": 1138,
+    "definition": "ranger/14/04"
+  },
+  "ranger/14/05": {
+    "x": 187,
+    "y": 1135,
+    "definition": "ranger/14/05"
+  },
+  "ranger/14/06": {
+    "x": 161,
+    "y": 1122,
+    "definition": "ranger/14/06"
+  },
+  "ranger/14/07": {
+    "x": 142,
+    "y": 1101,
+    "definition": "ranger/14/07"
+  },
+  "ranger/14/08": {
+    "x": 131,
+    "y": 1074,
+    "definition": "ranger/14/08"
+  },
+  "ranger/14/09": {
+    "x": 131,
+    "y": 1046,
+    "definition": "ranger/14/09"
+  },
+  "ranger/14/10": {
+    "x": 142,
+    "y": 1019,
+    "definition": "ranger/14/10"
+  },
+  "ranger/14/11": {
+    "x": 161,
+    "y": 998,
+    "definition": "ranger/14/11"
+  },
+  "ranger/14/12": {
+    "x": 187,
+    "y": 985,
+    "definition": "ranger/14/12"
+  },
+  "ranger/14/13": {
+    "x": 215,
+    "y": 982,
+    "definition": "ranger/14/13"
+  },
+  "ranger/14/14": {
+    "x": 243,
+    "y": 990,
+    "definition": "ranger/14/14"
+  },
+  "ranger/14/15": {
+    "x": 266,
+    "y": 1007,
+    "definition": "ranger/14/15"
+  },
+  "ranger/14/16": {
+    "x": 281,
+    "y": 1032,
+    "definition": "ranger/14/16"
+  },
+  "keystone/pain_attunement": {
+    "x": 1088,
+    "y": 848,
+    "definition": "keystone/pain_attunement"
+  },
+  "keystone/perfect_form": {
+    "x": 1112,
+    "y": 1014,
+    "definition": "keystone/perfect_form"
+  },
+  "keystone/pristine_mind": {
+    "x": 945,
+    "y": 1005,
+    "definition": "keystone/pristine_mind"
+  },
+  "keystone/desperate_focus": {
+    "x": 944,
+    "y": 1173,
+    "definition": "keystone/desperate_focus"
+  },
+  "keystone/mana_blade": {
+    "x": 780,
+    "y": 1138,
+    "definition": "keystone/mana_blade"
+  },
+  "keystone/point_blank": {
+    "x": 753,
+    "y": 1303,
+    "definition": "keystone/point_blank"
+  },
+  "keystone/far_shot": {
+    "x": 596,
+    "y": 1245,
+    "definition": "keystone/far_shot"
+  },
+  "keystone/battle_mage": {
+    "x": 544,
+    "y": 1403,
+    "definition": "keystone/battle_mage"
+  },
+  "keystone/siege_caster": {
+    "x": 398,
+    "y": 1321,
+    "definition": "keystone/siege_caster"
+  },
+  "keystone/immolation": {
+    "x": 322,
+    "y": 1470,
+    "definition": "keystone/immolation"
+  },
+  "keystone/cauterize": {
+    "x": 191,
+    "y": 1367,
+    "definition": "keystone/cauterize"
+  },
+  "rogue_start": {
+    "x": -120,
+    "y": 208,
+    "definition": "rogue_start",
+    "root": true
+  },
+  "rogue/00/00": {
+    "x": -3,
+    "y": 412,
+    "definition": "rogue/00/00"
+  },
+  "rogue/00/01": {
+    "x": -8,
+    "y": 440,
+    "definition": "rogue/00/01"
+  },
+  "rogue/00/02": {
+    "x": -23,
+    "y": 465,
+    "definition": "rogue/00/02"
+  },
+  "rogue/00/03": {
+    "x": -46,
+    "y": 482,
+    "definition": "rogue/00/03"
+  },
+  "rogue/00/04": {
+    "x": -74,
+    "y": 490,
+    "definition": "rogue/00/04"
+  },
+  "rogue/00/05": {
+    "x": -102,
+    "y": 487,
+    "definition": "rogue/00/05"
+  },
+  "rogue/00/06": {
+    "x": -128,
+    "y": 474,
+    "definition": "rogue/00/06"
+  },
+  "rogue/00/07": {
+    "x": -147,
+    "y": 453,
+    "definition": "rogue/00/07"
+  },
+  "rogue/00/08": {
+    "x": -158,
+    "y": 426,
+    "definition": "rogue/00/08"
+  },
+  "rogue/00/09": {
+    "x": -158,
+    "y": 398,
+    "definition": "rogue/00/09"
+  },
+  "rogue/00/10": {
+    "x": -147,
+    "y": 371,
+    "definition": "rogue/00/10"
+  },
+  "rogue/00/11": {
+    "x": -128,
+    "y": 350,
+    "definition": "rogue/00/11"
+  },
+  "rogue/00/12": {
+    "x": -102,
+    "y": 337,
+    "definition": "rogue/00/12"
+  },
+  "rogue/00/13": {
+    "x": -74,
+    "y": 334,
+    "definition": "rogue/00/13"
+  },
+  "rogue/00/14": {
+    "x": -46,
+    "y": 342,
+    "definition": "rogue/00/14"
+  },
+  "rogue/00/15": {
+    "x": -23,
+    "y": 359,
+    "definition": "rogue/00/15"
+  },
+  "rogue/00/16": {
+    "x": -8,
+    "y": 384,
+    "definition": "rogue/00/16"
+  },
+  "rogue/01/00": {
+    "x": -69,
+    "y": 393,
+    "definition": "rogue/01/00"
+  },
+  "rogue/01/01": {
+    "x": -74,
+    "y": 421,
+    "definition": "rogue/01/01"
+  },
+  "rogue/01/02": {
+    "x": -89,
+    "y": 446,
+    "definition": "rogue/01/02"
+  },
+  "rogue/01/03": {
+    "x": -112,
+    "y": 463,
+    "definition": "rogue/01/03"
+  },
+  "rogue/01/04": {
+    "x": -140,
+    "y": 471,
+    "definition": "rogue/01/04"
+  },
+  "rogue/01/05": {
+    "x": -168,
+    "y": 468,
+    "definition": "rogue/01/05"
+  },
+  "rogue/01/06": {
+    "x": -194,
+    "y": 455,
+    "definition": "rogue/01/06"
+  },
+  "rogue/01/07": {
+    "x": -213,
+    "y": 434,
+    "definition": "rogue/01/07"
+  },
+  "rogue/01/08": {
+    "x": -224,
+    "y": 407,
+    "definition": "rogue/01/08"
+  },
+  "rogue/01/09": {
+    "x": -224,
+    "y": 379,
+    "definition": "rogue/01/09"
+  },
+  "rogue/01/10": {
+    "x": -213,
+    "y": 352,
+    "definition": "rogue/01/10"
+  },
+  "rogue/01/11": {
+    "x": -194,
+    "y": 331,
+    "definition": "rogue/01/11"
+  },
+  "rogue/01/12": {
+    "x": -168,
+    "y": 318,
+    "definition": "rogue/01/12"
+  },
+  "rogue/01/13": {
+    "x": -140,
+    "y": 315,
+    "definition": "rogue/01/13"
+  },
+  "rogue/01/14": {
+    "x": -112,
+    "y": 323,
+    "definition": "rogue/01/14"
+  },
+  "rogue/01/15": {
+    "x": -89,
+    "y": 340,
+    "definition": "rogue/01/15"
+  },
+  "rogue/01/16": {
+    "x": -74,
+    "y": 365,
+    "definition": "rogue/01/16"
+  },
+  "rogue/02/00": {
+    "x": -132,
+    "y": 364,
+    "definition": "rogue/02/00"
+  },
+  "rogue/02/01": {
+    "x": -137,
+    "y": 392,
+    "definition": "rogue/02/01"
+  },
+  "rogue/02/02": {
+    "x": -152,
+    "y": 417,
+    "definition": "rogue/02/02"
+  },
+  "rogue/02/03": {
+    "x": -175,
+    "y": 434,
+    "definition": "rogue/02/03"
+  },
+  "rogue/02/04": {
+    "x": -203,
+    "y": 442,
+    "definition": "rogue/02/04"
+  },
+  "rogue/02/05": {
+    "x": -231,
+    "y": 439,
+    "definition": "rogue/02/05"
+  },
+  "rogue/02/06": {
+    "x": -257,
+    "y": 426,
+    "definition": "rogue/02/06"
+  },
+  "rogue/02/07": {
+    "x": -276,
+    "y": 405,
+    "definition": "rogue/02/07"
+  },
+  "rogue/02/08": {
+    "x": -287,
+    "y": 378,
+    "definition": "rogue/02/08"
+  },
+  "rogue/02/09": {
+    "x": -287,
+    "y": 350,
+    "definition": "rogue/02/09"
+  },
+  "rogue/02/10": {
+    "x": -276,
+    "y": 323,
+    "definition": "rogue/02/10"
+  },
+  "rogue/02/11": {
+    "x": -257,
+    "y": 302,
+    "definition": "rogue/02/11"
+  },
+  "rogue/02/12": {
+    "x": -231,
+    "y": 289,
+    "definition": "rogue/02/12"
+  },
+  "rogue/02/13": {
+    "x": -203,
+    "y": 286,
+    "definition": "rogue/02/13"
+  },
+  "rogue/02/14": {
+    "x": -175,
+    "y": 294,
+    "definition": "rogue/02/14"
+  },
+  "rogue/02/15": {
+    "x": -152,
+    "y": 311,
+    "definition": "rogue/02/15"
+  },
+  "rogue/02/16": {
+    "x": -137,
+    "y": 336,
+    "definition": "rogue/02/16"
+  },
+  "rogue/03/00": {
+    "x": -189,
+    "y": 324,
+    "definition": "rogue/03/00"
+  },
+  "rogue/03/01": {
+    "x": -194,
+    "y": 352,
+    "definition": "rogue/03/01"
+  },
+  "rogue/03/02": {
+    "x": -209,
+    "y": 377,
+    "definition": "rogue/03/02"
+  },
+  "rogue/03/03": {
+    "x": -232,
+    "y": 394,
+    "definition": "rogue/03/03"
+  },
+  "rogue/03/04": {
+    "x": -260,
+    "y": 402,
+    "definition": "rogue/03/04"
+  },
+  "rogue/03/05": {
+    "x": -288,
+    "y": 399,
+    "definition": "rogue/03/05"
+  },
+  "rogue/03/06": {
+    "x": -314,
+    "y": 386,
+    "definition": "rogue/03/06"
+  },
+  "rogue/03/07": {
+    "x": -333,
+    "y": 365,
+    "definition": "rogue/03/07"
+  },
+  "rogue/03/08": {
+    "x": -344,
+    "y": 338,
+    "definition": "rogue/03/08"
+  },
+  "rogue/03/09": {
+    "x": -344,
+    "y": 310,
+    "definition": "rogue/03/09"
+  },
+  "rogue/03/10": {
+    "x": -333,
+    "y": 283,
+    "definition": "rogue/03/10"
+  },
+  "rogue/03/11": {
+    "x": -314,
+    "y": 262,
+    "definition": "rogue/03/11"
+  },
+  "rogue/03/12": {
+    "x": -288,
+    "y": 249,
+    "definition": "rogue/03/12"
+  },
+  "rogue/03/13": {
+    "x": -260,
+    "y": 246,
+    "definition": "rogue/03/13"
+  },
+  "rogue/03/14": {
+    "x": -232,
+    "y": 254,
+    "definition": "rogue/03/14"
+  },
+  "rogue/03/15": {
+    "x": -209,
+    "y": 271,
+    "definition": "rogue/03/15"
+  },
+  "rogue/03/16": {
+    "x": -194,
+    "y": 296,
+    "definition": "rogue/03/16"
+  },
+  "rogue/04/00": {
+    "x": -239,
+    "y": 276,
+    "definition": "rogue/04/00"
+  },
+  "rogue/04/01": {
+    "x": -244,
+    "y": 304,
+    "definition": "rogue/04/01"
+  },
+  "rogue/04/02": {
+    "x": -259,
+    "y": 329,
+    "definition": "rogue/04/02"
+  },
+  "rogue/04/03": {
+    "x": -282,
+    "y": 346,
+    "definition": "rogue/04/03"
+  },
+  "rogue/04/04": {
+    "x": -310,
+    "y": 354,
+    "definition": "rogue/04/04"
+  },
+  "rogue/04/05": {
+    "x": -338,
+    "y": 351,
+    "definition": "rogue/04/05"
+  },
+  "rogue/04/06": {
+    "x": -364,
+    "y": 338,
+    "definition": "rogue/04/06"
+  },
+  "rogue/04/07": {
+    "x": -383,
+    "y": 317,
+    "definition": "rogue/04/07"
+  },
+  "rogue/04/08": {
+    "x": -394,
+    "y": 290,
+    "definition": "rogue/04/08"
+  },
+  "rogue/04/09": {
+    "x": -394,
+    "y": 262,
+    "definition": "rogue/04/09"
+  },
+  "rogue/04/10": {
+    "x": -383,
+    "y": 235,
+    "definition": "rogue/04/10"
+  },
+  "rogue/04/11": {
+    "x": -364,
+    "y": 214,
+    "definition": "rogue/04/11"
+  },
+  "rogue/04/12": {
+    "x": -338,
+    "y": 201,
+    "definition": "rogue/04/12"
+  },
+  "rogue/04/13": {
+    "x": -310,
+    "y": 198,
+    "definition": "rogue/04/13"
+  },
+  "rogue/04/14": {
+    "x": -282,
+    "y": 206,
+    "definition": "rogue/04/14"
+  },
+  "rogue/04/15": {
+    "x": -259,
+    "y": 223,
+    "definition": "rogue/04/15"
+  },
+  "rogue/04/16": {
+    "x": -244,
+    "y": 248,
+    "definition": "rogue/04/16"
+  },
+  "rogue/05/00": {
+    "x": -66,
+    "y": 736,
+    "definition": "rogue/05/00"
+  },
+  "rogue/05/01": {
+    "x": -71,
+    "y": 764,
+    "definition": "rogue/05/01"
+  },
+  "rogue/05/02": {
+    "x": -86,
+    "y": 789,
+    "definition": "rogue/05/02"
+  },
+  "rogue/05/03": {
+    "x": -109,
+    "y": 806,
+    "definition": "rogue/05/03"
+  },
+  "rogue/05/04": {
+    "x": -137,
+    "y": 814,
+    "definition": "rogue/05/04"
+  },
+  "rogue/05/05": {
+    "x": -165,
+    "y": 811,
+    "definition": "rogue/05/05"
+  },
+  "rogue/05/06": {
+    "x": -191,
+    "y": 798,
+    "definition": "rogue/05/06"
+  },
+  "rogue/05/07": {
+    "x": -210,
+    "y": 777,
+    "definition": "rogue/05/07"
+  },
+  "rogue/05/08": {
+    "x": -221,
+    "y": 750,
+    "definition": "rogue/05/08"
+  },
+  "rogue/05/09": {
+    "x": -221,
+    "y": 722,
+    "definition": "rogue/05/09"
+  },
+  "rogue/05/10": {
+    "x": -210,
+    "y": 695,
+    "definition": "rogue/05/10"
+  },
+  "rogue/05/11": {
+    "x": -191,
+    "y": 674,
+    "definition": "rogue/05/11"
+  },
+  "rogue/05/12": {
+    "x": -165,
+    "y": 661,
+    "definition": "rogue/05/12"
+  },
+  "rogue/05/13": {
+    "x": -137,
+    "y": 658,
+    "definition": "rogue/05/13"
+  },
+  "rogue/05/14": {
+    "x": -109,
+    "y": 666,
+    "definition": "rogue/05/14"
+  },
+  "rogue/05/15": {
+    "x": -86,
+    "y": 683,
+    "definition": "rogue/05/15"
+  },
+  "rogue/05/16": {
+    "x": -71,
+    "y": 708,
+    "definition": "rogue/05/16"
+  },
+  "rogue/06/00": {
+    "x": -185,
+    "y": 702,
+    "definition": "rogue/06/00"
+  },
+  "rogue/06/01": {
+    "x": -190,
+    "y": 730,
+    "definition": "rogue/06/01"
+  },
+  "rogue/06/02": {
+    "x": -205,
+    "y": 755,
+    "definition": "rogue/06/02"
+  },
+  "rogue/06/03": {
+    "x": -228,
+    "y": 772,
+    "definition": "rogue/06/03"
+  },
+  "rogue/06/04": {
+    "x": -256,
+    "y": 780,
+    "definition": "rogue/06/04"
+  },
+  "rogue/06/05": {
+    "x": -284,
+    "y": 777,
+    "definition": "rogue/06/05"
+  },
+  "rogue/06/06": {
+    "x": -310,
+    "y": 764,
+    "definition": "rogue/06/06"
+  },
+  "rogue/06/07": {
+    "x": -329,
+    "y": 743,
+    "definition": "rogue/06/07"
+  },
+  "rogue/06/08": {
+    "x": -340,
+    "y": 716,
+    "definition": "rogue/06/08"
+  },
+  "rogue/06/09": {
+    "x": -340,
+    "y": 688,
+    "definition": "rogue/06/09"
+  },
+  "rogue/06/10": {
+    "x": -329,
+    "y": 661,
+    "definition": "rogue/06/10"
+  },
+  "rogue/06/11": {
+    "x": -310,
+    "y": 640,
+    "definition": "rogue/06/11"
+  },
+  "rogue/06/12": {
+    "x": -284,
+    "y": 627,
+    "definition": "rogue/06/12"
+  },
+  "rogue/06/13": {
+    "x": -256,
+    "y": 624,
+    "definition": "rogue/06/13"
+  },
+  "rogue/06/14": {
+    "x": -228,
+    "y": 632,
+    "definition": "rogue/06/14"
+  },
+  "rogue/06/15": {
+    "x": -205,
+    "y": 649,
+    "definition": "rogue/06/15"
+  },
+  "rogue/06/16": {
+    "x": -190,
+    "y": 674,
+    "definition": "rogue/06/16"
+  },
+  "rogue/07/00": {
+    "x": -297,
+    "y": 650,
+    "definition": "rogue/07/00"
+  },
+  "rogue/07/01": {
+    "x": -302,
+    "y": 678,
+    "definition": "rogue/07/01"
+  },
+  "rogue/07/02": {
+    "x": -317,
+    "y": 703,
+    "definition": "rogue/07/02"
+  },
+  "rogue/07/03": {
+    "x": -340,
+    "y": 720,
+    "definition": "rogue/07/03"
+  },
+  "rogue/07/04": {
+    "x": -368,
+    "y": 728,
+    "definition": "rogue/07/04"
+  },
+  "rogue/07/05": {
+    "x": -396,
+    "y": 725,
+    "definition": "rogue/07/05"
+  },
+  "rogue/07/06": {
+    "x": -422,
+    "y": 712,
+    "definition": "rogue/07/06"
+  },
+  "rogue/07/07": {
+    "x": -441,
+    "y": 691,
+    "definition": "rogue/07/07"
+  },
+  "rogue/07/08": {
+    "x": -452,
+    "y": 664,
+    "definition": "rogue/07/08"
+  },
+  "rogue/07/09": {
+    "x": -452,
+    "y": 636,
+    "definition": "rogue/07/09"
+  },
+  "rogue/07/10": {
+    "x": -441,
+    "y": 609,
+    "definition": "rogue/07/10"
+  },
+  "rogue/07/11": {
+    "x": -422,
+    "y": 588,
+    "definition": "rogue/07/11"
+  },
+  "rogue/07/12": {
+    "x": -396,
+    "y": 575,
+    "definition": "rogue/07/12"
+  },
+  "rogue/07/13": {
+    "x": -368,
+    "y": 572,
+    "definition": "rogue/07/13"
+  },
+  "rogue/07/14": {
+    "x": -340,
+    "y": 580,
+    "definition": "rogue/07/14"
+  },
+  "rogue/07/15": {
+    "x": -317,
+    "y": 597,
+    "definition": "rogue/07/15"
+  },
+  "rogue/07/16": {
+    "x": -302,
+    "y": 622,
+    "definition": "rogue/07/16"
+  },
+  "rogue/08/00": {
+    "x": -399,
+    "y": 579,
+    "definition": "rogue/08/00"
+  },
+  "rogue/08/01": {
+    "x": -404,
+    "y": 607,
+    "definition": "rogue/08/01"
+  },
+  "rogue/08/02": {
+    "x": -419,
+    "y": 632,
+    "definition": "rogue/08/02"
+  },
+  "rogue/08/03": {
+    "x": -442,
+    "y": 649,
+    "definition": "rogue/08/03"
+  },
+  "rogue/08/04": {
+    "x": -470,
+    "y": 657,
+    "definition": "rogue/08/04"
+  },
+  "rogue/08/05": {
+    "x": -498,
+    "y": 654,
+    "definition": "rogue/08/05"
+  },
+  "rogue/08/06": {
+    "x": -524,
+    "y": 641,
+    "definition": "rogue/08/06"
+  },
+  "rogue/08/07": {
+    "x": -543,
+    "y": 620,
+    "definition": "rogue/08/07"
+  },
+  "rogue/08/08": {
+    "x": -554,
+    "y": 593,
+    "definition": "rogue/08/08"
+  },
+  "rogue/08/09": {
+    "x": -554,
+    "y": 565,
+    "definition": "rogue/08/09"
+  },
+  "rogue/08/10": {
+    "x": -543,
+    "y": 538,
+    "definition": "rogue/08/10"
+  },
+  "rogue/08/11": {
+    "x": -524,
+    "y": 517,
+    "definition": "rogue/08/11"
+  },
+  "rogue/08/12": {
+    "x": -498,
+    "y": 504,
+    "definition": "rogue/08/12"
+  },
+  "rogue/08/13": {
+    "x": -470,
+    "y": 501,
+    "definition": "rogue/08/13"
+  },
+  "rogue/08/14": {
+    "x": -442,
+    "y": 509,
+    "definition": "rogue/08/14"
+  },
+  "rogue/08/15": {
+    "x": -419,
+    "y": 526,
+    "definition": "rogue/08/15"
+  },
+  "rogue/08/16": {
+    "x": -404,
+    "y": 551,
+    "definition": "rogue/08/16"
+  },
+  "rogue/09/00": {
+    "x": -487,
+    "y": 493,
+    "definition": "rogue/09/00"
+  },
+  "rogue/09/01": {
+    "x": -492,
+    "y": 521,
+    "definition": "rogue/09/01"
+  },
+  "rogue/09/02": {
+    "x": -507,
+    "y": 546,
+    "definition": "rogue/09/02"
+  },
+  "rogue/09/03": {
+    "x": -530,
+    "y": 563,
+    "definition": "rogue/09/03"
+  },
+  "rogue/09/04": {
+    "x": -558,
+    "y": 571,
+    "definition": "rogue/09/04"
+  },
+  "rogue/09/05": {
+    "x": -586,
+    "y": 568,
+    "definition": "rogue/09/05"
+  },
+  "rogue/09/06": {
+    "x": -612,
+    "y": 555,
+    "definition": "rogue/09/06"
+  },
+  "rogue/09/07": {
+    "x": -631,
+    "y": 534,
+    "definition": "rogue/09/07"
+  },
+  "rogue/09/08": {
+    "x": -642,
+    "y": 507,
+    "definition": "rogue/09/08"
+  },
+  "rogue/09/09": {
+    "x": -642,
+    "y": 479,
+    "definition": "rogue/09/09"
+  },
+  "rogue/09/10": {
+    "x": -631,
+    "y": 452,
+    "definition": "rogue/09/10"
+  },
+  "rogue/09/11": {
+    "x": -612,
+    "y": 431,
+    "definition": "rogue/09/11"
+  },
+  "rogue/09/12": {
+    "x": -586,
+    "y": 418,
+    "definition": "rogue/09/12"
+  },
+  "rogue/09/13": {
+    "x": -558,
+    "y": 415,
+    "definition": "rogue/09/13"
+  },
+  "rogue/09/14": {
+    "x": -530,
+    "y": 423,
+    "definition": "rogue/09/14"
+  },
+  "rogue/09/15": {
+    "x": -507,
+    "y": 440,
+    "definition": "rogue/09/15"
+  },
+  "rogue/09/16": {
+    "x": -492,
+    "y": 465,
+    "definition": "rogue/09/16"
+  },
+  "rogue/10/00": {
+    "x": -130,
+    "y": 1060,
+    "definition": "rogue/10/00"
+  },
+  "rogue/10/01": {
+    "x": -135,
+    "y": 1088,
+    "definition": "rogue/10/01"
+  },
+  "rogue/10/02": {
+    "x": -150,
+    "y": 1113,
+    "definition": "rogue/10/02"
+  },
+  "rogue/10/03": {
+    "x": -173,
+    "y": 1130,
+    "definition": "rogue/10/03"
+  },
+  "rogue/10/04": {
+    "x": -201,
+    "y": 1138,
+    "definition": "rogue/10/04"
+  },
+  "rogue/10/05": {
+    "x": -229,
+    "y": 1135,
+    "definition": "rogue/10/05"
+  },
+  "rogue/10/06": {
+    "x": -255,
+    "y": 1122,
+    "definition": "rogue/10/06"
+  },
+  "rogue/10/07": {
+    "x": -274,
+    "y": 1101,
+    "definition": "rogue/10/07"
+  },
+  "rogue/10/08": {
+    "x": -285,
+    "y": 1074,
+    "definition": "rogue/10/08"
+  },
+  "rogue/10/09": {
+    "x": -285,
+    "y": 1046,
+    "definition": "rogue/10/09"
+  },
+  "rogue/10/10": {
+    "x": -274,
+    "y": 1019,
+    "definition": "rogue/10/10"
+  },
+  "rogue/10/11": {
+    "x": -255,
+    "y": 998,
+    "definition": "rogue/10/11"
+  },
+  "rogue/10/12": {
+    "x": -229,
+    "y": 985,
+    "definition": "rogue/10/12"
+  },
+  "rogue/10/13": {
+    "x": -201,
+    "y": 982,
+    "definition": "rogue/10/13"
+  },
+  "rogue/10/14": {
+    "x": -173,
+    "y": 990,
+    "definition": "rogue/10/14"
+  },
+  "rogue/10/15": {
+    "x": -150,
+    "y": 1007,
+    "definition": "rogue/10/15"
+  },
+  "rogue/10/16": {
+    "x": -135,
+    "y": 1032,
+    "definition": "rogue/10/16"
+  },
+  "rogue/11/00": {
+    "x": -301,
+    "y": 1011,
+    "definition": "rogue/11/00"
+  },
+  "rogue/11/01": {
+    "x": -306,
+    "y": 1039,
+    "definition": "rogue/11/01"
+  },
+  "rogue/11/02": {
+    "x": -321,
+    "y": 1064,
+    "definition": "rogue/11/02"
+  },
+  "rogue/11/03": {
+    "x": -344,
+    "y": 1081,
+    "definition": "rogue/11/03"
+  },
+  "rogue/11/04": {
+    "x": -372,
+    "y": 1089,
+    "definition": "rogue/11/04"
+  },
+  "rogue/11/05": {
+    "x": -400,
+    "y": 1086,
+    "definition": "rogue/11/05"
+  },
+  "rogue/11/06": {
+    "x": -426,
+    "y": 1073,
+    "definition": "rogue/11/06"
+  },
+  "rogue/11/07": {
+    "x": -445,
+    "y": 1052,
+    "definition": "rogue/11/07"
+  },
+  "rogue/11/08": {
+    "x": -456,
+    "y": 1025,
+    "definition": "rogue/11/08"
+  },
+  "rogue/11/09": {
+    "x": -456,
+    "y": 997,
+    "definition": "rogue/11/09"
+  },
+  "rogue/11/10": {
+    "x": -445,
+    "y": 970,
+    "definition": "rogue/11/10"
+  },
+  "rogue/11/11": {
+    "x": -426,
+    "y": 949,
+    "definition": "rogue/11/11"
+  },
+  "rogue/11/12": {
+    "x": -400,
+    "y": 936,
+    "definition": "rogue/11/12"
+  },
+  "rogue/11/13": {
+    "x": -372,
+    "y": 933,
+    "definition": "rogue/11/13"
+  },
+  "rogue/11/14": {
+    "x": -344,
+    "y": 941,
+    "definition": "rogue/11/14"
+  },
+  "rogue/11/15": {
+    "x": -321,
+    "y": 958,
+    "definition": "rogue/11/15"
+  },
+  "rogue/11/16": {
+    "x": -306,
+    "y": 983,
+    "definition": "rogue/11/16"
+  },
+  "rogue/12/00": {
+    "x": -462,
+    "y": 935,
+    "definition": "rogue/12/00"
+  },
+  "rogue/12/01": {
+    "x": -467,
+    "y": 963,
+    "definition": "rogue/12/01"
+  },
+  "rogue/12/02": {
+    "x": -482,
+    "y": 988,
+    "definition": "rogue/12/02"
+  },
+  "rogue/12/03": {
+    "x": -505,
+    "y": 1005,
+    "definition": "rogue/12/03"
+  },
+  "rogue/12/04": {
+    "x": -533,
+    "y": 1013,
+    "definition": "rogue/12/04"
+  },
+  "rogue/12/05": {
+    "x": -561,
+    "y": 1010,
+    "definition": "rogue/12/05"
+  },
+  "rogue/12/06": {
+    "x": -587,
+    "y": 997,
+    "definition": "rogue/12/06"
+  },
+  "rogue/12/07": {
+    "x": -606,
+    "y": 976,
+    "definition": "rogue/12/07"
+  },
+  "rogue/12/08": {
+    "x": -617,
+    "y": 949,
+    "definition": "rogue/12/08"
+  },
+  "rogue/12/09": {
+    "x": -617,
+    "y": 921,
+    "definition": "rogue/12/09"
+  },
+  "rogue/12/10": {
+    "x": -606,
+    "y": 894,
+    "definition": "rogue/12/10"
+  },
+  "rogue/12/11": {
+    "x": -587,
+    "y": 873,
+    "definition": "rogue/12/11"
+  },
+  "rogue/12/12": {
+    "x": -561,
+    "y": 860,
+    "definition": "rogue/12/12"
+  },
+  "rogue/12/13": {
+    "x": -533,
+    "y": 857,
+    "definition": "rogue/12/13"
+  },
+  "rogue/12/14": {
+    "x": -505,
+    "y": 865,
+    "definition": "rogue/12/14"
+  },
+  "rogue/12/15": {
+    "x": -482,
+    "y": 882,
+    "definition": "rogue/12/15"
+  },
+  "rogue/12/16": {
+    "x": -467,
+    "y": 907,
+    "definition": "rogue/12/16"
+  },
+  "rogue/13/00": {
+    "x": -608,
+    "y": 834,
+    "definition": "rogue/13/00"
+  },
+  "rogue/13/01": {
+    "x": -613,
+    "y": 862,
+    "definition": "rogue/13/01"
+  },
+  "rogue/13/02": {
+    "x": -628,
+    "y": 887,
+    "definition": "rogue/13/02"
+  },
+  "rogue/13/03": {
+    "x": -651,
+    "y": 904,
+    "definition": "rogue/13/03"
+  },
+  "rogue/13/04": {
+    "x": -679,
+    "y": 912,
+    "definition": "rogue/13/04"
+  },
+  "rogue/13/05": {
+    "x": -707,
+    "y": 909,
+    "definition": "rogue/13/05"
+  },
+  "rogue/13/06": {
+    "x": -733,
+    "y": 896,
+    "definition": "rogue/13/06"
+  },
+  "rogue/13/07": {
+    "x": -752,
+    "y": 875,
+    "definition": "rogue/13/07"
+  },
+  "rogue/13/08": {
+    "x": -763,
+    "y": 848,
+    "definition": "rogue/13/08"
+  },
+  "rogue/13/09": {
+    "x": -763,
+    "y": 820,
+    "definition": "rogue/13/09"
+  },
+  "rogue/13/10": {
+    "x": -752,
+    "y": 793,
+    "definition": "rogue/13/10"
+  },
+  "rogue/13/11": {
+    "x": -733,
+    "y": 772,
+    "definition": "rogue/13/11"
+  },
+  "rogue/13/12": {
+    "x": -707,
+    "y": 759,
+    "definition": "rogue/13/12"
+  },
+  "rogue/13/13": {
+    "x": -679,
+    "y": 756,
+    "definition": "rogue/13/13"
+  },
+  "rogue/13/14": {
+    "x": -651,
+    "y": 764,
+    "definition": "rogue/13/14"
+  },
+  "rogue/13/15": {
+    "x": -628,
+    "y": 781,
+    "definition": "rogue/13/15"
+  },
+  "rogue/13/16": {
+    "x": -613,
+    "y": 806,
+    "definition": "rogue/13/16"
+  },
+  "rogue/14/00": {
+    "x": -736,
+    "y": 710,
+    "definition": "rogue/14/00"
+  },
+  "rogue/14/01": {
+    "x": -741,
+    "y": 738,
+    "definition": "rogue/14/01"
+  },
+  "rogue/14/02": {
+    "x": -756,
+    "y": 763,
+    "definition": "rogue/14/02"
+  },
+  "rogue/14/03": {
+    "x": -779,
+    "y": 780,
+    "definition": "rogue/14/03"
+  },
+  "rogue/14/04": {
+    "x": -807,
+    "y": 788,
+    "definition": "rogue/14/04"
+  },
+  "rogue/14/05": {
+    "x": -835,
+    "y": 785,
+    "definition": "rogue/14/05"
+  },
+  "rogue/14/06": {
+    "x": -861,
+    "y": 772,
+    "definition": "rogue/14/06"
+  },
+  "rogue/14/07": {
+    "x": -880,
+    "y": 751,
+    "definition": "rogue/14/07"
+  },
+  "rogue/14/08": {
+    "x": -891,
+    "y": 724,
+    "definition": "rogue/14/08"
+  },
+  "rogue/14/09": {
+    "x": -891,
+    "y": 696,
+    "definition": "rogue/14/09"
+  },
+  "rogue/14/10": {
+    "x": -880,
+    "y": 669,
+    "definition": "rogue/14/10"
+  },
+  "rogue/14/11": {
+    "x": -861,
+    "y": 648,
+    "definition": "rogue/14/11"
+  },
+  "rogue/14/12": {
+    "x": -835,
+    "y": 635,
+    "definition": "rogue/14/12"
+  },
+  "rogue/14/13": {
+    "x": -807,
+    "y": 632,
+    "definition": "rogue/14/13"
+  },
+  "rogue/14/14": {
+    "x": -779,
+    "y": 640,
+    "definition": "rogue/14/14"
+  },
+  "rogue/14/15": {
+    "x": -756,
+    "y": 657,
+    "definition": "rogue/14/15"
+  },
+  "rogue/14/16": {
+    "x": -741,
+    "y": 682,
+    "definition": "rogue/14/16"
+  },
+  "keystone/toxic_wounds": {
+    "x": -191,
+    "y": 1367,
+    "definition": "keystone/toxic_wounds"
+  },
+  "keystone/venomous_precision": {
+    "x": -322,
+    "y": 1470,
+    "definition": "keystone/venomous_precision"
+  },
+  "keystone/frozen_blood": {
+    "x": -398,
+    "y": 1321,
+    "definition": "keystone/frozen_blood"
+  },
+  "keystone/shield_scholar": {
+    "x": -544,
+    "y": 1403,
+    "definition": "keystone/shield_scholar"
+  },
+  "keystone/bastion_strike": {
+    "x": -596,
+    "y": 1245,
+    "definition": "keystone/bastion_strike"
+  },
+  "keystone/twin_fangs": {
+    "x": -752,
+    "y": 1303,
+    "definition": "keystone/twin_fangs"
+  },
+  "keystone/momentum": {
+    "x": -780,
+    "y": 1138,
+    "definition": "keystone/momentum"
+  },
+  "keystone/mobile_incantation": {
+    "x": -944,
+    "y": 1173,
+    "definition": "keystone/mobile_incantation"
+  },
+  "keystone/arcane_impact": {
+    "x": -945,
+    "y": 1005,
+    "definition": "keystone/arcane_impact"
+  },
+  "keystone/infernal_execution": {
+    "x": -1112,
+    "y": 1014,
+    "definition": "keystone/infernal_execution"
+  },
+  "keystone/arcane_bulwark": {
+    "x": -1088,
+    "y": 848,
+    "definition": "keystone/arcane_bulwark"
+  },
+  "arcanist_start": {
+    "x": -240,
+    "y": 0,
+    "definition": "arcanist_start",
+    "root": true
+  },
+  "arcanist/00/00": {
+    "x": -319,
+    "y": 136,
+    "definition": "arcanist/00/00"
+  },
+  "arcanist/00/01": {
+    "x": -324,
+    "y": 164,
+    "definition": "arcanist/00/01"
+  },
+  "arcanist/00/02": {
+    "x": -339,
+    "y": 189,
+    "definition": "arcanist/00/02"
+  },
+  "arcanist/00/03": {
+    "x": -362,
+    "y": 206,
+    "definition": "arcanist/00/03"
+  },
+  "arcanist/00/04": {
+    "x": -390,
+    "y": 214,
+    "definition": "arcanist/00/04"
+  },
+  "arcanist/00/05": {
+    "x": -418,
+    "y": 211,
+    "definition": "arcanist/00/05"
+  },
+  "arcanist/00/06": {
+    "x": -444,
+    "y": 198,
+    "definition": "arcanist/00/06"
+  },
+  "arcanist/00/07": {
+    "x": -463,
+    "y": 177,
+    "definition": "arcanist/00/07"
+  },
+  "arcanist/00/08": {
+    "x": -474,
+    "y": 150,
+    "definition": "arcanist/00/08"
+  },
+  "arcanist/00/09": {
+    "x": -474,
+    "y": 122,
+    "definition": "arcanist/00/09"
+  },
+  "arcanist/00/10": {
+    "x": -463,
+    "y": 95,
+    "definition": "arcanist/00/10"
+  },
+  "arcanist/00/11": {
+    "x": -444,
+    "y": 74,
+    "definition": "arcanist/00/11"
+  },
+  "arcanist/00/12": {
+    "x": -418,
+    "y": 61,
+    "definition": "arcanist/00/12"
+  },
+  "arcanist/00/13": {
+    "x": -390,
+    "y": 58,
+    "definition": "arcanist/00/13"
+  },
+  "arcanist/00/14": {
+    "x": -362,
+    "y": 66,
+    "definition": "arcanist/00/14"
+  },
+  "arcanist/00/15": {
+    "x": -339,
+    "y": 83,
+    "definition": "arcanist/00/15"
+  },
+  "arcanist/00/16": {
+    "x": -324,
+    "y": 108,
+    "definition": "arcanist/00/16"
+  },
+  "arcanist/01/00": {
+    "x": -336,
+    "y": 69,
+    "definition": "arcanist/01/00"
+  },
+  "arcanist/01/01": {
+    "x": -341,
+    "y": 97,
+    "definition": "arcanist/01/01"
+  },
+  "arcanist/01/02": {
+    "x": -356,
+    "y": 122,
+    "definition": "arcanist/01/02"
+  },
+  "arcanist/01/03": {
+    "x": -379,
+    "y": 139,
+    "definition": "arcanist/01/03"
+  },
+  "arcanist/01/04": {
+    "x": -407,
+    "y": 147,
+    "definition": "arcanist/01/04"
+  },
+  "arcanist/01/05": {
+    "x": -435,
+    "y": 144,
+    "definition": "arcanist/01/05"
+  },
+  "arcanist/01/06": {
+    "x": -461,
+    "y": 131,
+    "definition": "arcanist/01/06"
+  },
+  "arcanist/01/07": {
+    "x": -480,
+    "y": 110,
+    "definition": "arcanist/01/07"
+  },
+  "arcanist/01/08": {
+    "x": -491,
+    "y": 83,
+    "definition": "arcanist/01/08"
+  },
+  "arcanist/01/09": {
+    "x": -491,
+    "y": 55,
+    "definition": "arcanist/01/09"
+  },
+  "arcanist/01/10": {
+    "x": -480,
+    "y": 28,
+    "definition": "arcanist/01/10"
+  },
+  "arcanist/01/11": {
+    "x": -461,
+    "y": 7,
+    "definition": "arcanist/01/11"
+  },
+  "arcanist/01/12": {
+    "x": -435,
+    "y": -6,
+    "definition": "arcanist/01/12"
+  },
+  "arcanist/01/13": {
+    "x": -407,
+    "y": -9,
+    "definition": "arcanist/01/13"
+  },
+  "arcanist/01/14": {
+    "x": -379,
+    "y": -1,
+    "definition": "arcanist/01/14"
+  },
+  "arcanist/01/15": {
+    "x": -356,
+    "y": 16,
+    "definition": "arcanist/01/15"
+  },
+  "arcanist/01/16": {
+    "x": -341,
+    "y": 41,
+    "definition": "arcanist/01/16"
+  },
+  "arcanist/02/00": {
+    "x": -342,
+    "y": 0,
+    "definition": "arcanist/02/00"
+  },
+  "arcanist/02/01": {
+    "x": -347,
+    "y": 28,
+    "definition": "arcanist/02/01"
+  },
+  "arcanist/02/02": {
+    "x": -362,
+    "y": 53,
+    "definition": "arcanist/02/02"
+  },
+  "arcanist/02/03": {
+    "x": -385,
+    "y": 70,
+    "definition": "arcanist/02/03"
+  },
+  "arcanist/02/04": {
+    "x": -413,
+    "y": 78,
+    "definition": "arcanist/02/04"
+  },
+  "arcanist/02/05": {
+    "x": -441,
+    "y": 75,
+    "definition": "arcanist/02/05"
+  },
+  "arcanist/02/06": {
+    "x": -467,
+    "y": 62,
+    "definition": "arcanist/02/06"
+  },
+  "arcanist/02/07": {
+    "x": -486,
+    "y": 41,
+    "definition": "arcanist/02/07"
+  },
+  "arcanist/02/08": {
+    "x": -497,
+    "y": 14,
+    "definition": "arcanist/02/08"
+  },
+  "arcanist/02/09": {
+    "x": -497,
+    "y": -14,
+    "definition": "arcanist/02/09"
+  },
+  "arcanist/02/10": {
+    "x": -486,
+    "y": -41,
+    "definition": "arcanist/02/10"
+  },
+  "arcanist/02/11": {
+    "x": -467,
+    "y": -62,
+    "definition": "arcanist/02/11"
+  },
+  "arcanist/02/12": {
+    "x": -441,
+    "y": -75,
+    "definition": "arcanist/02/12"
+  },
+  "arcanist/02/13": {
+    "x": -413,
+    "y": -78,
+    "definition": "arcanist/02/13"
+  },
+  "arcanist/02/14": {
+    "x": -385,
+    "y": -70,
+    "definition": "arcanist/02/14"
+  },
+  "arcanist/02/15": {
+    "x": -362,
+    "y": -53,
+    "definition": "arcanist/02/15"
+  },
+  "arcanist/02/16": {
+    "x": -347,
+    "y": -28,
+    "definition": "arcanist/02/16"
+  },
+  "arcanist/03/00": {
+    "x": -336,
+    "y": -69,
+    "definition": "arcanist/03/00"
+  },
+  "arcanist/03/01": {
+    "x": -341,
+    "y": -41,
+    "definition": "arcanist/03/01"
+  },
+  "arcanist/03/02": {
+    "x": -356,
+    "y": -16,
+    "definition": "arcanist/03/02"
+  },
+  "arcanist/03/03": {
+    "x": -379,
+    "y": 1,
+    "definition": "arcanist/03/03"
+  },
+  "arcanist/03/04": {
+    "x": -407,
+    "y": 9,
+    "definition": "arcanist/03/04"
+  },
+  "arcanist/03/05": {
+    "x": -435,
+    "y": 6,
+    "definition": "arcanist/03/05"
+  },
+  "arcanist/03/06": {
+    "x": -461,
+    "y": -7,
+    "definition": "arcanist/03/06"
+  },
+  "arcanist/03/07": {
+    "x": -480,
+    "y": -28,
+    "definition": "arcanist/03/07"
+  },
+  "arcanist/03/08": {
+    "x": -491,
+    "y": -55,
+    "definition": "arcanist/03/08"
+  },
+  "arcanist/03/09": {
+    "x": -491,
+    "y": -83,
+    "definition": "arcanist/03/09"
+  },
+  "arcanist/03/10": {
+    "x": -480,
+    "y": -110,
+    "definition": "arcanist/03/10"
+  },
+  "arcanist/03/11": {
+    "x": -461,
+    "y": -131,
+    "definition": "arcanist/03/11"
+  },
+  "arcanist/03/12": {
+    "x": -435,
+    "y": -144,
+    "definition": "arcanist/03/12"
+  },
+  "arcanist/03/13": {
+    "x": -407,
+    "y": -147,
+    "definition": "arcanist/03/13"
+  },
+  "arcanist/03/14": {
+    "x": -379,
+    "y": -139,
+    "definition": "arcanist/03/14"
+  },
+  "arcanist/03/15": {
+    "x": -356,
+    "y": -122,
+    "definition": "arcanist/03/15"
+  },
+  "arcanist/03/16": {
+    "x": -341,
+    "y": -97,
+    "definition": "arcanist/03/16"
+  },
+  "arcanist/04/00": {
+    "x": -319,
+    "y": -136,
+    "definition": "arcanist/04/00"
+  },
+  "arcanist/04/01": {
+    "x": -324,
+    "y": -108,
+    "definition": "arcanist/04/01"
+  },
+  "arcanist/04/02": {
+    "x": -339,
+    "y": -83,
+    "definition": "arcanist/04/02"
+  },
+  "arcanist/04/03": {
+    "x": -362,
+    "y": -66,
+    "definition": "arcanist/04/03"
+  },
+  "arcanist/04/04": {
+    "x": -390,
+    "y": -58,
+    "definition": "arcanist/04/04"
+  },
+  "arcanist/04/05": {
+    "x": -418,
+    "y": -61,
+    "definition": "arcanist/04/05"
+  },
+  "arcanist/04/06": {
+    "x": -444,
+    "y": -74,
+    "definition": "arcanist/04/06"
+  },
+  "arcanist/04/07": {
+    "x": -463,
+    "y": -95,
+    "definition": "arcanist/04/07"
+  },
+  "arcanist/04/08": {
+    "x": -474,
+    "y": -122,
+    "definition": "arcanist/04/08"
+  },
+  "arcanist/04/09": {
+    "x": -474,
+    "y": -150,
+    "definition": "arcanist/04/09"
+  },
+  "arcanist/04/10": {
+    "x": -463,
+    "y": -177,
+    "definition": "arcanist/04/10"
+  },
+  "arcanist/04/11": {
+    "x": -444,
+    "y": -198,
+    "definition": "arcanist/04/11"
+  },
+  "arcanist/04/12": {
+    "x": -418,
+    "y": -211,
+    "definition": "arcanist/04/12"
+  },
+  "arcanist/04/13": {
+    "x": -390,
+    "y": -214,
+    "definition": "arcanist/04/13"
+  },
+  "arcanist/04/14": {
+    "x": -362,
+    "y": -206,
+    "definition": "arcanist/04/14"
+  },
+  "arcanist/04/15": {
+    "x": -339,
+    "y": -189,
+    "definition": "arcanist/04/15"
+  },
+  "arcanist/04/16": {
+    "x": -324,
+    "y": -164,
+    "definition": "arcanist/04/16"
+  },
+  "arcanist/05/00": {
+    "x": -632,
+    "y": 243,
+    "definition": "arcanist/05/00"
+  },
+  "arcanist/05/01": {
+    "x": -637,
+    "y": 271,
+    "definition": "arcanist/05/01"
+  },
+  "arcanist/05/02": {
+    "x": -652,
+    "y": 296,
+    "definition": "arcanist/05/02"
+  },
+  "arcanist/05/03": {
+    "x": -675,
+    "y": 313,
+    "definition": "arcanist/05/03"
+  },
+  "arcanist/05/04": {
+    "x": -703,
+    "y": 321,
+    "definition": "arcanist/05/04"
+  },
+  "arcanist/05/05": {
+    "x": -731,
+    "y": 318,
+    "definition": "arcanist/05/05"
+  },
+  "arcanist/05/06": {
+    "x": -757,
+    "y": 305,
+    "definition": "arcanist/05/06"
+  },
+  "arcanist/05/07": {
+    "x": -776,
+    "y": 284,
+    "definition": "arcanist/05/07"
+  },
+  "arcanist/05/08": {
+    "x": -787,
+    "y": 257,
+    "definition": "arcanist/05/08"
+  },
+  "arcanist/05/09": {
+    "x": -787,
+    "y": 229,
+    "definition": "arcanist/05/09"
+  },
+  "arcanist/05/10": {
+    "x": -776,
+    "y": 202,
+    "definition": "arcanist/05/10"
+  },
+  "arcanist/05/11": {
+    "x": -757,
+    "y": 181,
+    "definition": "arcanist/05/11"
+  },
+  "arcanist/05/12": {
+    "x": -731,
+    "y": 168,
+    "definition": "arcanist/05/12"
+  },
+  "arcanist/05/13": {
+    "x": -703,
+    "y": 165,
+    "definition": "arcanist/05/13"
+  },
+  "arcanist/05/14": {
+    "x": -675,
+    "y": 173,
+    "definition": "arcanist/05/14"
+  },
+  "arcanist/05/15": {
+    "x": -652,
+    "y": 190,
+    "definition": "arcanist/05/15"
+  },
+  "arcanist/05/16": {
+    "x": -637,
+    "y": 215,
+    "definition": "arcanist/05/16"
+  },
+  "arcanist/06/00": {
+    "x": -662,
+    "y": 123,
+    "definition": "arcanist/06/00"
+  },
+  "arcanist/06/01": {
+    "x": -667,
+    "y": 151,
+    "definition": "arcanist/06/01"
+  },
+  "arcanist/06/02": {
+    "x": -682,
+    "y": 176,
+    "definition": "arcanist/06/02"
+  },
+  "arcanist/06/03": {
+    "x": -705,
+    "y": 193,
+    "definition": "arcanist/06/03"
+  },
+  "arcanist/06/04": {
+    "x": -733,
+    "y": 201,
+    "definition": "arcanist/06/04"
+  },
+  "arcanist/06/05": {
+    "x": -761,
+    "y": 198,
+    "definition": "arcanist/06/05"
+  },
+  "arcanist/06/06": {
+    "x": -787,
+    "y": 185,
+    "definition": "arcanist/06/06"
+  },
+  "arcanist/06/07": {
+    "x": -806,
+    "y": 164,
+    "definition": "arcanist/06/07"
+  },
+  "arcanist/06/08": {
+    "x": -817,
+    "y": 137,
+    "definition": "arcanist/06/08"
+  },
+  "arcanist/06/09": {
+    "x": -817,
+    "y": 109,
+    "definition": "arcanist/06/09"
+  },
+  "arcanist/06/10": {
+    "x": -806,
+    "y": 82,
+    "definition": "arcanist/06/10"
+  },
+  "arcanist/06/11": {
+    "x": -787,
+    "y": 61,
+    "definition": "arcanist/06/11"
+  },
+  "arcanist/06/12": {
+    "x": -761,
+    "y": 48,
+    "definition": "arcanist/06/12"
+  },
+  "arcanist/06/13": {
+    "x": -733,
+    "y": 45,
+    "definition": "arcanist/06/13"
+  },
+  "arcanist/06/14": {
+    "x": -705,
+    "y": 53,
+    "definition": "arcanist/06/14"
+  },
+  "arcanist/06/15": {
+    "x": -682,
+    "y": 70,
+    "definition": "arcanist/06/15"
+  },
+  "arcanist/06/16": {
+    "x": -667,
+    "y": 95,
+    "definition": "arcanist/06/16"
+  },
+  "arcanist/07/00": {
+    "x": -672,
+    "y": 0,
+    "definition": "arcanist/07/00"
+  },
+  "arcanist/07/01": {
+    "x": -677,
+    "y": 28,
+    "definition": "arcanist/07/01"
+  },
+  "arcanist/07/02": {
+    "x": -692,
+    "y": 53,
+    "definition": "arcanist/07/02"
+  },
+  "arcanist/07/03": {
+    "x": -715,
+    "y": 70,
+    "definition": "arcanist/07/03"
+  },
+  "arcanist/07/04": {
+    "x": -743,
+    "y": 78,
+    "definition": "arcanist/07/04"
+  },
+  "arcanist/07/05": {
+    "x": -771,
+    "y": 75,
+    "definition": "arcanist/07/05"
+  },
+  "arcanist/07/06": {
+    "x": -797,
+    "y": 62,
+    "definition": "arcanist/07/06"
+  },
+  "arcanist/07/07": {
+    "x": -816,
+    "y": 41,
+    "definition": "arcanist/07/07"
+  },
+  "arcanist/07/08": {
+    "x": -827,
+    "y": 14,
+    "definition": "arcanist/07/08"
+  },
+  "arcanist/07/09": {
+    "x": -827,
+    "y": -14,
+    "definition": "arcanist/07/09"
+  },
+  "arcanist/07/10": {
+    "x": -816,
+    "y": -41,
+    "definition": "arcanist/07/10"
+  },
+  "arcanist/07/11": {
+    "x": -797,
+    "y": -62,
+    "definition": "arcanist/07/11"
+  },
+  "arcanist/07/12": {
+    "x": -771,
+    "y": -75,
+    "definition": "arcanist/07/12"
+  },
+  "arcanist/07/13": {
+    "x": -743,
+    "y": -78,
+    "definition": "arcanist/07/13"
+  },
+  "arcanist/07/14": {
+    "x": -715,
+    "y": -70,
+    "definition": "arcanist/07/14"
+  },
+  "arcanist/07/15": {
+    "x": -692,
+    "y": -53,
+    "definition": "arcanist/07/15"
+  },
+  "arcanist/07/16": {
+    "x": -677,
+    "y": -28,
+    "definition": "arcanist/07/16"
+  },
+  "arcanist/08/00": {
+    "x": -662,
+    "y": -123,
+    "definition": "arcanist/08/00"
+  },
+  "arcanist/08/01": {
+    "x": -667,
+    "y": -95,
+    "definition": "arcanist/08/01"
+  },
+  "arcanist/08/02": {
+    "x": -682,
+    "y": -70,
+    "definition": "arcanist/08/02"
+  },
+  "arcanist/08/03": {
+    "x": -705,
+    "y": -53,
+    "definition": "arcanist/08/03"
+  },
+  "arcanist/08/04": {
+    "x": -733,
+    "y": -45,
+    "definition": "arcanist/08/04"
+  },
+  "arcanist/08/05": {
+    "x": -761,
+    "y": -48,
+    "definition": "arcanist/08/05"
+  },
+  "arcanist/08/06": {
+    "x": -787,
+    "y": -61,
+    "definition": "arcanist/08/06"
+  },
+  "arcanist/08/07": {
+    "x": -806,
+    "y": -82,
+    "definition": "arcanist/08/07"
+  },
+  "arcanist/08/08": {
+    "x": -817,
+    "y": -109,
+    "definition": "arcanist/08/08"
+  },
+  "arcanist/08/09": {
+    "x": -817,
+    "y": -137,
+    "definition": "arcanist/08/09"
+  },
+  "arcanist/08/10": {
+    "x": -806,
+    "y": -164,
+    "definition": "arcanist/08/10"
+  },
+  "arcanist/08/11": {
+    "x": -787,
+    "y": -185,
+    "definition": "arcanist/08/11"
+  },
+  "arcanist/08/12": {
+    "x": -761,
+    "y": -198,
+    "definition": "arcanist/08/12"
+  },
+  "arcanist/08/13": {
+    "x": -733,
+    "y": -201,
+    "definition": "arcanist/08/13"
+  },
+  "arcanist/08/14": {
+    "x": -705,
+    "y": -193,
+    "definition": "arcanist/08/14"
+  },
+  "arcanist/08/15": {
+    "x": -682,
+    "y": -176,
+    "definition": "arcanist/08/15"
+  },
+  "arcanist/08/16": {
+    "x": -667,
+    "y": -151,
+    "definition": "arcanist/08/16"
+  },
+  "arcanist/09/00": {
+    "x": -632,
+    "y": -243,
+    "definition": "arcanist/09/00"
+  },
+  "arcanist/09/01": {
+    "x": -637,
+    "y": -215,
+    "definition": "arcanist/09/01"
+  },
+  "arcanist/09/02": {
+    "x": -652,
+    "y": -190,
+    "definition": "arcanist/09/02"
+  },
+  "arcanist/09/03": {
+    "x": -675,
+    "y": -173,
+    "definition": "arcanist/09/03"
+  },
+  "arcanist/09/04": {
+    "x": -703,
+    "y": -165,
+    "definition": "arcanist/09/04"
+  },
+  "arcanist/09/05": {
+    "x": -731,
+    "y": -168,
+    "definition": "arcanist/09/05"
+  },
+  "arcanist/09/06": {
+    "x": -757,
+    "y": -181,
+    "definition": "arcanist/09/06"
+  },
+  "arcanist/09/07": {
+    "x": -776,
+    "y": -202,
+    "definition": "arcanist/09/07"
+  },
+  "arcanist/09/08": {
+    "x": -787,
+    "y": -229,
+    "definition": "arcanist/09/08"
+  },
+  "arcanist/09/09": {
+    "x": -787,
+    "y": -257,
+    "definition": "arcanist/09/09"
+  },
+  "arcanist/09/10": {
+    "x": -776,
+    "y": -284,
+    "definition": "arcanist/09/10"
+  },
+  "arcanist/09/11": {
+    "x": -757,
+    "y": -305,
+    "definition": "arcanist/09/11"
+  },
+  "arcanist/09/12": {
+    "x": -731,
+    "y": -318,
+    "definition": "arcanist/09/12"
+  },
+  "arcanist/09/13": {
+    "x": -703,
+    "y": -321,
+    "definition": "arcanist/09/13"
+  },
+  "arcanist/09/14": {
+    "x": -675,
+    "y": -313,
+    "definition": "arcanist/09/14"
+  },
+  "arcanist/09/15": {
+    "x": -652,
+    "y": -296,
+    "definition": "arcanist/09/15"
+  },
+  "arcanist/09/16": {
+    "x": -637,
+    "y": -271,
+    "definition": "arcanist/09/16"
+  },
+  "arcanist/10/00": {
+    "x": -944,
+    "y": 350,
+    "definition": "arcanist/10/00"
+  },
+  "arcanist/10/01": {
+    "x": -949,
+    "y": 378,
+    "definition": "arcanist/10/01"
+  },
+  "arcanist/10/02": {
+    "x": -964,
+    "y": 403,
+    "definition": "arcanist/10/02"
+  },
+  "arcanist/10/03": {
+    "x": -987,
+    "y": 420,
+    "definition": "arcanist/10/03"
+  },
+  "arcanist/10/04": {
+    "x": -1015,
+    "y": 428,
+    "definition": "arcanist/10/04"
+  },
+  "arcanist/10/05": {
+    "x": -1043,
+    "y": 425,
+    "definition": "arcanist/10/05"
+  },
+  "arcanist/10/06": {
+    "x": -1069,
+    "y": 412,
+    "definition": "arcanist/10/06"
+  },
+  "arcanist/10/07": {
+    "x": -1088,
+    "y": 391,
+    "definition": "arcanist/10/07"
+  },
+  "arcanist/10/08": {
+    "x": -1099,
+    "y": 364,
+    "definition": "arcanist/10/08"
+  },
+  "arcanist/10/09": {
+    "x": -1099,
+    "y": 336,
+    "definition": "arcanist/10/09"
+  },
+  "arcanist/10/10": {
+    "x": -1088,
+    "y": 309,
+    "definition": "arcanist/10/10"
+  },
+  "arcanist/10/11": {
+    "x": -1069,
+    "y": 288,
+    "definition": "arcanist/10/11"
+  },
+  "arcanist/10/12": {
+    "x": -1043,
+    "y": 275,
+    "definition": "arcanist/10/12"
+  },
+  "arcanist/10/13": {
+    "x": -1015,
+    "y": 272,
+    "definition": "arcanist/10/13"
+  },
+  "arcanist/10/14": {
+    "x": -987,
+    "y": 280,
+    "definition": "arcanist/10/14"
+  },
+  "arcanist/10/15": {
+    "x": -964,
+    "y": 297,
+    "definition": "arcanist/10/15"
+  },
+  "arcanist/10/16": {
+    "x": -949,
+    "y": 322,
+    "definition": "arcanist/10/16"
+  },
+  "arcanist/11/00": {
+    "x": -987,
+    "y": 177,
+    "definition": "arcanist/11/00"
+  },
+  "arcanist/11/01": {
+    "x": -992,
+    "y": 205,
+    "definition": "arcanist/11/01"
+  },
+  "arcanist/11/02": {
+    "x": -1007,
+    "y": 230,
+    "definition": "arcanist/11/02"
+  },
+  "arcanist/11/03": {
+    "x": -1030,
+    "y": 247,
+    "definition": "arcanist/11/03"
+  },
+  "arcanist/11/04": {
+    "x": -1058,
+    "y": 255,
+    "definition": "arcanist/11/04"
+  },
+  "arcanist/11/05": {
+    "x": -1086,
+    "y": 252,
+    "definition": "arcanist/11/05"
+  },
+  "arcanist/11/06": {
+    "x": -1112,
+    "y": 239,
+    "definition": "arcanist/11/06"
+  },
+  "arcanist/11/07": {
+    "x": -1131,
+    "y": 218,
+    "definition": "arcanist/11/07"
+  },
+  "arcanist/11/08": {
+    "x": -1142,
+    "y": 191,
+    "definition": "arcanist/11/08"
+  },
+  "arcanist/11/09": {
+    "x": -1142,
+    "y": 163,
+    "definition": "arcanist/11/09"
+  },
+  "arcanist/11/10": {
+    "x": -1131,
+    "y": 136,
+    "definition": "arcanist/11/10"
+  },
+  "arcanist/11/11": {
+    "x": -1112,
+    "y": 115,
+    "definition": "arcanist/11/11"
+  },
+  "arcanist/11/12": {
+    "x": -1086,
+    "y": 102,
+    "definition": "arcanist/11/12"
+  },
+  "arcanist/11/13": {
+    "x": -1058,
+    "y": 99,
+    "definition": "arcanist/11/13"
+  },
+  "arcanist/11/14": {
+    "x": -1030,
+    "y": 107,
+    "definition": "arcanist/11/14"
+  },
+  "arcanist/11/15": {
+    "x": -1007,
+    "y": 124,
+    "definition": "arcanist/11/15"
+  },
+  "arcanist/11/16": {
+    "x": -992,
+    "y": 149,
+    "definition": "arcanist/11/16"
+  },
+  "arcanist/12/00": {
+    "x": -1002,
+    "y": 0,
+    "definition": "arcanist/12/00"
+  },
+  "arcanist/12/01": {
+    "x": -1007,
+    "y": 28,
+    "definition": "arcanist/12/01"
+  },
+  "arcanist/12/02": {
+    "x": -1022,
+    "y": 53,
+    "definition": "arcanist/12/02"
+  },
+  "arcanist/12/03": {
+    "x": -1045,
+    "y": 70,
+    "definition": "arcanist/12/03"
+  },
+  "arcanist/12/04": {
+    "x": -1073,
+    "y": 78,
+    "definition": "arcanist/12/04"
+  },
+  "arcanist/12/05": {
+    "x": -1101,
+    "y": 75,
+    "definition": "arcanist/12/05"
+  },
+  "arcanist/12/06": {
+    "x": -1127,
+    "y": 62,
+    "definition": "arcanist/12/06"
+  },
+  "arcanist/12/07": {
+    "x": -1146,
+    "y": 41,
+    "definition": "arcanist/12/07"
+  },
+  "arcanist/12/08": {
+    "x": -1157,
+    "y": 14,
+    "definition": "arcanist/12/08"
+  },
+  "arcanist/12/09": {
+    "x": -1157,
+    "y": -14,
+    "definition": "arcanist/12/09"
+  },
+  "arcanist/12/10": {
+    "x": -1146,
+    "y": -41,
+    "definition": "arcanist/12/10"
+  },
+  "arcanist/12/11": {
+    "x": -1127,
+    "y": -62,
+    "definition": "arcanist/12/11"
+  },
+  "arcanist/12/12": {
+    "x": -1101,
+    "y": -75,
+    "definition": "arcanist/12/12"
+  },
+  "arcanist/12/13": {
+    "x": -1073,
+    "y": -78,
+    "definition": "arcanist/12/13"
+  },
+  "arcanist/12/14": {
+    "x": -1045,
+    "y": -70,
+    "definition": "arcanist/12/14"
+  },
+  "arcanist/12/15": {
+    "x": -1022,
+    "y": -53,
+    "definition": "arcanist/12/15"
+  },
+  "arcanist/12/16": {
+    "x": -1007,
+    "y": -28,
+    "definition": "arcanist/12/16"
+  },
+  "arcanist/13/00": {
+    "x": -987,
+    "y": -177,
+    "definition": "arcanist/13/00"
+  },
+  "arcanist/13/01": {
+    "x": -992,
+    "y": -149,
+    "definition": "arcanist/13/01"
+  },
+  "arcanist/13/02": {
+    "x": -1007,
+    "y": -124,
+    "definition": "arcanist/13/02"
+  },
+  "arcanist/13/03": {
+    "x": -1030,
+    "y": -107,
+    "definition": "arcanist/13/03"
+  },
+  "arcanist/13/04": {
+    "x": -1058,
+    "y": -99,
+    "definition": "arcanist/13/04"
+  },
+  "arcanist/13/05": {
+    "x": -1086,
+    "y": -102,
+    "definition": "arcanist/13/05"
+  },
+  "arcanist/13/06": {
+    "x": -1112,
+    "y": -115,
+    "definition": "arcanist/13/06"
+  },
+  "arcanist/13/07": {
+    "x": -1131,
+    "y": -136,
+    "definition": "arcanist/13/07"
+  },
+  "arcanist/13/08": {
+    "x": -1142,
+    "y": -163,
+    "definition": "arcanist/13/08"
+  },
+  "arcanist/13/09": {
+    "x": -1142,
+    "y": -191,
+    "definition": "arcanist/13/09"
+  },
+  "arcanist/13/10": {
+    "x": -1131,
+    "y": -218,
+    "definition": "arcanist/13/10"
+  },
+  "arcanist/13/11": {
+    "x": -1112,
+    "y": -239,
+    "definition": "arcanist/13/11"
+  },
+  "arcanist/13/12": {
+    "x": -1086,
+    "y": -252,
+    "definition": "arcanist/13/12"
+  },
+  "arcanist/13/13": {
+    "x": -1058,
+    "y": -255,
+    "definition": "arcanist/13/13"
+  },
+  "arcanist/13/14": {
+    "x": -1030,
+    "y": -247,
+    "definition": "arcanist/13/14"
+  },
+  "arcanist/13/15": {
+    "x": -1007,
+    "y": -230,
+    "definition": "arcanist/13/15"
+  },
+  "arcanist/13/16": {
+    "x": -992,
+    "y": -205,
+    "definition": "arcanist/13/16"
+  },
+  "arcanist/14/00": {
+    "x": -944,
+    "y": -350,
+    "definition": "arcanist/14/00"
+  },
+  "arcanist/14/01": {
+    "x": -949,
+    "y": -322,
+    "definition": "arcanist/14/01"
+  },
+  "arcanist/14/02": {
+    "x": -964,
+    "y": -297,
+    "definition": "arcanist/14/02"
+  },
+  "arcanist/14/03": {
+    "x": -987,
+    "y": -280,
+    "definition": "arcanist/14/03"
+  },
+  "arcanist/14/04": {
+    "x": -1015,
+    "y": -272,
+    "definition": "arcanist/14/04"
+  },
+  "arcanist/14/05": {
+    "x": -1043,
+    "y": -275,
+    "definition": "arcanist/14/05"
+  },
+  "arcanist/14/06": {
+    "x": -1069,
+    "y": -288,
+    "definition": "arcanist/14/06"
+  },
+  "arcanist/14/07": {
+    "x": -1088,
+    "y": -309,
+    "definition": "arcanist/14/07"
+  },
+  "arcanist/14/08": {
+    "x": -1099,
+    "y": -336,
+    "definition": "arcanist/14/08"
+  },
+  "arcanist/14/09": {
+    "x": -1099,
+    "y": -364,
+    "definition": "arcanist/14/09"
+  },
+  "arcanist/14/10": {
+    "x": -1088,
+    "y": -391,
+    "definition": "arcanist/14/10"
+  },
+  "arcanist/14/11": {
+    "x": -1069,
+    "y": -412,
+    "definition": "arcanist/14/11"
+  },
+  "arcanist/14/12": {
+    "x": -1043,
+    "y": -425,
+    "definition": "arcanist/14/12"
+  },
+  "arcanist/14/13": {
+    "x": -1015,
+    "y": -428,
+    "definition": "arcanist/14/13"
+  },
+  "arcanist/14/14": {
+    "x": -987,
+    "y": -420,
+    "definition": "arcanist/14/14"
+  },
+  "arcanist/14/15": {
+    "x": -964,
+    "y": -403,
+    "definition": "arcanist/14/15"
+  },
+  "arcanist/14/16": {
+    "x": -949,
+    "y": -378,
+    "definition": "arcanist/14/16"
+  },
+  "keystone/sanguine_recovery": {
+    "x": -1279,
+    "y": 518,
+    "definition": "keystone/sanguine_recovery"
+  },
+  "keystone/soul_drinker": {
+    "x": -1434,
+    "y": 456,
+    "definition": "keystone/soul_drinker"
+  },
+  "keystone/aegis_on_impact": {
+    "x": -1343,
+    "y": 316,
+    "definition": "keystone/aegis_on_impact"
+  },
+  "keystone/storm_barrier": {
+    "x": -1487,
+    "y": 231,
+    "definition": "keystone/storm_barrier"
+  },
+  "keystone/blood_price": {
+    "x": -1376,
+    "y": 106,
+    "definition": "keystone/blood_price"
+  },
+  "keystone/retribution": {
+    "x": -1505,
+    "y": 0,
+    "definition": "keystone/retribution"
+  },
+  "keystone/second_wind": {
+    "x": -1376,
+    "y": -106,
+    "definition": "keystone/second_wind"
+  },
+  "keystone/fleeting_insight": {
+    "x": -1487,
+    "y": -231,
+    "definition": "keystone/fleeting_insight"
+  },
+  "keystone/kindling": {
+    "x": -1343,
+    "y": -316,
+    "definition": "keystone/kindling"
+  },
+  "keystone/open_wounds": {
+    "x": -1434,
+    "y": -456,
+    "definition": "keystone/open_wounds"
+  },
+  "keystone/venom_tip": {
+    "x": -1279,
+    "y": -518,
+    "definition": "keystone/venom_tip"
+  },
+  "templar_start": {
+    "x": -120,
+    "y": -208,
+    "definition": "templar_start",
+    "root": true
+  },
+  "templar/00/00": {
+    "x": -239,
+    "y": -276,
+    "definition": "templar/00/00"
+  },
+  "templar/00/01": {
+    "x": -244,
+    "y": -248,
+    "definition": "templar/00/01"
+  },
+  "templar/00/02": {
+    "x": -259,
+    "y": -223,
+    "definition": "templar/00/02"
+  },
+  "templar/00/03": {
+    "x": -282,
+    "y": -206,
+    "definition": "templar/00/03"
+  },
+  "templar/00/04": {
+    "x": -310,
+    "y": -198,
+    "definition": "templar/00/04"
+  },
+  "templar/00/05": {
+    "x": -338,
+    "y": -201,
+    "definition": "templar/00/05"
+  },
+  "templar/00/06": {
+    "x": -364,
+    "y": -214,
+    "definition": "templar/00/06"
+  },
+  "templar/00/07": {
+    "x": -383,
+    "y": -235,
+    "definition": "templar/00/07"
+  },
+  "templar/00/08": {
+    "x": -394,
+    "y": -262,
+    "definition": "templar/00/08"
+  },
+  "templar/00/09": {
+    "x": -394,
+    "y": -290,
+    "definition": "templar/00/09"
+  },
+  "templar/00/10": {
+    "x": -383,
+    "y": -317,
+    "definition": "templar/00/10"
+  },
+  "templar/00/11": {
+    "x": -364,
+    "y": -338,
+    "definition": "templar/00/11"
+  },
+  "templar/00/12": {
+    "x": -338,
+    "y": -351,
+    "definition": "templar/00/12"
+  },
+  "templar/00/13": {
+    "x": -310,
+    "y": -354,
+    "definition": "templar/00/13"
+  },
+  "templar/00/14": {
+    "x": -282,
+    "y": -346,
+    "definition": "templar/00/14"
+  },
+  "templar/00/15": {
+    "x": -259,
+    "y": -329,
+    "definition": "templar/00/15"
+  },
+  "templar/00/16": {
+    "x": -244,
+    "y": -304,
+    "definition": "templar/00/16"
+  },
+  "templar/01/00": {
+    "x": -189,
+    "y": -324,
+    "definition": "templar/01/00"
+  },
+  "templar/01/01": {
+    "x": -194,
+    "y": -296,
+    "definition": "templar/01/01"
+  },
+  "templar/01/02": {
+    "x": -209,
+    "y": -271,
+    "definition": "templar/01/02"
+  },
+  "templar/01/03": {
+    "x": -232,
+    "y": -254,
+    "definition": "templar/01/03"
+  },
+  "templar/01/04": {
+    "x": -260,
+    "y": -246,
+    "definition": "templar/01/04"
+  },
+  "templar/01/05": {
+    "x": -288,
+    "y": -249,
+    "definition": "templar/01/05"
+  },
+  "templar/01/06": {
+    "x": -314,
+    "y": -262,
+    "definition": "templar/01/06"
+  },
+  "templar/01/07": {
+    "x": -333,
+    "y": -283,
+    "definition": "templar/01/07"
+  },
+  "templar/01/08": {
+    "x": -344,
+    "y": -310,
+    "definition": "templar/01/08"
+  },
+  "templar/01/09": {
+    "x": -344,
+    "y": -338,
+    "definition": "templar/01/09"
+  },
+  "templar/01/10": {
+    "x": -333,
+    "y": -365,
+    "definition": "templar/01/10"
+  },
+  "templar/01/11": {
+    "x": -314,
+    "y": -386,
+    "definition": "templar/01/11"
+  },
+  "templar/01/12": {
+    "x": -288,
+    "y": -399,
+    "definition": "templar/01/12"
+  },
+  "templar/01/13": {
+    "x": -260,
+    "y": -402,
+    "definition": "templar/01/13"
+  },
+  "templar/01/14": {
+    "x": -232,
+    "y": -394,
+    "definition": "templar/01/14"
+  },
+  "templar/01/15": {
+    "x": -209,
+    "y": -377,
+    "definition": "templar/01/15"
+  },
+  "templar/01/16": {
+    "x": -194,
+    "y": -352,
+    "definition": "templar/01/16"
+  },
+  "templar/02/00": {
+    "x": -132,
+    "y": -364,
+    "definition": "templar/02/00"
+  },
+  "templar/02/01": {
+    "x": -137,
+    "y": -336,
+    "definition": "templar/02/01"
+  },
+  "templar/02/02": {
+    "x": -152,
+    "y": -311,
+    "definition": "templar/02/02"
+  },
+  "templar/02/03": {
+    "x": -175,
+    "y": -294,
+    "definition": "templar/02/03"
+  },
+  "templar/02/04": {
+    "x": -203,
+    "y": -286,
+    "definition": "templar/02/04"
+  },
+  "templar/02/05": {
+    "x": -231,
+    "y": -289,
+    "definition": "templar/02/05"
+  },
+  "templar/02/06": {
+    "x": -257,
+    "y": -302,
+    "definition": "templar/02/06"
+  },
+  "templar/02/07": {
+    "x": -276,
+    "y": -323,
+    "definition": "templar/02/07"
+  },
+  "templar/02/08": {
+    "x": -287,
+    "y": -350,
+    "definition": "templar/02/08"
+  },
+  "templar/02/09": {
+    "x": -287,
+    "y": -378,
+    "definition": "templar/02/09"
+  },
+  "templar/02/10": {
+    "x": -276,
+    "y": -405,
+    "definition": "templar/02/10"
+  },
+  "templar/02/11": {
+    "x": -257,
+    "y": -426,
+    "definition": "templar/02/11"
+  },
+  "templar/02/12": {
+    "x": -231,
+    "y": -439,
+    "definition": "templar/02/12"
+  },
+  "templar/02/13": {
+    "x": -203,
+    "y": -442,
+    "definition": "templar/02/13"
+  },
+  "templar/02/14": {
+    "x": -175,
+    "y": -434,
+    "definition": "templar/02/14"
+  },
+  "templar/02/15": {
+    "x": -152,
+    "y": -417,
+    "definition": "templar/02/15"
+  },
+  "templar/02/16": {
+    "x": -137,
+    "y": -392,
+    "definition": "templar/02/16"
+  },
+  "templar/03/00": {
+    "x": -69,
+    "y": -393,
+    "definition": "templar/03/00"
+  },
+  "templar/03/01": {
+    "x": -74,
+    "y": -365,
+    "definition": "templar/03/01"
+  },
+  "templar/03/02": {
+    "x": -89,
+    "y": -340,
+    "definition": "templar/03/02"
+  },
+  "templar/03/03": {
+    "x": -112,
+    "y": -323,
+    "definition": "templar/03/03"
+  },
+  "templar/03/04": {
+    "x": -140,
+    "y": -315,
+    "definition": "templar/03/04"
+  },
+  "templar/03/05": {
+    "x": -168,
+    "y": -318,
+    "definition": "templar/03/05"
+  },
+  "templar/03/06": {
+    "x": -194,
+    "y": -331,
+    "definition": "templar/03/06"
+  },
+  "templar/03/07": {
+    "x": -213,
+    "y": -352,
+    "definition": "templar/03/07"
+  },
+  "templar/03/08": {
+    "x": -224,
+    "y": -379,
+    "definition": "templar/03/08"
+  },
+  "templar/03/09": {
+    "x": -224,
+    "y": -407,
+    "definition": "templar/03/09"
+  },
+  "templar/03/10": {
+    "x": -213,
+    "y": -434,
+    "definition": "templar/03/10"
+  },
+  "templar/03/11": {
+    "x": -194,
+    "y": -455,
+    "definition": "templar/03/11"
+  },
+  "templar/03/12": {
+    "x": -168,
+    "y": -468,
+    "definition": "templar/03/12"
+  },
+  "templar/03/13": {
+    "x": -140,
+    "y": -471,
+    "definition": "templar/03/13"
+  },
+  "templar/03/14": {
+    "x": -112,
+    "y": -463,
+    "definition": "templar/03/14"
+  },
+  "templar/03/15": {
+    "x": -89,
+    "y": -446,
+    "definition": "templar/03/15"
+  },
+  "templar/03/16": {
+    "x": -74,
+    "y": -421,
+    "definition": "templar/03/16"
+  },
+  "templar/04/00": {
+    "x": -3,
+    "y": -412,
+    "definition": "templar/04/00"
+  },
+  "templar/04/01": {
+    "x": -8,
+    "y": -384,
+    "definition": "templar/04/01"
+  },
+  "templar/04/02": {
+    "x": -23,
+    "y": -359,
+    "definition": "templar/04/02"
+  },
+  "templar/04/03": {
+    "x": -46,
+    "y": -342,
+    "definition": "templar/04/03"
+  },
+  "templar/04/04": {
+    "x": -74,
+    "y": -334,
+    "definition": "templar/04/04"
+  },
+  "templar/04/05": {
+    "x": -102,
+    "y": -337,
+    "definition": "templar/04/05"
+  },
+  "templar/04/06": {
+    "x": -128,
+    "y": -350,
+    "definition": "templar/04/06"
+  },
+  "templar/04/07": {
+    "x": -147,
+    "y": -371,
+    "definition": "templar/04/07"
+  },
+  "templar/04/08": {
+    "x": -158,
+    "y": -398,
+    "definition": "templar/04/08"
+  },
+  "templar/04/09": {
+    "x": -158,
+    "y": -426,
+    "definition": "templar/04/09"
+  },
+  "templar/04/10": {
+    "x": -147,
+    "y": -453,
+    "definition": "templar/04/10"
+  },
+  "templar/04/11": {
+    "x": -128,
+    "y": -474,
+    "definition": "templar/04/11"
+  },
+  "templar/04/12": {
+    "x": -102,
+    "y": -487,
+    "definition": "templar/04/12"
+  },
+  "templar/04/13": {
+    "x": -74,
+    "y": -490,
+    "definition": "templar/04/13"
+  },
+  "templar/04/14": {
+    "x": -46,
+    "y": -482,
+    "definition": "templar/04/14"
+  },
+  "templar/04/15": {
+    "x": -23,
+    "y": -465,
+    "definition": "templar/04/15"
+  },
+  "templar/04/16": {
+    "x": -8,
+    "y": -440,
+    "definition": "templar/04/16"
+  },
+  "templar/05/00": {
+    "x": -487,
+    "y": -493,
+    "definition": "templar/05/00"
+  },
+  "templar/05/01": {
+    "x": -492,
+    "y": -465,
+    "definition": "templar/05/01"
+  },
+  "templar/05/02": {
+    "x": -507,
+    "y": -440,
+    "definition": "templar/05/02"
+  },
+  "templar/05/03": {
+    "x": -530,
+    "y": -423,
+    "definition": "templar/05/03"
+  },
+  "templar/05/04": {
+    "x": -558,
+    "y": -415,
+    "definition": "templar/05/04"
+  },
+  "templar/05/05": {
+    "x": -586,
+    "y": -418,
+    "definition": "templar/05/05"
+  },
+  "templar/05/06": {
+    "x": -612,
+    "y": -431,
+    "definition": "templar/05/06"
+  },
+  "templar/05/07": {
+    "x": -631,
+    "y": -452,
+    "definition": "templar/05/07"
+  },
+  "templar/05/08": {
+    "x": -642,
+    "y": -479,
+    "definition": "templar/05/08"
+  },
+  "templar/05/09": {
+    "x": -642,
+    "y": -507,
+    "definition": "templar/05/09"
+  },
+  "templar/05/10": {
+    "x": -631,
+    "y": -534,
+    "definition": "templar/05/10"
+  },
+  "templar/05/11": {
+    "x": -612,
+    "y": -555,
+    "definition": "templar/05/11"
+  },
+  "templar/05/12": {
+    "x": -586,
+    "y": -568,
+    "definition": "templar/05/12"
+  },
+  "templar/05/13": {
+    "x": -558,
+    "y": -571,
+    "definition": "templar/05/13"
+  },
+  "templar/05/14": {
+    "x": -530,
+    "y": -563,
+    "definition": "templar/05/14"
+  },
+  "templar/05/15": {
+    "x": -507,
+    "y": -546,
+    "definition": "templar/05/15"
+  },
+  "templar/05/16": {
+    "x": -492,
+    "y": -521,
+    "definition": "templar/05/16"
+  },
+  "templar/06/00": {
+    "x": -399,
+    "y": -579,
+    "definition": "templar/06/00"
+  },
+  "templar/06/01": {
+    "x": -404,
+    "y": -551,
+    "definition": "templar/06/01"
+  },
+  "templar/06/02": {
+    "x": -419,
+    "y": -526,
+    "definition": "templar/06/02"
+  },
+  "templar/06/03": {
+    "x": -442,
+    "y": -509,
+    "definition": "templar/06/03"
+  },
+  "templar/06/04": {
+    "x": -470,
+    "y": -501,
+    "definition": "templar/06/04"
+  },
+  "templar/06/05": {
+    "x": -498,
+    "y": -504,
+    "definition": "templar/06/05"
+  },
+  "templar/06/06": {
+    "x": -524,
+    "y": -517,
+    "definition": "templar/06/06"
+  },
+  "templar/06/07": {
+    "x": -543,
+    "y": -538,
+    "definition": "templar/06/07"
+  },
+  "templar/06/08": {
+    "x": -554,
+    "y": -565,
+    "definition": "templar/06/08"
+  },
+  "templar/06/09": {
+    "x": -554,
+    "y": -593,
+    "definition": "templar/06/09"
+  },
+  "templar/06/10": {
+    "x": -543,
+    "y": -620,
+    "definition": "templar/06/10"
+  },
+  "templar/06/11": {
+    "x": -524,
+    "y": -641,
+    "definition": "templar/06/11"
+  },
+  "templar/06/12": {
+    "x": -498,
+    "y": -654,
+    "definition": "templar/06/12"
+  },
+  "templar/06/13": {
+    "x": -470,
+    "y": -657,
+    "definition": "templar/06/13"
+  },
+  "templar/06/14": {
+    "x": -442,
+    "y": -649,
+    "definition": "templar/06/14"
+  },
+  "templar/06/15": {
+    "x": -419,
+    "y": -632,
+    "definition": "templar/06/15"
+  },
+  "templar/06/16": {
+    "x": -404,
+    "y": -607,
+    "definition": "templar/06/16"
+  },
+  "templar/07/00": {
+    "x": -297,
+    "y": -650,
+    "definition": "templar/07/00"
+  },
+  "templar/07/01": {
+    "x": -302,
+    "y": -622,
+    "definition": "templar/07/01"
+  },
+  "templar/07/02": {
+    "x": -317,
+    "y": -597,
+    "definition": "templar/07/02"
+  },
+  "templar/07/03": {
+    "x": -340,
+    "y": -580,
+    "definition": "templar/07/03"
+  },
+  "templar/07/04": {
+    "x": -368,
+    "y": -572,
+    "definition": "templar/07/04"
+  },
+  "templar/07/05": {
+    "x": -396,
+    "y": -575,
+    "definition": "templar/07/05"
+  },
+  "templar/07/06": {
+    "x": -422,
+    "y": -588,
+    "definition": "templar/07/06"
+  },
+  "templar/07/07": {
+    "x": -441,
+    "y": -609,
+    "definition": "templar/07/07"
+  },
+  "templar/07/08": {
+    "x": -452,
+    "y": -636,
+    "definition": "templar/07/08"
+  },
+  "templar/07/09": {
+    "x": -452,
+    "y": -664,
+    "definition": "templar/07/09"
+  },
+  "templar/07/10": {
+    "x": -441,
+    "y": -691,
+    "definition": "templar/07/10"
+  },
+  "templar/07/11": {
+    "x": -422,
+    "y": -712,
+    "definition": "templar/07/11"
+  },
+  "templar/07/12": {
+    "x": -396,
+    "y": -725,
+    "definition": "templar/07/12"
+  },
+  "templar/07/13": {
+    "x": -368,
+    "y": -728,
+    "definition": "templar/07/13"
+  },
+  "templar/07/14": {
+    "x": -340,
+    "y": -720,
+    "definition": "templar/07/14"
+  },
+  "templar/07/15": {
+    "x": -317,
+    "y": -703,
+    "definition": "templar/07/15"
+  },
+  "templar/07/16": {
+    "x": -302,
+    "y": -678,
+    "definition": "templar/07/16"
+  },
+  "templar/08/00": {
+    "x": -185,
+    "y": -702,
+    "definition": "templar/08/00"
+  },
+  "templar/08/01": {
+    "x": -190,
+    "y": -674,
+    "definition": "templar/08/01"
+  },
+  "templar/08/02": {
+    "x": -205,
+    "y": -649,
+    "definition": "templar/08/02"
+  },
+  "templar/08/03": {
+    "x": -228,
+    "y": -632,
+    "definition": "templar/08/03"
+  },
+  "templar/08/04": {
+    "x": -256,
+    "y": -624,
+    "definition": "templar/08/04"
+  },
+  "templar/08/05": {
+    "x": -284,
+    "y": -627,
+    "definition": "templar/08/05"
+  },
+  "templar/08/06": {
+    "x": -310,
+    "y": -640,
+    "definition": "templar/08/06"
+  },
+  "templar/08/07": {
+    "x": -329,
+    "y": -661,
+    "definition": "templar/08/07"
+  },
+  "templar/08/08": {
+    "x": -340,
+    "y": -688,
+    "definition": "templar/08/08"
+  },
+  "templar/08/09": {
+    "x": -340,
+    "y": -716,
+    "definition": "templar/08/09"
+  },
+  "templar/08/10": {
+    "x": -329,
+    "y": -743,
+    "definition": "templar/08/10"
+  },
+  "templar/08/11": {
+    "x": -310,
+    "y": -764,
+    "definition": "templar/08/11"
+  },
+  "templar/08/12": {
+    "x": -284,
+    "y": -777,
+    "definition": "templar/08/12"
+  },
+  "templar/08/13": {
+    "x": -256,
+    "y": -780,
+    "definition": "templar/08/13"
+  },
+  "templar/08/14": {
+    "x": -228,
+    "y": -772,
+    "definition": "templar/08/14"
+  },
+  "templar/08/15": {
+    "x": -205,
+    "y": -755,
+    "definition": "templar/08/15"
+  },
+  "templar/08/16": {
+    "x": -190,
+    "y": -730,
+    "definition": "templar/08/16"
+  },
+  "templar/09/00": {
+    "x": -66,
+    "y": -736,
+    "definition": "templar/09/00"
+  },
+  "templar/09/01": {
+    "x": -71,
+    "y": -708,
+    "definition": "templar/09/01"
+  },
+  "templar/09/02": {
+    "x": -86,
+    "y": -683,
+    "definition": "templar/09/02"
+  },
+  "templar/09/03": {
+    "x": -109,
+    "y": -666,
+    "definition": "templar/09/03"
+  },
+  "templar/09/04": {
+    "x": -137,
+    "y": -658,
+    "definition": "templar/09/04"
+  },
+  "templar/09/05": {
+    "x": -165,
+    "y": -661,
+    "definition": "templar/09/05"
+  },
+  "templar/09/06": {
+    "x": -191,
+    "y": -674,
+    "definition": "templar/09/06"
+  },
+  "templar/09/07": {
+    "x": -210,
+    "y": -695,
+    "definition": "templar/09/07"
+  },
+  "templar/09/08": {
+    "x": -221,
+    "y": -722,
+    "definition": "templar/09/08"
+  },
+  "templar/09/09": {
+    "x": -221,
+    "y": -750,
+    "definition": "templar/09/09"
+  },
+  "templar/09/10": {
+    "x": -210,
+    "y": -777,
+    "definition": "templar/09/10"
+  },
+  "templar/09/11": {
+    "x": -191,
+    "y": -798,
+    "definition": "templar/09/11"
+  },
+  "templar/09/12": {
+    "x": -165,
+    "y": -811,
+    "definition": "templar/09/12"
+  },
+  "templar/09/13": {
+    "x": -137,
+    "y": -814,
+    "definition": "templar/09/13"
+  },
+  "templar/09/14": {
+    "x": -109,
+    "y": -806,
+    "definition": "templar/09/14"
+  },
+  "templar/09/15": {
+    "x": -86,
+    "y": -789,
+    "definition": "templar/09/15"
+  },
+  "templar/09/16": {
+    "x": -71,
+    "y": -764,
+    "definition": "templar/09/16"
+  },
+  "templar/10/00": {
+    "x": -736,
+    "y": -710,
+    "definition": "templar/10/00"
+  },
+  "templar/10/01": {
+    "x": -741,
+    "y": -682,
+    "definition": "templar/10/01"
+  },
+  "templar/10/02": {
+    "x": -756,
+    "y": -657,
+    "definition": "templar/10/02"
+  },
+  "templar/10/03": {
+    "x": -779,
+    "y": -640,
+    "definition": "templar/10/03"
+  },
+  "templar/10/04": {
+    "x": -807,
+    "y": -632,
+    "definition": "templar/10/04"
+  },
+  "templar/10/05": {
+    "x": -835,
+    "y": -635,
+    "definition": "templar/10/05"
+  },
+  "templar/10/06": {
+    "x": -861,
+    "y": -648,
+    "definition": "templar/10/06"
+  },
+  "templar/10/07": {
+    "x": -880,
+    "y": -669,
+    "definition": "templar/10/07"
+  },
+  "templar/10/08": {
+    "x": -891,
+    "y": -696,
+    "definition": "templar/10/08"
+  },
+  "templar/10/09": {
+    "x": -891,
+    "y": -724,
+    "definition": "templar/10/09"
+  },
+  "templar/10/10": {
+    "x": -880,
+    "y": -751,
+    "definition": "templar/10/10"
+  },
+  "templar/10/11": {
+    "x": -861,
+    "y": -772,
+    "definition": "templar/10/11"
+  },
+  "templar/10/12": {
+    "x": -835,
+    "y": -785,
+    "definition": "templar/10/12"
+  },
+  "templar/10/13": {
+    "x": -807,
+    "y": -788,
+    "definition": "templar/10/13"
+  },
+  "templar/10/14": {
+    "x": -779,
+    "y": -780,
+    "definition": "templar/10/14"
+  },
+  "templar/10/15": {
+    "x": -756,
+    "y": -763,
+    "definition": "templar/10/15"
+  },
+  "templar/10/16": {
+    "x": -741,
+    "y": -738,
+    "definition": "templar/10/16"
+  },
+  "templar/11/00": {
+    "x": -608,
+    "y": -834,
+    "definition": "templar/11/00"
+  },
+  "templar/11/01": {
+    "x": -613,
+    "y": -806,
+    "definition": "templar/11/01"
+  },
+  "templar/11/02": {
+    "x": -628,
+    "y": -781,
+    "definition": "templar/11/02"
+  },
+  "templar/11/03": {
+    "x": -651,
+    "y": -764,
+    "definition": "templar/11/03"
+  },
+  "templar/11/04": {
+    "x": -679,
+    "y": -756,
+    "definition": "templar/11/04"
+  },
+  "templar/11/05": {
+    "x": -707,
+    "y": -759,
+    "definition": "templar/11/05"
+  },
+  "templar/11/06": {
+    "x": -733,
+    "y": -772,
+    "definition": "templar/11/06"
+  },
+  "templar/11/07": {
+    "x": -752,
+    "y": -793,
+    "definition": "templar/11/07"
+  },
+  "templar/11/08": {
+    "x": -763,
+    "y": -820,
+    "definition": "templar/11/08"
+  },
+  "templar/11/09": {
+    "x": -763,
+    "y": -848,
+    "definition": "templar/11/09"
+  },
+  "templar/11/10": {
+    "x": -752,
+    "y": -875,
+    "definition": "templar/11/10"
+  },
+  "templar/11/11": {
+    "x": -733,
+    "y": -896,
+    "definition": "templar/11/11"
+  },
+  "templar/11/12": {
+    "x": -707,
+    "y": -909,
+    "definition": "templar/11/12"
+  },
+  "templar/11/13": {
+    "x": -679,
+    "y": -912,
+    "definition": "templar/11/13"
+  },
+  "templar/11/14": {
+    "x": -651,
+    "y": -904,
+    "definition": "templar/11/14"
+  },
+  "templar/11/15": {
+    "x": -628,
+    "y": -887,
+    "definition": "templar/11/15"
+  },
+  "templar/11/16": {
+    "x": -613,
+    "y": -862,
+    "definition": "templar/11/16"
+  },
+  "templar/12/00": {
+    "x": -462,
+    "y": -935,
+    "definition": "templar/12/00"
+  },
+  "templar/12/01": {
+    "x": -467,
+    "y": -907,
+    "definition": "templar/12/01"
+  },
+  "templar/12/02": {
+    "x": -482,
+    "y": -882,
+    "definition": "templar/12/02"
+  },
+  "templar/12/03": {
+    "x": -505,
+    "y": -865,
+    "definition": "templar/12/03"
+  },
+  "templar/12/04": {
+    "x": -533,
+    "y": -857,
+    "definition": "templar/12/04"
+  },
+  "templar/12/05": {
+    "x": -561,
+    "y": -860,
+    "definition": "templar/12/05"
+  },
+  "templar/12/06": {
+    "x": -587,
+    "y": -873,
+    "definition": "templar/12/06"
+  },
+  "templar/12/07": {
+    "x": -606,
+    "y": -894,
+    "definition": "templar/12/07"
+  },
+  "templar/12/08": {
+    "x": -617,
+    "y": -921,
+    "definition": "templar/12/08"
+  },
+  "templar/12/09": {
+    "x": -617,
+    "y": -949,
+    "definition": "templar/12/09"
+  },
+  "templar/12/10": {
+    "x": -606,
+    "y": -976,
+    "definition": "templar/12/10"
+  },
+  "templar/12/11": {
+    "x": -587,
+    "y": -997,
+    "definition": "templar/12/11"
+  },
+  "templar/12/12": {
+    "x": -561,
+    "y": -1010,
+    "definition": "templar/12/12"
+  },
+  "templar/12/13": {
+    "x": -533,
+    "y": -1013,
+    "definition": "templar/12/13"
+  },
+  "templar/12/14": {
+    "x": -505,
+    "y": -1005,
+    "definition": "templar/12/14"
+  },
+  "templar/12/15": {
+    "x": -482,
+    "y": -988,
+    "definition": "templar/12/15"
+  },
+  "templar/12/16": {
+    "x": -467,
+    "y": -963,
+    "definition": "templar/12/16"
+  },
+  "templar/13/00": {
+    "x": -301,
+    "y": -1011,
+    "definition": "templar/13/00"
+  },
+  "templar/13/01": {
+    "x": -306,
+    "y": -983,
+    "definition": "templar/13/01"
+  },
+  "templar/13/02": {
+    "x": -321,
+    "y": -958,
+    "definition": "templar/13/02"
+  },
+  "templar/13/03": {
+    "x": -344,
+    "y": -941,
+    "definition": "templar/13/03"
+  },
+  "templar/13/04": {
+    "x": -372,
+    "y": -933,
+    "definition": "templar/13/04"
+  },
+  "templar/13/05": {
+    "x": -400,
+    "y": -936,
+    "definition": "templar/13/05"
+  },
+  "templar/13/06": {
+    "x": -426,
+    "y": -949,
+    "definition": "templar/13/06"
+  },
+  "templar/13/07": {
+    "x": -445,
+    "y": -970,
+    "definition": "templar/13/07"
+  },
+  "templar/13/08": {
+    "x": -456,
+    "y": -997,
+    "definition": "templar/13/08"
+  },
+  "templar/13/09": {
+    "x": -456,
+    "y": -1025,
+    "definition": "templar/13/09"
+  },
+  "templar/13/10": {
+    "x": -445,
+    "y": -1052,
+    "definition": "templar/13/10"
+  },
+  "templar/13/11": {
+    "x": -426,
+    "y": -1073,
+    "definition": "templar/13/11"
+  },
+  "templar/13/12": {
+    "x": -400,
+    "y": -1086,
+    "definition": "templar/13/12"
+  },
+  "templar/13/13": {
+    "x": -372,
+    "y": -1089,
+    "definition": "templar/13/13"
+  },
+  "templar/13/14": {
+    "x": -344,
+    "y": -1081,
+    "definition": "templar/13/14"
+  },
+  "templar/13/15": {
+    "x": -321,
+    "y": -1064,
+    "definition": "templar/13/15"
+  },
+  "templar/13/16": {
+    "x": -306,
+    "y": -1039,
+    "definition": "templar/13/16"
+  },
+  "templar/14/00": {
+    "x": -130,
+    "y": -1060,
+    "definition": "templar/14/00"
+  },
+  "templar/14/01": {
+    "x": -135,
+    "y": -1032,
+    "definition": "templar/14/01"
+  },
+  "templar/14/02": {
+    "x": -150,
+    "y": -1007,
+    "definition": "templar/14/02"
+  },
+  "templar/14/03": {
+    "x": -173,
+    "y": -990,
+    "definition": "templar/14/03"
+  },
+  "templar/14/04": {
+    "x": -201,
+    "y": -982,
+    "definition": "templar/14/04"
+  },
+  "templar/14/05": {
+    "x": -229,
+    "y": -985,
+    "definition": "templar/14/05"
+  },
+  "templar/14/06": {
+    "x": -255,
+    "y": -998,
+    "definition": "templar/14/06"
+  },
+  "templar/14/07": {
+    "x": -274,
+    "y": -1019,
+    "definition": "templar/14/07"
+  },
+  "templar/14/08": {
+    "x": -285,
+    "y": -1046,
+    "definition": "templar/14/08"
+  },
+  "templar/14/09": {
+    "x": -285,
+    "y": -1074,
+    "definition": "templar/14/09"
+  },
+  "templar/14/10": {
+    "x": -274,
+    "y": -1101,
+    "definition": "templar/14/10"
+  },
+  "templar/14/11": {
+    "x": -255,
+    "y": -1122,
+    "definition": "templar/14/11"
+  },
+  "templar/14/12": {
+    "x": -229,
+    "y": -1135,
+    "definition": "templar/14/12"
+  },
+  "templar/14/13": {
+    "x": -201,
+    "y": -1138,
+    "definition": "templar/14/13"
+  },
+  "templar/14/14": {
+    "x": -173,
+    "y": -1130,
+    "definition": "templar/14/14"
+  },
+  "templar/14/15": {
+    "x": -150,
+    "y": -1113,
+    "definition": "templar/14/15"
+  },
+  "templar/14/16": {
+    "x": -135,
+    "y": -1088,
+    "definition": "templar/14/16"
+  },
+  "keystone/cinder_heart": {
+    "x": -1088,
+    "y": -848,
+    "definition": "keystone/cinder_heart"
+  },
+  "keystone/caustic_reservoir": {
+    "x": -1112,
+    "y": -1014,
+    "definition": "keystone/caustic_reservoir"
+  },
+  "keystone/rune_guard": {
+    "x": -945,
+    "y": -1005,
+    "definition": "keystone/rune_guard"
+  },
+  "keystone/martial_reservoir": {
+    "x": -944,
+    "y": -1173,
+    "definition": "keystone/martial_reservoir"
+  },
+  "keystone/vital_surge": {
+    "x": -780,
+    "y": -1138,
+    "definition": "keystone/vital_surge"
+  },
+  "keystone/executioners_rush": {
+    "x": -753,
+    "y": -1303,
+    "definition": "keystone/executioners_rush"
+  },
+  "keystone/hunter_instinct": {
+    "x": -596,
+    "y": -1245,
+    "definition": "keystone/hunter_instinct"
+  },
+  "keystone/chain_reaction": {
+    "x": -544,
+    "y": -1403,
+    "definition": "keystone/chain_reaction"
+  },
+  "keystone/hemorrhagic_burst": {
+    "x": -398,
+    "y": -1321,
+    "definition": "keystone/hemorrhagic_burst"
+  },
+  "keystone/holy_recovery": {
+    "x": -322,
+    "y": -1470,
+    "definition": "keystone/holy_recovery"
+  },
+  "keystone/eldritch_battery": {
+    "x": -191,
+    "y": -1367,
+    "definition": "keystone/eldritch_battery"
+  },
+  "shaman_start": {
+    "x": 120,
+    "y": -208,
+    "definition": "shaman_start",
+    "root": true
+  },
+  "shaman/00/00": {
+    "x": 159,
+    "y": -412,
+    "definition": "shaman/00/00"
+  },
+  "shaman/00/01": {
+    "x": 154,
+    "y": -384,
+    "definition": "shaman/00/01"
+  },
+  "shaman/00/02": {
+    "x": 139,
+    "y": -359,
+    "definition": "shaman/00/02"
+  },
+  "shaman/00/03": {
+    "x": 116,
+    "y": -342,
+    "definition": "shaman/00/03"
+  },
+  "shaman/00/04": {
+    "x": 88,
+    "y": -334,
+    "definition": "shaman/00/04"
+  },
+  "shaman/00/05": {
+    "x": 60,
+    "y": -337,
+    "definition": "shaman/00/05"
+  },
+  "shaman/00/06": {
+    "x": 34,
+    "y": -350,
+    "definition": "shaman/00/06"
+  },
+  "shaman/00/07": {
+    "x": 15,
+    "y": -371,
+    "definition": "shaman/00/07"
+  },
+  "shaman/00/08": {
+    "x": 4,
+    "y": -398,
+    "definition": "shaman/00/08"
+  },
+  "shaman/00/09": {
+    "x": 4,
+    "y": -426,
+    "definition": "shaman/00/09"
+  },
+  "shaman/00/10": {
+    "x": 15,
+    "y": -453,
+    "definition": "shaman/00/10"
+  },
+  "shaman/00/11": {
+    "x": 34,
+    "y": -474,
+    "definition": "shaman/00/11"
+  },
+  "shaman/00/12": {
+    "x": 60,
+    "y": -487,
+    "definition": "shaman/00/12"
+  },
+  "shaman/00/13": {
+    "x": 88,
+    "y": -490,
+    "definition": "shaman/00/13"
+  },
+  "shaman/00/14": {
+    "x": 116,
+    "y": -482,
+    "definition": "shaman/00/14"
+  },
+  "shaman/00/15": {
+    "x": 139,
+    "y": -465,
+    "definition": "shaman/00/15"
+  },
+  "shaman/00/16": {
+    "x": 154,
+    "y": -440,
+    "definition": "shaman/00/16"
+  },
+  "shaman/01/00": {
+    "x": 225,
+    "y": -393,
+    "definition": "shaman/01/00"
+  },
+  "shaman/01/01": {
+    "x": 220,
+    "y": -365,
+    "definition": "shaman/01/01"
+  },
+  "shaman/01/02": {
+    "x": 205,
+    "y": -340,
+    "definition": "shaman/01/02"
+  },
+  "shaman/01/03": {
+    "x": 182,
+    "y": -323,
+    "definition": "shaman/01/03"
+  },
+  "shaman/01/04": {
+    "x": 154,
+    "y": -315,
+    "definition": "shaman/01/04"
+  },
+  "shaman/01/05": {
+    "x": 126,
+    "y": -318,
+    "definition": "shaman/01/05"
+  },
+  "shaman/01/06": {
+    "x": 100,
+    "y": -331,
+    "definition": "shaman/01/06"
+  },
+  "shaman/01/07": {
+    "x": 81,
+    "y": -352,
+    "definition": "shaman/01/07"
+  },
+  "shaman/01/08": {
+    "x": 70,
+    "y": -379,
+    "definition": "shaman/01/08"
+  },
+  "shaman/01/09": {
+    "x": 70,
+    "y": -407,
+    "definition": "shaman/01/09"
+  },
+  "shaman/01/10": {
+    "x": 81,
+    "y": -434,
+    "definition": "shaman/01/10"
+  },
+  "shaman/01/11": {
+    "x": 100,
+    "y": -455,
+    "definition": "shaman/01/11"
+  },
+  "shaman/01/12": {
+    "x": 126,
+    "y": -468,
+    "definition": "shaman/01/12"
+  },
+  "shaman/01/13": {
+    "x": 154,
+    "y": -471,
+    "definition": "shaman/01/13"
+  },
+  "shaman/01/14": {
+    "x": 182,
+    "y": -463,
+    "definition": "shaman/01/14"
+  },
+  "shaman/01/15": {
+    "x": 205,
+    "y": -446,
+    "definition": "shaman/01/15"
+  },
+  "shaman/01/16": {
+    "x": 220,
+    "y": -421,
+    "definition": "shaman/01/16"
+  },
+  "shaman/02/00": {
+    "x": 288,
+    "y": -364,
+    "definition": "shaman/02/00"
+  },
+  "shaman/02/01": {
+    "x": 283,
+    "y": -336,
+    "definition": "shaman/02/01"
+  },
+  "shaman/02/02": {
+    "x": 268,
+    "y": -311,
+    "definition": "shaman/02/02"
+  },
+  "shaman/02/03": {
+    "x": 245,
+    "y": -294,
+    "definition": "shaman/02/03"
+  },
+  "shaman/02/04": {
+    "x": 217,
+    "y": -286,
+    "definition": "shaman/02/04"
+  },
+  "shaman/02/05": {
+    "x": 189,
+    "y": -289,
+    "definition": "shaman/02/05"
+  },
+  "shaman/02/06": {
+    "x": 163,
+    "y": -302,
+    "definition": "shaman/02/06"
+  },
+  "shaman/02/07": {
+    "x": 144,
+    "y": -323,
+    "definition": "shaman/02/07"
+  },
+  "shaman/02/08": {
+    "x": 133,
+    "y": -350,
+    "definition": "shaman/02/08"
+  },
+  "shaman/02/09": {
+    "x": 133,
+    "y": -378,
+    "definition": "shaman/02/09"
+  },
+  "shaman/02/10": {
+    "x": 144,
+    "y": -405,
+    "definition": "shaman/02/10"
+  },
+  "shaman/02/11": {
+    "x": 163,
+    "y": -426,
+    "definition": "shaman/02/11"
+  },
+  "shaman/02/12": {
+    "x": 189,
+    "y": -439,
+    "definition": "shaman/02/12"
+  },
+  "shaman/02/13": {
+    "x": 217,
+    "y": -442,
+    "definition": "shaman/02/13"
+  },
+  "shaman/02/14": {
+    "x": 245,
+    "y": -434,
+    "definition": "shaman/02/14"
+  },
+  "shaman/02/15": {
+    "x": 268,
+    "y": -417,
+    "definition": "shaman/02/15"
+  },
+  "shaman/02/16": {
+    "x": 283,
+    "y": -392,
+    "definition": "shaman/02/16"
+  },
+  "shaman/03/00": {
+    "x": 345,
+    "y": -324,
+    "definition": "shaman/03/00"
+  },
+  "shaman/03/01": {
+    "x": 340,
+    "y": -296,
+    "definition": "shaman/03/01"
+  },
+  "shaman/03/02": {
+    "x": 325,
+    "y": -271,
+    "definition": "shaman/03/02"
+  },
+  "shaman/03/03": {
+    "x": 302,
+    "y": -254,
+    "definition": "shaman/03/03"
+  },
+  "shaman/03/04": {
+    "x": 274,
+    "y": -246,
+    "definition": "shaman/03/04"
+  },
+  "shaman/03/05": {
+    "x": 246,
+    "y": -249,
+    "definition": "shaman/03/05"
+  },
+  "shaman/03/06": {
+    "x": 220,
+    "y": -262,
+    "definition": "shaman/03/06"
+  },
+  "shaman/03/07": {
+    "x": 201,
+    "y": -283,
+    "definition": "shaman/03/07"
+  },
+  "shaman/03/08": {
+    "x": 190,
+    "y": -310,
+    "definition": "shaman/03/08"
+  },
+  "shaman/03/09": {
+    "x": 190,
+    "y": -338,
+    "definition": "shaman/03/09"
+  },
+  "shaman/03/10": {
+    "x": 201,
+    "y": -365,
+    "definition": "shaman/03/10"
+  },
+  "shaman/03/11": {
+    "x": 220,
+    "y": -386,
+    "definition": "shaman/03/11"
+  },
+  "shaman/03/12": {
+    "x": 246,
+    "y": -399,
+    "definition": "shaman/03/12"
+  },
+  "shaman/03/13": {
+    "x": 274,
+    "y": -402,
+    "definition": "shaman/03/13"
+  },
+  "shaman/03/14": {
+    "x": 302,
+    "y": -394,
+    "definition": "shaman/03/14"
+  },
+  "shaman/03/15": {
+    "x": 325,
+    "y": -377,
+    "definition": "shaman/03/15"
+  },
+  "shaman/03/16": {
+    "x": 340,
+    "y": -352,
+    "definition": "shaman/03/16"
+  },
+  "shaman/04/00": {
+    "x": 395,
+    "y": -276,
+    "definition": "shaman/04/00"
+  },
+  "shaman/04/01": {
+    "x": 390,
+    "y": -248,
+    "definition": "shaman/04/01"
+  },
+  "shaman/04/02": {
+    "x": 375,
+    "y": -223,
+    "definition": "shaman/04/02"
+  },
+  "shaman/04/03": {
+    "x": 352,
+    "y": -206,
+    "definition": "shaman/04/03"
+  },
+  "shaman/04/04": {
+    "x": 324,
+    "y": -198,
+    "definition": "shaman/04/04"
+  },
+  "shaman/04/05": {
+    "x": 296,
+    "y": -201,
+    "definition": "shaman/04/05"
+  },
+  "shaman/04/06": {
+    "x": 270,
+    "y": -214,
+    "definition": "shaman/04/06"
+  },
+  "shaman/04/07": {
+    "x": 251,
+    "y": -235,
+    "definition": "shaman/04/07"
+  },
+  "shaman/04/08": {
+    "x": 240,
+    "y": -262,
+    "definition": "shaman/04/08"
+  },
+  "shaman/04/09": {
+    "x": 240,
+    "y": -290,
+    "definition": "shaman/04/09"
+  },
+  "shaman/04/10": {
+    "x": 251,
+    "y": -317,
+    "definition": "shaman/04/10"
+  },
+  "shaman/04/11": {
+    "x": 270,
+    "y": -338,
+    "definition": "shaman/04/11"
+  },
+  "shaman/04/12": {
+    "x": 296,
+    "y": -351,
+    "definition": "shaman/04/12"
+  },
+  "shaman/04/13": {
+    "x": 324,
+    "y": -354,
+    "definition": "shaman/04/13"
+  },
+  "shaman/04/14": {
+    "x": 352,
+    "y": -346,
+    "definition": "shaman/04/14"
+  },
+  "shaman/04/15": {
+    "x": 375,
+    "y": -329,
+    "definition": "shaman/04/15"
+  },
+  "shaman/04/16": {
+    "x": 390,
+    "y": -304,
+    "definition": "shaman/04/16"
+  },
+  "shaman/05/00": {
+    "x": 222,
+    "y": -736,
+    "definition": "shaman/05/00"
+  },
+  "shaman/05/01": {
+    "x": 217,
+    "y": -708,
+    "definition": "shaman/05/01"
+  },
+  "shaman/05/02": {
+    "x": 202,
+    "y": -683,
+    "definition": "shaman/05/02"
+  },
+  "shaman/05/03": {
+    "x": 179,
+    "y": -666,
+    "definition": "shaman/05/03"
+  },
+  "shaman/05/04": {
+    "x": 151,
+    "y": -658,
+    "definition": "shaman/05/04"
+  },
+  "shaman/05/05": {
+    "x": 123,
+    "y": -661,
+    "definition": "shaman/05/05"
+  },
+  "shaman/05/06": {
+    "x": 97,
+    "y": -674,
+    "definition": "shaman/05/06"
+  },
+  "shaman/05/07": {
+    "x": 78,
+    "y": -695,
+    "definition": "shaman/05/07"
+  },
+  "shaman/05/08": {
+    "x": 67,
+    "y": -722,
+    "definition": "shaman/05/08"
+  },
+  "shaman/05/09": {
+    "x": 67,
+    "y": -750,
+    "definition": "shaman/05/09"
+  },
+  "shaman/05/10": {
+    "x": 78,
+    "y": -777,
+    "definition": "shaman/05/10"
+  },
+  "shaman/05/11": {
+    "x": 97,
+    "y": -798,
+    "definition": "shaman/05/11"
+  },
+  "shaman/05/12": {
+    "x": 123,
+    "y": -811,
+    "definition": "shaman/05/12"
+  },
+  "shaman/05/13": {
+    "x": 151,
+    "y": -814,
+    "definition": "shaman/05/13"
+  },
+  "shaman/05/14": {
+    "x": 179,
+    "y": -806,
+    "definition": "shaman/05/14"
+  },
+  "shaman/05/15": {
+    "x": 202,
+    "y": -789,
+    "definition": "shaman/05/15"
+  },
+  "shaman/05/16": {
+    "x": 217,
+    "y": -764,
+    "definition": "shaman/05/16"
+  },
+  "shaman/06/00": {
+    "x": 341,
+    "y": -702,
+    "definition": "shaman/06/00"
+  },
+  "shaman/06/01": {
+    "x": 336,
+    "y": -674,
+    "definition": "shaman/06/01"
+  },
+  "shaman/06/02": {
+    "x": 321,
+    "y": -649,
+    "definition": "shaman/06/02"
+  },
+  "shaman/06/03": {
+    "x": 298,
+    "y": -632,
+    "definition": "shaman/06/03"
+  },
+  "shaman/06/04": {
+    "x": 270,
+    "y": -624,
+    "definition": "shaman/06/04"
+  },
+  "shaman/06/05": {
+    "x": 242,
+    "y": -627,
+    "definition": "shaman/06/05"
+  },
+  "shaman/06/06": {
+    "x": 216,
+    "y": -640,
+    "definition": "shaman/06/06"
+  },
+  "shaman/06/07": {
+    "x": 197,
+    "y": -661,
+    "definition": "shaman/06/07"
+  },
+  "shaman/06/08": {
+    "x": 186,
+    "y": -688,
+    "definition": "shaman/06/08"
+  },
+  "shaman/06/09": {
+    "x": 186,
+    "y": -716,
+    "definition": "shaman/06/09"
+  },
+  "shaman/06/10": {
+    "x": 197,
+    "y": -743,
+    "definition": "shaman/06/10"
+  },
+  "shaman/06/11": {
+    "x": 216,
+    "y": -764,
+    "definition": "shaman/06/11"
+  },
+  "shaman/06/12": {
+    "x": 242,
+    "y": -777,
+    "definition": "shaman/06/12"
+  },
+  "shaman/06/13": {
+    "x": 270,
+    "y": -780,
+    "definition": "shaman/06/13"
+  },
+  "shaman/06/14": {
+    "x": 298,
+    "y": -772,
+    "definition": "shaman/06/14"
+  },
+  "shaman/06/15": {
+    "x": 321,
+    "y": -755,
+    "definition": "shaman/06/15"
+  },
+  "shaman/06/16": {
+    "x": 336,
+    "y": -730,
+    "definition": "shaman/06/16"
+  },
+  "shaman/07/00": {
+    "x": 453,
+    "y": -650,
+    "definition": "shaman/07/00"
+  },
+  "shaman/07/01": {
+    "x": 448,
+    "y": -622,
+    "definition": "shaman/07/01"
+  },
+  "shaman/07/02": {
+    "x": 433,
+    "y": -597,
+    "definition": "shaman/07/02"
+  },
+  "shaman/07/03": {
+    "x": 410,
+    "y": -580,
+    "definition": "shaman/07/03"
+  },
+  "shaman/07/04": {
+    "x": 382,
+    "y": -572,
+    "definition": "shaman/07/04"
+  },
+  "shaman/07/05": {
+    "x": 354,
+    "y": -575,
+    "definition": "shaman/07/05"
+  },
+  "shaman/07/06": {
+    "x": 328,
+    "y": -588,
+    "definition": "shaman/07/06"
+  },
+  "shaman/07/07": {
+    "x": 309,
+    "y": -609,
+    "definition": "shaman/07/07"
+  },
+  "shaman/07/08": {
+    "x": 298,
+    "y": -636,
+    "definition": "shaman/07/08"
+  },
+  "shaman/07/09": {
+    "x": 298,
+    "y": -664,
+    "definition": "shaman/07/09"
+  },
+  "shaman/07/10": {
+    "x": 309,
+    "y": -691,
+    "definition": "shaman/07/10"
+  },
+  "shaman/07/11": {
+    "x": 328,
+    "y": -712,
+    "definition": "shaman/07/11"
+  },
+  "shaman/07/12": {
+    "x": 354,
+    "y": -725,
+    "definition": "shaman/07/12"
+  },
+  "shaman/07/13": {
+    "x": 382,
+    "y": -728,
+    "definition": "shaman/07/13"
+  },
+  "shaman/07/14": {
+    "x": 410,
+    "y": -720,
+    "definition": "shaman/07/14"
+  },
+  "shaman/07/15": {
+    "x": 433,
+    "y": -703,
+    "definition": "shaman/07/15"
+  },
+  "shaman/07/16": {
+    "x": 448,
+    "y": -678,
+    "definition": "shaman/07/16"
+  },
+  "shaman/08/00": {
+    "x": 555,
+    "y": -579,
+    "definition": "shaman/08/00"
+  },
+  "shaman/08/01": {
+    "x": 550,
+    "y": -551,
+    "definition": "shaman/08/01"
+  },
+  "shaman/08/02": {
+    "x": 535,
+    "y": -526,
+    "definition": "shaman/08/02"
+  },
+  "shaman/08/03": {
+    "x": 512,
+    "y": -509,
+    "definition": "shaman/08/03"
+  },
+  "shaman/08/04": {
+    "x": 484,
+    "y": -501,
+    "definition": "shaman/08/04"
+  },
+  "shaman/08/05": {
+    "x": 456,
+    "y": -504,
+    "definition": "shaman/08/05"
+  },
+  "shaman/08/06": {
+    "x": 430,
+    "y": -517,
+    "definition": "shaman/08/06"
+  },
+  "shaman/08/07": {
+    "x": 411,
+    "y": -538,
+    "definition": "shaman/08/07"
+  },
+  "shaman/08/08": {
+    "x": 400,
+    "y": -565,
+    "definition": "shaman/08/08"
+  },
+  "shaman/08/09": {
+    "x": 400,
+    "y": -593,
+    "definition": "shaman/08/09"
+  },
+  "shaman/08/10": {
+    "x": 411,
+    "y": -620,
+    "definition": "shaman/08/10"
+  },
+  "shaman/08/11": {
+    "x": 430,
+    "y": -641,
+    "definition": "shaman/08/11"
+  },
+  "shaman/08/12": {
+    "x": 456,
+    "y": -654,
+    "definition": "shaman/08/12"
+  },
+  "shaman/08/13": {
+    "x": 484,
+    "y": -657,
+    "definition": "shaman/08/13"
+  },
+  "shaman/08/14": {
+    "x": 512,
+    "y": -649,
+    "definition": "shaman/08/14"
+  },
+  "shaman/08/15": {
+    "x": 535,
+    "y": -632,
+    "definition": "shaman/08/15"
+  },
+  "shaman/08/16": {
+    "x": 550,
+    "y": -607,
+    "definition": "shaman/08/16"
+  },
+  "shaman/09/00": {
+    "x": 643,
+    "y": -493,
+    "definition": "shaman/09/00"
+  },
+  "shaman/09/01": {
+    "x": 638,
+    "y": -465,
+    "definition": "shaman/09/01"
+  },
+  "shaman/09/02": {
+    "x": 623,
+    "y": -440,
+    "definition": "shaman/09/02"
+  },
+  "shaman/09/03": {
+    "x": 600,
+    "y": -423,
+    "definition": "shaman/09/03"
+  },
+  "shaman/09/04": {
+    "x": 572,
+    "y": -415,
+    "definition": "shaman/09/04"
+  },
+  "shaman/09/05": {
+    "x": 544,
+    "y": -418,
+    "definition": "shaman/09/05"
+  },
+  "shaman/09/06": {
+    "x": 518,
+    "y": -431,
+    "definition": "shaman/09/06"
+  },
+  "shaman/09/07": {
+    "x": 499,
+    "y": -452,
+    "definition": "shaman/09/07"
+  },
+  "shaman/09/08": {
+    "x": 488,
+    "y": -479,
+    "definition": "shaman/09/08"
+  },
+  "shaman/09/09": {
+    "x": 488,
+    "y": -507,
+    "definition": "shaman/09/09"
+  },
+  "shaman/09/10": {
+    "x": 499,
+    "y": -534,
+    "definition": "shaman/09/10"
+  },
+  "shaman/09/11": {
+    "x": 518,
+    "y": -555,
+    "definition": "shaman/09/11"
+  },
+  "shaman/09/12": {
+    "x": 544,
+    "y": -568,
+    "definition": "shaman/09/12"
+  },
+  "shaman/09/13": {
+    "x": 572,
+    "y": -571,
+    "definition": "shaman/09/13"
+  },
+  "shaman/09/14": {
+    "x": 600,
+    "y": -563,
+    "definition": "shaman/09/14"
+  },
+  "shaman/09/15": {
+    "x": 623,
+    "y": -546,
+    "definition": "shaman/09/15"
+  },
+  "shaman/09/16": {
+    "x": 638,
+    "y": -521,
+    "definition": "shaman/09/16"
+  },
+  "shaman/10/00": {
+    "x": 286,
+    "y": -1060,
+    "definition": "shaman/10/00"
+  },
+  "shaman/10/01": {
+    "x": 281,
+    "y": -1032,
+    "definition": "shaman/10/01"
+  },
+  "shaman/10/02": {
+    "x": 266,
+    "y": -1007,
+    "definition": "shaman/10/02"
+  },
+  "shaman/10/03": {
+    "x": 243,
+    "y": -990,
+    "definition": "shaman/10/03"
+  },
+  "shaman/10/04": {
+    "x": 215,
+    "y": -982,
+    "definition": "shaman/10/04"
+  },
+  "shaman/10/05": {
+    "x": 187,
+    "y": -985,
+    "definition": "shaman/10/05"
+  },
+  "shaman/10/06": {
+    "x": 161,
+    "y": -998,
+    "definition": "shaman/10/06"
+  },
+  "shaman/10/07": {
+    "x": 142,
+    "y": -1019,
+    "definition": "shaman/10/07"
+  },
+  "shaman/10/08": {
+    "x": 131,
+    "y": -1046,
+    "definition": "shaman/10/08"
+  },
+  "shaman/10/09": {
+    "x": 131,
+    "y": -1074,
+    "definition": "shaman/10/09"
+  },
+  "shaman/10/10": {
+    "x": 142,
+    "y": -1101,
+    "definition": "shaman/10/10"
+  },
+  "shaman/10/11": {
+    "x": 161,
+    "y": -1122,
+    "definition": "shaman/10/11"
+  },
+  "shaman/10/12": {
+    "x": 187,
+    "y": -1135,
+    "definition": "shaman/10/12"
+  },
+  "shaman/10/13": {
+    "x": 215,
+    "y": -1138,
+    "definition": "shaman/10/13"
+  },
+  "shaman/10/14": {
+    "x": 243,
+    "y": -1130,
+    "definition": "shaman/10/14"
+  },
+  "shaman/10/15": {
+    "x": 266,
+    "y": -1113,
+    "definition": "shaman/10/15"
+  },
+  "shaman/10/16": {
+    "x": 281,
+    "y": -1088,
+    "definition": "shaman/10/16"
+  },
+  "shaman/11/00": {
+    "x": 457,
+    "y": -1011,
+    "definition": "shaman/11/00"
+  },
+  "shaman/11/01": {
+    "x": 452,
+    "y": -983,
+    "definition": "shaman/11/01"
+  },
+  "shaman/11/02": {
+    "x": 437,
+    "y": -958,
+    "definition": "shaman/11/02"
+  },
+  "shaman/11/03": {
+    "x": 414,
+    "y": -941,
+    "definition": "shaman/11/03"
+  },
+  "shaman/11/04": {
+    "x": 386,
+    "y": -933,
+    "definition": "shaman/11/04"
+  },
+  "shaman/11/05": {
+    "x": 358,
+    "y": -936,
+    "definition": "shaman/11/05"
+  },
+  "shaman/11/06": {
+    "x": 332,
+    "y": -949,
+    "definition": "shaman/11/06"
+  },
+  "shaman/11/07": {
+    "x": 313,
+    "y": -970,
+    "definition": "shaman/11/07"
+  },
+  "shaman/11/08": {
+    "x": 302,
+    "y": -997,
+    "definition": "shaman/11/08"
+  },
+  "shaman/11/09": {
+    "x": 302,
+    "y": -1025,
+    "definition": "shaman/11/09"
+  },
+  "shaman/11/10": {
+    "x": 313,
+    "y": -1052,
+    "definition": "shaman/11/10"
+  },
+  "shaman/11/11": {
+    "x": 332,
+    "y": -1073,
+    "definition": "shaman/11/11"
+  },
+  "shaman/11/12": {
+    "x": 358,
+    "y": -1086,
+    "definition": "shaman/11/12"
+  },
+  "shaman/11/13": {
+    "x": 386,
+    "y": -1089,
+    "definition": "shaman/11/13"
+  },
+  "shaman/11/14": {
+    "x": 414,
+    "y": -1081,
+    "definition": "shaman/11/14"
+  },
+  "shaman/11/15": {
+    "x": 437,
+    "y": -1064,
+    "definition": "shaman/11/15"
+  },
+  "shaman/11/16": {
+    "x": 452,
+    "y": -1039,
+    "definition": "shaman/11/16"
+  },
+  "shaman/12/00": {
+    "x": 618,
+    "y": -935,
+    "definition": "shaman/12/00"
+  },
+  "shaman/12/01": {
+    "x": 613,
+    "y": -907,
+    "definition": "shaman/12/01"
+  },
+  "shaman/12/02": {
+    "x": 598,
+    "y": -882,
+    "definition": "shaman/12/02"
+  },
+  "shaman/12/03": {
+    "x": 575,
+    "y": -865,
+    "definition": "shaman/12/03"
+  },
+  "shaman/12/04": {
+    "x": 547,
+    "y": -857,
+    "definition": "shaman/12/04"
+  },
+  "shaman/12/05": {
+    "x": 519,
+    "y": -860,
+    "definition": "shaman/12/05"
+  },
+  "shaman/12/06": {
+    "x": 493,
+    "y": -873,
+    "definition": "shaman/12/06"
+  },
+  "shaman/12/07": {
+    "x": 474,
+    "y": -894,
+    "definition": "shaman/12/07"
+  },
+  "shaman/12/08": {
+    "x": 463,
+    "y": -921,
+    "definition": "shaman/12/08"
+  },
+  "shaman/12/09": {
+    "x": 463,
+    "y": -949,
+    "definition": "shaman/12/09"
+  },
+  "shaman/12/10": {
+    "x": 474,
+    "y": -976,
+    "definition": "shaman/12/10"
+  },
+  "shaman/12/11": {
+    "x": 493,
+    "y": -997,
+    "definition": "shaman/12/11"
+  },
+  "shaman/12/12": {
+    "x": 519,
+    "y": -1010,
+    "definition": "shaman/12/12"
+  },
+  "shaman/12/13": {
+    "x": 547,
+    "y": -1013,
+    "definition": "shaman/12/13"
+  },
+  "shaman/12/14": {
+    "x": 575,
+    "y": -1005,
+    "definition": "shaman/12/14"
+  },
+  "shaman/12/15": {
+    "x": 598,
+    "y": -988,
+    "definition": "shaman/12/15"
+  },
+  "shaman/12/16": {
+    "x": 613,
+    "y": -963,
+    "definition": "shaman/12/16"
+  },
+  "shaman/13/00": {
+    "x": 764,
+    "y": -834,
+    "definition": "shaman/13/00"
+  },
+  "shaman/13/01": {
+    "x": 759,
+    "y": -806,
+    "definition": "shaman/13/01"
+  },
+  "shaman/13/02": {
+    "x": 744,
+    "y": -781,
+    "definition": "shaman/13/02"
+  },
+  "shaman/13/03": {
+    "x": 721,
+    "y": -764,
+    "definition": "shaman/13/03"
+  },
+  "shaman/13/04": {
+    "x": 693,
+    "y": -756,
+    "definition": "shaman/13/04"
+  },
+  "shaman/13/05": {
+    "x": 665,
+    "y": -759,
+    "definition": "shaman/13/05"
+  },
+  "shaman/13/06": {
+    "x": 639,
+    "y": -772,
+    "definition": "shaman/13/06"
+  },
+  "shaman/13/07": {
+    "x": 620,
+    "y": -793,
+    "definition": "shaman/13/07"
+  },
+  "shaman/13/08": {
+    "x": 609,
+    "y": -820,
+    "definition": "shaman/13/08"
+  },
+  "shaman/13/09": {
+    "x": 609,
+    "y": -848,
+    "definition": "shaman/13/09"
+  },
+  "shaman/13/10": {
+    "x": 620,
+    "y": -875,
+    "definition": "shaman/13/10"
+  },
+  "shaman/13/11": {
+    "x": 639,
+    "y": -896,
+    "definition": "shaman/13/11"
+  },
+  "shaman/13/12": {
+    "x": 665,
+    "y": -909,
+    "definition": "shaman/13/12"
+  },
+  "shaman/13/13": {
+    "x": 693,
+    "y": -912,
+    "definition": "shaman/13/13"
+  },
+  "shaman/13/14": {
+    "x": 721,
+    "y": -904,
+    "definition": "shaman/13/14"
+  },
+  "shaman/13/15": {
+    "x": 744,
+    "y": -887,
+    "definition": "shaman/13/15"
+  },
+  "shaman/13/16": {
+    "x": 759,
+    "y": -862,
+    "definition": "shaman/13/16"
+  },
+  "shaman/14/00": {
+    "x": 892,
+    "y": -710,
+    "definition": "shaman/14/00"
+  },
+  "shaman/14/01": {
+    "x": 887,
+    "y": -682,
+    "definition": "shaman/14/01"
+  },
+  "shaman/14/02": {
+    "x": 872,
+    "y": -657,
+    "definition": "shaman/14/02"
+  },
+  "shaman/14/03": {
+    "x": 849,
+    "y": -640,
+    "definition": "shaman/14/03"
+  },
+  "shaman/14/04": {
+    "x": 821,
+    "y": -632,
+    "definition": "shaman/14/04"
+  },
+  "shaman/14/05": {
+    "x": 793,
+    "y": -635,
+    "definition": "shaman/14/05"
+  },
+  "shaman/14/06": {
+    "x": 767,
+    "y": -648,
+    "definition": "shaman/14/06"
+  },
+  "shaman/14/07": {
+    "x": 748,
+    "y": -669,
+    "definition": "shaman/14/07"
+  },
+  "shaman/14/08": {
+    "x": 737,
+    "y": -696,
+    "definition": "shaman/14/08"
+  },
+  "shaman/14/09": {
+    "x": 737,
+    "y": -724,
+    "definition": "shaman/14/09"
+  },
+  "shaman/14/10": {
+    "x": 748,
+    "y": -751,
+    "definition": "shaman/14/10"
+  },
+  "shaman/14/11": {
+    "x": 767,
+    "y": -772,
+    "definition": "shaman/14/11"
+  },
+  "shaman/14/12": {
+    "x": 793,
+    "y": -785,
+    "definition": "shaman/14/12"
+  },
+  "shaman/14/13": {
+    "x": 821,
+    "y": -788,
+    "definition": "shaman/14/13"
+  },
+  "shaman/14/14": {
+    "x": 849,
+    "y": -780,
+    "definition": "shaman/14/14"
+  },
+  "shaman/14/15": {
+    "x": 872,
+    "y": -763,
+    "definition": "shaman/14/15"
+  },
+  "shaman/14/16": {
+    "x": 887,
+    "y": -738,
+    "definition": "shaman/14/16"
+  },
+  "keystone/frost_guard": {
+    "x": 191,
+    "y": -1367,
+    "definition": "keystone/frost_guard"
+  },
+  "keystone/lightning_reflexes": {
+    "x": 322,
+    "y": -1470,
+    "definition": "keystone/lightning_reflexes"
+  },
+  "keystone/unbroken": {
+    "x": 398,
+    "y": -1321,
+    "definition": "keystone/unbroken"
+  },
+  "keystone/spell_echo_fuel": {
+    "x": 544,
+    "y": -1403,
+    "definition": "keystone/spell_echo_fuel"
+  },
+  "keystone/war_cry": {
+    "x": 596,
+    "y": -1245,
+    "definition": "keystone/war_cry"
+  },
+  "keystone/riposte": {
+    "x": 753,
+    "y": -1303,
+    "definition": "keystone/riposte"
+  },
+  "keystone/disruptive_guard": {
+    "x": 780,
+    "y": -1138,
+    "definition": "keystone/disruptive_guard"
+  },
+  "keystone/predator": {
+    "x": 944,
+    "y": -1173,
+    "definition": "keystone/predator"
+  },
+  "keystone/scorching_touch": {
+    "x": 945,
+    "y": -1005,
+    "definition": "keystone/scorching_touch"
+  },
+  "keystone/puncture": {
+    "x": 1112,
+    "y": -1014,
+    "definition": "keystone/puncture"
+  },
+  "keystone/verdant_decay": {
+    "x": 1088,
+    "y": -848,
+    "definition": "keystone/verdant_decay"
+  }
+}

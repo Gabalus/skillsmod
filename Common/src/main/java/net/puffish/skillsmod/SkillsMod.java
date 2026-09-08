@@ -14,6 +14,9 @@ import net.minecraft.util.Util;
 import net.puffish.skillsmod.api.Events;
 import net.puffish.skillsmod.api.Skill;
 import net.puffish.skillsmod.api.SkillsAPI;
+import net.puffish.skillsmod.arpg.character.ArpgProgression;
+import net.puffish.skillsmod.arpg.data.ArpgData;
+import net.puffish.skillsmod.arpg.item.ArpgItems;
 import net.puffish.skillsmod.api.config.ConfigContext;
 import net.puffish.skillsmod.api.experience.source.ExperienceSource;
 import net.puffish.skillsmod.api.util.Problem;
@@ -179,6 +182,7 @@ public class SkillsMod {
 		SkillsCriteria.register(registrar);
 
 		BuiltinRewards.register();
+		ArpgItems.register(registrar);
 		BuiltinOperations.register();
 		BuiltinExperienceSources.register();
 
@@ -383,6 +387,9 @@ public class SkillsMod {
 	}
 
 	public void tryUnlockSkill(ServerPlayerEntity player, Identifier categoryId, String skillId, boolean force) {
+		if (!force && (!isCategoryUnlocked(player, categoryId).orElse(false) || !ArpgProgression.canAllocate(player, categoryId, skillId))) {
+			return;
+		}
 		getCategory(categoryId).ifPresent(category -> {
 			var categoryData = getPlayerData(player).getOrCreateCategoryData(category);
 			category.skills().getById(skillId).ifPresent(skill -> {
@@ -1020,11 +1027,13 @@ public class SkillsMod {
 
 		@Override
 		public void onServerStarting(MinecraftServer server) {
+			ArpgData.reload(server);
 			loadModConfig(server);
 		}
 
 		@Override
 		public void onServerReload(MinecraftServer server) {
+			ArpgData.reload(server);
 			for (var player : server.getPlayerManager().getPlayerList()) {
 				for (var category : getAllCategories()) {
 					hideCategory(player, category);

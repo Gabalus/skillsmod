@@ -1,0 +1,290 @@
+{
+  "deadeye_0": {
+    "title": "Deadeye 1",
+    "description": "12% increased projectile damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "projectile_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "deadeye_1": {
+    "title": "Deadeye 2",
+    "description": "12% increased projectile damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "projectile_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "deadeye_2": {
+    "title": "Deadeye 3",
+    "description": "12% increased projectile damage; 30% more spell damage while low life.",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "projectile_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "pain_attunement"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "deadeye_3": {
+    "title": "Deadeye 4",
+    "description": "12% increased evasion",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "evasion",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "deadeye_4": {
+    "title": "Deadeye 5",
+    "description": "12% increased evasion",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "evasion",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "deadeye_5": {
+    "title": "Deadeye 6",
+    "description": "12% increased evasion; 25% more attack damage while full life.",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "evasion",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "perfect_form"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "deadeye_6": {
+    "title": "Deadeye 7",
+    "description": "6% increased critical chance",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "critical_chance",
+          "operation": "increased",
+          "value": 0.06
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "deadeye_7": {
+    "title": "Deadeye 8",
+    "description": "6% increased critical chance",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "critical_chance",
+          "operation": "increased",
+          "value": 0.06
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "deadeye_8": {
+    "title": "Deadeye 9",
+    "description": "6% increased critical chance; 25% more spell damage while full life.",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "critical_chance",
+          "operation": "increased",
+          "value": 0.06
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "pristine_mind"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "deadeye_9": {
+    "title": "Deadeye 10",
+    "description": "12% increased poison damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "poison_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "deadeye_10": {
+    "title": "Deadeye 11",
+    "description": "12% increased poison damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "poison_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "deadeye_11": {
+    "title": "Deadeye 12",
+    "description": "12% increased poison damage; 35% more spell damage while low mana.",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "poison_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "desperate_focus"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  }
+}

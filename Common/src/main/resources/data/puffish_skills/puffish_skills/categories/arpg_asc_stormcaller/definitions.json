@@ -1,0 +1,290 @@
+{
+  "stormcaller_0": {
+    "title": "Stormcaller 1",
+    "description": "16 flat maximum mana",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "maximum_mana",
+          "operation": "flat",
+          "value": 16
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "stormcaller_1": {
+    "title": "Stormcaller 2",
+    "description": "16 flat maximum mana",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "maximum_mana",
+          "operation": "flat",
+          "value": 16
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "stormcaller_2": {
+    "title": "Stormcaller 3",
+    "description": "16 flat maximum mana; On block: ward (cooldown 1s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "maximum_mana",
+          "operation": "flat",
+          "value": 16
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "storm_barrier"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "stormcaller_3": {
+    "title": "Stormcaller 4",
+    "description": "6% increased cast speed",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "cast_speed",
+          "operation": "increased",
+          "value": 0.06
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "stormcaller_4": {
+    "title": "Stormcaller 5",
+    "description": "6% increased cast speed",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "cast_speed",
+          "operation": "increased",
+          "value": 0.06
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "stormcaller_5": {
+    "title": "Stormcaller 6",
+    "description": "6% increased cast speed; On damage taken: mana (cooldown 2s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "cast_speed",
+          "operation": "increased",
+          "value": 0.06
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "blood_price"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "stormcaller_6": {
+    "title": "Stormcaller 7",
+    "description": "12% increased fire damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "fire_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "stormcaller_7": {
+    "title": "Stormcaller 8",
+    "description": "12% increased fire damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "fire_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "stormcaller_8": {
+    "title": "Stormcaller 9",
+    "description": "12% increased fire damage; On damage taken: buff (cooldown 5s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "fire_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "retribution"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "stormcaller_9": {
+    "title": "Stormcaller 10",
+    "description": "12% increased lightning damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "lightning_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "stormcaller_10": {
+    "title": "Stormcaller 11",
+    "description": "12% increased lightning damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "lightning_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "stormcaller_11": {
+    "title": "Stormcaller 12",
+    "description": "12% increased lightning damage; On dodge: heal (cooldown 3s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "lightning_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "second_wind"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  }
+}

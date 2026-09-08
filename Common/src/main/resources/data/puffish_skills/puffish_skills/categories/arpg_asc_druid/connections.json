@@ -1,0 +1,38 @@
+{
+  "normal": {
+    "bidirectional": [
+      [
+        "druid_0",
+        "druid_1"
+      ],
+      [
+        "druid_1",
+        "druid_2"
+      ],
+      [
+        "druid_3",
+        "druid_4"
+      ],
+      [
+        "druid_4",
+        "druid_5"
+      ],
+      [
+        "druid_6",
+        "druid_7"
+      ],
+      [
+        "druid_7",
+        "druid_8"
+      ],
+      [
+        "druid_9",
+        "druid_10"
+      ],
+      [
+        "druid_10",
+        "druid_11"
+      ]
+    ]
+  }
+}

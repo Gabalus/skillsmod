@@ -1,0 +1,38 @@
+{
+  "normal": {
+    "bidirectional": [
+      [
+        "stormcaller_0",
+        "stormcaller_1"
+      ],
+      [
+        "stormcaller_1",
+        "stormcaller_2"
+      ],
+      [
+        "stormcaller_3",
+        "stormcaller_4"
+      ],
+      [
+        "stormcaller_4",
+        "stormcaller_5"
+      ],
+      [
+        "stormcaller_6",
+        "stormcaller_7"
+      ],
+      [
+        "stormcaller_7",
+        "stormcaller_8"
+      ],
+      [
+        "stormcaller_9",
+        "stormcaller_10"
+      ],
+      [
+        "stormcaller_10",
+        "stormcaller_11"
+      ]
+    ]
+  }
+}

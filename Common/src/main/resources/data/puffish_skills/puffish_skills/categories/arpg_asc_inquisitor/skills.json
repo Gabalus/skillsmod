@@ -1,0 +1,74 @@
+{
+  "inquisitor_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "inquisitor_0",
+    "root": true
+  },
+  "inquisitor_1": {
+    "x": 0,
+    "y": 75,
+    "definition": "inquisitor_1",
+    "root": false
+  },
+  "inquisitor_2": {
+    "x": 0,
+    "y": 150,
+    "definition": "inquisitor_2",
+    "root": false
+  },
+  "inquisitor_3": {
+    "x": 95,
+    "y": 0,
+    "definition": "inquisitor_3",
+    "root": true
+  },
+  "inquisitor_4": {
+    "x": 95,
+    "y": 75,
+    "definition": "inquisitor_4",
+    "root": false
+  },
+  "inquisitor_5": {
+    "x": 95,
+    "y": 150,
+    "definition": "inquisitor_5",
+    "root": false
+  },
+  "inquisitor_6": {
+    "x": 190,
+    "y": 0,
+    "definition": "inquisitor_6",
+    "root": true
+  },
+  "inquisitor_7": {
+    "x": 190,
+    "y": 75,
+    "definition": "inquisitor_7",
+    "root": false
+  },
+  "inquisitor_8": {
+    "x": 190,
+    "y": 150,
+    "definition": "inquisitor_8",
+    "root": false
+  },
+  "inquisitor_9": {
+    "x": 285,
+    "y": 0,
+    "definition": "inquisitor_9",
+    "root": true
+  },
+  "inquisitor_10": {
+    "x": 285,
+    "y": 75,
+    "definition": "inquisitor_10",
+    "root": false
+  },
+  "inquisitor_11": {
+    "x": 285,
+    "y": 150,
+    "definition": "inquisitor_11",
+    "root": false
+  }
+}

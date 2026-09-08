@@ -1,0 +1,482 @@
+{
+  "shield_charge_0": {
+    "title": "Shield Charge 1",
+    "description": "8% increased attack damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/shield_charge_0"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "shield_charge_1": {
+    "title": "Shield Charge 2",
+    "description": "8% increased attack damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/shield_charge_1"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "shield_charge_2": {
+    "title": "Shield Charge 3",
+    "description": "8% increased attack damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/shield_charge_2"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "shield_charge_3": {
+    "title": "Shield Charge 4",
+    "description": "8% increased attack damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/shield_charge_3"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "shield_charge_4": {
+    "title": "Shield Charge 5",
+    "description": "8% increased physical damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/shield_charge_4"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "shield_charge_5": {
+    "title": "Shield Charge 6",
+    "description": "8% increased physical damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/shield_charge_5"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "shield_charge_6": {
+    "title": "Shield Charge 7",
+    "description": "8% increased physical damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/shield_charge_6"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "shield_charge_7": {
+    "title": "Shield Charge 8",
+    "description": "8% increased physical damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/shield_charge_7"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "shield_charge_8": {
+    "title": "Shield Charge 9",
+    "description": "4% reduced resource cost",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/shield_charge_8"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "shield_charge_9": {
+    "title": "Shield Charge 10",
+    "description": "4% reduced resource cost",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/shield_charge_9"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "shield_charge_10": {
+    "title": "Shield Charge 11",
+    "description": "4% reduced resource cost",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/shield_charge_10"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "shield_charge_11": {
+    "title": "Shield Charge 12",
+    "description": "4% reduced resource cost",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/shield_charge_11"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "shield_charge_12": {
+    "title": "Shield Charge 13",
+    "description": "4% increased cooldown recovery",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/shield_charge_12"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "shield_charge_13": {
+    "title": "Shield Charge 14",
+    "description": "4% increased cooldown recovery",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/shield_charge_13"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "shield_charge_14": {
+    "title": "Shield Charge 15",
+    "description": "4% increased cooldown recovery",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/shield_charge_14"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "shield_charge_15": {
+    "title": "Shield Charge 16",
+    "description": "4% increased cooldown recovery",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/shield_charge_15"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "shield_charge_16": {
+    "title": "Shield Charge 17",
+    "description": "4% increased critical chance",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/shield_charge_16"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "shield_charge_17": {
+    "title": "Shield Charge 18",
+    "description": "4% increased critical chance",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/shield_charge_17"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "shield_charge_18": {
+    "title": "Shield Charge 19",
+    "description": "4% increased critical chance",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/shield_charge_18"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "shield_charge_19": {
+    "title": "Shield Charge 20",
+    "description": "4% increased critical chance",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/shield_charge_19"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "shield_charge_20": {
+    "title": "Shield Charge 21",
+    "description": "8% increased area damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/shield_charge_20"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "shield_charge_21": {
+    "title": "Shield Charge 22",
+    "description": "8% increased area damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/shield_charge_21"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "shield_charge_22": {
+    "title": "Shield Charge 23",
+    "description": "8% increased area damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/shield_charge_22"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "shield_charge_23": {
+    "title": "Shield Charge 24",
+    "description": "8% increased area damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/shield_charge_23"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  }
+}

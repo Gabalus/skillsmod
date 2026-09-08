@@ -1,0 +1,74 @@
+{
+  "duelist_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "duelist_0",
+    "root": true
+  },
+  "duelist_1": {
+    "x": 0,
+    "y": 75,
+    "definition": "duelist_1",
+    "root": false
+  },
+  "duelist_2": {
+    "x": 0,
+    "y": 150,
+    "definition": "duelist_2",
+    "root": false
+  },
+  "duelist_3": {
+    "x": 95,
+    "y": 0,
+    "definition": "duelist_3",
+    "root": true
+  },
+  "duelist_4": {
+    "x": 95,
+    "y": 75,
+    "definition": "duelist_4",
+    "root": false
+  },
+  "duelist_5": {
+    "x": 95,
+    "y": 150,
+    "definition": "duelist_5",
+    "root": false
+  },
+  "duelist_6": {
+    "x": 190,
+    "y": 0,
+    "definition": "duelist_6",
+    "root": true
+  },
+  "duelist_7": {
+    "x": 190,
+    "y": 75,
+    "definition": "duelist_7",
+    "root": false
+  },
+  "duelist_8": {
+    "x": 190,
+    "y": 150,
+    "definition": "duelist_8",
+    "root": false
+  },
+  "duelist_9": {
+    "x": 285,
+    "y": 0,
+    "definition": "duelist_9",
+    "root": true
+  },
+  "duelist_10": {
+    "x": 285,
+    "y": 75,
+    "definition": "duelist_10",
+    "root": false
+  },
+  "duelist_11": {
+    "x": 285,
+    "y": 150,
+    "definition": "duelist_11",
+    "root": false
+  }
+}

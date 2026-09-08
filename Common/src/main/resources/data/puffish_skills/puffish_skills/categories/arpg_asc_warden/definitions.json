@@ -1,0 +1,290 @@
+{
+  "warden_0": {
+    "title": "Warden 1",
+    "description": "12% increased poison damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "poison_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "warden_1": {
+    "title": "Warden 2",
+    "description": "12% increased poison damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "poison_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "warden_2": {
+    "title": "Warden 3",
+    "description": "12% increased poison damage; 40% more fire damage while ignited.",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "poison_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "immolation"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "warden_3": {
+    "title": "Warden 4",
+    "description": "6% increased movement speed",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "movement_speed",
+          "operation": "increased",
+          "value": 0.06
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "warden_4": {
+    "title": "Warden 5",
+    "description": "6% increased movement speed",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "movement_speed",
+          "operation": "increased",
+          "value": 0.06
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "warden_5": {
+    "title": "Warden 6",
+    "description": "6% increased movement speed; 45% more fire damage while bleeding.",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "movement_speed",
+          "operation": "increased",
+          "value": 0.06
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "cauterize"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "warden_6": {
+    "title": "Warden 7",
+    "description": "12% increased projectile damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "projectile_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "warden_7": {
+    "title": "Warden 8",
+    "description": "12% increased projectile damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "projectile_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "warden_8": {
+    "title": "Warden 9",
+    "description": "12% increased projectile damage; 40% more nature damage while bleeding.",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "projectile_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "toxic_wounds"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "warden_9": {
+    "title": "Warden 10",
+    "description": "12% increased evasion",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "evasion",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "warden_10": {
+    "title": "Warden 11",
+    "description": "12% increased evasion",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "evasion",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "warden_11": {
+    "title": "Warden 12",
+    "description": "12% increased evasion; 35% more projectile damage while poisoned.",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "evasion",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "venomous_precision"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  }
+}

@@ -1,0 +1,290 @@
+{
+  "juggernaut_0": {
+    "title": "Juggernaut 1",
+    "description": "2 flat maximum life",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "maximum_life",
+          "operation": "flat",
+          "value": 2
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "juggernaut_1": {
+    "title": "Juggernaut 2",
+    "description": "2 flat maximum life",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "maximum_life",
+          "operation": "flat",
+          "value": 2
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "juggernaut_2": {
+    "title": "Juggernaut 3",
+    "description": "2 flat maximum life; Strength also increases spell damage.",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "maximum_life",
+          "operation": "flat",
+          "value": 2
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "iron_will"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "juggernaut_3": {
+    "title": "Juggernaut 4",
+    "description": "12% increased armor",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "armor",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "juggernaut_4": {
+    "title": "Juggernaut 5",
+    "description": "12% increased armor",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "armor",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "juggernaut_5": {
+    "title": "Juggernaut 6",
+    "description": "12% increased armor; Maximum mana is zero. Active skills spend life; costs cannot kill you.",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "armor",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "blood_magic"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "juggernaut_6": {
+    "title": "Juggernaut 7",
+    "description": "12% increased melee damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "melee_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "juggernaut_7": {
+    "title": "Juggernaut 8",
+    "description": "12% increased melee damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "melee_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "juggernaut_8": {
+    "title": "Juggernaut 9",
+    "description": "12% increased melee damage; Evasion modifiers contribute to armor. Evasion becomes zero.",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "melee_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "iron_fortress"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "juggernaut_9": {
+    "title": "Juggernaut 10",
+    "description": "12% increased physical damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "physical_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "juggernaut_10": {
+    "title": "Juggernaut 11",
+    "description": "12% increased physical damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "physical_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "juggernaut_11": {
+    "title": "Juggernaut 12",
+    "description": "12% increased physical damage; Convert all physical damage equally to fire, cold and lightning. Deal only those damage types.",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "physical_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "elemental_avatar"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  }
+}

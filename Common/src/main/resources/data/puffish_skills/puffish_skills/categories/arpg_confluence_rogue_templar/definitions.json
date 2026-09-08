@@ -1,0 +1,278 @@
+{
+  "rogue_templar_0": {
+    "title": "Rogue / Templar 1",
+    "description": "0.0375 flat critical multiplier",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "critical_multiplier",
+          "operation": "flat",
+          "value": 0.037500000000000006
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "rogue_templar_1": {
+    "title": "Rogue / Templar 2",
+    "description": "0.0075 flat block chance",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "block_chance",
+          "operation": "flat",
+          "value": 0.0075
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/shield.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "rogue_templar_2": {
+    "title": "Rogue / Templar 3",
+    "description": "9% increased bleed damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "bleed_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "rogue_templar_3": {
+    "title": "Rogue / Templar 4",
+    "description": "9% increased armor",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "armor",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/shield.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "rogue_templar_4": {
+    "title": "Rogue / Templar 5",
+    "description": "9% increased evasion",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "evasion",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "rogue_templar_5": {
+    "title": "Rogue / Templar 6",
+    "description": "9% increased holy damage; On dodge: heal (cooldown 3s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "holy_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "second_wind"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/shield.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "rogue_templar_6": {
+    "title": "Rogue / Templar 7",
+    "description": "4.5% increased attack speed",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "attack_speed",
+          "operation": "increased",
+          "value": 0.045
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "rogue_templar_7": {
+    "title": "Rogue / Templar 8",
+    "description": "1.5 flat maximum life",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "maximum_life",
+          "operation": "flat",
+          "value": 1.5
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/shield.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "rogue_templar_8": {
+    "title": "Rogue / Templar 9",
+    "description": "9% increased ender damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "ender_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "rogue_templar_9": {
+    "title": "Rogue / Templar 10",
+    "description": "1.5 flat ward",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "ward",
+          "operation": "flat",
+          "value": 1.5
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/shield.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "rogue_templar_10": {
+    "title": "Rogue / Templar 11",
+    "description": "0.0375 flat critical multiplier",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "critical_multiplier",
+          "operation": "flat",
+          "value": 0.037500000000000006
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "rogue_templar_11": {
+    "title": "Rogue / Templar 12",
+    "description": "0.0075 flat block chance; On ailment: mana (cooldown 2s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "block_chance",
+          "operation": "flat",
+          "value": 0.0075
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "caustic_reservoir"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/shield.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  }
+}

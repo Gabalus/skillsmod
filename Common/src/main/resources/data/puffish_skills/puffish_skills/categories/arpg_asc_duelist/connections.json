@@ -1,0 +1,38 @@
+{
+  "normal": {
+    "bidirectional": [
+      [
+        "duelist_0",
+        "duelist_1"
+      ],
+      [
+        "duelist_1",
+        "duelist_2"
+      ],
+      [
+        "duelist_3",
+        "duelist_4"
+      ],
+      [
+        "duelist_4",
+        "duelist_5"
+      ],
+      [
+        "duelist_6",
+        "duelist_7"
+      ],
+      [
+        "duelist_7",
+        "duelist_8"
+      ],
+      [
+        "duelist_9",
+        "duelist_10"
+      ],
+      [
+        "duelist_10",
+        "duelist_11"
+      ]
+    ]
+  }
+}

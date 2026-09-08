@@ -1,0 +1,74 @@
+{
+  "arcanist_ranger_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "arcanist_ranger_0",
+    "root": true
+  },
+  "arcanist_ranger_1": {
+    "x": 75,
+    "y": 0,
+    "definition": "arcanist_ranger_1",
+    "root": false
+  },
+  "arcanist_ranger_2": {
+    "x": 150,
+    "y": 0,
+    "definition": "arcanist_ranger_2",
+    "root": false
+  },
+  "arcanist_ranger_3": {
+    "x": 225,
+    "y": 0,
+    "definition": "arcanist_ranger_3",
+    "root": false
+  },
+  "arcanist_ranger_4": {
+    "x": 0,
+    "y": 75,
+    "definition": "arcanist_ranger_4",
+    "root": false
+  },
+  "arcanist_ranger_5": {
+    "x": 75,
+    "y": 75,
+    "definition": "arcanist_ranger_5",
+    "root": false
+  },
+  "arcanist_ranger_6": {
+    "x": 150,
+    "y": 75,
+    "definition": "arcanist_ranger_6",
+    "root": false
+  },
+  "arcanist_ranger_7": {
+    "x": 225,
+    "y": 75,
+    "definition": "arcanist_ranger_7",
+    "root": false
+  },
+  "arcanist_ranger_8": {
+    "x": 0,
+    "y": 150,
+    "definition": "arcanist_ranger_8",
+    "root": false
+  },
+  "arcanist_ranger_9": {
+    "x": 75,
+    "y": 150,
+    "definition": "arcanist_ranger_9",
+    "root": false
+  },
+  "arcanist_ranger_10": {
+    "x": 150,
+    "y": 150,
+    "definition": "arcanist_ranger_10",
+    "root": false
+  },
+  "arcanist_ranger_11": {
+    "x": 225,
+    "y": 150,
+    "definition": "arcanist_ranger_11",
+    "root": false
+  }
+}

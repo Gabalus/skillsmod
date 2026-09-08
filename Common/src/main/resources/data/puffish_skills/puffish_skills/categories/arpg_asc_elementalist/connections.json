@@ -1,0 +1,38 @@
+{
+  "normal": {
+    "bidirectional": [
+      [
+        "elementalist_0",
+        "elementalist_1"
+      ],
+      [
+        "elementalist_1",
+        "elementalist_2"
+      ],
+      [
+        "elementalist_3",
+        "elementalist_4"
+      ],
+      [
+        "elementalist_4",
+        "elementalist_5"
+      ],
+      [
+        "elementalist_6",
+        "elementalist_7"
+      ],
+      [
+        "elementalist_7",
+        "elementalist_8"
+      ],
+      [
+        "elementalist_9",
+        "elementalist_10"
+      ],
+      [
+        "elementalist_10",
+        "elementalist_11"
+      ]
+    ]
+  }
+}

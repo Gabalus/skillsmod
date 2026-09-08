@@ -1,0 +1,74 @@
+{
+  "saboteur_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "saboteur_0",
+    "root": true
+  },
+  "saboteur_1": {
+    "x": 0,
+    "y": 75,
+    "definition": "saboteur_1",
+    "root": false
+  },
+  "saboteur_2": {
+    "x": 0,
+    "y": 150,
+    "definition": "saboteur_2",
+    "root": false
+  },
+  "saboteur_3": {
+    "x": 95,
+    "y": 0,
+    "definition": "saboteur_3",
+    "root": true
+  },
+  "saboteur_4": {
+    "x": 95,
+    "y": 75,
+    "definition": "saboteur_4",
+    "root": false
+  },
+  "saboteur_5": {
+    "x": 95,
+    "y": 150,
+    "definition": "saboteur_5",
+    "root": false
+  },
+  "saboteur_6": {
+    "x": 190,
+    "y": 0,
+    "definition": "saboteur_6",
+    "root": true
+  },
+  "saboteur_7": {
+    "x": 190,
+    "y": 75,
+    "definition": "saboteur_7",
+    "root": false
+  },
+  "saboteur_8": {
+    "x": 190,
+    "y": 150,
+    "definition": "saboteur_8",
+    "root": false
+  },
+  "saboteur_9": {
+    "x": 285,
+    "y": 0,
+    "definition": "saboteur_9",
+    "root": true
+  },
+  "saboteur_10": {
+    "x": 285,
+    "y": 75,
+    "definition": "saboteur_10",
+    "root": false
+  },
+  "saboteur_11": {
+    "x": 285,
+    "y": 150,
+    "definition": "saboteur_11",
+    "root": false
+  }
+}

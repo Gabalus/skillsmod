@@ -1,0 +1,38 @@
+{
+  "normal": {
+    "bidirectional": [
+      [
+        "oracle_0",
+        "oracle_1"
+      ],
+      [
+        "oracle_1",
+        "oracle_2"
+      ],
+      [
+        "oracle_3",
+        "oracle_4"
+      ],
+      [
+        "oracle_4",
+        "oracle_5"
+      ],
+      [
+        "oracle_6",
+        "oracle_7"
+      ],
+      [
+        "oracle_7",
+        "oracle_8"
+      ],
+      [
+        "oracle_9",
+        "oracle_10"
+      ],
+      [
+        "oracle_10",
+        "oracle_11"
+      ]
+    ]
+  }
+}

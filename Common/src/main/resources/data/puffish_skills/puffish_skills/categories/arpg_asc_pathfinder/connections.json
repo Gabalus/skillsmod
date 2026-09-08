@@ -1,0 +1,38 @@
+{
+  "normal": {
+    "bidirectional": [
+      [
+        "pathfinder_0",
+        "pathfinder_1"
+      ],
+      [
+        "pathfinder_1",
+        "pathfinder_2"
+      ],
+      [
+        "pathfinder_3",
+        "pathfinder_4"
+      ],
+      [
+        "pathfinder_4",
+        "pathfinder_5"
+      ],
+      [
+        "pathfinder_6",
+        "pathfinder_7"
+      ],
+      [
+        "pathfinder_7",
+        "pathfinder_8"
+      ],
+      [
+        "pathfinder_9",
+        "pathfinder_10"
+      ],
+      [
+        "pathfinder_10",
+        "pathfinder_11"
+      ]
+    ]
+  }
+}

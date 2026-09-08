@@ -1,0 +1,290 @@
+{
+  "shadowdancer_0": {
+    "title": "Shadowdancer 1",
+    "description": "6% increased attack speed",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "attack_speed",
+          "operation": "increased",
+          "value": 0.06
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "shadowdancer_1": {
+    "title": "Shadowdancer 2",
+    "description": "6% increased attack speed",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "attack_speed",
+          "operation": "increased",
+          "value": 0.06
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "shadowdancer_2": {
+    "title": "Shadowdancer 3",
+    "description": "6% increased attack speed; 25% more spell damage while shield.",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "attack_speed",
+          "operation": "increased",
+          "value": 0.06
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "shield_scholar"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "shadowdancer_3": {
+    "title": "Shadowdancer 4",
+    "description": "12% increased bleed damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "bleed_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "shadowdancer_4": {
+    "title": "Shadowdancer 5",
+    "description": "12% increased bleed damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "bleed_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "shadowdancer_5": {
+    "title": "Shadowdancer 6",
+    "description": "12% increased bleed damage; 30% more melee damage while shield.",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "bleed_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "bastion_strike"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "shadowdancer_6": {
+    "title": "Shadowdancer 7",
+    "description": "12% increased ender damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "ender_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "shadowdancer_7": {
+    "title": "Shadowdancer 8",
+    "description": "12% increased ender damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "ender_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "shadowdancer_8": {
+    "title": "Shadowdancer 9",
+    "description": "12% increased ender damage; 35% more melee damage while dual wield.",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "ender_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "twin_fangs"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "shadowdancer_9": {
+    "title": "Shadowdancer 10",
+    "description": "12% increased evasion",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "evasion",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "shadowdancer_10": {
+    "title": "Shadowdancer 11",
+    "description": "12% increased evasion",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "evasion",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "shadowdancer_11": {
+    "title": "Shadowdancer 12",
+    "description": "12% increased evasion; 25% more attack damage while moving.",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "evasion",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "momentum"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  }
+}

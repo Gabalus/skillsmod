@@ -1,0 +1,74 @@
+{
+  "juggernaut_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "juggernaut_0",
+    "root": true
+  },
+  "juggernaut_1": {
+    "x": 0,
+    "y": 75,
+    "definition": "juggernaut_1",
+    "root": false
+  },
+  "juggernaut_2": {
+    "x": 0,
+    "y": 150,
+    "definition": "juggernaut_2",
+    "root": false
+  },
+  "juggernaut_3": {
+    "x": 95,
+    "y": 0,
+    "definition": "juggernaut_3",
+    "root": true
+  },
+  "juggernaut_4": {
+    "x": 95,
+    "y": 75,
+    "definition": "juggernaut_4",
+    "root": false
+  },
+  "juggernaut_5": {
+    "x": 95,
+    "y": 150,
+    "definition": "juggernaut_5",
+    "root": false
+  },
+  "juggernaut_6": {
+    "x": 190,
+    "y": 0,
+    "definition": "juggernaut_6",
+    "root": true
+  },
+  "juggernaut_7": {
+    "x": 190,
+    "y": 75,
+    "definition": "juggernaut_7",
+    "root": false
+  },
+  "juggernaut_8": {
+    "x": 190,
+    "y": 150,
+    "definition": "juggernaut_8",
+    "root": false
+  },
+  "juggernaut_9": {
+    "x": 285,
+    "y": 0,
+    "definition": "juggernaut_9",
+    "root": true
+  },
+  "juggernaut_10": {
+    "x": 285,
+    "y": 75,
+    "definition": "juggernaut_10",
+    "root": false
+  },
+  "juggernaut_11": {
+    "x": 285,
+    "y": 150,
+    "definition": "juggernaut_11",
+    "root": false
+  }
+}

@@ -1,0 +1,278 @@
+{
+  "ranger_rogue_0": {
+    "title": "Ranger / Rogue 1",
+    "description": "9% increased projectile damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "projectile_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "ranger_rogue_1": {
+    "title": "Ranger / Rogue 2",
+    "description": "4.5% increased attack speed",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "attack_speed",
+          "operation": "increased",
+          "value": 0.045
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "ranger_rogue_2": {
+    "title": "Ranger / Rogue 3",
+    "description": "4.5% increased critical chance",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "critical_chance",
+          "operation": "increased",
+          "value": 0.045
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "ranger_rogue_3": {
+    "title": "Ranger / Rogue 4",
+    "description": "9% increased ender damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "ender_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "ranger_rogue_4": {
+    "title": "Ranger / Rogue 5",
+    "description": "4.5% increased movement speed",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "movement_speed",
+          "operation": "increased",
+          "value": 0.045
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "ranger_rogue_5": {
+    "title": "Ranger / Rogue 6",
+    "description": "0.0375 flat critical multiplier; 40% more nature damage while bleeding.",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "critical_multiplier",
+          "operation": "flat",
+          "value": 0.037500000000000006
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "toxic_wounds"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "ranger_rogue_6": {
+    "title": "Ranger / Rogue 7",
+    "description": "9% increased evasion",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "evasion",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "ranger_rogue_7": {
+    "title": "Ranger / Rogue 8",
+    "description": "9% increased bleed damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "bleed_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "ranger_rogue_8": {
+    "title": "Ranger / Rogue 9",
+    "description": "9% increased poison damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "poison_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "ranger_rogue_9": {
+    "title": "Ranger / Rogue 10",
+    "description": "9% increased evasion",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "evasion",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "ranger_rogue_10": {
+    "title": "Ranger / Rogue 11",
+    "description": "9% increased projectile damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "projectile_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "ranger_rogue_11": {
+    "title": "Ranger / Rogue 12",
+    "description": "4.5% increased attack speed; 25% more attack damage while moving.",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "attack_speed",
+          "operation": "increased",
+          "value": 0.045
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "momentum"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  }
+}

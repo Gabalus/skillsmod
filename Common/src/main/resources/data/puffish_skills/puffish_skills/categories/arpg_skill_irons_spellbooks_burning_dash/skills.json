@@ -1,0 +1,146 @@
+{
+  "irons_spellbooks_burning_dash_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "irons_spellbooks_burning_dash_0",
+    "root": true
+  },
+  "irons_spellbooks_burning_dash_1": {
+    "x": 0,
+    "y": 70,
+    "definition": "irons_spellbooks_burning_dash_1",
+    "root": false
+  },
+  "irons_spellbooks_burning_dash_2": {
+    "x": 0,
+    "y": 140,
+    "definition": "irons_spellbooks_burning_dash_2",
+    "root": false
+  },
+  "irons_spellbooks_burning_dash_3": {
+    "x": 0,
+    "y": 210,
+    "definition": "irons_spellbooks_burning_dash_3",
+    "root": false
+  },
+  "irons_spellbooks_burning_dash_4": {
+    "x": 90,
+    "y": 0,
+    "definition": "irons_spellbooks_burning_dash_4",
+    "root": true
+  },
+  "irons_spellbooks_burning_dash_5": {
+    "x": 90,
+    "y": 70,
+    "definition": "irons_spellbooks_burning_dash_5",
+    "root": false
+  },
+  "irons_spellbooks_burning_dash_6": {
+    "x": 90,
+    "y": 140,
+    "definition": "irons_spellbooks_burning_dash_6",
+    "root": false
+  },
+  "irons_spellbooks_burning_dash_7": {
+    "x": 90,
+    "y": 210,
+    "definition": "irons_spellbooks_burning_dash_7",
+    "root": false
+  },
+  "irons_spellbooks_burning_dash_8": {
+    "x": 180,
+    "y": 0,
+    "definition": "irons_spellbooks_burning_dash_8",
+    "root": true
+  },
+  "irons_spellbooks_burning_dash_9": {
+    "x": 180,
+    "y": 70,
+    "definition": "irons_spellbooks_burning_dash_9",
+    "root": false
+  },
+  "irons_spellbooks_burning_dash_10": {
+    "x": 180,
+    "y": 140,
+    "definition": "irons_spellbooks_burning_dash_10",
+    "root": false
+  },
+  "irons_spellbooks_burning_dash_11": {
+    "x": 180,
+    "y": 210,
+    "definition": "irons_spellbooks_burning_dash_11",
+    "root": false
+  },
+  "irons_spellbooks_burning_dash_12": {
+    "x": 270,
+    "y": 0,
+    "definition": "irons_spellbooks_burning_dash_12",
+    "root": true
+  },
+  "irons_spellbooks_burning_dash_13": {
+    "x": 270,
+    "y": 70,
+    "definition": "irons_spellbooks_burning_dash_13",
+    "root": false
+  },
+  "irons_spellbooks_burning_dash_14": {
+    "x": 270,
+    "y": 140,
+    "definition": "irons_spellbooks_burning_dash_14",
+    "root": false
+  },
+  "irons_spellbooks_burning_dash_15": {
+    "x": 270,
+    "y": 210,
+    "definition": "irons_spellbooks_burning_dash_15",
+    "root": false
+  },
+  "irons_spellbooks_burning_dash_16": {
+    "x": 360,
+    "y": 0,
+    "definition": "irons_spellbooks_burning_dash_16",
+    "root": true
+  },
+  "irons_spellbooks_burning_dash_17": {
+    "x": 360,
+    "y": 70,
+    "definition": "irons_spellbooks_burning_dash_17",
+    "root": false
+  },
+  "irons_spellbooks_burning_dash_18": {
+    "x": 360,
+    "y": 140,
+    "definition": "irons_spellbooks_burning_dash_18",
+    "root": false
+  },
+  "irons_spellbooks_burning_dash_19": {
+    "x": 360,
+    "y": 210,
+    "definition": "irons_spellbooks_burning_dash_19",
+    "root": false
+  },
+  "irons_spellbooks_burning_dash_20": {
+    "x": 450,
+    "y": 0,
+    "definition": "irons_spellbooks_burning_dash_20",
+    "root": true
+  },
+  "irons_spellbooks_burning_dash_21": {
+    "x": 450,
+    "y": 70,
+    "definition": "irons_spellbooks_burning_dash_21",
+    "root": false
+  },
+  "irons_spellbooks_burning_dash_22": {
+    "x": 450,
+    "y": 140,
+    "definition": "irons_spellbooks_burning_dash_22",
+    "root": false
+  },
+  "irons_spellbooks_burning_dash_23": {
+    "x": 450,
+    "y": 210,
+    "definition": "irons_spellbooks_burning_dash_23",
+    "root": false
+  }
+}

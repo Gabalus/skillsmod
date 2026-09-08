@@ -1,0 +1,74 @@
+{
+  "sentinel_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "sentinel_0",
+    "root": true
+  },
+  "sentinel_1": {
+    "x": 0,
+    "y": 75,
+    "definition": "sentinel_1",
+    "root": false
+  },
+  "sentinel_2": {
+    "x": 0,
+    "y": 150,
+    "definition": "sentinel_2",
+    "root": false
+  },
+  "sentinel_3": {
+    "x": 95,
+    "y": 0,
+    "definition": "sentinel_3",
+    "root": true
+  },
+  "sentinel_4": {
+    "x": 95,
+    "y": 75,
+    "definition": "sentinel_4",
+    "root": false
+  },
+  "sentinel_5": {
+    "x": 95,
+    "y": 150,
+    "definition": "sentinel_5",
+    "root": false
+  },
+  "sentinel_6": {
+    "x": 190,
+    "y": 0,
+    "definition": "sentinel_6",
+    "root": true
+  },
+  "sentinel_7": {
+    "x": 190,
+    "y": 75,
+    "definition": "sentinel_7",
+    "root": false
+  },
+  "sentinel_8": {
+    "x": 190,
+    "y": 150,
+    "definition": "sentinel_8",
+    "root": false
+  },
+  "sentinel_9": {
+    "x": 285,
+    "y": 0,
+    "definition": "sentinel_9",
+    "root": true
+  },
+  "sentinel_10": {
+    "x": 285,
+    "y": 75,
+    "definition": "sentinel_10",
+    "root": false
+  },
+  "sentinel_11": {
+    "x": 285,
+    "y": 150,
+    "definition": "sentinel_11",
+    "root": false
+  }
+}

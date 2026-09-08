@@ -1,0 +1,146 @@
+{
+  "ground_slam_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "ground_slam_0",
+    "root": true
+  },
+  "ground_slam_1": {
+    "x": 0,
+    "y": 70,
+    "definition": "ground_slam_1",
+    "root": false
+  },
+  "ground_slam_2": {
+    "x": 0,
+    "y": 140,
+    "definition": "ground_slam_2",
+    "root": false
+  },
+  "ground_slam_3": {
+    "x": 0,
+    "y": 210,
+    "definition": "ground_slam_3",
+    "root": false
+  },
+  "ground_slam_4": {
+    "x": 90,
+    "y": 0,
+    "definition": "ground_slam_4",
+    "root": true
+  },
+  "ground_slam_5": {
+    "x": 90,
+    "y": 70,
+    "definition": "ground_slam_5",
+    "root": false
+  },
+  "ground_slam_6": {
+    "x": 90,
+    "y": 140,
+    "definition": "ground_slam_6",
+    "root": false
+  },
+  "ground_slam_7": {
+    "x": 90,
+    "y": 210,
+    "definition": "ground_slam_7",
+    "root": false
+  },
+  "ground_slam_8": {
+    "x": 180,
+    "y": 0,
+    "definition": "ground_slam_8",
+    "root": true
+  },
+  "ground_slam_9": {
+    "x": 180,
+    "y": 70,
+    "definition": "ground_slam_9",
+    "root": false
+  },
+  "ground_slam_10": {
+    "x": 180,
+    "y": 140,
+    "definition": "ground_slam_10",
+    "root": false
+  },
+  "ground_slam_11": {
+    "x": 180,
+    "y": 210,
+    "definition": "ground_slam_11",
+    "root": false
+  },
+  "ground_slam_12": {
+    "x": 270,
+    "y": 0,
+    "definition": "ground_slam_12",
+    "root": true
+  },
+  "ground_slam_13": {
+    "x": 270,
+    "y": 70,
+    "definition": "ground_slam_13",
+    "root": false
+  },
+  "ground_slam_14": {
+    "x": 270,
+    "y": 140,
+    "definition": "ground_slam_14",
+    "root": false
+  },
+  "ground_slam_15": {
+    "x": 270,
+    "y": 210,
+    "definition": "ground_slam_15",
+    "root": false
+  },
+  "ground_slam_16": {
+    "x": 360,
+    "y": 0,
+    "definition": "ground_slam_16",
+    "root": true
+  },
+  "ground_slam_17": {
+    "x": 360,
+    "y": 70,
+    "definition": "ground_slam_17",
+    "root": false
+  },
+  "ground_slam_18": {
+    "x": 360,
+    "y": 140,
+    "definition": "ground_slam_18",
+    "root": false
+  },
+  "ground_slam_19": {
+    "x": 360,
+    "y": 210,
+    "definition": "ground_slam_19",
+    "root": false
+  },
+  "ground_slam_20": {
+    "x": 450,
+    "y": 0,
+    "definition": "ground_slam_20",
+    "root": true
+  },
+  "ground_slam_21": {
+    "x": 450,
+    "y": 70,
+    "definition": "ground_slam_21",
+    "root": false
+  },
+  "ground_slam_22": {
+    "x": 450,
+    "y": 140,
+    "definition": "ground_slam_22",
+    "root": false
+  },
+  "ground_slam_23": {
+    "x": 450,
+    "y": 210,
+    "definition": "ground_slam_23",
+    "root": false
+  }
+}

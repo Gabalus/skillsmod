@@ -1,0 +1,74 @@
+{
+  "pyromancer_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "pyromancer_0",
+    "root": true
+  },
+  "pyromancer_1": {
+    "x": 0,
+    "y": 75,
+    "definition": "pyromancer_1",
+    "root": false
+  },
+  "pyromancer_2": {
+    "x": 0,
+    "y": 150,
+    "definition": "pyromancer_2",
+    "root": false
+  },
+  "pyromancer_3": {
+    "x": 95,
+    "y": 0,
+    "definition": "pyromancer_3",
+    "root": true
+  },
+  "pyromancer_4": {
+    "x": 95,
+    "y": 75,
+    "definition": "pyromancer_4",
+    "root": false
+  },
+  "pyromancer_5": {
+    "x": 95,
+    "y": 150,
+    "definition": "pyromancer_5",
+    "root": false
+  },
+  "pyromancer_6": {
+    "x": 190,
+    "y": 0,
+    "definition": "pyromancer_6",
+    "root": true
+  },
+  "pyromancer_7": {
+    "x": 190,
+    "y": 75,
+    "definition": "pyromancer_7",
+    "root": false
+  },
+  "pyromancer_8": {
+    "x": 190,
+    "y": 150,
+    "definition": "pyromancer_8",
+    "root": false
+  },
+  "pyromancer_9": {
+    "x": 285,
+    "y": 0,
+    "definition": "pyromancer_9",
+    "root": true
+  },
+  "pyromancer_10": {
+    "x": 285,
+    "y": 75,
+    "definition": "pyromancer_10",
+    "root": false
+  },
+  "pyromancer_11": {
+    "x": 285,
+    "y": 150,
+    "definition": "pyromancer_11",
+    "root": false
+  }
+}

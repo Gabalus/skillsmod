@@ -1,0 +1,146 @@
+{
+  "whirlwind_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "whirlwind_0",
+    "root": true
+  },
+  "whirlwind_1": {
+    "x": 0,
+    "y": 70,
+    "definition": "whirlwind_1",
+    "root": false
+  },
+  "whirlwind_2": {
+    "x": 0,
+    "y": 140,
+    "definition": "whirlwind_2",
+    "root": false
+  },
+  "whirlwind_3": {
+    "x": 0,
+    "y": 210,
+    "definition": "whirlwind_3",
+    "root": false
+  },
+  "whirlwind_4": {
+    "x": 90,
+    "y": 0,
+    "definition": "whirlwind_4",
+    "root": true
+  },
+  "whirlwind_5": {
+    "x": 90,
+    "y": 70,
+    "definition": "whirlwind_5",
+    "root": false
+  },
+  "whirlwind_6": {
+    "x": 90,
+    "y": 140,
+    "definition": "whirlwind_6",
+    "root": false
+  },
+  "whirlwind_7": {
+    "x": 90,
+    "y": 210,
+    "definition": "whirlwind_7",
+    "root": false
+  },
+  "whirlwind_8": {
+    "x": 180,
+    "y": 0,
+    "definition": "whirlwind_8",
+    "root": true
+  },
+  "whirlwind_9": {
+    "x": 180,
+    "y": 70,
+    "definition": "whirlwind_9",
+    "root": false
+  },
+  "whirlwind_10": {
+    "x": 180,
+    "y": 140,
+    "definition": "whirlwind_10",
+    "root": false
+  },
+  "whirlwind_11": {
+    "x": 180,
+    "y": 210,
+    "definition": "whirlwind_11",
+    "root": false
+  },
+  "whirlwind_12": {
+    "x": 270,
+    "y": 0,
+    "definition": "whirlwind_12",
+    "root": true
+  },
+  "whirlwind_13": {
+    "x": 270,
+    "y": 70,
+    "definition": "whirlwind_13",
+    "root": false
+  },
+  "whirlwind_14": {
+    "x": 270,
+    "y": 140,
+    "definition": "whirlwind_14",
+    "root": false
+  },
+  "whirlwind_15": {
+    "x": 270,
+    "y": 210,
+    "definition": "whirlwind_15",
+    "root": false
+  },
+  "whirlwind_16": {
+    "x": 360,
+    "y": 0,
+    "definition": "whirlwind_16",
+    "root": true
+  },
+  "whirlwind_17": {
+    "x": 360,
+    "y": 70,
+    "definition": "whirlwind_17",
+    "root": false
+  },
+  "whirlwind_18": {
+    "x": 360,
+    "y": 140,
+    "definition": "whirlwind_18",
+    "root": false
+  },
+  "whirlwind_19": {
+    "x": 360,
+    "y": 210,
+    "definition": "whirlwind_19",
+    "root": false
+  },
+  "whirlwind_20": {
+    "x": 450,
+    "y": 0,
+    "definition": "whirlwind_20",
+    "root": true
+  },
+  "whirlwind_21": {
+    "x": 450,
+    "y": 70,
+    "definition": "whirlwind_21",
+    "root": false
+  },
+  "whirlwind_22": {
+    "x": 450,
+    "y": 140,
+    "definition": "whirlwind_22",
+    "root": false
+  },
+  "whirlwind_23": {
+    "x": 450,
+    "y": 210,
+    "definition": "whirlwind_23",
+    "root": false
+  }
+}

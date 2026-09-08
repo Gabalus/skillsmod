@@ -1,12 +1,13 @@
 {
-	"title": "ARPG Integration Test",
-	"description": "Vertical slice for passive-tree to Iron's Spells stat integration.",
-	"icon": {
-		"type": "texture",
-		"data": {
-			"texture": "minecraft:textures/item/nether_star.png"
-		}
-	},
-	"background": "minecraft:textures/block/deepslate_tiles.png",
-	"starting_points": 8
+  "title": "ARPG Integration Test",
+  "description": "Vertical slice for passive-tree to Iron's Spells stat integration.",
+  "icon": {
+    "type": "texture",
+    "data": {
+      "texture": "minecraft:textures/item/nether_star.png"
+    }
+  },
+  "background": "minecraft:textures/block/deepslate_tiles.png",
+  "starting_points": 8,
+  "unlocked_by_default": false
 }

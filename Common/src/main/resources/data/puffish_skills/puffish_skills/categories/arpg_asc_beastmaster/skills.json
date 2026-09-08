@@ -1,0 +1,74 @@
+{
+  "beastmaster_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "beastmaster_0",
+    "root": true
+  },
+  "beastmaster_1": {
+    "x": 0,
+    "y": 75,
+    "definition": "beastmaster_1",
+    "root": false
+  },
+  "beastmaster_2": {
+    "x": 0,
+    "y": 150,
+    "definition": "beastmaster_2",
+    "root": false
+  },
+  "beastmaster_3": {
+    "x": 95,
+    "y": 0,
+    "definition": "beastmaster_3",
+    "root": true
+  },
+  "beastmaster_4": {
+    "x": 95,
+    "y": 75,
+    "definition": "beastmaster_4",
+    "root": false
+  },
+  "beastmaster_5": {
+    "x": 95,
+    "y": 150,
+    "definition": "beastmaster_5",
+    "root": false
+  },
+  "beastmaster_6": {
+    "x": 190,
+    "y": 0,
+    "definition": "beastmaster_6",
+    "root": true
+  },
+  "beastmaster_7": {
+    "x": 190,
+    "y": 75,
+    "definition": "beastmaster_7",
+    "root": false
+  },
+  "beastmaster_8": {
+    "x": 190,
+    "y": 150,
+    "definition": "beastmaster_8",
+    "root": false
+  },
+  "beastmaster_9": {
+    "x": 285,
+    "y": 0,
+    "definition": "beastmaster_9",
+    "root": true
+  },
+  "beastmaster_10": {
+    "x": 285,
+    "y": 75,
+    "definition": "beastmaster_10",
+    "root": false
+  },
+  "beastmaster_11": {
+    "x": 285,
+    "y": 150,
+    "definition": "beastmaster_11",
+    "root": false
+  }
+}

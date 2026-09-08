@@ -1,0 +1,74 @@
+{
+  "necromancer_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "necromancer_0",
+    "root": true
+  },
+  "necromancer_1": {
+    "x": 0,
+    "y": 75,
+    "definition": "necromancer_1",
+    "root": false
+  },
+  "necromancer_2": {
+    "x": 0,
+    "y": 150,
+    "definition": "necromancer_2",
+    "root": false
+  },
+  "necromancer_3": {
+    "x": 95,
+    "y": 0,
+    "definition": "necromancer_3",
+    "root": true
+  },
+  "necromancer_4": {
+    "x": 95,
+    "y": 75,
+    "definition": "necromancer_4",
+    "root": false
+  },
+  "necromancer_5": {
+    "x": 95,
+    "y": 150,
+    "definition": "necromancer_5",
+    "root": false
+  },
+  "necromancer_6": {
+    "x": 190,
+    "y": 0,
+    "definition": "necromancer_6",
+    "root": true
+  },
+  "necromancer_7": {
+    "x": 190,
+    "y": 75,
+    "definition": "necromancer_7",
+    "root": false
+  },
+  "necromancer_8": {
+    "x": 190,
+    "y": 150,
+    "definition": "necromancer_8",
+    "root": false
+  },
+  "necromancer_9": {
+    "x": 285,
+    "y": 0,
+    "definition": "necromancer_9",
+    "root": true
+  },
+  "necromancer_10": {
+    "x": 285,
+    "y": 75,
+    "definition": "necromancer_10",
+    "root": false
+  },
+  "necromancer_11": {
+    "x": 285,
+    "y": 150,
+    "definition": "necromancer_11",
+    "root": false
+  }
+}

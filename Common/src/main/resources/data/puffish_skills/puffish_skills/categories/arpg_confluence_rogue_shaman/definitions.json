@@ -1,0 +1,278 @@
+{
+  "rogue_shaman_0": {
+    "title": "Rogue / Shaman 1",
+    "description": "0.0375 flat critical multiplier",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "critical_multiplier",
+          "operation": "flat",
+          "value": 0.037500000000000006
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "rogue_shaman_1": {
+    "title": "Rogue / Shaman 2",
+    "description": "9% increased blood damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "blood_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "rogue_shaman_2": {
+    "title": "Rogue / Shaman 3",
+    "description": "9% increased bleed damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "bleed_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "rogue_shaman_3": {
+    "title": "Rogue / Shaman 4",
+    "description": "9% increased mana regeneration",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "mana_regeneration",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "rogue_shaman_4": {
+    "title": "Rogue / Shaman 5",
+    "description": "9% increased evasion",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "evasion",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "rogue_shaman_5": {
+    "title": "Rogue / Shaman 6",
+    "description": "9% increased nature damage; On crit: bleed (cooldown 1s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "nature_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "open_wounds"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "rogue_shaman_6": {
+    "title": "Rogue / Shaman 7",
+    "description": "4.5% increased attack speed",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "attack_speed",
+          "operation": "increased",
+          "value": 0.045
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "rogue_shaman_7": {
+    "title": "Rogue / Shaman 8",
+    "description": "9% increased cold damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "cold_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "rogue_shaman_8": {
+    "title": "Rogue / Shaman 9",
+    "description": "9% increased ender damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "ender_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "rogue_shaman_9": {
+    "title": "Rogue / Shaman 10",
+    "description": "1.5 flat ward",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "ward",
+          "operation": "flat",
+          "value": 1.5
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "rogue_shaman_10": {
+    "title": "Rogue / Shaman 11",
+    "description": "0.0375 flat critical multiplier",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "critical_multiplier",
+          "operation": "flat",
+          "value": 0.037500000000000006
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "rogue_shaman_11": {
+    "title": "Rogue / Shaman 12",
+    "description": "9% increased blood damage; On cast: heal (cooldown 3s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "blood_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "vital_surge"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  }
+}

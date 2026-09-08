@@ -1,0 +1,146 @@
+{
+  "irons_spellbooks_chain_lightning_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "irons_spellbooks_chain_lightning_0",
+    "root": true
+  },
+  "irons_spellbooks_chain_lightning_1": {
+    "x": 0,
+    "y": 70,
+    "definition": "irons_spellbooks_chain_lightning_1",
+    "root": false
+  },
+  "irons_spellbooks_chain_lightning_2": {
+    "x": 0,
+    "y": 140,
+    "definition": "irons_spellbooks_chain_lightning_2",
+    "root": false
+  },
+  "irons_spellbooks_chain_lightning_3": {
+    "x": 0,
+    "y": 210,
+    "definition": "irons_spellbooks_chain_lightning_3",
+    "root": false
+  },
+  "irons_spellbooks_chain_lightning_4": {
+    "x": 90,
+    "y": 0,
+    "definition": "irons_spellbooks_chain_lightning_4",
+    "root": true
+  },
+  "irons_spellbooks_chain_lightning_5": {
+    "x": 90,
+    "y": 70,
+    "definition": "irons_spellbooks_chain_lightning_5",
+    "root": false
+  },
+  "irons_spellbooks_chain_lightning_6": {
+    "x": 90,
+    "y": 140,
+    "definition": "irons_spellbooks_chain_lightning_6",
+    "root": false
+  },
+  "irons_spellbooks_chain_lightning_7": {
+    "x": 90,
+    "y": 210,
+    "definition": "irons_spellbooks_chain_lightning_7",
+    "root": false
+  },
+  "irons_spellbooks_chain_lightning_8": {
+    "x": 180,
+    "y": 0,
+    "definition": "irons_spellbooks_chain_lightning_8",
+    "root": true
+  },
+  "irons_spellbooks_chain_lightning_9": {
+    "x": 180,
+    "y": 70,
+    "definition": "irons_spellbooks_chain_lightning_9",
+    "root": false
+  },
+  "irons_spellbooks_chain_lightning_10": {
+    "x": 180,
+    "y": 140,
+    "definition": "irons_spellbooks_chain_lightning_10",
+    "root": false
+  },
+  "irons_spellbooks_chain_lightning_11": {
+    "x": 180,
+    "y": 210,
+    "definition": "irons_spellbooks_chain_lightning_11",
+    "root": false
+  },
+  "irons_spellbooks_chain_lightning_12": {
+    "x": 270,
+    "y": 0,
+    "definition": "irons_spellbooks_chain_lightning_12",
+    "root": true
+  },
+  "irons_spellbooks_chain_lightning_13": {
+    "x": 270,
+    "y": 70,
+    "definition": "irons_spellbooks_chain_lightning_13",
+    "root": false
+  },
+  "irons_spellbooks_chain_lightning_14": {
+    "x": 270,
+    "y": 140,
+    "definition": "irons_spellbooks_chain_lightning_14",
+    "root": false
+  },
+  "irons_spellbooks_chain_lightning_15": {
+    "x": 270,
+    "y": 210,
+    "definition": "irons_spellbooks_chain_lightning_15",
+    "root": false
+  },
+  "irons_spellbooks_chain_lightning_16": {
+    "x": 360,
+    "y": 0,
+    "definition": "irons_spellbooks_chain_lightning_16",
+    "root": true
+  },
+  "irons_spellbooks_chain_lightning_17": {
+    "x": 360,
+    "y": 70,
+    "definition": "irons_spellbooks_chain_lightning_17",
+    "root": false
+  },
+  "irons_spellbooks_chain_lightning_18": {
+    "x": 360,
+    "y": 140,
+    "definition": "irons_spellbooks_chain_lightning_18",
+    "root": false
+  },
+  "irons_spellbooks_chain_lightning_19": {
+    "x": 360,
+    "y": 210,
+    "definition": "irons_spellbooks_chain_lightning_19",
+    "root": false
+  },
+  "irons_spellbooks_chain_lightning_20": {
+    "x": 450,
+    "y": 0,
+    "definition": "irons_spellbooks_chain_lightning_20",
+    "root": true
+  },
+  "irons_spellbooks_chain_lightning_21": {
+    "x": 450,
+    "y": 70,
+    "definition": "irons_spellbooks_chain_lightning_21",
+    "root": false
+  },
+  "irons_spellbooks_chain_lightning_22": {
+    "x": 450,
+    "y": 140,
+    "definition": "irons_spellbooks_chain_lightning_22",
+    "root": false
+  },
+  "irons_spellbooks_chain_lightning_23": {
+    "x": 450,
+    "y": 210,
+    "definition": "irons_spellbooks_chain_lightning_23",
+    "root": false
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "warlord_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "warlord_0",
+    "root": true
+  },
+  "warlord_1": {
+    "x": 0,
+    "y": 75,
+    "definition": "warlord_1",
+    "root": false
+  },
+  "warlord_2": {
+    "x": 0,
+    "y": 150,
+    "definition": "warlord_2",
+    "root": false
+  },
+  "warlord_3": {
+    "x": 95,
+    "y": 0,
+    "definition": "warlord_3",
+    "root": true
+  },
+  "warlord_4": {
+    "x": 95,
+    "y": 75,
+    "definition": "warlord_4",
+    "root": false
+  },
+  "warlord_5": {
+    "x": 95,
+    "y": 150,
+    "definition": "warlord_5",
+    "root": false
+  },
+  "warlord_6": {
+    "x": 190,
+    "y": 0,
+    "definition": "warlord_6",
+    "root": true
+  },
+  "warlord_7": {
+    "x": 190,
+    "y": 75,
+    "definition": "warlord_7",
+    "root": false
+  },
+  "warlord_8": {
+    "x": 190,
+    "y": 150,
+    "definition": "warlord_8",
+    "root": false
+  },
+  "warlord_9": {
+    "x": 285,
+    "y": 0,
+    "definition": "warlord_9",
+    "root": true
+  },
+  "warlord_10": {
+    "x": 285,
+    "y": 75,
+    "definition": "warlord_10",
+    "root": false
+  },
+  "warlord_11": {
+    "x": 285,
+    "y": 150,
+    "definition": "warlord_11",
+    "root": false
+  }
+}

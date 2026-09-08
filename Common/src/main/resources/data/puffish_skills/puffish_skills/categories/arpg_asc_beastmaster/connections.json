@@ -1,0 +1,38 @@
+{
+  "normal": {
+    "bidirectional": [
+      [
+        "beastmaster_0",
+        "beastmaster_1"
+      ],
+      [
+        "beastmaster_1",
+        "beastmaster_2"
+      ],
+      [
+        "beastmaster_3",
+        "beastmaster_4"
+      ],
+      [
+        "beastmaster_4",
+        "beastmaster_5"
+      ],
+      [
+        "beastmaster_6",
+        "beastmaster_7"
+      ],
+      [
+        "beastmaster_7",
+        "beastmaster_8"
+      ],
+      [
+        "beastmaster_9",
+        "beastmaster_10"
+      ],
+      [
+        "beastmaster_10",
+        "beastmaster_11"
+      ]
+    ]
+  }
+}
