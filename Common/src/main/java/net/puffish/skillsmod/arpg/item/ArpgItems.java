@@ -115,7 +115,7 @@ public final class ArpgItems {
 			result.addAll(unique.modifiers());
 		}
 		for (var rune : data.runes()) {
-			result.add(switch (rune) {
+			var modifier = switch (rune) {
 				case "ember" -> new ArpgStatModifier(ArpgStat.FIRE_DAMAGE, ArpgModifierOperation.INCREASED, .08);
 				case "frost" -> new ArpgStatModifier(ArpgStat.COLD_DAMAGE, ArpgModifierOperation.INCREASED, .08);
 				case "storm" -> new ArpgStatModifier(ArpgStat.LIGHTNING_DAMAGE, ArpgModifierOperation.INCREASED, .08);
@@ -123,7 +123,8 @@ public final class ArpgItems {
 				case "arcane" -> new ArpgStatModifier(ArpgStat.MAXIMUM_MANA, ArpgModifierOperation.FLAT, 15);
 				case "gale" -> new ArpgStatModifier(ArpgStat.MOVEMENT_SPEED, ArpgModifierOperation.INCREASED, .03);
 				default -> throw new IllegalArgumentException("Unknown rune " + rune);
-			});
+			};
+			result.add(modifier);
 		}
 		return result;
 	}
