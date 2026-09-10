@@ -32,6 +32,8 @@ public final class NeoForgeIronsEvents {
 	private static final String PRE_CAST_EVENT = "io.redspace.ironsspellbooks.api.events.SpellPreCastEvent";
 	private static final String ON_CAST_EVENT = "io.redspace.ironsspellbooks.api.events.SpellOnCastEvent";
 	private static final String MAGIC_DATA = "io.redspace.ironsspellbooks.api.magic.MagicData";
+	private static final String SPELL_REGISTRY = "io.redspace.ironsspellbooks.api.registry.SpellRegistry";
+	private static final String ABSTRACT_SPELL = "io.redspace.ironsspellbooks.api.spells.AbstractSpell";
 	private static final String SYNC_MANA_PACKET = "io.redspace.ironsspellbooks.network.SyncManaPacket";
 	private static boolean registered;
 	private static boolean invocationFailureLogged;
@@ -44,11 +46,14 @@ public final class NeoForgeIronsEvents {
 			return;
 		}
 		try {
-			var preCast = EventAccess.create(PRE_CAST_EVENT);
-			var onCast = EventAccess.create(ON_CAST_EVENT);
+			var preCast = EventAccess.create(PRE_CAST_EVENT, false);
+			var onCast = EventAccess.create(ON_CAST_EVENT, true);
 			var manaAccess = ManaAccess.create();
-			register(eventBus, preCast.type(), event -> onPreCast(event, preCast));
-			register(eventBus, onCast.type(), event -> onCast(event, onCast));
+			var spellAccess = SpellAccess.create();
+			register(eventBus, EventPriority.NORMAL, preCast.type(),
+					event -> onPreCast(event, preCast, manaAccess, spellAccess));
+			register(eventBus, EventPriority.LOWEST, onCast.type(),
+					event -> onCast(event, onCast, manaAccess));
 			ArpgRuleRuntime.configureExternalRuntime(manaAccess::fraction, manaAccess::executeTrigger);
 			registered = true;
 		} catch (ReflectiveOperationException | RuntimeException exception) {
@@ -58,7 +63,7 @@ public final class NeoForgeIronsEvents {
 		}
 	}
 
-	private static void onPreCast(Event event, EventAccess access) {
+	private static void onPreCast(Event event, EventAccess access, ManaAccess manaAccess, SpellAccess spellAccess) {
 		try {
 			var player = access.player(event);
 			if (player == null) {
@@ -66,16 +71,27 @@ public final class NeoForgeIronsEvents {
 			}
 			var skillId = access.skillId(event);
 			var result = ArpgSkillAccess.check(player, skillId, "irons");
-			if (!result.allowed() && event instanceof ICancellableEvent cancellable) {
-				cancellable.setCanceled(true);
+			if (!result.allowed()) {
+				cancel(event);
 				player.sendMessage(Text.literal(result.message()), true);
+				return;
+			}
+
+			if (access.consumesMana(event)
+					&& !manaAccess.hasRecast(player, skillId)
+					&& IronsBloodMagicBridge.replacesMana(player, skillId)) {
+				int manaCost = spellAccess.manaCost(skillId, access.spellLevel(event));
+				if (!IronsBloodMagicBridge.canPayLife(player, manaCost)) {
+					cancel(event);
+					player.sendMessage(Text.literal("Not enough Life to cast this spell."), true);
+				}
 			}
 		} catch (ReflectiveOperationException | RuntimeException exception) {
 			logInvocationFailure(exception);
 		}
 	}
 
-	private static void onCast(Event event, EventAccess access) {
+	private static void onCast(Event event, EventAccess access, ManaAccess manaAccess) {
 		try {
 			var player = access.player(event);
 			if (player == null) {
@@ -93,6 +109,19 @@ public final class NeoForgeIronsEvents {
 			Set<String> tags = skill.tags().stream()
 					.map(tag -> tag.name().toLowerCase(Locale.ROOT))
 					.collect(Collectors.toUnmodifiableSet());
+
+			if (access.consumesMana(event)
+					&& !manaAccess.hasRecast(player, skillId)
+					&& IronsBloodMagicBridge.replacesMana(player, skillId)) {
+				int manaCost = access.manaCost(event);
+				if (!IronsBloodMagicBridge.payLife(player, manaCost)) {
+					// The optional mixin re-checks before this event. If another listener changed the
+					// final cost afterwards, preserve the non-lethal invariant instead of charging mana.
+					player.setHealth(Math.max(1.0f, player.getHealth()));
+				}
+				access.setManaCost(event, 0);
+			}
+
 			ArpgRuleRuntime.fireSupportedTriggers(
 					player,
 					null,
@@ -115,8 +144,19 @@ public final class NeoForgeIronsEvents {
 	}
 
 	@SuppressWarnings({"rawtypes", "unchecked"})
-	private static void register(IEventBus eventBus, Class<? extends Event> eventType, Consumer<Event> listener) {
-		eventBus.addListener(EventPriority.NORMAL, (Class) eventType, (Consumer) listener);
+	private static void register(
+			IEventBus eventBus,
+			EventPriority priority,
+			Class<? extends Event> eventType,
+			Consumer<Event> listener
+	) {
+		eventBus.addListener(priority, (Class) eventType, (Consumer) listener);
+	}
+
+	private static void cancel(Event event) {
+		if (event instanceof ICancellableEvent cancellable) {
+			cancellable.setCanceled(true);
+		}
 	}
 
 	private static void logInvocationFailure(Exception exception) {
@@ -131,16 +171,28 @@ public final class NeoForgeIronsEvents {
 	private record EventAccess(
 			Class<? extends Event> type,
 			Method getEntity,
-			Method getSpellId
+			Method getSpellId,
+			Method getSpellLevel,
+			Method getCastSource,
+			Method getManaCost,
+			Method setManaCost
 	) {
-		private static EventAccess create(String className) throws ReflectiveOperationException {
+		private static EventAccess create(String className, boolean mutableManaCost) throws ReflectiveOperationException {
 			var raw = Class.forName(className);
 			if (!Event.class.isAssignableFrom(raw)) {
 				throw new IllegalArgumentException(className + " is not a NeoForge event");
 			}
 			@SuppressWarnings("unchecked")
 			var eventType = (Class<? extends Event>) raw;
-			return new EventAccess(eventType, raw.getMethod("getEntity"), raw.getMethod("getSpellId"));
+			return new EventAccess(
+					eventType,
+					raw.getMethod("getEntity"),
+					raw.getMethod("getSpellId"),
+					raw.getMethod("getSpellLevel"),
+					raw.getMethod("getCastSource"),
+					mutableManaCost ? raw.getMethod("getManaCost") : null,
+					mutableManaCost ? raw.getMethod("setManaCost", int.class) : null
+			);
 		}
 
 		private ServerPlayerEntity player(Event event) throws ReflectiveOperationException {
@@ -155,21 +207,84 @@ public final class NeoForgeIronsEvents {
 			}
 			throw new IllegalStateException("Iron's cast event returned an invalid spell ID");
 		}
+
+		private int spellLevel(Event event) throws ReflectiveOperationException {
+			var value = getSpellLevel.invoke(event);
+			if (value instanceof Number number) {
+				return number.intValue();
+			}
+			throw new IllegalStateException("Iron's cast event returned a non-numeric spell level");
+		}
+
+		private boolean consumesMana(Event event) throws ReflectiveOperationException {
+			var source = getCastSource.invoke(event);
+			if (source == null) {
+				return false;
+			}
+			var value = source.getClass().getMethod("consumesMana").invoke(source);
+			return value instanceof Boolean bool && bool;
+		}
+
+		private int manaCost(Event event) throws ReflectiveOperationException {
+			if (getManaCost == null) {
+				throw new IllegalStateException("Mana cost is not available on this Iron's event");
+			}
+			var value = getManaCost.invoke(event);
+			if (value instanceof Number number) {
+				return Math.max(0, number.intValue());
+			}
+			throw new IllegalStateException("Iron's cast event returned a non-numeric mana cost");
+		}
+
+		private void setManaCost(Event event, int value) throws ReflectiveOperationException {
+			if (setManaCost == null) {
+				throw new IllegalStateException("Mana cost is not mutable on this Iron's event");
+			}
+			setManaCost.invoke(event, value);
+		}
+	}
+
+	private record SpellAccess(Method getSpell, Method getManaCost) {
+		private static SpellAccess create() throws ReflectiveOperationException {
+			var registry = Class.forName(SPELL_REGISTRY);
+			var spell = Class.forName(ABSTRACT_SPELL);
+			return new SpellAccess(
+					registry.getMethod("getSpell", String.class),
+					spell.getMethod("getManaCost", int.class)
+			);
+		}
+
+		private int manaCost(String skillId, int spellLevel) throws ReflectiveOperationException {
+			var spell = getSpell.invoke(null, skillId);
+			if (spell == null) {
+				throw new IllegalStateException("Iron's returned no spell for " + skillId);
+			}
+			var value = getManaCost.invoke(spell, spellLevel);
+			if (value instanceof Number number) {
+				return Math.max(0, number.intValue());
+			}
+			throw new IllegalStateException("Iron's spell returned a non-numeric mana cost");
+		}
 	}
 
 	private record ManaAccess(
 			Method getPlayerMagicData,
 			Method getMana,
 			Method setMana,
+			Method getPlayerRecasts,
+			Method hasRecastForSpell,
 			Constructor<?> syncManaPacket
 	) {
 		private static ManaAccess create() throws ReflectiveOperationException {
 			var magicData = Class.forName(MAGIC_DATA);
 			var syncPacket = Class.forName(SYNC_MANA_PACKET);
+			var getPlayerRecasts = findMethod(magicData, "getPlayerRecasts", 0);
 			return new ManaAccess(
 					findMethod(magicData, "getPlayerMagicData", 1),
 					findMethod(magicData, "getMana", 0),
 					findMethod(magicData, "setMana", 1),
+					getPlayerRecasts,
+					findMethod(getPlayerRecasts.getReturnType(), "hasRecastForSpell", 1),
 					findConstructor(syncPacket, magicData)
 			);
 		}
@@ -216,6 +331,12 @@ public final class NeoForgeIronsEvents {
 				logInvocationFailure(exception);
 				return false;
 			}
+		}
+
+		private boolean hasRecast(ServerPlayerEntity player, String skillId) throws ReflectiveOperationException {
+			var recasts = getPlayerRecasts.invoke(data(player));
+			var value = hasRecastForSpell.invoke(recasts, skillId);
+			return value instanceof Boolean bool && bool;
 		}
 
 		private Object data(ServerPlayerEntity player) throws ReflectiveOperationException {

@@ -38,6 +38,9 @@ dependencies {
 
 	implementation(project(path = ":Common", configuration = "namedElements"))
 
+	// Compile against Iron's exact 1.21.1 API for narrow optional mixins; it remains optional at runtime.
+	add("modCompileOnly", "maven.modrinth:s4OWxYQQ:slKLosTb")
+
 	if (arpgIronsRuntime.get()) {
 		// Iron's Spells 'n Spellbooks 1.21.1-3.16.3 and the exact dependency family used by its 1.21 branch.
 		add("modRuntimeOnly", "maven.modrinth:s4OWxYQQ:slKLosTb")

@@ -5,6 +5,9 @@ license="All Rights Reserved"
 [[mixins]]
 config = "puffish_skills.mixins.json"
 
+[[mixins]]
+config = "puffish_skills_irons.mixins.json"
+
 [[mods]]
 modId="puffish_skills"
 version="${version}"

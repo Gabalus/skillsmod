@@ -24,4 +24,14 @@ class ArpgResourceSemanticsTest {
 		assertEquals(20.0, ArpgResourceSemantics.restoreFromMaximum(20.0, 100.0, -1.0), 0.00001);
 		assertEquals(20.0, ArpgResourceSemantics.restoreFromMaximum(20.0, 0.0, 0.1), 0.00001);
 	}
+
+	@Test
+	void bloodMagicUsesASeparateLifeScaleAndCannotKillCaster() {
+		assertEquals(2.0, ArpgResourceSemantics.lifeCostFromMana(20.0), 0.00001);
+		assertTrue(ArpgResourceSemantics.canPayLifeCost(3.0, 20.0));
+		assertFalse(ArpgResourceSemantics.canPayLifeCost(2.99, 20.0));
+		assertEquals(1.0, ArpgResourceSemantics.spendLifeForMana(3.0, 20.0), 0.00001);
+		assertEquals(2.99, ArpgResourceSemantics.spendLifeForMana(2.99, 20.0), 0.00001);
+		assertFalse(ArpgResourceSemantics.canPayLifeCost(20.0, Double.NaN));
+	}
 }
