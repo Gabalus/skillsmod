@@ -34,4 +34,12 @@ class ArpgResourceSemanticsTest {
 		assertEquals(2.99, ArpgResourceSemantics.spendLifeForMana(2.99, 20.0), 0.00001);
 		assertFalse(ArpgResourceSemantics.canPayLifeCost(20.0, Double.NaN));
 	}
+
+	@Test
+	void cooldownTriggerValuesBecomeWholeTicks() {
+		assertEquals(10, ArpgResourceSemantics.cooldownReductionTicks(10.0));
+		assertEquals(6, ArpgResourceSemantics.cooldownReductionTicks(5.6));
+		assertEquals(0, ArpgResourceSemantics.cooldownReductionTicks(0.0));
+		assertEquals(0, ArpgResourceSemantics.cooldownReductionTicks(Double.NaN));
+	}
 }

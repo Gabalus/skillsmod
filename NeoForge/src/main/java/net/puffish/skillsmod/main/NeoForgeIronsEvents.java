@@ -273,18 +273,28 @@ public final class NeoForgeIronsEvents {
 			Method setMana,
 			Method getPlayerRecasts,
 			Method hasRecastForSpell,
+			Method getPlayerCooldowns,
+			Method hasCooldownsActive,
+			Method tickCooldowns,
+			Method syncCooldowns,
 			Constructor<?> syncManaPacket
 	) {
 		private static ManaAccess create() throws ReflectiveOperationException {
 			var magicData = Class.forName(MAGIC_DATA);
 			var syncPacket = Class.forName(SYNC_MANA_PACKET);
 			var getPlayerRecasts = findMethod(magicData, "getPlayerRecasts", 0);
+			var getPlayerCooldowns = findMethod(magicData, "getPlayerCooldowns", 0);
+			var cooldowns = getPlayerCooldowns.getReturnType();
 			return new ManaAccess(
 					findMethod(magicData, "getPlayerMagicData", 1),
 					findMethod(magicData, "getMana", 0),
 					findMethod(magicData, "setMana", 1),
 					getPlayerRecasts,
 					findMethod(getPlayerRecasts.getReturnType(), "hasRecastForSpell", 1),
+					getPlayerCooldowns,
+					findMethod(cooldowns, "hasCooldownsActive", 0),
+					findMethod(cooldowns, "tick", 1),
+					findMethod(cooldowns, "syncToPlayer", 1),
 					findConstructor(syncPacket, magicData)
 			);
 		}
@@ -305,32 +315,54 @@ public final class NeoForgeIronsEvents {
 		}
 
 		private boolean executeTrigger(ServerPlayerEntity player, ArpgRuleEngine.Trigger trigger) {
-			if (trigger.action() != ArpgRuleEngine.Action.MANA) {
-				return false;
-			}
 			try {
-				var data = data(player);
-				double maximum = maxMana(player);
-				double current = mana(data);
-				double target = ArpgResourceSemantics.restoreFromMaximum(current, maximum, trigger.value());
-				if (!Double.isFinite(target) || target <= current + 0.0001) {
-					return false;
-				}
-				setMana.invoke(data, (float) target);
-				double actual = mana(data);
-				if (!Double.isFinite(actual) || actual <= current + 0.0001) {
-					return false;
-				}
-				try {
-					sync(player, data);
-				} catch (ReflectiveOperationException | RuntimeException exception) {
-					logInvocationFailure(exception);
-				}
-				return true;
+				return switch (trigger.action()) {
+					case MANA -> restoreMana(player, trigger);
+					case COOLDOWN -> reduceCooldowns(player, trigger);
+					default -> false;
+				};
 			} catch (ReflectiveOperationException | RuntimeException exception) {
 				logInvocationFailure(exception);
 				return false;
 			}
+		}
+
+		private boolean restoreMana(ServerPlayerEntity player, ArpgRuleEngine.Trigger trigger)
+				throws ReflectiveOperationException {
+			var data = data(player);
+			double maximum = maxMana(player);
+			double current = mana(data);
+			double target = ArpgResourceSemantics.restoreFromMaximum(current, maximum, trigger.value());
+			if (!Double.isFinite(target) || target <= current + 0.0001) {
+				return false;
+			}
+			setMana.invoke(data, (float) target);
+			double actual = mana(data);
+			if (!Double.isFinite(actual) || actual <= current + 0.0001) {
+				return false;
+			}
+			try {
+				sync(player, data);
+			} catch (ReflectiveOperationException | RuntimeException exception) {
+				logInvocationFailure(exception);
+			}
+			return true;
+		}
+
+		private boolean reduceCooldowns(ServerPlayerEntity player, ArpgRuleEngine.Trigger trigger)
+				throws ReflectiveOperationException {
+			int ticks = ArpgResourceSemantics.cooldownReductionTicks(trigger.value());
+			if (ticks <= 0) {
+				return false;
+			}
+			var cooldowns = getPlayerCooldowns.invoke(data(player));
+			var active = hasCooldownsActive.invoke(cooldowns);
+			if (!(active instanceof Boolean bool) || !bool) {
+				return false;
+			}
+			tickCooldowns.invoke(cooldowns, ticks);
+			syncCooldowns.invoke(cooldowns, player);
+			return true;
 		}
 
 		private boolean hasRecast(ServerPlayerEntity player, String skillId) throws ReflectiveOperationException {

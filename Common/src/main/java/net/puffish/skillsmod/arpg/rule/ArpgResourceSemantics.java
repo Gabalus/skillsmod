@@ -44,4 +44,12 @@ public final class ArpgResourceSemantics {
 		}
 		return Math.max(MINIMUM_SURVIVING_HEALTH, currentHealth - lifeCostFromMana(manaCost));
 	}
+
+	/** Converts data-authored cooldown trigger values into whole provider ticks. */
+	public static int cooldownReductionTicks(double value) {
+		if (!Double.isFinite(value) || value <= 0.0) {
+			return 0;
+		}
+		return (int) Math.min(Integer.MAX_VALUE, Math.round(value));
+	}
 }
