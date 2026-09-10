@@ -8,6 +8,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 import net.minecraft.world.explosion.ExplosionBehavior;
+import net.puffish.skillsmod.arpg.combat.ArpgDefenseSemantics;
 import net.puffish.skillsmod.arpg.data.ArpgData;
 import net.puffish.skillsmod.arpg.stat.ArpgPlayerStats;
 import net.puffish.skillsmod.arpg.stat.ArpgStat;
@@ -69,7 +70,7 @@ public final class ArpgRuleRuntime {
 		);
 	}
 
-	/** Includes persistent rewards, active timed buffs, and currently-active conditional rule modifiers. */
+	/** Includes persistent rewards, active timed buffs, conditional modifiers, and global rule transforms. */
 	public static synchronized ArpgStatSnapshot snapshot(
 			ServerPlayerEntity player,
 			Entity target,
@@ -77,10 +78,11 @@ public final class ArpgRuleRuntime {
 			String skill,
 			Set<String> tags
 	) {
+		var evaluation = evaluate(player, target, event, skill, tags);
 		var modifiers = new ArrayList<>(ArpgPlayerStats.getModifiers(player));
 		modifiers.addAll(activeBuffModifiers(player));
-		modifiers.addAll(evaluate(player, target, event, skill, tags).modifiers());
-		return ArpgStatCompiler.compile(modifiers);
+		modifiers.addAll(evaluation.modifiers());
+		return ArpgStatCompiler.compile(ArpgDefenseSemantics.applyIronFortress(modifiers, evaluation.ironFortress()));
 	}
 
 	/** Executes ARPG-owned actions first, then delegates provider-owned actions when available. */
