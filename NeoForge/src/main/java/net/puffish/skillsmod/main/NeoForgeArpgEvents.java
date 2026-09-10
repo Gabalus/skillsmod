@@ -8,7 +8,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.OnDatapackSyncEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
-import net.neoforged.neoforge.event.entity.living.ShieldBlockEvent;
 import net.neoforged.neoforge.event.entity.player.CriticalHitEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.puffish.skillsmod.api.SkillsAPI;
@@ -87,11 +86,21 @@ public final class NeoForgeArpgEvents {
 
 	@SubscribeEvent(priority = EventPriority.LOW)
 	public static void onLivingDamage(LivingDamageEvent.Post event) {
-		if (event.getHealthDamage() <= 0.0f) {
+		var source = event.getSource();
+		if (event.getBlockedDamage() > 0.0f && event.getEntity() instanceof ServerPlayerEntity blocker) {
+			ArpgRuleRuntime.fireSupportedTriggers(
+					blocker,
+					source.getAttacker(),
+					ArpgRuleEngine.Event.BLOCK,
+					"",
+					Set.of()
+			);
+		}
+
+		if (event.getNewDamage() <= 0.0f) {
 			return;
 		}
 
-		var source = event.getSource();
 		if (event.getEntity() instanceof ServerPlayerEntity victim) {
 			ArpgRuleRuntime.fireSupportedTriggers(
 					victim,
@@ -123,20 +132,6 @@ public final class NeoForgeArpgEvents {
 					ArpgRuleEngine.Event.KILL,
 					"",
 					damageTags(source.getSource(), attacker)
-			);
-		}
-	}
-
-	@SubscribeEvent(priority = EventPriority.LOW)
-	public static void onShieldBlock(ShieldBlockEvent event) {
-		if (event.getEntity() instanceof ServerPlayerEntity player && event.getBlockedDamage() > 0.0f) {
-			Entity attacker = event.getDamageSource().getAttacker();
-			ArpgRuleRuntime.fireSupportedTriggers(
-					player,
-					attacker,
-					ArpgRuleEngine.Event.BLOCK,
-					"",
-					Set.of()
 			);
 		}
 	}
