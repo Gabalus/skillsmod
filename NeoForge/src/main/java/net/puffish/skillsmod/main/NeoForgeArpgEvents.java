@@ -17,6 +17,7 @@ import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.tick.EntityTickEvent;
 import net.puffish.skillsmod.api.SkillsAPI;
 import net.puffish.skillsmod.arpg.combat.ArpgAttackScaling;
+import net.puffish.skillsmod.arpg.combat.ArpgDefenseSemantics;
 import net.puffish.skillsmod.arpg.combat.DamagePipeline;
 import net.puffish.skillsmod.arpg.compat.IronsDamageSourceCompat;
 import net.puffish.skillsmod.arpg.rule.ArpgAilmentRuntime;
@@ -108,22 +109,61 @@ public final class NeoForgeArpgEvents {
 	public static void onIncomingDamage(LivingIncomingDamageEvent event) {
 		var source = event.getSource();
 		var school = IronsDamageSourceCompat.school(source);
-		if (school.isPresent() && event.getEntity() instanceof ServerPlayerEntity defender) {
-			var tags = IronsDamageSourceCompat.tags(source);
-			var defense = ArpgRuleRuntime.snapshot(
-					defender,
-					source.getAttacker(),
-					ArpgRuleEngine.Event.DAMAGE_TAKEN,
-					"",
-					tags
-			);
-			var attack = source.getAttacker() instanceof ServerPlayerEntity attacker
-					? ArpgRuleRuntime.snapshot(attacker, defender, ArpgRuleEngine.Event.HIT, "", tags)
-					: EMPTY_SNAPSHOT;
-			double mitigated = DamagePipeline.mitigateResistance(
-					event.getAmount(), school.orElseThrow(), attack, defense, false);
-			event.setAmount((float) mitigated);
-			return;
+
+		if (event.getEntity() instanceof ServerPlayerEntity defender) {
+			if (school.isPresent()) {
+				var tags = IronsDamageSourceCompat.tags(source);
+				var defense = ArpgRuleRuntime.snapshot(
+						defender,
+						source.getAttacker(),
+						ArpgRuleEngine.Event.DAMAGE_TAKEN,
+						"",
+						tags
+				);
+				if (ArpgDefenseSemantics.resolveSpell(defense, defender.getRandom().nextDouble())
+						== ArpgDefenseSemantics.Outcome.BLOCK) {
+					event.setAmount(0.0f);
+					fireDefenseTrigger(defender, source, tags, ArpgRuleEngine.Event.BLOCK);
+					return;
+				}
+
+				var attack = source.getAttacker() instanceof ServerPlayerEntity attacker
+						? ArpgRuleRuntime.snapshot(attacker, defender, ArpgRuleEngine.Event.HIT, "", tags)
+						: EMPTY_SNAPSHOT;
+				double mitigated = DamagePipeline.mitigateResistance(
+						event.getAmount(), school.orElseThrow(), attack, defense, false);
+				event.setAmount((float) mitigated);
+				return;
+			}
+
+			var incomingDelivery = defensiveDelivery(source);
+			if (incomingDelivery != null) {
+				var tags = incomingDelivery == ArpgAttackScaling.Delivery.MELEE ? MELEE_TAGS : PROJECTILE_TAGS;
+				var defense = ArpgRuleRuntime.snapshot(
+						defender,
+						source.getAttacker(),
+						ArpgRuleEngine.Event.DAMAGE_TAKEN,
+						"",
+						tags
+				);
+				var outcome = ArpgDefenseSemantics.resolveAttack(
+						defense,
+						defender.getRandom().nextDouble(),
+						defender.getRandom().nextDouble()
+				);
+				if (outcome != ArpgDefenseSemantics.Outcome.HIT) {
+					event.setAmount(0.0f);
+					fireDefenseTrigger(
+							defender,
+							source,
+							tags,
+							outcome == ArpgDefenseSemantics.Outcome.DODGE
+									? ArpgRuleEngine.Event.DODGE
+									: ArpgRuleEngine.Event.BLOCK
+					);
+					return;
+				}
+			}
 		}
 
 		if (!(source.getAttacker() instanceof ServerPlayerEntity attacker)) {
@@ -218,6 +258,21 @@ public final class NeoForgeArpgEvents {
 		}
 	}
 
+	private static void fireDefenseTrigger(
+			ServerPlayerEntity defender,
+			DamageSource source,
+			Set<String> tags,
+			ArpgRuleEngine.Event event
+	) {
+		ArpgRuleRuntime.fireSupportedTriggers(
+				defender,
+				source.getAttacker(),
+				event,
+				"",
+				tags
+		);
+	}
+
 	private static ArpgAttackScaling.Delivery attackDelivery(DamageSource source) {
 		if (source.isOf(DamageTypes.PLAYER_ATTACK)) {
 			return ArpgAttackScaling.Delivery.MELEE;
@@ -228,8 +283,22 @@ public final class NeoForgeArpgEvents {
 		return null;
 	}
 
+	private static ArpgAttackScaling.Delivery defensiveDelivery(DamageSource source) {
+		if (source.isOf(DamageTypes.PLAYER_ATTACK)
+				|| source.isOf(DamageTypes.MOB_ATTACK)
+				|| source.isOf(DamageTypes.MOB_ATTACK_NO_AGGRO)) {
+			return ArpgAttackScaling.Delivery.MELEE;
+		}
+		if (source.isOf(DamageTypes.ARROW)
+				|| source.isOf(DamageTypes.TRIDENT)
+				|| source.isOf(DamageTypes.MOB_PROJECTILE)) {
+			return ArpgAttackScaling.Delivery.PROJECTILE;
+		}
+		return null;
+	}
+
 	private static Set<String> damageTags(DamageSource source) {
-		var delivery = attackDelivery(source);
+		var delivery = defensiveDelivery(source);
 		if (delivery == ArpgAttackScaling.Delivery.MELEE) {
 			return MELEE_TAGS;
 		}
