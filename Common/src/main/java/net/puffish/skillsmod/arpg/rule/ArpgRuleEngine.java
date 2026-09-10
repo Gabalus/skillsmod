@@ -222,6 +222,7 @@ public final class ArpgRuleEngine {
 					// Their modifiers were collected above after condition/tag matching.
 				}
 				case TRIGGER -> throw new IllegalStateException("Trigger handled before rule switch");
+				default -> throw new IllegalStateException("Unsupported ARPG rule kind: " + rule.kind());
 			}
 		}
 
