@@ -4,6 +4,10 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.world.World;
+import net.minecraft.world.explosion.Explosion;
+import net.minecraft.world.explosion.ExplosionBehavior;
 import net.puffish.skillsmod.arpg.data.ArpgData;
 import net.puffish.skillsmod.arpg.stat.ArpgPlayerStats;
 import net.puffish.skillsmod.arpg.stat.ArpgStat;
@@ -152,10 +156,38 @@ public final class ArpgRuleRuntime {
 		if (trigger.action() == ArpgRuleEngine.Action.BUFF) {
 			return applyBuff(player, trigger);
 		}
+		if (trigger.action() == ArpgRuleEngine.Action.EXPLODE) {
+			return explode(player, target, trigger.value());
+		}
 		if (target instanceof LivingEntity living && isAilmentAction(trigger.action())) {
 			return applyAilment(player, living, event, skill, tags, trigger);
 		}
 		return false;
+	}
+
+	private static boolean explode(ServerPlayerEntity player, Entity target, double value) {
+		if (target == null || !(target.getWorld() instanceof ServerWorld world)) {
+			return false;
+		}
+		float power = (float) Math.max(1.0, Math.min(4.0, 1.5 + Math.max(0.0, value) * 10.0));
+		var behavior = new ExplosionBehavior() {
+			@Override
+			public boolean shouldDamage(Explosion explosion, Entity entity) {
+				return entity instanceof LivingEntity && entity != player && entity != target;
+			}
+		};
+		world.createExplosion(
+				player,
+				null,
+				behavior,
+				target.getX(),
+				target.getY() + target.getHeight() * 0.5,
+				target.getZ(),
+				power,
+				false,
+				World.ExplosionSourceType.NONE
+		);
+		return true;
 	}
 
 	private static boolean applyAilment(
