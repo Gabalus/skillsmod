@@ -36,6 +36,13 @@ public final class ArpgAttackScaling {
 			throw new IllegalArgumentException("Snapshot and delivery are required");
 		}
 
+		// Active skills already passed through DamagePipeline. Their player-attack damage source is
+		// retained only so vanilla armor, blocking, PvE attribution and other integrations still work.
+		var context = ArpgDamageContext.current();
+		if (context != null && context.kind() != ArpgDamageContext.Kind.BASIC_ATTACK) {
+			return amount;
+		}
+
 		var applicable = EnumSet.of(ArpgStat.PHYSICAL_DAMAGE, ArpgStat.ATTACK_DAMAGE);
 		applicable.add(delivery == Delivery.MELEE ? ArpgStat.MELEE_DAMAGE : ArpgStat.PROJECTILE_DAMAGE);
 
