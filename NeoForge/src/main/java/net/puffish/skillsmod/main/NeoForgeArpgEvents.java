@@ -23,6 +23,8 @@ import net.puffish.skillsmod.arpg.compat.IronsDamageSourceCompat;
 import net.puffish.skillsmod.arpg.rule.ArpgAilmentRuntime;
 import net.puffish.skillsmod.arpg.rule.ArpgRuleEngine;
 import net.puffish.skillsmod.arpg.rule.ArpgRuleRuntime;
+import net.puffish.skillsmod.arpg.skill.ArpgSkillDamageContext;
+import net.puffish.skillsmod.arpg.skill.ArpgSkillRuntime;
 import net.puffish.skillsmod.arpg.stat.ArpgPlayerStats;
 import net.puffish.skillsmod.arpg.stat.ArpgStat;
 import net.puffish.skillsmod.arpg.stat.ArpgStatCompiler;
@@ -109,10 +111,11 @@ public final class NeoForgeArpgEvents {
 	public static void onIncomingDamage(LivingIncomingDamageEvent event) {
 		var source = event.getSource();
 		var school = IronsDamageSourceCompat.school(source);
+		var skillDamage = skillDamage(source);
 
 		if (event.getEntity() instanceof ServerPlayerEntity defender) {
 			if (school.isPresent()) {
-				var tags = IronsDamageSourceCompat.tags(source);
+				var tags = skillDamage != null ? skillDamage.tags() : IronsDamageSourceCompat.tags(source);
 				var defense = ArpgRuleRuntime.snapshot(
 						defender,
 						source.getAttacker(),
@@ -128,7 +131,8 @@ public final class NeoForgeArpgEvents {
 				}
 
 				var attack = source.getAttacker() instanceof ServerPlayerEntity attacker
-						? ArpgRuleRuntime.snapshot(attacker, defender, ArpgRuleEngine.Event.HIT, "", tags)
+						? ArpgRuleRuntime.snapshot(attacker, defender, ArpgRuleEngine.Event.HIT,
+								skillDamage == null ? "" : skillDamage.skill(), tags)
 						: EMPTY_SNAPSHOT;
 				double mitigated = DamagePipeline.mitigateResistance(
 						event.getAmount(), school.orElseThrow(), attack, defense, false);
@@ -138,7 +142,9 @@ public final class NeoForgeArpgEvents {
 
 			var incomingDelivery = defensiveDelivery(source);
 			if (incomingDelivery != null) {
-				var tags = incomingDelivery == ArpgAttackScaling.Delivery.MELEE ? MELEE_TAGS : PROJECTILE_TAGS;
+				var tags = skillDamage != null
+						? skillDamage.tags()
+						: incomingDelivery == ArpgAttackScaling.Delivery.MELEE ? MELEE_TAGS : PROJECTILE_TAGS;
 				var defense = ArpgRuleRuntime.snapshot(
 						defender,
 						source.getAttacker(),
@@ -167,6 +173,10 @@ public final class NeoForgeArpgEvents {
 		}
 
 		if (!(source.getAttacker() instanceof ServerPlayerEntity attacker)) {
+			return;
+		}
+		if (skillDamage != null) {
+			// The active-skill executor already applied its catalog coefficient and ARPG offensive stats.
 			return;
 		}
 
@@ -208,7 +218,8 @@ public final class NeoForgeArpgEvents {
 	@SubscribeEvent(priority = EventPriority.LOW)
 	public static void onLivingDamage(LivingDamageEvent.Post event) {
 		var source = event.getSource();
-		var tags = damageTags(source);
+		var skillDamage = skillDamage(source);
+		var tags = skillDamage == null ? damageTags(source) : skillDamage.tags();
 		if (event.getBlockedDamage() > 0.0f && event.getEntity() instanceof ServerPlayerEntity blocker) {
 			ArpgRuleRuntime.fireSupportedTriggers(
 					blocker,
@@ -234,11 +245,21 @@ public final class NeoForgeArpgEvents {
 		}
 
 		if (source.getAttacker() instanceof ServerPlayerEntity attacker) {
+			String skill = skillDamage == null ? "" : skillDamage.skill();
+			if (skillDamage != null && skillDamage.critical()) {
+				ArpgRuleRuntime.fireSupportedTriggers(
+						attacker,
+						event.getEntity(),
+						ArpgRuleEngine.Event.CRIT,
+						skill,
+						tags
+				);
+			}
 			ArpgRuleRuntime.fireSupportedTriggers(
 					attacker,
 					event.getEntity(),
 					ArpgRuleEngine.Event.HIT,
-					"",
+					skill,
 					tags
 			);
 		}
@@ -248,12 +269,13 @@ public final class NeoForgeArpgEvents {
 	public static void onLivingDeath(LivingDeathEvent event) {
 		var source = event.getSource();
 		if (source.getAttacker() instanceof ServerPlayerEntity attacker) {
+			var skillDamage = ArpgSkillDamageContext.currentFor(attacker);
 			ArpgRuleRuntime.fireSupportedTriggers(
 					attacker,
 					event.getEntity(),
 					ArpgRuleEngine.Event.KILL,
-					"",
-					damageTags(source)
+					skillDamage == null ? "" : skillDamage.skill(),
+					skillDamage == null ? damageTags(source) : skillDamage.tags()
 			);
 		}
 	}
@@ -271,6 +293,12 @@ public final class NeoForgeArpgEvents {
 				"",
 				tags
 		);
+	}
+
+	private static ArpgSkillDamageContext.Active skillDamage(DamageSource source) {
+		return source.getAttacker() instanceof ServerPlayerEntity attacker
+				? ArpgSkillDamageContext.currentFor(attacker)
+				: null;
 	}
 
 	private static ArpgAttackScaling.Delivery attackDelivery(DamageSource source) {
@@ -298,6 +326,10 @@ public final class NeoForgeArpgEvents {
 	}
 
 	private static Set<String> damageTags(DamageSource source) {
+		var skillDamage = skillDamage(source);
+		if (skillDamage != null) {
+			return skillDamage.tags();
+		}
 		var delivery = defensiveDelivery(source);
 		if (delivery == ArpgAttackScaling.Delivery.MELEE) {
 			return MELEE_TAGS;
@@ -311,5 +343,6 @@ public final class NeoForgeArpgEvents {
 	private static void clearTransient(ServerPlayerEntity player) {
 		ArpgPlayerStats.clear(player);
 		ArpgRuleRuntime.clear(player);
+		ArpgSkillRuntime.clear(player);
 	}
 }
