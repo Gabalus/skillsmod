@@ -6,6 +6,7 @@ import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.puffish.skillsmod.api.SkillsAPI;
 import net.puffish.skillsmod.arpg.combat.ArpgDamageContext;
 
@@ -13,6 +14,20 @@ import net.puffish.skillsmod.arpg.combat.ArpgDamageContext;
 @EventBusSubscriber(modid = SkillsAPI.MOD_ID)
 public final class NeoForgeWeaponSkillEvents {
 	private NeoForgeWeaponSkillEvents() {
+	}
+
+	@SubscribeEvent
+	public static void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
+		if (event.getEntity() instanceof ServerPlayerEntity player) {
+			NeoForgeWeaponSkillRuntime.clear(player);
+		}
+	}
+
+	@SubscribeEvent
+	public static void onPlayerLoggedOut(PlayerEvent.PlayerLoggedOutEvent event) {
+		if (event.getEntity() instanceof ServerPlayerEntity player) {
+			NeoForgeWeaponSkillRuntime.clear(player);
+		}
 	}
 
 	@SubscribeEvent(priority = EventPriority.LOWEST)
