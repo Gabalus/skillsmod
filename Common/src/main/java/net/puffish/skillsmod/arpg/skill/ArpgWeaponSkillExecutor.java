@@ -3,6 +3,7 @@ package net.puffish.skillsmod.arpg.skill;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.puffish.skillsmod.arpg.combat.ArpgDamageKind;
 import net.puffish.skillsmod.arpg.combat.DamagePipeline;
 import net.puffish.skillsmod.arpg.combat.HitContext;
 import net.puffish.skillsmod.arpg.data.ArpgData;
@@ -115,7 +116,13 @@ public final class ArpgWeaponSkillExecutor {
 			return false;
 		}
 
-		var context = new ArpgSkillDamageContext.Active(player, skill.id(), ruleTags, critical);
+		var context = new ArpgSkillDamageContext.Active(
+				player,
+				ArpgDamageKind.ATTACK_SKILL,
+				skill.id(),
+				ruleTags,
+				critical
+		);
 		var damaged = new boolean[1];
 		ArpgSkillDamageContext.run(context, () -> damaged[0] = target.damage(
 				target.getDamageSources().playerAttack(player),
