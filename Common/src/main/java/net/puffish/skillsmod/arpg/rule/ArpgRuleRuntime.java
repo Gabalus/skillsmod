@@ -128,6 +128,7 @@ public final class ArpgRuleRuntime {
 		triggerCooldowns.remove(player);
 		ward.remove(player);
 		timedBuffs.remove(player);
+		ArpgAilmentRuntime.clear(player);
 	}
 
 	private static boolean executeVanilla(
@@ -151,7 +152,47 @@ public final class ArpgRuleRuntime {
 		if (trigger.action() == ArpgRuleEngine.Action.BUFF) {
 			return applyBuff(player, trigger);
 		}
+		if (target instanceof LivingEntity living && isAilmentAction(trigger.action())) {
+			return applyAilment(player, living, event, skill, tags, trigger);
+		}
 		return false;
+	}
+
+	private static boolean applyAilment(
+			ServerPlayerEntity player,
+			LivingEntity target,
+			ArpgRuleEngine.Event event,
+			String skill,
+			Set<String> tags,
+			ArpgRuleEngine.Trigger trigger
+	) {
+		var sourceSnapshot = snapshot(player, target, event, skill, tags);
+		if (!ArpgAilmentRuntime.apply(player, target, trigger, sourceSnapshot)) {
+			return false;
+		}
+		fireSupportedTriggers(
+				player,
+				target,
+				ArpgRuleEngine.Event.AILMENT,
+				skill,
+				ailmentTags(trigger.action())
+		);
+		return true;
+	}
+
+	private static boolean isAilmentAction(ArpgRuleEngine.Action action) {
+		return action == ArpgRuleEngine.Action.IGNITE
+				|| action == ArpgRuleEngine.Action.BLEED
+				|| action == ArpgRuleEngine.Action.POISON;
+	}
+
+	private static Set<String> ailmentTags(ArpgRuleEngine.Action action) {
+		return switch (action) {
+			case IGNITE -> Set.of("ailment", "damage_over_time", "ignite", "fire");
+			case BLEED -> Set.of("ailment", "damage_over_time", "bleed", "physical");
+			case POISON -> Set.of("ailment", "damage_over_time", "poison", "nature");
+			default -> Set.of("ailment");
+		};
 	}
 
 	private static boolean applyBuff(ServerPlayerEntity player, ArpgRuleEngine.Trigger trigger) {
@@ -250,6 +291,7 @@ public final class ArpgRuleRuntime {
 		boolean close = target != null && player.squaredDistanceTo(target) <= CLOSE_DISTANCE_SQUARED;
 		boolean distant = target != null && !close;
 		boolean ignited = target instanceof LivingEntity living && living.isOnFire();
+		boolean bleeding = target instanceof LivingEntity living && ArpgAilmentRuntime.isBleeding(living);
 		boolean poisoned = target instanceof LivingEntity living && living.hasStatusEffect(StatusEffects.POISON);
 		boolean shield = player.isBlocking();
 		boolean dualWield = !player.getMainHandStack().isEmpty() && !player.getOffHandStack().isEmpty();
@@ -266,7 +308,7 @@ public final class ArpgRuleRuntime {
 				close,
 				distant,
 				ignited,
-				false,
+				bleeding,
 				poisoned,
 				shield,
 				dualWield,
