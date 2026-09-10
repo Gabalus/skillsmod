@@ -1,6 +1,8 @@
 package net.puffish.skillsmod.arpg;
 
 import net.puffish.skillsmod.arpg.combat.ArpgAttackScaling;
+import net.puffish.skillsmod.arpg.combat.ArpgDamageContext;
+import net.puffish.skillsmod.arpg.skill.SkillTag;
 import net.puffish.skillsmod.arpg.stat.ArpgModifierOperation;
 import net.puffish.skillsmod.arpg.stat.ArpgStat;
 import net.puffish.skillsmod.arpg.stat.ArpgStatCompiler;
@@ -8,8 +10,11 @@ import net.puffish.skillsmod.arpg.stat.ArpgStatModifier;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ArpgAttackScalingTest {
@@ -28,6 +33,47 @@ class ArpgAttackScalingTest {
 				100.0, snapshot, ArpgAttackScaling.Delivery.MELEE), 0.00001);
 		assertEquals(262.5, ArpgAttackScaling.scaleExistingPhysicalAttack(
 				100.0, snapshot, ArpgAttackScaling.Delivery.PROJECTILE), 0.00001);
+	}
+
+	@Test
+	void activeSkillDamageIsNotBridgeScaledAgain() {
+		var snapshot = ArpgStatCompiler.compile(List.of(
+				new ArpgStatModifier(ArpgStat.ATTACK_DAMAGE, ArpgModifierOperation.INCREASED, 1.0),
+				new ArpgStatModifier(ArpgStat.MELEE_DAMAGE, ArpgModifierOperation.MORE, 1.0)
+		));
+		var context = new ArpgDamageContext(
+				ArpgDamageContext.Kind.ATTACK_SKILL,
+				"cleave",
+				Set.of(SkillTag.ATTACK, SkillTag.MELEE, SkillTag.AREA)
+		);
+
+		double result = ArpgDamageContext.call(context, () -> {
+			assertSame(context, ArpgDamageContext.current());
+			return ArpgAttackScaling.scaleExistingPhysicalAttack(
+					100.0, snapshot, ArpgAttackScaling.Delivery.MELEE);
+		});
+
+		assertEquals(100.0, result, 0.00001);
+		assertNull(ArpgDamageContext.current());
+	}
+
+	@Test
+	void damageContextRestoresNestedContext() {
+		var outer = new ArpgDamageContext(
+				ArpgDamageContext.Kind.ATTACK_SKILL, "cleave", Set.of(SkillTag.ATTACK));
+		var inner = new ArpgDamageContext(
+				ArpgDamageContext.Kind.TRIGGERED, "explosion", Set.of(SkillTag.AREA));
+
+		ArpgDamageContext.call(outer, () -> {
+			assertSame(outer, ArpgDamageContext.current());
+			ArpgDamageContext.call(inner, () -> {
+				assertSame(inner, ArpgDamageContext.current());
+				return null;
+			});
+			assertSame(outer, ArpgDamageContext.current());
+			return null;
+		});
+		assertNull(ArpgDamageContext.current());
 	}
 
 	@Test
