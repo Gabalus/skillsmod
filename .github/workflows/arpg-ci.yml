@@ -3,7 +3,7 @@ name: ARPG integration CI
 on:
   push:
     branches:
-      - feature/arpg-core-1.21.1
+      - 'feature/arpg-core-1.21.1*'
   pull_request:
     branches:
       - upstream-1.21
