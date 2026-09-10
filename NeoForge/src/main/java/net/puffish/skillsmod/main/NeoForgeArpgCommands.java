@@ -14,6 +14,7 @@ public final class NeoForgeArpgCommands {
 
 	@SubscribeEvent
 	public static void onRegisterCommands(RegisterCommandsEvent event) {
+		NeoForgeWeaponSkillRuntime.install();
 		event.getDispatcher().register(ArpgCommand.create());
 	}
 }
