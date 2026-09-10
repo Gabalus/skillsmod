@@ -12,6 +12,7 @@ import net.puffish.skillsmod.arpg.stat.ArpgStatSnapshot;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.WeakHashMap;
 
@@ -19,8 +20,29 @@ import java.util.WeakHashMap;
 public final class ArpgRuleRuntime {
 	private static final double CLOSE_DISTANCE_SQUARED = 36.0;
 	private static final Map<ServerPlayerEntity, Map<String, Long>> triggerCooldowns = new WeakHashMap<>();
+	private static volatile ManaProvider manaProvider = player -> Double.NaN;
+	private static volatile TriggerActionExecutor externalTriggerExecutor = (player, trigger) -> false;
 
 	private ArpgRuleRuntime() {
+	}
+
+	@FunctionalInterface
+	public interface ManaProvider {
+		double fraction(ServerPlayerEntity player);
+	}
+
+	@FunctionalInterface
+	public interface TriggerActionExecutor {
+		boolean execute(ServerPlayerEntity player, ArpgRuleEngine.Trigger trigger);
+	}
+
+	/** Installs optional provider-owned resource semantics without creating a hard provider dependency. */
+	public static synchronized void configureExternalRuntime(
+			ManaProvider newManaProvider,
+			TriggerActionExecutor newTriggerExecutor
+	) {
+		manaProvider = Objects.requireNonNull(newManaProvider);
+		externalTriggerExecutor = Objects.requireNonNull(newTriggerExecutor);
 	}
 
 	public static ArpgRuleEngine.Evaluation evaluate(
@@ -50,11 +72,7 @@ public final class ArpgRuleRuntime {
 		return ArpgStatCompiler.compile(modifiers);
 	}
 
-	/**
-	 * Executes only actions whose resource semantics are owned by vanilla Minecraft.
-	 * Mana, ward, spell cooldown and ailment actions stay typed but intentionally unconsumed until
-	 * their provider-specific bridges are present.
-	 */
+	/** Executes vanilla-owned actions first, then delegates provider-owned actions when available. */
 	public static synchronized int fireSupportedTriggers(
 			ServerPlayerEntity player,
 			Entity target,
@@ -71,7 +89,8 @@ public final class ArpgRuleRuntime {
 			if (cooldowns.getOrDefault(trigger.id(), Long.MIN_VALUE) > now) {
 				continue;
 			}
-			if (execute(player, trigger)) {
+			boolean success = executeVanilla(player, trigger) || executeExternal(player, trigger);
+			if (success) {
 				cooldowns.put(trigger.id(), now + Math.max(1, trigger.cooldown()));
 				executed++;
 			}
@@ -83,7 +102,7 @@ public final class ArpgRuleRuntime {
 		triggerCooldowns.remove(player);
 	}
 
-	private static boolean execute(ServerPlayerEntity player, ArpgRuleEngine.Trigger trigger) {
+	private static boolean executeVanilla(ServerPlayerEntity player, ArpgRuleEngine.Trigger trigger) {
 		if (trigger.action() == ArpgRuleEngine.Action.HEAL) {
 			float amount = (float) (player.getMaxHealth() * Math.max(0.0, trigger.value()));
 			if (amount > 0.0f && player.getHealth() < player.getMaxHealth()) {
@@ -92,6 +111,14 @@ public final class ArpgRuleRuntime {
 			}
 		}
 		return false;
+	}
+
+	private static boolean executeExternal(ServerPlayerEntity player, ArpgRuleEngine.Trigger trigger) {
+		try {
+			return externalTriggerExecutor.execute(player, trigger);
+		} catch (RuntimeException ignored) {
+			return false;
+		}
 	}
 
 	private static ArpgRuleEngine.Context context(
@@ -104,6 +131,7 @@ public final class ArpgRuleRuntime {
 		float maxHealth = Math.max(1.0f, player.getMaxHealth());
 		boolean lowLife = player.getHealth() <= maxHealth * 0.5f;
 		boolean fullLife = player.getHealth() >= maxHealth - 0.001f;
+		boolean lowMana = ArpgResourceSemantics.isLowFraction(readManaFraction(player));
 		boolean close = target != null && player.squaredDistanceTo(target) <= CLOSE_DISTANCE_SQUARED;
 		boolean distant = target != null && !close;
 		boolean ignited = target instanceof LivingEntity living && living.isOnFire();
@@ -119,7 +147,7 @@ public final class ArpgRuleRuntime {
 				tags,
 				lowLife,
 				fullLife,
-				false,
+				lowMana,
 				close,
 				distant,
 				ignited,
@@ -129,5 +157,13 @@ public final class ArpgRuleRuntime {
 				dualWield,
 				moving
 		);
+	}
+
+	private static double readManaFraction(ServerPlayerEntity player) {
+		try {
+			return manaProvider.fraction(player);
+		} catch (RuntimeException ignored) {
+			return Double.NaN;
+		}
 	}
 }
