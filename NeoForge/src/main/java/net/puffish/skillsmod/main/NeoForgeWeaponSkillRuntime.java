@@ -15,6 +15,7 @@ import net.puffish.skillsmod.arpg.skill.ArpgSkillExecutor;
 import net.puffish.skillsmod.arpg.skill.ArpgSkillUseSemantics;
 import net.puffish.skillsmod.arpg.stat.ArpgStat;
 import net.puffish.skillsmod.arpg.stat.ArpgStatCompiler;
+import net.puffish.skillsmod.arpg.stat.ArpgStatSnapshot;
 
 import java.util.HashMap;
 import java.util.List;
@@ -33,7 +34,7 @@ public final class NeoForgeWeaponSkillRuntime {
 	private static final double CLEAVE_HALF_ANGLE = 55.0;
 	private static final Map<UUID, Double> momentum = new HashMap<>();
 	private static final Map<UUID, Map<String, Long>> cooldowns = new HashMap<>();
-	private static final var EMPTY_SNAPSHOT = ArpgStatCompiler.compile(List.of());
+	private static final ArpgStatSnapshot EMPTY_SNAPSHOT = ArpgStatCompiler.compile(List.of());
 
 	private NeoForgeWeaponSkillRuntime() {
 	}
