@@ -52,4 +52,18 @@ public final class ArpgResourceSemantics {
 		}
 		return (int) Math.min(Integer.MAX_VALUE, Math.round(value));
 	}
+
+	/** Applies a post-mitigation hit to a bounded shield-like resource such as Ward. */
+	public static ShieldAbsorption absorbShield(double current, double maximum, double incomingDamage) {
+		double safeMaximum = Double.isFinite(maximum) ? Math.max(0.0, maximum) : 0.0;
+		double safeCurrent = Double.isFinite(current) ? Math.max(0.0, Math.min(safeMaximum, current)) : 0.0;
+		if (!Double.isFinite(incomingDamage) || incomingDamage <= 0.0) {
+			return new ShieldAbsorption(safeCurrent, Math.max(0.0, Double.isFinite(incomingDamage) ? incomingDamage : 0.0));
+		}
+		double absorbed = Math.min(safeCurrent, incomingDamage);
+		return new ShieldAbsorption(safeCurrent - absorbed, incomingDamage - absorbed);
+	}
+
+	public record ShieldAbsorption(double remainingShield, double remainingDamage) {
+	}
 }

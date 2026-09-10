@@ -136,6 +136,24 @@ public final class NeoForgeArpgEvents {
 		event.setAmount((float) scaled);
 	}
 
+	/** Ward is consumed after armor/resistance reductions but before health and vanilla absorption are touched. */
+	@SubscribeEvent(priority = EventPriority.LOWEST)
+	public static void onLivingDamagePre(LivingDamageEvent.Pre event) {
+		if (!(event.getEntity() instanceof ServerPlayerEntity defender) || event.getNewDamage() <= 0.0f) {
+			return;
+		}
+		var source = event.getSource();
+		double remaining = ArpgRuleRuntime.absorbWard(
+				defender,
+				source.getAttacker(),
+				damageTags(source),
+				event.getNewDamage()
+		);
+		if (remaining < event.getNewDamage()) {
+			event.setNewDamage((float) remaining);
+		}
+	}
+
 	@SubscribeEvent(priority = EventPriority.LOW)
 	public static void onLivingDamage(LivingDamageEvent.Post event) {
 		var source = event.getSource();

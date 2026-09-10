@@ -6,6 +6,7 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.puffish.skillsmod.arpg.data.ArpgData;
 import net.puffish.skillsmod.arpg.stat.ArpgPlayerStats;
+import net.puffish.skillsmod.arpg.stat.ArpgStat;
 import net.puffish.skillsmod.arpg.stat.ArpgStatCompiler;
 import net.puffish.skillsmod.arpg.stat.ArpgStatSnapshot;
 
@@ -19,7 +20,9 @@ import java.util.WeakHashMap;
 /** Server-side stateful adapter around the pure {@link ArpgRuleEngine}. */
 public final class ArpgRuleRuntime {
 	private static final double CLOSE_DISTANCE_SQUARED = 36.0;
+	private static final double RESOURCE_EPSILON = 0.0001;
 	private static final Map<ServerPlayerEntity, Map<String, Long>> triggerCooldowns = new WeakHashMap<>();
+	private static final Map<ServerPlayerEntity, Double> ward = new WeakHashMap<>();
 	private static volatile ManaProvider manaProvider = player -> Double.NaN;
 	private static volatile TriggerActionExecutor externalTriggerExecutor = (player, trigger) -> false;
 
@@ -89,7 +92,8 @@ public final class ArpgRuleRuntime {
 			if (cooldowns.getOrDefault(trigger.id(), Long.MIN_VALUE) > now) {
 				continue;
 			}
-			boolean success = executeVanilla(player, trigger) || executeExternal(player, trigger);
+			boolean success = executeVanilla(player, target, event, skill, tags, trigger)
+					|| executeExternal(player, trigger);
 			if (success) {
 				cooldowns.put(trigger.id(), now + Math.max(1, trigger.cooldown()));
 				executed++;
@@ -98,11 +102,37 @@ public final class ArpgRuleRuntime {
 		return executed;
 	}
 
-	public static synchronized void clear(ServerPlayerEntity player) {
-		triggerCooldowns.remove(player);
+	/** Consumes current Ward after normal damage mitigation and returns health damage that remains. */
+	public static synchronized double absorbWard(
+			ServerPlayerEntity player,
+			Entity attacker,
+			Set<String> tags,
+			double incomingDamage
+	) {
+		double maximum = maximumWard(player, attacker, ArpgRuleEngine.Event.DAMAGE_TAKEN, "", tags);
+		double current = ward.getOrDefault(player, 0.0);
+		var result = ArpgResourceSemantics.absorbShield(current, maximum, incomingDamage);
+		storeWard(player, result.remainingShield());
+		return result.remainingDamage();
 	}
 
-	private static boolean executeVanilla(ServerPlayerEntity player, ArpgRuleEngine.Trigger trigger) {
+	public static synchronized double currentWard(ServerPlayerEntity player) {
+		return ward.getOrDefault(player, 0.0);
+	}
+
+	public static synchronized void clear(ServerPlayerEntity player) {
+		triggerCooldowns.remove(player);
+		ward.remove(player);
+	}
+
+	private static boolean executeVanilla(
+			ServerPlayerEntity player,
+			Entity target,
+			ArpgRuleEngine.Event event,
+			String skill,
+			Set<String> tags,
+			ArpgRuleEngine.Trigger trigger
+	) {
 		if (trigger.action() == ArpgRuleEngine.Action.HEAL) {
 			float amount = (float) (player.getMaxHealth() * Math.max(0.0, trigger.value()));
 			if (amount > 0.0f && player.getHealth() < player.getMaxHealth()) {
@@ -110,7 +140,51 @@ public final class ArpgRuleRuntime {
 				return true;
 			}
 		}
+		if (trigger.action() == ArpgRuleEngine.Action.WARD) {
+			return grantWard(player, target, event, skill, tags, trigger.value());
+		}
 		return false;
+	}
+
+	private static boolean grantWard(
+			ServerPlayerEntity player,
+			Entity target,
+			ArpgRuleEngine.Event event,
+			String skill,
+			Set<String> tags,
+			double fraction
+	) {
+		double maximum = maximumWard(player, target, event, skill, tags);
+		if (!Double.isFinite(maximum) || maximum <= 0.0) {
+			storeWard(player, 0.0);
+			return false;
+		}
+		double current = Math.max(0.0, Math.min(maximum, ward.getOrDefault(player, 0.0)));
+		storeWard(player, current);
+		double next = ArpgResourceSemantics.restoreFromMaximum(current, maximum, fraction);
+		if (!Double.isFinite(next) || next <= current + RESOURCE_EPSILON) {
+			return false;
+		}
+		storeWard(player, next);
+		return true;
+	}
+
+	private static double maximumWard(
+			ServerPlayerEntity player,
+			Entity target,
+			ArpgRuleEngine.Event event,
+			String skill,
+			Set<String> tags
+	) {
+		return snapshot(player, target, event, skill, tags).apply(ArpgStat.WARD, 0.0);
+	}
+
+	private static void storeWard(ServerPlayerEntity player, double amount) {
+		if (!Double.isFinite(amount) || amount <= RESOURCE_EPSILON) {
+			ward.remove(player);
+		} else {
+			ward.put(player, amount);
+		}
 	}
 
 	private static boolean executeExternal(ServerPlayerEntity player, ArpgRuleEngine.Trigger trigger) {
