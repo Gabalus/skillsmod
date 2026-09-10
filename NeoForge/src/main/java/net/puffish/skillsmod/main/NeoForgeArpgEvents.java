@@ -1,6 +1,7 @@
 package net.puffish.skillsmod.main;
 
-import net.minecraft.entity.Entity;
+import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -8,9 +9,11 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.OnDatapackSyncEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.neoforged.neoforge.event.entity.player.CriticalHitEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.puffish.skillsmod.api.SkillsAPI;
+import net.puffish.skillsmod.arpg.combat.ArpgAttackScaling;
 import net.puffish.skillsmod.arpg.rule.ArpgRuleEngine;
 import net.puffish.skillsmod.arpg.rule.ArpgRuleRuntime;
 import net.puffish.skillsmod.arpg.stat.ArpgPlayerStats;
@@ -22,7 +25,7 @@ import java.util.Set;
 @EventBusSubscriber(modid = SkillsAPI.MOD_ID)
 public final class NeoForgeArpgEvents {
 	private static final Set<String> MELEE_TAGS = Set.of("attack", "melee", "hit", "physical");
-	private static final Set<String> INDIRECT_TAGS = Set.of("hit", "projectile");
+	private static final Set<String> PROJECTILE_TAGS = Set.of("attack", "projectile", "hit", "physical");
 
 	private NeoForgeArpgEvents() {
 	}
@@ -85,6 +88,30 @@ public final class NeoForgeArpgEvents {
 	}
 
 	@SubscribeEvent(priority = EventPriority.LOW)
+	public static void onIncomingDamage(LivingIncomingDamageEvent event) {
+		var source = event.getSource();
+		if (!(source.getAttacker() instanceof ServerPlayerEntity attacker)) {
+			return;
+		}
+
+		var delivery = attackDelivery(source);
+		if (delivery == null) {
+			return;
+		}
+
+		var tags = delivery == ArpgAttackScaling.Delivery.MELEE ? MELEE_TAGS : PROJECTILE_TAGS;
+		var snapshot = ArpgRuleRuntime.snapshot(
+				attacker,
+				event.getEntity(),
+				ArpgRuleEngine.Event.ATTACK,
+				"",
+				tags
+		);
+		double scaled = ArpgAttackScaling.scaleExistingPhysicalAttack(event.getAmount(), snapshot, delivery);
+		event.setAmount((float) scaled);
+	}
+
+	@SubscribeEvent(priority = EventPriority.LOW)
 	public static void onLivingDamage(LivingDamageEvent.Post event) {
 		var source = event.getSource();
 		if (event.getBlockedDamage() > 0.0f && event.getEntity() instanceof ServerPlayerEntity blocker) {
@@ -117,7 +144,7 @@ public final class NeoForgeArpgEvents {
 					event.getEntity(),
 					ArpgRuleEngine.Event.HIT,
 					"",
-					damageTags(source.getSource(), attacker)
+					damageTags(source)
 			);
 		}
 	}
@@ -131,13 +158,30 @@ public final class NeoForgeArpgEvents {
 					event.getEntity(),
 					ArpgRuleEngine.Event.KILL,
 					"",
-					damageTags(source.getSource(), attacker)
+					damageTags(source)
 			);
 		}
 	}
 
-	private static Set<String> damageTags(Entity direct, ServerPlayerEntity attacker) {
-		return direct == attacker ? MELEE_TAGS : INDIRECT_TAGS;
+	private static ArpgAttackScaling.Delivery attackDelivery(DamageSource source) {
+		if (source.isOf(DamageTypes.PLAYER_ATTACK)) {
+			return ArpgAttackScaling.Delivery.MELEE;
+		}
+		if (source.isOf(DamageTypes.ARROW) || source.isOf(DamageTypes.TRIDENT)) {
+			return ArpgAttackScaling.Delivery.PROJECTILE;
+		}
+		return null;
+	}
+
+	private static Set<String> damageTags(DamageSource source) {
+		var delivery = attackDelivery(source);
+		if (delivery == ArpgAttackScaling.Delivery.MELEE) {
+			return MELEE_TAGS;
+		}
+		if (delivery == ArpgAttackScaling.Delivery.PROJECTILE) {
+			return PROJECTILE_TAGS;
+		}
+		return Set.of();
 	}
 
 	private static void clearTransient(ServerPlayerEntity player) {
