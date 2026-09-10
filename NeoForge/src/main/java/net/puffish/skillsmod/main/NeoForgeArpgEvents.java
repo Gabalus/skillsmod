@@ -14,11 +14,16 @@ import net.neoforged.neoforge.event.entity.player.CriticalHitEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.puffish.skillsmod.api.SkillsAPI;
 import net.puffish.skillsmod.arpg.combat.ArpgAttackScaling;
+import net.puffish.skillsmod.arpg.combat.DamagePipeline;
+import net.puffish.skillsmod.arpg.compat.IronsDamageSourceCompat;
 import net.puffish.skillsmod.arpg.rule.ArpgRuleEngine;
 import net.puffish.skillsmod.arpg.rule.ArpgRuleRuntime;
 import net.puffish.skillsmod.arpg.stat.ArpgPlayerStats;
 import net.puffish.skillsmod.arpg.stat.ArpgStat;
+import net.puffish.skillsmod.arpg.stat.ArpgStatCompiler;
+import net.puffish.skillsmod.arpg.stat.ArpgStatSnapshot;
 
+import java.util.List;
 import java.util.Set;
 
 /** NeoForge-owned runtime hooks for ARPG mechanics that cannot live in the loader-neutral core. */
@@ -26,6 +31,7 @@ import java.util.Set;
 public final class NeoForgeArpgEvents {
 	private static final Set<String> MELEE_TAGS = Set.of("attack", "melee", "hit", "physical");
 	private static final Set<String> PROJECTILE_TAGS = Set.of("attack", "projectile", "hit", "physical");
+	private static final ArpgStatSnapshot EMPTY_SNAPSHOT = ArpgStatCompiler.compile(List.of());
 
 	private NeoForgeArpgEvents() {
 	}
@@ -87,9 +93,28 @@ public final class NeoForgeArpgEvents {
 		}
 	}
 
-	@SubscribeEvent(priority = EventPriority.LOW)
+	@SubscribeEvent(priority = EventPriority.LOWEST)
 	public static void onIncomingDamage(LivingIncomingDamageEvent event) {
 		var source = event.getSource();
+		var school = IronsDamageSourceCompat.school(source);
+		if (school.isPresent() && event.getEntity() instanceof ServerPlayerEntity defender) {
+			var tags = IronsDamageSourceCompat.tags(source);
+			var defense = ArpgRuleRuntime.snapshot(
+					defender,
+					source.getAttacker(),
+					ArpgRuleEngine.Event.DAMAGE_TAKEN,
+					"",
+					tags
+			);
+			var attack = source.getAttacker() instanceof ServerPlayerEntity attacker
+					? ArpgRuleRuntime.snapshot(attacker, defender, ArpgRuleEngine.Event.HIT, "", tags)
+					: EMPTY_SNAPSHOT;
+			double mitigated = DamagePipeline.mitigateResistance(
+					event.getAmount(), school.orElseThrow(), attack, defense, false);
+			event.setAmount((float) mitigated);
+			return;
+		}
+
 		if (!(source.getAttacker() instanceof ServerPlayerEntity attacker)) {
 			return;
 		}
@@ -114,13 +139,14 @@ public final class NeoForgeArpgEvents {
 	@SubscribeEvent(priority = EventPriority.LOW)
 	public static void onLivingDamage(LivingDamageEvent.Post event) {
 		var source = event.getSource();
+		var tags = damageTags(source);
 		if (event.getBlockedDamage() > 0.0f && event.getEntity() instanceof ServerPlayerEntity blocker) {
 			ArpgRuleRuntime.fireSupportedTriggers(
 					blocker,
 					source.getAttacker(),
 					ArpgRuleEngine.Event.BLOCK,
 					"",
-					Set.of()
+					tags
 			);
 		}
 
@@ -134,7 +160,7 @@ public final class NeoForgeArpgEvents {
 					source.getAttacker(),
 					ArpgRuleEngine.Event.DAMAGE_TAKEN,
 					"",
-					Set.of()
+					tags
 			);
 		}
 
@@ -144,7 +170,7 @@ public final class NeoForgeArpgEvents {
 					event.getEntity(),
 					ArpgRuleEngine.Event.HIT,
 					"",
-					damageTags(source)
+					tags
 			);
 		}
 	}
@@ -181,7 +207,7 @@ public final class NeoForgeArpgEvents {
 		if (delivery == ArpgAttackScaling.Delivery.PROJECTILE) {
 			return PROJECTILE_TAGS;
 		}
-		return Set.of();
+		return IronsDamageSourceCompat.tags(source);
 	}
 
 	private static void clearTransient(ServerPlayerEntity player) {

@@ -102,13 +102,31 @@ public final class DamagePipeline {
 				double reduction = armor <= 0 ? 0 : Math.min(0.9, armor / (armor + 5 * amount));
 				amount *= 1 - reduction;
 			} else if (type != DamageType.PHYSICAL) {
-				double resistance = Math.min(0.75, defense.apply(type.resistanceStat(), 0));
-				double penetration = hit.damageOverTime() ? 0 : attack.apply(type.penetrationStat(), 0);
-				amount *= 1 - Math.max(-1, resistance - penetration);
+				amount = mitigateResistance(amount, type, attack, defense, hit.damageOverTime());
 			}
 			mitigated.put(type, blocked ? 0.0 : amount);
 		}
 		return new Result(Map.copyOf(scaled), Map.copyOf(mitigated), hit.critical(), blocked);
+	}
+
+	/** Shared ARPG resistance/penetration arithmetic for custom hits and provider bridges. */
+	public static double mitigateResistance(
+			double amount,
+			DamageType type,
+			ArpgStatSnapshot attack,
+			ArpgStatSnapshot defense,
+			boolean damageOverTime
+	) {
+		if (!Double.isFinite(amount) || amount < 0.0) {
+			throw new IllegalArgumentException("Damage must be finite and nonnegative");
+		}
+		if (type == null || type == DamageType.PHYSICAL || attack == null || defense == null) {
+			throw new IllegalArgumentException("Resistance mitigation requires a non-physical type and snapshots");
+		}
+
+		double resistance = Math.min(0.75, defense.apply(type.resistanceStat(), 0));
+		double penetration = damageOverTime ? 0 : attack.apply(type.penetrationStat(), 0);
+		return amount * (1 - Math.max(-1, resistance - penetration));
 	}
 
 	private record Packet(DamageType type, double amount, EnumSet<ArpgStat> history) {
