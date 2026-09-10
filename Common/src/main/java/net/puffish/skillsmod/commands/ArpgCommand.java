@@ -11,10 +11,11 @@ import net.minecraft.text.Text;
 import net.puffish.skillsmod.SkillsMod;
 import net.puffish.skillsmod.arpg.character.ArpgProgression;
 import net.puffish.skillsmod.arpg.data.ArpgData;
+import net.puffish.skillsmod.arpg.skill.ArpgWeaponSkillExecutor;
 
 import java.util.Collection;
 
-/** Player-facing, server-authoritative ARPG character progression commands. */
+/** Player-facing, server-authoritative ARPG character progression and development commands. */
 public final class ArpgCommand {
 	private ArpgCommand() {
 	}
@@ -42,7 +43,15 @@ public final class ArpgCommand {
 											: ArpgProgression.character(player).specializations().keySet();
 									return CommandSource.suggestMatching(skills, builder);
 								})
-								.executes(ArpgCommand::unspecialize)));
+								.executes(ArpgCommand::unspecialize)))
+				.then(CommandManager.literal("skill")
+						.then(CommandManager.literal("use")
+								.then(CommandManager.argument("skill", StringArgumentType.word())
+										.suggests((context, builder) -> CommandSource.suggestMatching(
+												ArpgData.content().skills().values().stream()
+														.filter(skill -> "weapon".equals(skill.provider()))
+														.map(skill -> skill.id()), builder))
+										.executes(ArpgCommand::useSkill))));
 	}
 
 	private static LiteralArgumentBuilder<ServerCommandSource> choice(String choice) {
@@ -144,6 +153,19 @@ public final class ArpgCommand {
 		character.unspecialize(skill);
 		ArpgProgression.sync(player);
 		context.getSource().sendFeedback(() -> Text.literal("Unspecialized ARPG skill: " + skill), false);
+		return 1;
+	}
+
+	private static int useSkill(CommandContext<ServerCommandSource> context) throws CommandSyntaxException {
+		var player = context.getSource().getPlayerOrThrow();
+		var skill = StringArgumentType.getString(context, "skill");
+		var result = ArpgWeaponSkillExecutor.use(player, skill);
+		if (!result.success()) {
+			context.getSource().sendError(Text.literal(result.message()));
+			return 0;
+		}
+		context.getSource().sendFeedback(
+				() -> Text.literal("Used " + skill + ": " + result.message()), false);
 		return 1;
 	}
 }
