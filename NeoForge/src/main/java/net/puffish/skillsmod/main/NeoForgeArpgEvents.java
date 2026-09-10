@@ -1,8 +1,10 @@
 package net.puffish.skillsmod.main;
 
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -12,10 +14,12 @@ import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.neoforged.neoforge.event.entity.player.CriticalHitEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
+import net.neoforged.neoforge.event.tick.EntityTickEvent;
 import net.puffish.skillsmod.api.SkillsAPI;
 import net.puffish.skillsmod.arpg.combat.ArpgAttackScaling;
 import net.puffish.skillsmod.arpg.combat.DamagePipeline;
 import net.puffish.skillsmod.arpg.compat.IronsDamageSourceCompat;
+import net.puffish.skillsmod.arpg.rule.ArpgAilmentRuntime;
 import net.puffish.skillsmod.arpg.rule.ArpgRuleEngine;
 import net.puffish.skillsmod.arpg.rule.ArpgRuleRuntime;
 import net.puffish.skillsmod.arpg.stat.ArpgPlayerStats;
@@ -56,6 +60,13 @@ public final class NeoForgeArpgEvents {
 			for (var player : event.getPlayerList().getServer().getPlayerManager().getPlayerList()) {
 				clearTransient(player);
 			}
+		}
+	}
+
+	@SubscribeEvent(priority = EventPriority.LOWEST)
+	public static void onEntityTick(EntityTickEvent.Post event) {
+		if (event.getEntity() instanceof LivingEntity living && living.getWorld() instanceof ServerWorld world) {
+			ArpgAilmentRuntime.tick(living, world.getTime());
 		}
 	}
 
