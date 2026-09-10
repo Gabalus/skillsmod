@@ -8,6 +8,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 import net.minecraft.world.explosion.ExplosionBehavior;
+import net.puffish.skillsmod.arpg.combat.ArpgDamageContext;
 import net.puffish.skillsmod.arpg.combat.ArpgDefenseSemantics;
 import net.puffish.skillsmod.arpg.data.ArpgData;
 import net.puffish.skillsmod.arpg.stat.ArpgPlayerStats;
@@ -63,10 +64,11 @@ public final class ArpgRuleRuntime {
 			String skill,
 			Set<String> tags
 	) {
+		var resolved = resolveDamageContext(skill, tags);
 		return ArpgRuleEngine.evaluate(
 				ArpgData.content(),
 				ArpgPlayerStats.getRules(player),
-				context(player, target, event, skill, tags)
+				context(player, target, event, resolved.skill(), resolved.tags())
 		);
 	}
 
@@ -93,6 +95,9 @@ public final class ArpgRuleRuntime {
 			String skill,
 			Set<String> tags
 	) {
+		var resolved = resolveDamageContext(skill, tags);
+		skill = resolved.skill();
+		tags = resolved.tags();
 		var evaluation = evaluate(player, target, event, skill, tags);
 		var cooldowns = triggerCooldowns.computeIfAbsent(player, ignored -> new HashMap<>());
 		long now = player.getServerWorld().getTime();
@@ -311,6 +316,17 @@ public final class ArpgRuleRuntime {
 		}
 	}
 
+	private static ResolvedDamageContext resolveDamageContext(String skill, Set<String> tags) {
+		if (skill != null && !skill.isEmpty()) {
+			return new ResolvedDamageContext(skill, tags == null ? Set.of() : Set.copyOf(tags));
+		}
+		var active = ArpgDamageContext.current();
+		if (active != null && !active.skill().isEmpty()) {
+			return new ResolvedDamageContext(active.skill(), active.ruleTags());
+		}
+		return new ResolvedDamageContext(skill == null ? "" : skill, tags == null ? Set.of() : Set.copyOf(tags));
+	}
+
 	private static ArpgRuleEngine.Context context(
 			ServerPlayerEntity player,
 			Entity target,
@@ -355,6 +371,12 @@ public final class ArpgRuleRuntime {
 			return manaProvider.fraction(player);
 		} catch (RuntimeException ignored) {
 			return Double.NaN;
+		}
+	}
+
+	private record ResolvedDamageContext(String skill, Set<String> tags) {
+		private ResolvedDamageContext {
+			tags = Set.copyOf(tags);
 		}
 	}
 
