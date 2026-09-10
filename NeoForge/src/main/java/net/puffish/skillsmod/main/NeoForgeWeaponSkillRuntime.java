@@ -53,6 +53,12 @@ public final class NeoForgeWeaponSkillRuntime {
 		return next;
 	}
 
+	public static synchronized void clear(ServerPlayerEntity player) {
+		var playerId = player.getUuid();
+		momentum.remove(playerId);
+		cooldowns.remove(playerId);
+	}
+
 	public static synchronized ArpgSkillExecutor.Result use(ServerPlayerEntity player, String skillId) {
 		var access = ArpgSkillAccess.check(player, skillId, "weapon");
 		if (!access.allowed()) {
