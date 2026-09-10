@@ -27,7 +27,7 @@ public final class ArpgRuleRuntime {
 	private static final Map<ServerPlayerEntity, Double> ward = new WeakHashMap<>();
 	private static final Map<ServerPlayerEntity, Map<String, TimedBuff>> timedBuffs = new WeakHashMap<>();
 	private static volatile ManaProvider manaProvider = player -> Double.NaN;
-	private static volatile TriggerActionExecutor externalTriggerExecutor = (player, trigger) -> false;
+	private static volatile TriggerActionExecutor externalTriggerExecutor = (player, target, trigger) -> false;
 
 	private ArpgRuleRuntime() {
 	}
@@ -39,7 +39,7 @@ public final class ArpgRuleRuntime {
 
 	@FunctionalInterface
 	public interface TriggerActionExecutor {
-		boolean execute(ServerPlayerEntity player, ArpgRuleEngine.Trigger trigger);
+		boolean execute(ServerPlayerEntity player, Entity target, ArpgRuleEngine.Trigger trigger);
 	}
 
 	/** Installs optional provider-owned resource semantics without creating a hard provider dependency. */
@@ -97,7 +97,7 @@ public final class ArpgRuleRuntime {
 				continue;
 			}
 			boolean success = executeVanilla(player, target, event, skill, tags, trigger)
-					|| executeExternal(player, trigger);
+					|| executeExternal(player, target, trigger);
 			if (success) {
 				cooldowns.put(trigger.id(), now + Math.max(1, trigger.cooldown()));
 				executed++;
@@ -224,9 +224,13 @@ public final class ArpgRuleRuntime {
 		}
 	}
 
-	private static boolean executeExternal(ServerPlayerEntity player, ArpgRuleEngine.Trigger trigger) {
+	private static boolean executeExternal(
+			ServerPlayerEntity player,
+			Entity target,
+			ArpgRuleEngine.Trigger trigger
+	) {
 		try {
-			return externalTriggerExecutor.execute(player, trigger);
+			return externalTriggerExecutor.execute(player, target, trigger);
 		} catch (RuntimeException ignored) {
 			return false;
 		}

@@ -1,5 +1,6 @@
 package net.puffish.skillsmod.main;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.network.packet.CustomPayload;
 import net.minecraft.network.packet.s2c.common.CustomPayloadS2CPacket;
 import net.minecraft.registry.Registries;
@@ -34,6 +35,8 @@ public final class NeoForgeIronsEvents {
 	private static final String MAGIC_DATA = "io.redspace.ironsspellbooks.api.magic.MagicData";
 	private static final String SPELL_REGISTRY = "io.redspace.ironsspellbooks.api.registry.SpellRegistry";
 	private static final String ABSTRACT_SPELL = "io.redspace.ironsspellbooks.api.spells.AbstractSpell";
+	private static final String IRONS_UTILS = "io.redspace.ironsspellbooks.api.util.Utils";
+	private static final String RECAST_RESULT = "io.redspace.ironsspellbooks.capabilities.magic.RecastResult";
 	private static final String SYNC_MANA_PACKET = "io.redspace.ironsspellbooks.network.SyncManaPacket";
 	private static boolean registered;
 	private static boolean invocationFailureLogged;
@@ -271,8 +274,12 @@ public final class NeoForgeIronsEvents {
 			Method getPlayerMagicData,
 			Method getMana,
 			Method setMana,
+			Method isCasting,
 			Method getPlayerRecasts,
 			Method hasRecastForSpell,
+			Method removeRecasts,
+			Object counterspellResult,
+			Method cancelCast,
 			Method getPlayerCooldowns,
 			Method hasCooldownsActive,
 			Method tickCooldowns,
@@ -282,15 +289,22 @@ public final class NeoForgeIronsEvents {
 		private static ManaAccess create() throws ReflectiveOperationException {
 			var magicData = Class.forName(MAGIC_DATA);
 			var syncPacket = Class.forName(SYNC_MANA_PACKET);
+			var utils = Class.forName(IRONS_UTILS);
+			var recastResult = Class.forName(RECAST_RESULT);
 			var getPlayerRecasts = findMethod(magicData, "getPlayerRecasts", 0);
+			var recasts = getPlayerRecasts.getReturnType();
 			var getPlayerCooldowns = findMethod(magicData, "getPlayerCooldowns", 0);
 			var cooldowns = getPlayerCooldowns.getReturnType();
 			return new ManaAccess(
 					findMethod(magicData, "getPlayerMagicData", 1),
 					findMethod(magicData, "getMana", 0),
 					findMethod(magicData, "setMana", 1),
+					findMethod(magicData, "isCasting", 0),
 					getPlayerRecasts,
-					findMethod(getPlayerRecasts.getReturnType(), "hasRecastForSpell", 1),
+					findMethod(recasts, "hasRecastForSpell", 1),
+					findMethod(recasts, "removeAll", 1),
+					enumConstant(recastResult, "COUNTERSPELL"),
+					findMethod(utils, "serverSideCancelCast", 2),
 					getPlayerCooldowns,
 					findMethod(cooldowns, "hasCooldownsActive", 0),
 					findMethod(cooldowns, "tick", 1),
@@ -314,11 +328,12 @@ public final class NeoForgeIronsEvents {
 			}
 		}
 
-		private boolean executeTrigger(ServerPlayerEntity player, ArpgRuleEngine.Trigger trigger) {
+		private boolean executeTrigger(ServerPlayerEntity player, Entity target, ArpgRuleEngine.Trigger trigger) {
 			try {
 				return switch (trigger.action()) {
 					case MANA -> restoreMana(player, trigger);
 					case COOLDOWN -> reduceCooldowns(player, trigger);
+					case COUNTERSPELL -> counterspell(target);
 					default -> false;
 				};
 			} catch (ReflectiveOperationException | RuntimeException exception) {
@@ -365,6 +380,21 @@ public final class NeoForgeIronsEvents {
 			return true;
 		}
 
+		private boolean counterspell(Entity target) throws ReflectiveOperationException {
+			if (!(target instanceof ServerPlayerEntity targetPlayer)) {
+				return false;
+			}
+			var targetData = data(targetPlayer);
+			var casting = isCasting.invoke(targetData);
+			if (!(casting instanceof Boolean bool) || !bool) {
+				return false;
+			}
+			cancelCast.invoke(null, targetPlayer, true);
+			var recasts = getPlayerRecasts.invoke(targetData);
+			removeRecasts.invoke(recasts, counterspellResult);
+			return true;
+		}
+
 		private boolean hasRecast(ServerPlayerEntity player, String skillId) throws ReflectiveOperationException {
 			var recasts = getPlayerRecasts.invoke(data(player));
 			var value = hasRecastForSpell.invoke(recasts, skillId);
@@ -402,6 +432,15 @@ public final class NeoForgeIronsEvents {
 				throw new IllegalStateException("Iron's SyncManaPacket is not a custom payload");
 			}
 			player.networkHandler.send(new CustomPayloadS2CPacket(payload));
+		}
+
+		private static Object enumConstant(Class<?> type, String name) {
+			for (var constant : type.getEnumConstants()) {
+				if (constant instanceof Enum<?> value && value.name().equals(name)) {
+					return constant;
+				}
+			}
+			throw new IllegalArgumentException(type.getName() + " has no enum constant " + name);
 		}
 
 		private static Method findMethod(Class<?> type, String name, int parameters) throws NoSuchMethodException {
