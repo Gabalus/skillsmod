@@ -10,6 +10,7 @@ import net.puffish.skillsmod.arpg.rule.ArpgRuleEngine;
 import net.puffish.skillsmod.arpg.rule.ArpgRuleRuntime;
 import net.puffish.skillsmod.arpg.stat.ArpgStat;
 import net.puffish.skillsmod.arpg.stat.ArpgStatCompiler;
+import net.puffish.skillsmod.arpg.stat.ArpgStatSnapshot;
 
 import java.util.List;
 import java.util.Locale;
@@ -20,7 +21,7 @@ import java.util.stream.Collectors;
 /** Server-authoritative executor for catalog-defined custom weapon skills. */
 public final class ArpgWeaponSkillExecutor {
 	private static final double DEFAULT_HALF_ANGLE = 60.0;
-	private static final var EMPTY_SNAPSHOT = ArpgStatCompiler.compile(List.of());
+	private static final ArpgStatSnapshot EMPTY_SNAPSHOT = ArpgStatCompiler.compile(List.of());
 
 	private ArpgWeaponSkillExecutor() {
 	}
