@@ -73,6 +73,19 @@ class ArpgRuleEngineTest {
 	}
 
 	@Test
+	void buffTriggersCarryAuthoredModifiersAndDuration() throws Exception {
+		var evaluation = ArpgRuleEngine.evaluate(catalog(), List.of("arcane_bulwark"),
+				ArpgRuleEngine.Context.of(ArpgRuleEngine.Event.BLOCK, "", Set.of()));
+		assertEquals(1, evaluation.triggers().size());
+		var trigger = evaluation.triggers().getFirst();
+		assertEquals(ArpgRuleEngine.Action.BUFF, trigger.action());
+		assertTrue(trigger.duration() > 0);
+		assertTrue(trigger.modifiers().stream().anyMatch(modifier -> modifier.stat() == ArpgStat.CAST_SPEED
+				&& modifier.operation() == ArpgModifierOperation.INCREASED
+				&& Math.abs(modifier.value() - .3) < .00001));
+	}
+
+	@Test
 	void missingRuleIdsAreIgnoredSoReloadCanSafelyRetireDefinitions() throws Exception {
 		var evaluation = ArpgRuleEngine.evaluate(catalog(), List.of("removed_by_datapack"),
 				ArpgRuleEngine.Context.of(ArpgRuleEngine.Event.NONE, "", Set.of()));

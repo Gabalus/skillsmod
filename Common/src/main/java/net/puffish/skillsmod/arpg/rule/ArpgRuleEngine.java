@@ -147,7 +147,17 @@ public final class ArpgRuleEngine {
 		}
 	}
 
-	public record Trigger(String id, Action action, double value, int cooldown, int duration) {
+	public record Trigger(
+			String id,
+			Action action,
+			double value,
+			int cooldown,
+			int duration,
+			List<ArpgStatModifier> modifiers
+	) {
+		public Trigger {
+			modifiers = List.copyOf(modifiers);
+		}
 	}
 
 	public record Evaluation(
@@ -195,8 +205,14 @@ public final class ArpgRuleEngine {
 			if (rule.kind() == Kind.TRIGGER) {
 				if (rule.event() == context.event()) {
 					var definition = rule.definition();
-					triggers.add(new Trigger(definition.id(), rule.action(), definition.value(),
-							definition.cooldown(), definition.duration()));
+					triggers.add(new Trigger(
+							definition.id(),
+							rule.action(),
+							definition.value(),
+							definition.cooldown(),
+							definition.duration(),
+							definition.modifiers()
+					));
 				}
 				continue;
 			}

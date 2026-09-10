@@ -8,10 +8,12 @@ import net.puffish.skillsmod.arpg.data.ArpgData;
 import net.puffish.skillsmod.arpg.stat.ArpgPlayerStats;
 import net.puffish.skillsmod.arpg.stat.ArpgStat;
 import net.puffish.skillsmod.arpg.stat.ArpgStatCompiler;
+import net.puffish.skillsmod.arpg.stat.ArpgStatModifier;
 import net.puffish.skillsmod.arpg.stat.ArpgStatSnapshot;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
@@ -23,6 +25,7 @@ public final class ArpgRuleRuntime {
 	private static final double RESOURCE_EPSILON = 0.0001;
 	private static final Map<ServerPlayerEntity, Map<String, Long>> triggerCooldowns = new WeakHashMap<>();
 	private static final Map<ServerPlayerEntity, Double> ward = new WeakHashMap<>();
+	private static final Map<ServerPlayerEntity, Map<String, TimedBuff>> timedBuffs = new WeakHashMap<>();
 	private static volatile ManaProvider manaProvider = player -> Double.NaN;
 	private static volatile TriggerActionExecutor externalTriggerExecutor = (player, trigger) -> false;
 
@@ -62,8 +65,8 @@ public final class ArpgRuleRuntime {
 		);
 	}
 
-	/** Includes persistent reward modifiers plus currently-active conditional rule modifiers. */
-	public static ArpgStatSnapshot snapshot(
+	/** Includes persistent rewards, active timed buffs, and currently-active conditional rule modifiers. */
+	public static synchronized ArpgStatSnapshot snapshot(
 			ServerPlayerEntity player,
 			Entity target,
 			ArpgRuleEngine.Event event,
@@ -71,11 +74,12 @@ public final class ArpgRuleRuntime {
 			Set<String> tags
 	) {
 		var modifiers = new ArrayList<>(ArpgPlayerStats.getModifiers(player));
+		modifiers.addAll(activeBuffModifiers(player));
 		modifiers.addAll(evaluate(player, target, event, skill, tags).modifiers());
 		return ArpgStatCompiler.compile(modifiers);
 	}
 
-	/** Executes vanilla-owned actions first, then delegates provider-owned actions when available. */
+	/** Executes ARPG-owned actions first, then delegates provider-owned actions when available. */
 	public static synchronized int fireSupportedTriggers(
 			ServerPlayerEntity player,
 			Entity target,
@@ -123,6 +127,7 @@ public final class ArpgRuleRuntime {
 	public static synchronized void clear(ServerPlayerEntity player) {
 		triggerCooldowns.remove(player);
 		ward.remove(player);
+		timedBuffs.remove(player);
 	}
 
 	private static boolean executeVanilla(
@@ -143,7 +148,39 @@ public final class ArpgRuleRuntime {
 		if (trigger.action() == ArpgRuleEngine.Action.WARD) {
 			return grantWard(player, target, event, skill, tags, trigger.value());
 		}
+		if (trigger.action() == ArpgRuleEngine.Action.BUFF) {
+			return applyBuff(player, trigger);
+		}
 		return false;
+	}
+
+	private static boolean applyBuff(ServerPlayerEntity player, ArpgRuleEngine.Trigger trigger) {
+		if (trigger.modifiers().isEmpty()) {
+			return false;
+		}
+		long now = player.getServerWorld().getTime();
+		long expiresAt = now + Math.max(1, trigger.duration());
+		timedBuffs.computeIfAbsent(player, ignored -> new HashMap<>())
+				.put(trigger.id(), new TimedBuff(expiresAt, trigger.modifiers()));
+		return true;
+	}
+
+	private static List<ArpgStatModifier> activeBuffModifiers(ServerPlayerEntity player) {
+		var buffs = timedBuffs.get(player);
+		if (buffs == null || buffs.isEmpty()) {
+			return List.of();
+		}
+		long now = player.getServerWorld().getTime();
+		buffs.entrySet().removeIf(entry -> entry.getValue().expiresAt() <= now);
+		if (buffs.isEmpty()) {
+			timedBuffs.remove(player);
+			return List.of();
+		}
+		var modifiers = new ArrayList<ArpgStatModifier>();
+		for (var buff : buffs.values()) {
+			modifiers.addAll(buff.modifiers());
+		}
+		return List.copyOf(modifiers);
 	}
 
 	private static boolean grantWard(
@@ -238,6 +275,12 @@ public final class ArpgRuleRuntime {
 			return manaProvider.fraction(player);
 		} catch (RuntimeException ignored) {
 			return Double.NaN;
+		}
+	}
+
+	private record TimedBuff(long expiresAt, List<ArpgStatModifier> modifiers) {
+		private TimedBuff {
+			modifiers = List.copyOf(modifiers);
 		}
 	}
 }
