@@ -4,6 +4,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.puffish.skillsmod.arpg.combat.ArpgDamageKind;
+import net.puffish.skillsmod.arpg.combat.ArpgTargetTags;
 import net.puffish.skillsmod.arpg.combat.DamagePipeline;
 import net.puffish.skillsmod.arpg.combat.HitContext;
 import net.puffish.skillsmod.arpg.data.ArpgData;
@@ -102,8 +103,9 @@ public final class ArpgWeaponSkillExecutor {
 			net.puffish.skillsmod.arpg.data.ArpgContent.Skill skill,
 			Set<String> ruleTags
 	) {
+		var targetRuleTags = ArpgTargetTags.merge(ruleTags, target);
 		var snapshot = ArpgRuleRuntime.snapshot(
-				player, target, ArpgRuleEngine.Event.HIT, skill.id(), ruleTags);
+				player, target, ArpgRuleEngine.Event.HIT, skill.id(), targetRuleTags);
 		double criticalChance = Math.max(0.0, Math.min(1.0,
 				snapshot.apply(ArpgStat.CRITICAL_CHANCE, 0.0)));
 		boolean critical = criticalChance > 0.0 && player.getRandom().nextDouble() < criticalChance;
@@ -120,7 +122,7 @@ public final class ArpgWeaponSkillExecutor {
 				player,
 				ArpgDamageKind.ATTACK_SKILL,
 				skill.id(),
-				ruleTags,
+				targetRuleTags,
 				critical
 		);
 		var damaged = new boolean[1];
