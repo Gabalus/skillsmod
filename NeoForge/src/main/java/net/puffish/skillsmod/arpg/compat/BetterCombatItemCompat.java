@@ -1,6 +1,6 @@
 package net.puffish.skillsmod.arpg.compat;
 
-import net.minecraft.component.DataComponentType;
+import net.minecraft.component.ComponentType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
@@ -20,7 +20,7 @@ public final class BetterCombatItemCompat {
 			return Set.of();
 		}
 
-		DataComponentType<?> componentType = Registries.DATA_COMPONENT_TYPE.get(PRESET_ID);
+		ComponentType<?> componentType = Registries.DATA_COMPONENT_TYPE.get(PRESET_ID);
 		if (componentType == null) {
 			return Set.of();
 		}
