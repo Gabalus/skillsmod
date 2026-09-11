@@ -40,6 +40,9 @@ jobs:
       - name: Resolve Iron's runtime profile
         run: ./gradlew :NeoForge:verifyArpgIronsRuntime -Parpg_irons_runtime=true --stacktrace
 
+      - name: Resolve full ARPG provider runtime
+        run: ./gradlew :NeoForge:verifyArpgFullRuntime -Parpg_full_runtime=true --stacktrace
+
       - name: Upload NeoForge test JAR
         uses: actions/upload-artifact@v4
         with:
