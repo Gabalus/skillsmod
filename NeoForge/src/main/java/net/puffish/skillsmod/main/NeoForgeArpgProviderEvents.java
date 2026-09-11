@@ -11,7 +11,9 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.puffish.skillsmod.api.SkillsAPI;
+import net.puffish.skillsmod.arpg.combat.ArpgTargetTags;
 import net.puffish.skillsmod.arpg.compat.ArpgProviderRegistry;
+import net.puffish.skillsmod.arpg.compat.L2HostilityCompat;
 
 import java.util.Map;
 
@@ -66,5 +68,6 @@ public final class NeoForgeArpgProviderEvents {
 				"l2artifacts", mods.isLoaded("l2artifacts"),
 				"celestial_artifacts", mods.isLoaded("celestial_artifacts")
 		));
+		ArpgTargetTags.configure(L2HostilityCompat::tags);
 	}
 }
