@@ -17,6 +17,7 @@ public final class ProviderItemCompat {
 		}
 
 		var tags = new HashSet<>(ApotheosisItemCompat.tags(stack));
+		tags.addAll(BetterCombatItemCompat.tags(stack));
 		var itemId = Registries.ITEM.getId(stack.getItem());
 		if (itemId != null) {
 			String namespace = itemId.getNamespace();
