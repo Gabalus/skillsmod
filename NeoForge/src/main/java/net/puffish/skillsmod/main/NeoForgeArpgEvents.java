@@ -18,6 +18,7 @@ import net.neoforged.neoforge.event.tick.EntityTickEvent;
 import net.puffish.skillsmod.api.SkillsAPI;
 import net.puffish.skillsmod.arpg.combat.ArpgAttackScaling;
 import net.puffish.skillsmod.arpg.combat.ArpgDefenseSemantics;
+import net.puffish.skillsmod.arpg.combat.ArpgTargetTags;
 import net.puffish.skillsmod.arpg.combat.DamagePipeline;
 import net.puffish.skillsmod.arpg.compat.IronsDamageSourceCompat;
 import net.puffish.skillsmod.arpg.rule.ArpgAilmentRuntime;
@@ -79,12 +80,13 @@ public final class NeoForgeArpgEvents {
 			return;
 		}
 
+		var tags = ArpgTargetTags.merge(MELEE_TAGS, event.getTarget());
 		var snapshot = ArpgRuleRuntime.snapshot(
 				player,
 				event.getTarget(),
 				ArpgRuleEngine.Event.ATTACK,
 				"",
-				MELEE_TAGS
+				tags
 		);
 		double criticalChance = Math.max(0.0, Math.min(1.0, snapshot.apply(ArpgStat.CRITICAL_CHANCE, 0.0)));
 		if (!event.isCriticalHit() && criticalChance > 0.0 && player.getRandom().nextDouble() < criticalChance) {
@@ -102,7 +104,7 @@ public final class NeoForgeArpgEvents {
 					event.getTarget(),
 					ArpgRuleEngine.Event.CRIT,
 					"",
-					MELEE_TAGS
+					tags
 			);
 		}
 	}
@@ -185,7 +187,8 @@ public final class NeoForgeArpgEvents {
 			return;
 		}
 
-		var tags = delivery == ArpgAttackScaling.Delivery.MELEE ? MELEE_TAGS : PROJECTILE_TAGS;
+		var baseTags = delivery == ArpgAttackScaling.Delivery.MELEE ? MELEE_TAGS : PROJECTILE_TAGS;
+		var tags = ArpgTargetTags.merge(baseTags, event.getEntity());
 		var snapshot = ArpgRuleRuntime.snapshot(
 				attacker,
 				event.getEntity(),
@@ -219,7 +222,8 @@ public final class NeoForgeArpgEvents {
 	public static void onLivingDamage(LivingDamageEvent.Post event) {
 		var source = event.getSource();
 		var skillDamage = skillDamage(source);
-		var tags = skillDamage == null ? damageTags(source) : skillDamage.tags();
+		var baseTags = skillDamage == null ? damageTags(source) : skillDamage.tags();
+		var tags = ArpgTargetTags.merge(baseTags, event.getEntity());
 		if (event.getBlockedDamage() > 0.0f && event.getEntity() instanceof ServerPlayerEntity blocker) {
 			ArpgRuleRuntime.fireSupportedTriggers(
 					blocker,
@@ -270,12 +274,14 @@ public final class NeoForgeArpgEvents {
 		var source = event.getSource();
 		if (source.getAttacker() instanceof ServerPlayerEntity attacker) {
 			var skillDamage = ArpgSkillDamageContext.currentFor(attacker);
+			var baseTags = skillDamage == null ? damageTags(source) : skillDamage.tags();
+			var tags = ArpgTargetTags.merge(baseTags, event.getEntity());
 			ArpgRuleRuntime.fireSupportedTriggers(
 					attacker,
 					event.getEntity(),
 					ArpgRuleEngine.Event.KILL,
 					skillDamage == null ? "" : skillDamage.skill(),
-					skillDamage == null ? damageTags(source) : skillDamage.tags()
+					tags
 			);
 		}
 	}
