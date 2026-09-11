@@ -1,0 +1,290 @@
+{
+  "spiritwalker_0": {
+    "title": "Spiritwalker 1",
+    "description": "12% increased mana regeneration",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "mana_regeneration",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "spiritwalker_1": {
+    "title": "Spiritwalker 2",
+    "description": "12% increased mana regeneration",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "mana_regeneration",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "spiritwalker_2": {
+    "title": "Spiritwalker 3",
+    "description": "12% increased mana regeneration; On hit: bleed (cooldown 2s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "mana_regeneration",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "puncture"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "spiritwalker_3": {
+    "title": "Spiritwalker 4",
+    "description": "2 flat ward",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "ward",
+          "operation": "flat",
+          "value": 2
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "spiritwalker_4": {
+    "title": "Spiritwalker 5",
+    "description": "2 flat ward",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "ward",
+          "operation": "flat",
+          "value": 2
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "spiritwalker_5": {
+    "title": "Spiritwalker 6",
+    "description": "2 flat ward; On hit: poison (cooldown 2s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "ward",
+          "operation": "flat",
+          "value": 2
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "verdant_decay"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "spiritwalker_6": {
+    "title": "Spiritwalker 7",
+    "description": "12% increased nature damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "nature_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "spiritwalker_7": {
+    "title": "Spiritwalker 8",
+    "description": "12% increased nature damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "nature_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "spiritwalker_8": {
+    "title": "Spiritwalker 9",
+    "description": "12% increased nature damage; Strength also increases spell damage.",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "nature_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "iron_will"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "spiritwalker_9": {
+    "title": "Spiritwalker 10",
+    "description": "12% increased blood damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "blood_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "spiritwalker_10": {
+    "title": "Spiritwalker 11",
+    "description": "12% increased blood damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "blood_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "spiritwalker_11": {
+    "title": "Spiritwalker 12",
+    "description": "12% increased blood damage; Maximum mana is zero. Active skills spend life; costs cannot kill you.",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "blood_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "blood_magic"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  }
+}

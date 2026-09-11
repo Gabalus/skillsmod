@@ -1,0 +1,38 @@
+{
+  "normal": {
+    "bidirectional": [
+      [
+        "inquisitor_0",
+        "inquisitor_1"
+      ],
+      [
+        "inquisitor_1",
+        "inquisitor_2"
+      ],
+      [
+        "inquisitor_3",
+        "inquisitor_4"
+      ],
+      [
+        "inquisitor_4",
+        "inquisitor_5"
+      ],
+      [
+        "inquisitor_6",
+        "inquisitor_7"
+      ],
+      [
+        "inquisitor_7",
+        "inquisitor_8"
+      ],
+      [
+        "inquisitor_9",
+        "inquisitor_10"
+      ],
+      [
+        "inquisitor_10",
+        "inquisitor_11"
+      ]
+    ]
+  }
+}

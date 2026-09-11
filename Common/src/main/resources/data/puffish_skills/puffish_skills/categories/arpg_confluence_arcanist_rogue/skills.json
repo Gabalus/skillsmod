@@ -1,0 +1,74 @@
+{
+  "arcanist_rogue_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "arcanist_rogue_0",
+    "root": true
+  },
+  "arcanist_rogue_1": {
+    "x": 75,
+    "y": 0,
+    "definition": "arcanist_rogue_1",
+    "root": false
+  },
+  "arcanist_rogue_2": {
+    "x": 150,
+    "y": 0,
+    "definition": "arcanist_rogue_2",
+    "root": false
+  },
+  "arcanist_rogue_3": {
+    "x": 225,
+    "y": 0,
+    "definition": "arcanist_rogue_3",
+    "root": false
+  },
+  "arcanist_rogue_4": {
+    "x": 0,
+    "y": 75,
+    "definition": "arcanist_rogue_4",
+    "root": false
+  },
+  "arcanist_rogue_5": {
+    "x": 75,
+    "y": 75,
+    "definition": "arcanist_rogue_5",
+    "root": false
+  },
+  "arcanist_rogue_6": {
+    "x": 150,
+    "y": 75,
+    "definition": "arcanist_rogue_6",
+    "root": false
+  },
+  "arcanist_rogue_7": {
+    "x": 225,
+    "y": 75,
+    "definition": "arcanist_rogue_7",
+    "root": false
+  },
+  "arcanist_rogue_8": {
+    "x": 0,
+    "y": 150,
+    "definition": "arcanist_rogue_8",
+    "root": false
+  },
+  "arcanist_rogue_9": {
+    "x": 75,
+    "y": 150,
+    "definition": "arcanist_rogue_9",
+    "root": false
+  },
+  "arcanist_rogue_10": {
+    "x": 150,
+    "y": 150,
+    "definition": "arcanist_rogue_10",
+    "root": false
+  },
+  "arcanist_rogue_11": {
+    "x": 225,
+    "y": 150,
+    "definition": "arcanist_rogue_11",
+    "root": false
+  }
+}

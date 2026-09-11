@@ -1,0 +1,146 @@
+{
+  "quantity_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "quantity_0",
+    "root": true
+  },
+  "quantity_1": {
+    "x": 0,
+    "y": 65,
+    "definition": "quantity_1",
+    "root": false
+  },
+  "quantity_2": {
+    "x": 0,
+    "y": 130,
+    "definition": "quantity_2",
+    "root": false
+  },
+  "quantity_3": {
+    "x": 0,
+    "y": 195,
+    "definition": "quantity_3",
+    "root": false
+  },
+  "rarity_0": {
+    "x": 85,
+    "y": 0,
+    "definition": "rarity_0",
+    "root": true
+  },
+  "rarity_1": {
+    "x": 85,
+    "y": 65,
+    "definition": "rarity_1",
+    "root": false
+  },
+  "rarity_2": {
+    "x": 85,
+    "y": 130,
+    "definition": "rarity_2",
+    "root": false
+  },
+  "rarity_3": {
+    "x": 85,
+    "y": 195,
+    "definition": "rarity_3",
+    "root": false
+  },
+  "sustain_0": {
+    "x": 170,
+    "y": 0,
+    "definition": "sustain_0",
+    "root": true
+  },
+  "sustain_1": {
+    "x": 170,
+    "y": 65,
+    "definition": "sustain_1",
+    "root": false
+  },
+  "sustain_2": {
+    "x": 170,
+    "y": 130,
+    "definition": "sustain_2",
+    "root": false
+  },
+  "sustain_3": {
+    "x": 170,
+    "y": 195,
+    "definition": "sustain_3",
+    "root": false
+  },
+  "trials_0": {
+    "x": 255,
+    "y": 0,
+    "definition": "trials_0",
+    "root": true
+  },
+  "trials_1": {
+    "x": 255,
+    "y": 65,
+    "definition": "trials_1",
+    "root": false
+  },
+  "trials_2": {
+    "x": 255,
+    "y": 130,
+    "definition": "trials_2",
+    "root": false
+  },
+  "trials_3": {
+    "x": 255,
+    "y": 195,
+    "definition": "trials_3",
+    "root": false
+  },
+  "delve_0": {
+    "x": 340,
+    "y": 0,
+    "definition": "delve_0",
+    "root": true
+  },
+  "delve_1": {
+    "x": 340,
+    "y": 65,
+    "definition": "delve_1",
+    "root": false
+  },
+  "delve_2": {
+    "x": 340,
+    "y": 130,
+    "definition": "delve_2",
+    "root": false
+  },
+  "delve_3": {
+    "x": 340,
+    "y": 195,
+    "definition": "delve_3",
+    "root": false
+  },
+  "corruption_0": {
+    "x": 425,
+    "y": 0,
+    "definition": "corruption_0",
+    "root": true
+  },
+  "corruption_1": {
+    "x": 425,
+    "y": 65,
+    "definition": "corruption_1",
+    "root": false
+  },
+  "corruption_2": {
+    "x": 425,
+    "y": 130,
+    "definition": "corruption_2",
+    "root": false
+  },
+  "corruption_3": {
+    "x": 425,
+    "y": 195,
+    "definition": "corruption_3",
+    "root": false
+  }
+}

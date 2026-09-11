@@ -1,0 +1,278 @@
+{
+  "arcanist_shaman_0": {
+    "title": "Arcanist / Shaman 1",
+    "description": "9% increased spell damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "spell_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "arcanist_shaman_1": {
+    "title": "Arcanist / Shaman 2",
+    "description": "9% increased blood damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "blood_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "arcanist_shaman_2": {
+    "title": "Arcanist / Shaman 3",
+    "description": "4.5% increased cast speed",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "cast_speed",
+          "operation": "increased",
+          "value": 0.045
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "arcanist_shaman_3": {
+    "title": "Arcanist / Shaman 4",
+    "description": "9% increased mana regeneration",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "mana_regeneration",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "arcanist_shaman_4": {
+    "title": "Arcanist / Shaman 5",
+    "description": "9% increased lightning damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "lightning_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "arcanist_shaman_5": {
+    "title": "Arcanist / Shaman 6",
+    "description": "9% increased nature damage; On crit: heal (cooldown 2s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "nature_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "holy_recovery"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "arcanist_shaman_6": {
+    "title": "Arcanist / Shaman 7",
+    "description": "12 flat maximum mana",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "maximum_mana",
+          "operation": "flat",
+          "value": 12.0
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "arcanist_shaman_7": {
+    "title": "Arcanist / Shaman 8",
+    "description": "9% increased cold damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "cold_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "arcanist_shaman_8": {
+    "title": "Arcanist / Shaman 9",
+    "description": "9% increased fire damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "fire_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "arcanist_shaman_9": {
+    "title": "Arcanist / Shaman 10",
+    "description": "1.5 flat ward",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "ward",
+          "operation": "flat",
+          "value": 1.5
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "arcanist_shaman_10": {
+    "title": "Arcanist / Shaman 11",
+    "description": "9% increased spell damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "spell_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "arcanist_shaman_11": {
+    "title": "Arcanist / Shaman 12",
+    "description": "9% increased blood damage; On kill: ward (cooldown 4s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "blood_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "war_cry"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/oak_sapling.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  }
+}

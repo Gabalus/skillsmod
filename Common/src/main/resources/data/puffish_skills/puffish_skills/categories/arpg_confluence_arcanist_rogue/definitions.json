@@ -1,0 +1,278 @@
+{
+  "arcanist_rogue_0": {
+    "title": "Rogue / Arcanist 1",
+    "description": "0.0375 flat critical multiplier",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "critical_multiplier",
+          "operation": "flat",
+          "value": 0.037500000000000006
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "arcanist_rogue_1": {
+    "title": "Rogue / Arcanist 2",
+    "description": "12 flat maximum mana",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "maximum_mana",
+          "operation": "flat",
+          "value": 12.0
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "arcanist_rogue_2": {
+    "title": "Rogue / Arcanist 3",
+    "description": "9% increased bleed damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "bleed_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "arcanist_rogue_3": {
+    "title": "Rogue / Arcanist 4",
+    "description": "9% increased fire damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "fire_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "arcanist_rogue_4": {
+    "title": "Rogue / Arcanist 5",
+    "description": "9% increased evasion",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "evasion",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "arcanist_rogue_5": {
+    "title": "Rogue / Arcanist 6",
+    "description": "9% increased spell damage; On block: ward (cooldown 1s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "spell_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "storm_barrier"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "arcanist_rogue_6": {
+    "title": "Rogue / Arcanist 7",
+    "description": "4.5% increased attack speed",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "attack_speed",
+          "operation": "increased",
+          "value": 0.045
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "arcanist_rogue_7": {
+    "title": "Rogue / Arcanist 8",
+    "description": "4.5% increased cast speed",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "cast_speed",
+          "operation": "increased",
+          "value": 0.045
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "arcanist_rogue_8": {
+    "title": "Rogue / Arcanist 9",
+    "description": "9% increased ender damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "ender_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "arcanist_rogue_9": {
+    "title": "Rogue / Arcanist 10",
+    "description": "9% increased lightning damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "lightning_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "arcanist_rogue_10": {
+    "title": "Rogue / Arcanist 11",
+    "description": "0.0375 flat critical multiplier",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "critical_multiplier",
+          "operation": "flat",
+          "value": 0.037500000000000006
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_axe.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "arcanist_rogue_11": {
+    "title": "Rogue / Arcanist 12",
+    "description": "12 flat maximum mana; On crit: bleed (cooldown 1s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "maximum_mana",
+          "operation": "flat",
+          "value": 12.0
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "open_wounds"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/amethyst_shard.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  }
+}

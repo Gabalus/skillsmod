@@ -1,0 +1,74 @@
+{
+  "shaman_templar_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "shaman_templar_0",
+    "root": true
+  },
+  "shaman_templar_1": {
+    "x": 75,
+    "y": 0,
+    "definition": "shaman_templar_1",
+    "root": false
+  },
+  "shaman_templar_2": {
+    "x": 150,
+    "y": 0,
+    "definition": "shaman_templar_2",
+    "root": false
+  },
+  "shaman_templar_3": {
+    "x": 225,
+    "y": 0,
+    "definition": "shaman_templar_3",
+    "root": false
+  },
+  "shaman_templar_4": {
+    "x": 0,
+    "y": 75,
+    "definition": "shaman_templar_4",
+    "root": false
+  },
+  "shaman_templar_5": {
+    "x": 75,
+    "y": 75,
+    "definition": "shaman_templar_5",
+    "root": false
+  },
+  "shaman_templar_6": {
+    "x": 150,
+    "y": 75,
+    "definition": "shaman_templar_6",
+    "root": false
+  },
+  "shaman_templar_7": {
+    "x": 225,
+    "y": 75,
+    "definition": "shaman_templar_7",
+    "root": false
+  },
+  "shaman_templar_8": {
+    "x": 0,
+    "y": 150,
+    "definition": "shaman_templar_8",
+    "root": false
+  },
+  "shaman_templar_9": {
+    "x": 75,
+    "y": 150,
+    "definition": "shaman_templar_9",
+    "root": false
+  },
+  "shaman_templar_10": {
+    "x": 150,
+    "y": 150,
+    "definition": "shaman_templar_10",
+    "root": false
+  },
+  "shaman_templar_11": {
+    "x": 225,
+    "y": 150,
+    "definition": "shaman_templar_11",
+    "root": false
+  }
+}

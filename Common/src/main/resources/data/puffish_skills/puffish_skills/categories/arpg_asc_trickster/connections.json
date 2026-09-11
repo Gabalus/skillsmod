@@ -1,0 +1,38 @@
+{
+  "normal": {
+    "bidirectional": [
+      [
+        "trickster_0",
+        "trickster_1"
+      ],
+      [
+        "trickster_1",
+        "trickster_2"
+      ],
+      [
+        "trickster_3",
+        "trickster_4"
+      ],
+      [
+        "trickster_4",
+        "trickster_5"
+      ],
+      [
+        "trickster_6",
+        "trickster_7"
+      ],
+      [
+        "trickster_7",
+        "trickster_8"
+      ],
+      [
+        "trickster_9",
+        "trickster_10"
+      ],
+      [
+        "trickster_10",
+        "trickster_11"
+      ]
+    ]
+  }
+}

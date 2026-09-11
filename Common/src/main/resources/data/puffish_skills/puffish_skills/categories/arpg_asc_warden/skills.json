@@ -1,0 +1,74 @@
+{
+  "warden_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "warden_0",
+    "root": true
+  },
+  "warden_1": {
+    "x": 0,
+    "y": 75,
+    "definition": "warden_1",
+    "root": false
+  },
+  "warden_2": {
+    "x": 0,
+    "y": 150,
+    "definition": "warden_2",
+    "root": false
+  },
+  "warden_3": {
+    "x": 95,
+    "y": 0,
+    "definition": "warden_3",
+    "root": true
+  },
+  "warden_4": {
+    "x": 95,
+    "y": 75,
+    "definition": "warden_4",
+    "root": false
+  },
+  "warden_5": {
+    "x": 95,
+    "y": 150,
+    "definition": "warden_5",
+    "root": false
+  },
+  "warden_6": {
+    "x": 190,
+    "y": 0,
+    "definition": "warden_6",
+    "root": true
+  },
+  "warden_7": {
+    "x": 190,
+    "y": 75,
+    "definition": "warden_7",
+    "root": false
+  },
+  "warden_8": {
+    "x": 190,
+    "y": 150,
+    "definition": "warden_8",
+    "root": false
+  },
+  "warden_9": {
+    "x": 285,
+    "y": 0,
+    "definition": "warden_9",
+    "root": true
+  },
+  "warden_10": {
+    "x": 285,
+    "y": 75,
+    "definition": "warden_10",
+    "root": false
+  },
+  "warden_11": {
+    "x": 285,
+    "y": 150,
+    "definition": "warden_11",
+    "root": false
+  }
+}

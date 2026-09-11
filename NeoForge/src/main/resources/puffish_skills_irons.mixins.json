@@ -1,0 +1,15 @@
+{
+	"required": false,
+	"minVersion": "0.8",
+	"package": "net.puffish.skillsmod.mixin.compat.irons",
+	"compatibilityLevel": "JAVA_21",
+	"plugin": "net.puffish.skillsmod.mixin.compat.irons.IronsMixinPlugin",
+	"mixins": [
+		"MagicDataAccessor",
+		"AbstractSpellMixin",
+		"MagicManagerMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

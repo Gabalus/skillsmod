@@ -1,0 +1,38 @@
+{
+  "normal": {
+    "bidirectional": [
+      [
+        "sentinel_0",
+        "sentinel_1"
+      ],
+      [
+        "sentinel_1",
+        "sentinel_2"
+      ],
+      [
+        "sentinel_3",
+        "sentinel_4"
+      ],
+      [
+        "sentinel_4",
+        "sentinel_5"
+      ],
+      [
+        "sentinel_6",
+        "sentinel_7"
+      ],
+      [
+        "sentinel_7",
+        "sentinel_8"
+      ],
+      [
+        "sentinel_9",
+        "sentinel_10"
+      ],
+      [
+        "sentinel_10",
+        "sentinel_11"
+      ]
+    ]
+  }
+}

@@ -5,6 +5,9 @@ license="All Rights Reserved"
 [[mixins]]
 config = "puffish_skills.mixins.json"
 
+[[mixins]]
+config = "puffish_skills_irons.mixins.json"
+
 [[mods]]
 modId="puffish_skills"
 version="${version}"
@@ -15,13 +18,13 @@ description="Adds a fully configurable skill system to the game."
 [[dependencies.puffish_skills]]
 modId="neoforge"
 type="required"
-versionRange="[21.0.0-beta,)"
+versionRange="[21.1.200,21.2)"
 ordering="NONE"
 side="BOTH"
 
 [[dependencies.puffish_skills]]
 modId="minecraft"
 type="required"
-versionRange="[1.21,1.21.1)"
+versionRange="[1.21.1,1.21.2)"
 ordering="NONE"
 side="BOTH"

@@ -1,0 +1,74 @@
+{
+  "oracle_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "oracle_0",
+    "root": true
+  },
+  "oracle_1": {
+    "x": 0,
+    "y": 75,
+    "definition": "oracle_1",
+    "root": false
+  },
+  "oracle_2": {
+    "x": 0,
+    "y": 150,
+    "definition": "oracle_2",
+    "root": false
+  },
+  "oracle_3": {
+    "x": 95,
+    "y": 0,
+    "definition": "oracle_3",
+    "root": true
+  },
+  "oracle_4": {
+    "x": 95,
+    "y": 75,
+    "definition": "oracle_4",
+    "root": false
+  },
+  "oracle_5": {
+    "x": 95,
+    "y": 150,
+    "definition": "oracle_5",
+    "root": false
+  },
+  "oracle_6": {
+    "x": 190,
+    "y": 0,
+    "definition": "oracle_6",
+    "root": true
+  },
+  "oracle_7": {
+    "x": 190,
+    "y": 75,
+    "definition": "oracle_7",
+    "root": false
+  },
+  "oracle_8": {
+    "x": 190,
+    "y": 150,
+    "definition": "oracle_8",
+    "root": false
+  },
+  "oracle_9": {
+    "x": 285,
+    "y": 0,
+    "definition": "oracle_9",
+    "root": true
+  },
+  "oracle_10": {
+    "x": 285,
+    "y": 75,
+    "definition": "oracle_10",
+    "root": false
+  },
+  "oracle_11": {
+    "x": 285,
+    "y": 150,
+    "definition": "oracle_11",
+    "root": false
+  }
+}

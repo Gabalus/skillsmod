@@ -1,0 +1,74 @@
+{
+  "druid_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "druid_0",
+    "root": true
+  },
+  "druid_1": {
+    "x": 0,
+    "y": 75,
+    "definition": "druid_1",
+    "root": false
+  },
+  "druid_2": {
+    "x": 0,
+    "y": 150,
+    "definition": "druid_2",
+    "root": false
+  },
+  "druid_3": {
+    "x": 95,
+    "y": 0,
+    "definition": "druid_3",
+    "root": true
+  },
+  "druid_4": {
+    "x": 95,
+    "y": 75,
+    "definition": "druid_4",
+    "root": false
+  },
+  "druid_5": {
+    "x": 95,
+    "y": 150,
+    "definition": "druid_5",
+    "root": false
+  },
+  "druid_6": {
+    "x": 190,
+    "y": 0,
+    "definition": "druid_6",
+    "root": true
+  },
+  "druid_7": {
+    "x": 190,
+    "y": 75,
+    "definition": "druid_7",
+    "root": false
+  },
+  "druid_8": {
+    "x": 190,
+    "y": 150,
+    "definition": "druid_8",
+    "root": false
+  },
+  "druid_9": {
+    "x": 285,
+    "y": 0,
+    "definition": "druid_9",
+    "root": true
+  },
+  "druid_10": {
+    "x": 285,
+    "y": 75,
+    "definition": "druid_10",
+    "root": false
+  },
+  "druid_11": {
+    "x": 285,
+    "y": 150,
+    "definition": "druid_11",
+    "root": false
+  }
+}

@@ -1,0 +1,290 @@
+{
+  "crusader_0": {
+    "title": "Crusader 1",
+    "description": "12% increased armor",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "armor",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/shield.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "crusader_1": {
+    "title": "Crusader 2",
+    "description": "12% increased armor",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "armor",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/shield.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "crusader_2": {
+    "title": "Crusader 3",
+    "description": "12% increased armor; On crit: heal (cooldown 2s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "armor",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "holy_recovery"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/shield.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "crusader_3": {
+    "title": "Crusader 4",
+    "description": "2 flat ward",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "ward",
+          "operation": "flat",
+          "value": 2
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/shield.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "crusader_4": {
+    "title": "Crusader 5",
+    "description": "2 flat ward",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "ward",
+          "operation": "flat",
+          "value": 2
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/shield.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "crusader_5": {
+    "title": "Crusader 6",
+    "description": "2 flat ward; On crit: mana (cooldown 2s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "ward",
+          "operation": "flat",
+          "value": 2
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "eldritch_battery"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/shield.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "crusader_6": {
+    "title": "Crusader 7",
+    "description": "12% increased holy damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "holy_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/shield.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "crusader_7": {
+    "title": "Crusader 8",
+    "description": "12% increased holy damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "holy_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/shield.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "crusader_8": {
+    "title": "Crusader 9",
+    "description": "12% increased holy damage; On crit: ward (cooldown 2s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "holy_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "frost_guard"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/shield.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "crusader_9": {
+    "title": "Crusader 10",
+    "description": "0.01 flat block chance",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "block_chance",
+          "operation": "flat",
+          "value": 0.01
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/shield.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "crusader_10": {
+    "title": "Crusader 11",
+    "description": "0.01 flat block chance",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "block_chance",
+          "operation": "flat",
+          "value": 0.01
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/shield.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "crusader_11": {
+    "title": "Crusader 12",
+    "description": "0.01 flat block chance; On crit: cooldown (cooldown 1s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "block_chance",
+          "operation": "flat",
+          "value": 0.01
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "lightning_reflexes"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/shield.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  }
+}

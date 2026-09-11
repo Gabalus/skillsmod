@@ -1,0 +1,290 @@
+{
+  "sentinel_0": {
+    "title": "Sentinel 1",
+    "description": "0.01 flat block chance",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "block_chance",
+          "operation": "flat",
+          "value": 0.01
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/shield.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "sentinel_1": {
+    "title": "Sentinel 2",
+    "description": "0.01 flat block chance",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "block_chance",
+          "operation": "flat",
+          "value": 0.01
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/shield.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "sentinel_2": {
+    "title": "Sentinel 3",
+    "description": "0.01 flat block chance; On attack: mana (cooldown 2s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "block_chance",
+          "operation": "flat",
+          "value": 0.01
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "martial_reservoir"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/shield.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "sentinel_3": {
+    "title": "Sentinel 4",
+    "description": "2 flat maximum life",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "maximum_life",
+          "operation": "flat",
+          "value": 2
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/shield.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "sentinel_4": {
+    "title": "Sentinel 5",
+    "description": "2 flat maximum life",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "maximum_life",
+          "operation": "flat",
+          "value": 2
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/shield.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "sentinel_5": {
+    "title": "Sentinel 6",
+    "description": "2 flat maximum life; On cast: heal (cooldown 3s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "maximum_life",
+          "operation": "flat",
+          "value": 2
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "vital_surge"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/shield.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "sentinel_6": {
+    "title": "Sentinel 7",
+    "description": "12% increased armor",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "armor",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/shield.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "sentinel_7": {
+    "title": "Sentinel 8",
+    "description": "12% increased armor",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "armor",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/shield.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "sentinel_8": {
+    "title": "Sentinel 9",
+    "description": "12% increased armor; On kill: buff (cooldown 2s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "armor",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "executioners_rush"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/shield.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "sentinel_9": {
+    "title": "Sentinel 10",
+    "description": "2 flat ward",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "ward",
+          "operation": "flat",
+          "value": 2
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/shield.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "sentinel_10": {
+    "title": "Sentinel 11",
+    "description": "2 flat ward",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "ward",
+          "operation": "flat",
+          "value": 2
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/shield.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "sentinel_11": {
+    "title": "Sentinel 12",
+    "description": "2 flat ward; On kill: cooldown (cooldown 1s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "ward",
+          "operation": "flat",
+          "value": 2
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "hunter_instinct"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/shield.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  }
+}

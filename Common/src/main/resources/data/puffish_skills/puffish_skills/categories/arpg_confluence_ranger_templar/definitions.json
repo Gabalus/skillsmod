@@ -1,0 +1,278 @@
+{
+  "ranger_templar_0": {
+    "title": "Ranger / Templar 1",
+    "description": "9% increased projectile damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "projectile_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "ranger_templar_1": {
+    "title": "Ranger / Templar 2",
+    "description": "0.0075 flat block chance",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "block_chance",
+          "operation": "flat",
+          "value": 0.0075
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/shield.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "ranger_templar_2": {
+    "title": "Ranger / Templar 3",
+    "description": "4.5% increased critical chance",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "critical_chance",
+          "operation": "increased",
+          "value": 0.045
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "ranger_templar_3": {
+    "title": "Ranger / Templar 4",
+    "description": "9% increased armor",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "armor",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/shield.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "ranger_templar_4": {
+    "title": "Ranger / Templar 5",
+    "description": "4.5% increased movement speed",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "movement_speed",
+          "operation": "increased",
+          "value": 0.045
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "ranger_templar_5": {
+    "title": "Ranger / Templar 6",
+    "description": "9% increased holy damage; 25% more attack damage while moving.",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "holy_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "momentum"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/shield.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "ranger_templar_6": {
+    "title": "Ranger / Templar 7",
+    "description": "9% increased evasion",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "evasion",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "ranger_templar_7": {
+    "title": "Ranger / Templar 8",
+    "description": "1.5 flat maximum life",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "maximum_life",
+          "operation": "flat",
+          "value": 1.5
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/shield.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "ranger_templar_8": {
+    "title": "Ranger / Templar 9",
+    "description": "9% increased poison damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "poison_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "ranger_templar_9": {
+    "title": "Ranger / Templar 10",
+    "description": "1.5 flat ward",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "ward",
+          "operation": "flat",
+          "value": 1.5
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/shield.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "ranger_templar_10": {
+    "title": "Ranger / Templar 11",
+    "description": "9% increased projectile damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "projectile_damage",
+          "operation": "increased",
+          "value": 0.09
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/bow.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "ranger_templar_11": {
+    "title": "Ranger / Templar 12",
+    "description": "0.0075 flat block chance; On kill: mana (cooldown 1s).",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "block_chance",
+          "operation": "flat",
+          "value": 0.0075
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "soul_drinker"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/shield.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  }
+}

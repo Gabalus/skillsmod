@@ -1,0 +1,74 @@
+{
+  "pathfinder_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "pathfinder_0",
+    "root": true
+  },
+  "pathfinder_1": {
+    "x": 0,
+    "y": 75,
+    "definition": "pathfinder_1",
+    "root": false
+  },
+  "pathfinder_2": {
+    "x": 0,
+    "y": 150,
+    "definition": "pathfinder_2",
+    "root": false
+  },
+  "pathfinder_3": {
+    "x": 95,
+    "y": 0,
+    "definition": "pathfinder_3",
+    "root": true
+  },
+  "pathfinder_4": {
+    "x": 95,
+    "y": 75,
+    "definition": "pathfinder_4",
+    "root": false
+  },
+  "pathfinder_5": {
+    "x": 95,
+    "y": 150,
+    "definition": "pathfinder_5",
+    "root": false
+  },
+  "pathfinder_6": {
+    "x": 190,
+    "y": 0,
+    "definition": "pathfinder_6",
+    "root": true
+  },
+  "pathfinder_7": {
+    "x": 190,
+    "y": 75,
+    "definition": "pathfinder_7",
+    "root": false
+  },
+  "pathfinder_8": {
+    "x": 190,
+    "y": 150,
+    "definition": "pathfinder_8",
+    "root": false
+  },
+  "pathfinder_9": {
+    "x": 285,
+    "y": 0,
+    "definition": "pathfinder_9",
+    "root": true
+  },
+  "pathfinder_10": {
+    "x": 285,
+    "y": 75,
+    "definition": "pathfinder_10",
+    "root": false
+  },
+  "pathfinder_11": {
+    "x": 285,
+    "y": 150,
+    "definition": "pathfinder_11",
+    "root": false
+  }
+}

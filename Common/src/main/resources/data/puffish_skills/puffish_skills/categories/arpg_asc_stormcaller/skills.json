@@ -1,0 +1,74 @@
+{
+  "stormcaller_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "stormcaller_0",
+    "root": true
+  },
+  "stormcaller_1": {
+    "x": 0,
+    "y": 75,
+    "definition": "stormcaller_1",
+    "root": false
+  },
+  "stormcaller_2": {
+    "x": 0,
+    "y": 150,
+    "definition": "stormcaller_2",
+    "root": false
+  },
+  "stormcaller_3": {
+    "x": 95,
+    "y": 0,
+    "definition": "stormcaller_3",
+    "root": true
+  },
+  "stormcaller_4": {
+    "x": 95,
+    "y": 75,
+    "definition": "stormcaller_4",
+    "root": false
+  },
+  "stormcaller_5": {
+    "x": 95,
+    "y": 150,
+    "definition": "stormcaller_5",
+    "root": false
+  },
+  "stormcaller_6": {
+    "x": 190,
+    "y": 0,
+    "definition": "stormcaller_6",
+    "root": true
+  },
+  "stormcaller_7": {
+    "x": 190,
+    "y": 75,
+    "definition": "stormcaller_7",
+    "root": false
+  },
+  "stormcaller_8": {
+    "x": 190,
+    "y": 150,
+    "definition": "stormcaller_8",
+    "root": false
+  },
+  "stormcaller_9": {
+    "x": 285,
+    "y": 0,
+    "definition": "stormcaller_9",
+    "root": true
+  },
+  "stormcaller_10": {
+    "x": 285,
+    "y": 75,
+    "definition": "stormcaller_10",
+    "root": false
+  },
+  "stormcaller_11": {
+    "x": 285,
+    "y": 150,
+    "definition": "stormcaller_11",
+    "root": false
+  }
+}

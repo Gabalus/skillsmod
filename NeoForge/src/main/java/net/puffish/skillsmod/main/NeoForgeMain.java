@@ -71,6 +71,7 @@ public class NeoForgeMain {
 		modEventBus.addListener(this::onRegisterPayloadHandler);
 
 		var neoForgeEventBus = NeoForge.EVENT_BUS;
+		NeoForgeIronsEvents.registerIfLoaded(neoForgeEventBus);
 		neoForgeEventBus.addListener(this::onBlockBreak);
 		neoForgeEventBus.addListener(this::onPlayerLoggedIn);
 		neoForgeEventBus.addListener(this::onPlayerLoggedOut);

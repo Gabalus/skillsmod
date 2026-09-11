@@ -1,0 +1,38 @@
+{
+  "normal": {
+    "bidirectional": [
+      [
+        "deadeye_0",
+        "deadeye_1"
+      ],
+      [
+        "deadeye_1",
+        "deadeye_2"
+      ],
+      [
+        "deadeye_3",
+        "deadeye_4"
+      ],
+      [
+        "deadeye_4",
+        "deadeye_5"
+      ],
+      [
+        "deadeye_6",
+        "deadeye_7"
+      ],
+      [
+        "deadeye_7",
+        "deadeye_8"
+      ],
+      [
+        "deadeye_9",
+        "deadeye_10"
+      ],
+      [
+        "deadeye_10",
+        "deadeye_11"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "deadeye_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "deadeye_0",
+    "root": true
+  },
+  "deadeye_1": {
+    "x": 0,
+    "y": 75,
+    "definition": "deadeye_1",
+    "root": false
+  },
+  "deadeye_2": {
+    "x": 0,
+    "y": 150,
+    "definition": "deadeye_2",
+    "root": false
+  },
+  "deadeye_3": {
+    "x": 95,
+    "y": 0,
+    "definition": "deadeye_3",
+    "root": true
+  },
+  "deadeye_4": {
+    "x": 95,
+    "y": 75,
+    "definition": "deadeye_4",
+    "root": false
+  },
+  "deadeye_5": {
+    "x": 95,
+    "y": 150,
+    "definition": "deadeye_5",
+    "root": false
+  },
+  "deadeye_6": {
+    "x": 190,
+    "y": 0,
+    "definition": "deadeye_6",
+    "root": true
+  },
+  "deadeye_7": {
+    "x": 190,
+    "y": 75,
+    "definition": "deadeye_7",
+    "root": false
+  },
+  "deadeye_8": {
+    "x": 190,
+    "y": 150,
+    "definition": "deadeye_8",
+    "root": false
+  },
+  "deadeye_9": {
+    "x": 285,
+    "y": 0,
+    "definition": "deadeye_9",
+    "root": true
+  },
+  "deadeye_10": {
+    "x": 285,
+    "y": 75,
+    "definition": "deadeye_10",
+    "root": false
+  },
+  "deadeye_11": {
+    "x": 285,
+    "y": 150,
+    "definition": "deadeye_11",
+    "root": false
+  }
+}

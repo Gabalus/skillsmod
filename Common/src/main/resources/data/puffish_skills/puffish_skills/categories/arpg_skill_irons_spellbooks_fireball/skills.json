@@ -1,0 +1,146 @@
+{
+  "irons_spellbooks_fireball_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "irons_spellbooks_fireball_0",
+    "root": true
+  },
+  "irons_spellbooks_fireball_1": {
+    "x": 0,
+    "y": 70,
+    "definition": "irons_spellbooks_fireball_1",
+    "root": false
+  },
+  "irons_spellbooks_fireball_2": {
+    "x": 0,
+    "y": 140,
+    "definition": "irons_spellbooks_fireball_2",
+    "root": false
+  },
+  "irons_spellbooks_fireball_3": {
+    "x": 0,
+    "y": 210,
+    "definition": "irons_spellbooks_fireball_3",
+    "root": false
+  },
+  "irons_spellbooks_fireball_4": {
+    "x": 90,
+    "y": 0,
+    "definition": "irons_spellbooks_fireball_4",
+    "root": true
+  },
+  "irons_spellbooks_fireball_5": {
+    "x": 90,
+    "y": 70,
+    "definition": "irons_spellbooks_fireball_5",
+    "root": false
+  },
+  "irons_spellbooks_fireball_6": {
+    "x": 90,
+    "y": 140,
+    "definition": "irons_spellbooks_fireball_6",
+    "root": false
+  },
+  "irons_spellbooks_fireball_7": {
+    "x": 90,
+    "y": 210,
+    "definition": "irons_spellbooks_fireball_7",
+    "root": false
+  },
+  "irons_spellbooks_fireball_8": {
+    "x": 180,
+    "y": 0,
+    "definition": "irons_spellbooks_fireball_8",
+    "root": true
+  },
+  "irons_spellbooks_fireball_9": {
+    "x": 180,
+    "y": 70,
+    "definition": "irons_spellbooks_fireball_9",
+    "root": false
+  },
+  "irons_spellbooks_fireball_10": {
+    "x": 180,
+    "y": 140,
+    "definition": "irons_spellbooks_fireball_10",
+    "root": false
+  },
+  "irons_spellbooks_fireball_11": {
+    "x": 180,
+    "y": 210,
+    "definition": "irons_spellbooks_fireball_11",
+    "root": false
+  },
+  "irons_spellbooks_fireball_12": {
+    "x": 270,
+    "y": 0,
+    "definition": "irons_spellbooks_fireball_12",
+    "root": true
+  },
+  "irons_spellbooks_fireball_13": {
+    "x": 270,
+    "y": 70,
+    "definition": "irons_spellbooks_fireball_13",
+    "root": false
+  },
+  "irons_spellbooks_fireball_14": {
+    "x": 270,
+    "y": 140,
+    "definition": "irons_spellbooks_fireball_14",
+    "root": false
+  },
+  "irons_spellbooks_fireball_15": {
+    "x": 270,
+    "y": 210,
+    "definition": "irons_spellbooks_fireball_15",
+    "root": false
+  },
+  "irons_spellbooks_fireball_16": {
+    "x": 360,
+    "y": 0,
+    "definition": "irons_spellbooks_fireball_16",
+    "root": true
+  },
+  "irons_spellbooks_fireball_17": {
+    "x": 360,
+    "y": 70,
+    "definition": "irons_spellbooks_fireball_17",
+    "root": false
+  },
+  "irons_spellbooks_fireball_18": {
+    "x": 360,
+    "y": 140,
+    "definition": "irons_spellbooks_fireball_18",
+    "root": false
+  },
+  "irons_spellbooks_fireball_19": {
+    "x": 360,
+    "y": 210,
+    "definition": "irons_spellbooks_fireball_19",
+    "root": false
+  },
+  "irons_spellbooks_fireball_20": {
+    "x": 450,
+    "y": 0,
+    "definition": "irons_spellbooks_fireball_20",
+    "root": true
+  },
+  "irons_spellbooks_fireball_21": {
+    "x": 450,
+    "y": 70,
+    "definition": "irons_spellbooks_fireball_21",
+    "root": false
+  },
+  "irons_spellbooks_fireball_22": {
+    "x": 450,
+    "y": 140,
+    "definition": "irons_spellbooks_fireball_22",
+    "root": false
+  },
+  "irons_spellbooks_fireball_23": {
+    "x": 450,
+    "y": 210,
+    "definition": "irons_spellbooks_fireball_23",
+    "root": false
+  }
+}

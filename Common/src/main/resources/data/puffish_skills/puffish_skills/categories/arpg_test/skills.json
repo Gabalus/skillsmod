@@ -1,0 +1,33 @@
+{
+	"arcanist_start": {
+		"x": 0,
+		"y": 0,
+		"definition": "arcanist_start",
+		"root": true
+	},
+	"spell_damage": {
+		"x": 60,
+		"y": 0,
+		"definition": "spell_damage"
+	},
+	"fire_damage": {
+		"x": 120,
+		"y": -35,
+		"definition": "fire_damage"
+	},
+	"more_fire": {
+		"x": 180,
+		"y": -35,
+		"definition": "more_fire"
+	},
+	"maximum_mana": {
+		"x": 120,
+		"y": 35,
+		"definition": "maximum_mana"
+	},
+	"cast_speed": {
+		"x": 180,
+		"y": 35,
+		"definition": "cast_speed"
+	}
+}

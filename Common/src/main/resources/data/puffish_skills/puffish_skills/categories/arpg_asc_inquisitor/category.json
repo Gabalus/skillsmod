@@ -1,0 +1,14 @@
+{
+  "title": "Inquisitor",
+  "description": "Primary-discipline ascendancy. Earn eight points from four trials.",
+  "icon": {
+    "type": "texture",
+    "data": {
+      "texture": "minecraft:textures/item/shield.png"
+    }
+  },
+  "background": "minecraft:textures/block/deepslate_tiles.png",
+  "unlocked_by_default": false,
+  "starting_points": 0,
+  "spent_points_limit": 8
+}

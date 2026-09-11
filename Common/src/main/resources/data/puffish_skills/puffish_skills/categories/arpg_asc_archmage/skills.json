@@ -1,0 +1,74 @@
+{
+  "archmage_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "archmage_0",
+    "root": true
+  },
+  "archmage_1": {
+    "x": 0,
+    "y": 75,
+    "definition": "archmage_1",
+    "root": false
+  },
+  "archmage_2": {
+    "x": 0,
+    "y": 150,
+    "definition": "archmage_2",
+    "root": false
+  },
+  "archmage_3": {
+    "x": 95,
+    "y": 0,
+    "definition": "archmage_3",
+    "root": true
+  },
+  "archmage_4": {
+    "x": 95,
+    "y": 75,
+    "definition": "archmage_4",
+    "root": false
+  },
+  "archmage_5": {
+    "x": 95,
+    "y": 150,
+    "definition": "archmage_5",
+    "root": false
+  },
+  "archmage_6": {
+    "x": 190,
+    "y": 0,
+    "definition": "archmage_6",
+    "root": true
+  },
+  "archmage_7": {
+    "x": 190,
+    "y": 75,
+    "definition": "archmage_7",
+    "root": false
+  },
+  "archmage_8": {
+    "x": 190,
+    "y": 150,
+    "definition": "archmage_8",
+    "root": false
+  },
+  "archmage_9": {
+    "x": 285,
+    "y": 0,
+    "definition": "archmage_9",
+    "root": true
+  },
+  "archmage_10": {
+    "x": 285,
+    "y": 75,
+    "definition": "archmage_10",
+    "root": false
+  },
+  "archmage_11": {
+    "x": 285,
+    "y": 150,
+    "definition": "archmage_11",
+    "root": false
+  }
+}

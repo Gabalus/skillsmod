@@ -1,0 +1,290 @@
+{
+  "berserker_0": {
+    "title": "Berserker 1",
+    "description": "12% increased armor",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "armor",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "berserker_1": {
+    "title": "Berserker 2",
+    "description": "12% increased armor",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "armor",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "berserker_2": {
+    "title": "Berserker 3",
+    "description": "12% increased armor; Convert all physical damage equally to fire, cold and lightning. Deal only those damage types.",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "armor",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "elemental_avatar"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "berserker_3": {
+    "title": "Berserker 4",
+    "description": "12% increased melee damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "melee_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "berserker_4": {
+    "title": "Berserker 5",
+    "description": "12% increased melee damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "melee_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "berserker_5": {
+    "title": "Berserker 6",
+    "description": "12% increased melee damage; Convert 50% physical damage to fire.",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "melee_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "infernal_edge"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "berserker_6": {
+    "title": "Berserker 7",
+    "description": "12% increased physical damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "physical_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "berserker_7": {
+    "title": "Berserker 8",
+    "description": "12% increased physical damage",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "physical_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "berserker_8": {
+    "title": "Berserker 9",
+    "description": "12% increased physical damage; Convert 50% physical damage to cold.",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "physical_damage",
+          "operation": "increased",
+          "value": 0.12
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "winter_steel"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  },
+  "berserker_9": {
+    "title": "Berserker 10",
+    "description": "6% increased attack speed",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "attack_speed",
+          "operation": "increased",
+          "value": 0.06
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "berserker_10": {
+    "title": "Berserker 11",
+    "description": "6% increased attack speed",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "attack_speed",
+          "operation": "increased",
+          "value": 0.06
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "berserker_11": {
+    "title": "Berserker 12",
+    "description": "6% increased attack speed; Convert 50% physical damage to lightning.",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_stat",
+        "data": {
+          "stat": "attack_speed",
+          "operation": "increased",
+          "value": 0.06
+        }
+      },
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "stormforged"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1.4,
+    "cost": 1
+  }
+}

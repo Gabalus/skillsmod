@@ -1,0 +1,38 @@
+{
+  "normal": {
+    "bidirectional": [
+      [
+        "juggernaut_0",
+        "juggernaut_1"
+      ],
+      [
+        "juggernaut_1",
+        "juggernaut_2"
+      ],
+      [
+        "juggernaut_3",
+        "juggernaut_4"
+      ],
+      [
+        "juggernaut_4",
+        "juggernaut_5"
+      ],
+      [
+        "juggernaut_6",
+        "juggernaut_7"
+      ],
+      [
+        "juggernaut_7",
+        "juggernaut_8"
+      ],
+      [
+        "juggernaut_9",
+        "juggernaut_10"
+      ],
+      [
+        "juggernaut_10",
+        "juggernaut_11"
+      ]
+    ]
+  }
+}

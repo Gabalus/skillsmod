@@ -4,12 +4,15 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.Identifier;
 import net.puffish.skillsmod.SkillsMod;
 import net.puffish.skillsmod.config.CategoryConfig;
+import net.puffish.skillsmod.arpg.character.ArpgCharacter;
+import net.puffish.skillsmod.arpg.character.ArpgCharacterNbt;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class PlayerData {
 	private final Map<Identifier, CategoryData> categories;
+	private ArpgCharacter arpg = new ArpgCharacter();
 
 	private PlayerData(Map<Identifier, CategoryData> categories) {
 		this.categories = categories;
@@ -30,10 +33,13 @@ public class PlayerData {
 			}
 		}
 
-		return new PlayerData(categories);
+		var result = new PlayerData(categories);
+		result.arpg = ArpgCharacterNbt.read(nbt.getCompound("arpg"));
+		return result;
 	}
 
 	public NbtCompound writeNbt(NbtCompound nbt) {
+		nbt.put("arpg", ArpgCharacterNbt.write(arpg));
 		var categoriesNbt = new NbtCompound();
 		for (var entry : categories.entrySet()) {
 			categoriesNbt.put(
@@ -52,6 +58,10 @@ public class PlayerData {
 			return categoryData.isUnlocked();
 		}
 		return category.general().unlockedByDefault();
+	}
+
+	public ArpgCharacter getArpg() {
+		return arpg;
 	}
 
 	public CategoryData getOrCreateCategoryData(CategoryConfig category) {

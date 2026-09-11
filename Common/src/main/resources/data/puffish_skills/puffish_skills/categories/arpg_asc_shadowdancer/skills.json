@@ -1,0 +1,74 @@
+{
+  "shadowdancer_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "shadowdancer_0",
+    "root": true
+  },
+  "shadowdancer_1": {
+    "x": 0,
+    "y": 75,
+    "definition": "shadowdancer_1",
+    "root": false
+  },
+  "shadowdancer_2": {
+    "x": 0,
+    "y": 150,
+    "definition": "shadowdancer_2",
+    "root": false
+  },
+  "shadowdancer_3": {
+    "x": 95,
+    "y": 0,
+    "definition": "shadowdancer_3",
+    "root": true
+  },
+  "shadowdancer_4": {
+    "x": 95,
+    "y": 75,
+    "definition": "shadowdancer_4",
+    "root": false
+  },
+  "shadowdancer_5": {
+    "x": 95,
+    "y": 150,
+    "definition": "shadowdancer_5",
+    "root": false
+  },
+  "shadowdancer_6": {
+    "x": 190,
+    "y": 0,
+    "definition": "shadowdancer_6",
+    "root": true
+  },
+  "shadowdancer_7": {
+    "x": 190,
+    "y": 75,
+    "definition": "shadowdancer_7",
+    "root": false
+  },
+  "shadowdancer_8": {
+    "x": 190,
+    "y": 150,
+    "definition": "shadowdancer_8",
+    "root": false
+  },
+  "shadowdancer_9": {
+    "x": 285,
+    "y": 0,
+    "definition": "shadowdancer_9",
+    "root": true
+  },
+  "shadowdancer_10": {
+    "x": 285,
+    "y": 75,
+    "definition": "shadowdancer_10",
+    "root": false
+  },
+  "shadowdancer_11": {
+    "x": 285,
+    "y": 150,
+    "definition": "shadowdancer_11",
+    "root": false
+  }
+}

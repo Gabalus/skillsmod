@@ -1,0 +1,14 @@
+{
+  "title": "Volley",
+  "description": "Earn specialization experience from damaging enemies. Twenty points across twenty-four nodes.",
+  "icon": {
+    "type": "texture",
+    "data": {
+      "texture": "minecraft:textures/item/enchanted_book.png"
+    }
+  },
+  "background": "minecraft:textures/block/deepslate_tiles.png",
+  "unlocked_by_default": false,
+  "starting_points": 0,
+  "spent_points_limit": 20
+}

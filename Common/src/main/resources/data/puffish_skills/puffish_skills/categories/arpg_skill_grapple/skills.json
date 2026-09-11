@@ -1,0 +1,146 @@
+{
+  "grapple_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "grapple_0",
+    "root": true
+  },
+  "grapple_1": {
+    "x": 0,
+    "y": 70,
+    "definition": "grapple_1",
+    "root": false
+  },
+  "grapple_2": {
+    "x": 0,
+    "y": 140,
+    "definition": "grapple_2",
+    "root": false
+  },
+  "grapple_3": {
+    "x": 0,
+    "y": 210,
+    "definition": "grapple_3",
+    "root": false
+  },
+  "grapple_4": {
+    "x": 90,
+    "y": 0,
+    "definition": "grapple_4",
+    "root": true
+  },
+  "grapple_5": {
+    "x": 90,
+    "y": 70,
+    "definition": "grapple_5",
+    "root": false
+  },
+  "grapple_6": {
+    "x": 90,
+    "y": 140,
+    "definition": "grapple_6",
+    "root": false
+  },
+  "grapple_7": {
+    "x": 90,
+    "y": 210,
+    "definition": "grapple_7",
+    "root": false
+  },
+  "grapple_8": {
+    "x": 180,
+    "y": 0,
+    "definition": "grapple_8",
+    "root": true
+  },
+  "grapple_9": {
+    "x": 180,
+    "y": 70,
+    "definition": "grapple_9",
+    "root": false
+  },
+  "grapple_10": {
+    "x": 180,
+    "y": 140,
+    "definition": "grapple_10",
+    "root": false
+  },
+  "grapple_11": {
+    "x": 180,
+    "y": 210,
+    "definition": "grapple_11",
+    "root": false
+  },
+  "grapple_12": {
+    "x": 270,
+    "y": 0,
+    "definition": "grapple_12",
+    "root": true
+  },
+  "grapple_13": {
+    "x": 270,
+    "y": 70,
+    "definition": "grapple_13",
+    "root": false
+  },
+  "grapple_14": {
+    "x": 270,
+    "y": 140,
+    "definition": "grapple_14",
+    "root": false
+  },
+  "grapple_15": {
+    "x": 270,
+    "y": 210,
+    "definition": "grapple_15",
+    "root": false
+  },
+  "grapple_16": {
+    "x": 360,
+    "y": 0,
+    "definition": "grapple_16",
+    "root": true
+  },
+  "grapple_17": {
+    "x": 360,
+    "y": 70,
+    "definition": "grapple_17",
+    "root": false
+  },
+  "grapple_18": {
+    "x": 360,
+    "y": 140,
+    "definition": "grapple_18",
+    "root": false
+  },
+  "grapple_19": {
+    "x": 360,
+    "y": 210,
+    "definition": "grapple_19",
+    "root": false
+  },
+  "grapple_20": {
+    "x": 450,
+    "y": 0,
+    "definition": "grapple_20",
+    "root": true
+  },
+  "grapple_21": {
+    "x": 450,
+    "y": 70,
+    "definition": "grapple_21",
+    "root": false
+  },
+  "grapple_22": {
+    "x": 450,
+    "y": 140,
+    "definition": "grapple_22",
+    "root": false
+  },
+  "grapple_23": {
+    "x": 450,
+    "y": 210,
+    "definition": "grapple_23",
+    "root": false
+  }
+}

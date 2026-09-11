@@ -1,0 +1,50 @@
+name: ARPG integration CI
+
+on:
+  push:
+    branches:
+      - feature/arpg-core-1.21.1
+  pull_request:
+    branches:
+      - upstream-1.21
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Java 21
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: gradle
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Make Gradle wrapper executable
+        run: chmod +x gradlew
+
+      - name: Run common tests
+        run: ./gradlew :Common:test --stacktrace
+
+      - name: Build NeoForge module
+        run: ./gradlew :NeoForge:build --stacktrace
+
+      - name: Resolve Iron's runtime profile
+        run: ./gradlew :NeoForge:verifyArpgIronsRuntime -Parpg_irons_runtime=true --stacktrace
+
+      - name: Upload NeoForge test JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: puffish-skills-arpg-neoforge
+          path: |
+            NeoForge/build/libs/*.jar
+            !NeoForge/build/libs/*-sources.jar
+          if-no-files-found: error

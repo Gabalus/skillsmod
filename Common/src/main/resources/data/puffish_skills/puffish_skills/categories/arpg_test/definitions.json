@@ -1,0 +1,123 @@
+{
+	"arcanist_start": {
+		"title": "Arcanist",
+		"description": "Start of the spell-focused ARPG test branch. 10% increased Spell Damage.",
+		"icon": {
+			"type": "texture",
+			"data": {
+				"texture": "minecraft:textures/item/amethyst_shard.png"
+			}
+		},
+		"rewards": [
+			{
+				"type": "puffish_skills:arpg_stat",
+				"data": {
+					"stat": "spell_damage",
+					"operation": "increased",
+					"value": 0.10
+				}
+			}
+		]
+	},
+	"spell_damage": {
+		"title": "Arcane Force",
+		"description": "25% increased Spell Damage.",
+		"icon": {
+			"type": "texture",
+			"data": {
+				"texture": "minecraft:textures/item/enchanted_book.png"
+			}
+		},
+		"rewards": [
+			{
+				"type": "puffish_skills:arpg_stat",
+				"data": {
+					"stat": "spell_damage",
+					"operation": "increased",
+					"value": 0.25
+				}
+			}
+		]
+	},
+	"fire_damage": {
+		"title": "Pyromancy",
+		"description": "25% increased Fire Damage.",
+		"icon": {
+			"type": "texture",
+			"data": {
+				"texture": "minecraft:textures/item/blaze_powder.png"
+			}
+		},
+		"rewards": [
+			{
+				"type": "puffish_skills:arpg_stat",
+				"data": {
+					"stat": "fire_damage",
+					"operation": "increased",
+					"value": 0.25
+				}
+			}
+		]
+	},
+	"more_fire": {
+		"title": "Conflagration",
+		"description": "20% more Fire Damage. This multiplier is independent from increased damage.",
+		"icon": {
+			"type": "texture",
+			"data": {
+				"texture": "minecraft:textures/item/fire_charge.png"
+			}
+		},
+		"size": 1.25,
+		"rewards": [
+			{
+				"type": "puffish_skills:arpg_stat",
+				"data": {
+					"stat": "fire_damage",
+					"operation": "more",
+					"value": 0.20
+				}
+			}
+		]
+	},
+	"maximum_mana": {
+		"title": "Mana Reservoir",
+		"description": "+50 Maximum Mana.",
+		"icon": {
+			"type": "texture",
+			"data": {
+				"texture": "minecraft:textures/item/lapis_lazuli.png"
+			}
+		},
+		"rewards": [
+			{
+				"type": "puffish_skills:arpg_stat",
+				"data": {
+					"stat": "maximum_mana",
+					"operation": "flat",
+					"value": 50.0
+				}
+			}
+		]
+	},
+	"cast_speed": {
+		"title": "Quick Incantation",
+		"description": "20% increased Cast Speed.",
+		"icon": {
+			"type": "texture",
+			"data": {
+				"texture": "minecraft:textures/item/feather.png"
+			}
+		},
+		"rewards": [
+			{
+				"type": "puffish_skills:arpg_stat",
+				"data": {
+					"stat": "cast_speed",
+					"operation": "increased",
+					"value": 0.20
+				}
+			}
+		]
+	}
+}

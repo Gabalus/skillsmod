@@ -1,0 +1,6 @@
+package net.puffish.skillsmod.arpg.skill;
+
+public enum SkillTag {
+	ATTACK, SPELL, MELEE, PROJECTILE, AREA, MOVEMENT, SHIELD, SLAM,
+	CHANNEL, MINION, HIT, PHYSICAL, FIRE, COLD, LIGHTNING, BLOOD, HOLY, ENDER, NATURE
+}

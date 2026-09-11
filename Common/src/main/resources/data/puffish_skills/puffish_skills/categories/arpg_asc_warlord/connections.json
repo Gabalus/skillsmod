@@ -1,0 +1,38 @@
+{
+  "normal": {
+    "bidirectional": [
+      [
+        "warlord_0",
+        "warlord_1"
+      ],
+      [
+        "warlord_1",
+        "warlord_2"
+      ],
+      [
+        "warlord_3",
+        "warlord_4"
+      ],
+      [
+        "warlord_4",
+        "warlord_5"
+      ],
+      [
+        "warlord_6",
+        "warlord_7"
+      ],
+      [
+        "warlord_7",
+        "warlord_8"
+      ],
+      [
+        "warlord_9",
+        "warlord_10"
+      ],
+      [
+        "warlord_10",
+        "warlord_11"
+      ]
+    ]
+  }
+}

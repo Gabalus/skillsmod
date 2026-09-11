@@ -1,0 +1,74 @@
+{
+  "berserker_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "berserker_0",
+    "root": true
+  },
+  "berserker_1": {
+    "x": 0,
+    "y": 75,
+    "definition": "berserker_1",
+    "root": false
+  },
+  "berserker_2": {
+    "x": 0,
+    "y": 150,
+    "definition": "berserker_2",
+    "root": false
+  },
+  "berserker_3": {
+    "x": 95,
+    "y": 0,
+    "definition": "berserker_3",
+    "root": true
+  },
+  "berserker_4": {
+    "x": 95,
+    "y": 75,
+    "definition": "berserker_4",
+    "root": false
+  },
+  "berserker_5": {
+    "x": 95,
+    "y": 150,
+    "definition": "berserker_5",
+    "root": false
+  },
+  "berserker_6": {
+    "x": 190,
+    "y": 0,
+    "definition": "berserker_6",
+    "root": true
+  },
+  "berserker_7": {
+    "x": 190,
+    "y": 75,
+    "definition": "berserker_7",
+    "root": false
+  },
+  "berserker_8": {
+    "x": 190,
+    "y": 150,
+    "definition": "berserker_8",
+    "root": false
+  },
+  "berserker_9": {
+    "x": 285,
+    "y": 0,
+    "definition": "berserker_9",
+    "root": true
+  },
+  "berserker_10": {
+    "x": 285,
+    "y": 75,
+    "definition": "berserker_10",
+    "root": false
+  },
+  "berserker_11": {
+    "x": 285,
+    "y": 150,
+    "definition": "berserker_11",
+    "root": false
+  }
+}

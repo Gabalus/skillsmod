@@ -1,0 +1,38 @@
+{
+  "normal": {
+    "bidirectional": [
+      [
+        "shadowdancer_0",
+        "shadowdancer_1"
+      ],
+      [
+        "shadowdancer_1",
+        "shadowdancer_2"
+      ],
+      [
+        "shadowdancer_3",
+        "shadowdancer_4"
+      ],
+      [
+        "shadowdancer_4",
+        "shadowdancer_5"
+      ],
+      [
+        "shadowdancer_6",
+        "shadowdancer_7"
+      ],
+      [
+        "shadowdancer_7",
+        "shadowdancer_8"
+      ],
+      [
+        "shadowdancer_9",
+        "shadowdancer_10"
+      ],
+      [
+        "shadowdancer_10",
+        "shadowdancer_11"
+      ]
+    ]
+  }
+}

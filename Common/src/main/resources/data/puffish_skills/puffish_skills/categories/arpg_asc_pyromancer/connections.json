@@ -1,0 +1,38 @@
+{
+  "normal": {
+    "bidirectional": [
+      [
+        "pyromancer_0",
+        "pyromancer_1"
+      ],
+      [
+        "pyromancer_1",
+        "pyromancer_2"
+      ],
+      [
+        "pyromancer_3",
+        "pyromancer_4"
+      ],
+      [
+        "pyromancer_4",
+        "pyromancer_5"
+      ],
+      [
+        "pyromancer_6",
+        "pyromancer_7"
+      ],
+      [
+        "pyromancer_7",
+        "pyromancer_8"
+      ],
+      [
+        "pyromancer_9",
+        "pyromancer_10"
+      ],
+      [
+        "pyromancer_10",
+        "pyromancer_11"
+      ]
+    ]
+  }
+}

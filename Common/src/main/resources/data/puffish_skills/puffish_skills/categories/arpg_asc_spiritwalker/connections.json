@@ -1,0 +1,38 @@
+{
+  "normal": {
+    "bidirectional": [
+      [
+        "spiritwalker_0",
+        "spiritwalker_1"
+      ],
+      [
+        "spiritwalker_1",
+        "spiritwalker_2"
+      ],
+      [
+        "spiritwalker_3",
+        "spiritwalker_4"
+      ],
+      [
+        "spiritwalker_4",
+        "spiritwalker_5"
+      ],
+      [
+        "spiritwalker_6",
+        "spiritwalker_7"
+      ],
+      [
+        "spiritwalker_7",
+        "spiritwalker_8"
+      ],
+      [
+        "spiritwalker_9",
+        "spiritwalker_10"
+      ],
+      [
+        "spiritwalker_10",
+        "spiritwalker_11"
+      ]
+    ]
+  }
+}

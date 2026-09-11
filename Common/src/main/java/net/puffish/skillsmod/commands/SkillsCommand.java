@@ -6,9 +6,13 @@ import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import net.minecraft.command.argument.EntityArgumentType;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
+import net.minecraft.text.Text;
+import net.puffish.skillsmod.arpg.stat.ArpgPlayerStats;
 import net.puffish.skillsmod.commands.arguments.CategoryArgumentType;
 import net.puffish.skillsmod.commands.arguments.SkillArgumentType;
 import net.puffish.skillsmod.util.CommandUtils;
+
+import java.util.Locale;
 
 public class SkillsCommand {
 	public static LiteralArgumentBuilder<ServerCommandSource> create() {
@@ -37,6 +41,11 @@ public class SkillsCommand {
 								.then(CommandManager.argument("category", CategoryArgumentType.category())
 										.executes(SkillsCommand::reset)
 								)
+						)
+				)
+				.then(CommandManager.literal("arpg")
+						.then(CommandManager.argument("players", EntityArgumentType.players())
+								.executes(SkillsCommand::arpg)
 						)
 				);
 	}
@@ -90,6 +99,34 @@ public class SkillsCommand {
 				"skills.reset",
 				category.getId()
 		);
+		return players.size();
+	}
+
+	private static int arpg(CommandContext<ServerCommandSource> context) throws CommandSyntaxException {
+		var players = EntityArgumentType.getPlayers(context, "players");
+		for (var player : players) {
+			var snapshot = ArpgPlayerStats.getSnapshot(player);
+			context.getSource().sendFeedback(
+					() -> Text.literal("ARPG stats for " + player.getName().getString() + ":"),
+					false
+			);
+			if (snapshot.asMap().isEmpty()) {
+				context.getSource().sendFeedback(() -> Text.literal("  no active ARPG modifiers"), false);
+				continue;
+			}
+			for (var entry : snapshot.asMap().entrySet()) {
+				var value = entry.getValue();
+				var line = String.format(
+						Locale.ROOT,
+						"  %s: flat=%.3f increased=%.2f%% multiplier=%.4f",
+						entry.getKey().getId(),
+						value.flat(),
+						value.increased() * 100.0,
+						value.multiplier()
+				);
+				context.getSource().sendFeedback(() -> Text.literal(line), false);
+			}
+		}
 		return players.size();
 	}
 }
