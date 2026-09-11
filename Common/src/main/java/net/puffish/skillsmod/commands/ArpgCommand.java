@@ -9,6 +9,7 @@ import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
 import net.puffish.skillsmod.SkillsMod;
+import net.puffish.skillsmod.arpg.character.ArpgCharacter;
 import net.puffish.skillsmod.arpg.character.ArpgProgression;
 import net.puffish.skillsmod.arpg.compat.ArpgProviderRegistry;
 import net.puffish.skillsmod.arpg.data.ArpgData;
@@ -32,6 +33,14 @@ public final class ArpgCommand {
 						.then(choice("primary"))
 						.then(choice("secondary"))
 						.then(ascendancyChoice()))
+				.then(CommandManager.literal("trial")
+						.executes(ArpgCommand::trialStatus)
+						.then(CommandManager.literal("status")
+								.executes(ArpgCommand::trialStatus))
+						.then(CommandManager.literal("complete")
+								.executes(ArpgCommand::completeTrial))
+						.then(CommandManager.literal("pass")
+								.executes(ArpgCommand::completeTrial)))
 				.then(CommandManager.literal("specialize")
 						.then(CommandManager.argument("skill", StringArgumentType.word())
 								.suggests((context, builder) -> CommandSource.suggestMatching(
@@ -100,8 +109,68 @@ public final class ArpgCommand {
 				"Points: passive=" + state.passivePoints()
 						+ ", confluence=" + state.confluencePoints()
 						+ ", ascendancy=" + state.ascendancyPoints()
+						+ " | trials=" + state.completedTrials() + "/" + ArpgCharacter.MAX_TRIALS
 						+ " | specializations=" + specializations), false);
 		return 1;
+	}
+
+	private static int trialStatus(CommandContext<ServerCommandSource> context) throws CommandSyntaxException {
+		var player = context.getSource().getPlayerOrThrow();
+		var state = ArpgProgression.character(player);
+		int next = state.nextTrial();
+
+		if (next == 0) {
+			context.getSource().sendFeedback(() -> Text.literal(
+					"Ascendancy Trials complete: " + ArpgCharacter.MAX_TRIALS + "/" + ArpgCharacter.MAX_TRIALS
+							+ " | ascendancy points=" + state.ascendancyPoints()), false);
+			return 1;
+		}
+
+		int requiredLevel = ArpgCharacter.trialRequiredLevel(next);
+		String readiness;
+		if (state.primary().isEmpty()) {
+			readiness = "choose a primary discipline first";
+		} else if (state.level() < requiredLevel) {
+			readiness = "requires ARPG level " + requiredLevel;
+		} else {
+			readiness = "READY - use /arpg trial complete";
+		}
+		context.getSource().sendFeedback(() -> Text.literal(
+				"Ascendancy Trials: " + state.completedTrials() + "/" + ArpgCharacter.MAX_TRIALS
+						+ " | next=Trial " + next
+						+ " | " + readiness
+						+ " | ascendancy points=" + state.ascendancyPoints()), false);
+		return 1;
+	}
+
+	private static int completeTrial(CommandContext<ServerCommandSource> context) throws CommandSyntaxException {
+		var player = context.getSource().getPlayerOrThrow();
+		var state = ArpgProgression.character(player);
+		int trial = state.nextTrial();
+
+		if (trial == 0) {
+			context.getSource().sendError(Text.literal("All Ascendancy Trials are already complete"));
+			return 0;
+		}
+
+		try {
+			if (!state.completeTrial(trial)) {
+				context.getSource().sendError(Text.literal("Trial " + trial + " is already complete"));
+				return 0;
+			}
+			ArpgProgression.sync(player);
+			context.getSource().sendFeedback(() -> Text.literal(
+					"Completed Ascendancy Trial " + trial
+							+ ". Ascendancy points: " + state.ascendancyPoints()), false);
+			if (trial == 1 && state.ascendancy().isEmpty()) {
+				context.getSource().sendFeedback(() -> Text.literal(
+						"Your first Ascendancy is now unlocked. Use /arpg choose ascendancy <id>."), false);
+			}
+			return 1;
+		} catch (IllegalArgumentException | IllegalStateException exception) {
+			context.getSource().sendError(Text.literal(exception.getMessage()));
+			return 0;
+		}
 	}
 
 	private static int providers(CommandContext<ServerCommandSource> context) {

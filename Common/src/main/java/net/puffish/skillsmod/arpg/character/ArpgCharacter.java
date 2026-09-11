@@ -8,6 +8,9 @@ import java.util.Set;
 /** Server-owned progress; never accepted from a client payload. */
 public final class ArpgCharacter {
 	public static final int MAX_LEVEL = 100;
+	public static final int MAX_TRIALS = 4;
+	private static final int[] TRIAL_LEVELS = {30, 50, 70, 90};
+
 	private long experience;
 	private String primary = "";
 	private String secondary = "";
@@ -55,7 +58,7 @@ public final class ArpgCharacter {
 	}
 
 	public void chooseAscendancy(String id) {
-		if (!ascendancy.isEmpty() || primary.isEmpty() || level() < 30 || !milestones.contains("trial_1")) {
+		if (!ascendancy.isEmpty() || primary.isEmpty() || level() < 30 || !hasCompletedTrial(1)) {
 			throw new IllegalStateException("Complete the first trial at level 30 before ascending");
 		}
 		ascendancy = id;
@@ -65,12 +68,70 @@ public final class ArpgCharacter {
 		return milestones.add(id);
 	}
 
+	public static int trialRequiredLevel(int trial) {
+		if (trial < 1 || trial > MAX_TRIALS) {
+			throw new IllegalArgumentException("Trial must be between 1 and " + MAX_TRIALS);
+		}
+		return TRIAL_LEVELS[trial - 1];
+	}
+
+	public boolean hasCompletedTrial(int trial) {
+		if (trial < 1 || trial > MAX_TRIALS) {
+			return false;
+		}
+		return milestones.contains("trial_" + trial);
+	}
+
+	public int completedTrials() {
+		int completed = 0;
+		for (int trial = 1; trial <= MAX_TRIALS; trial++) {
+			if (hasCompletedTrial(trial)) {
+				completed++;
+			}
+		}
+		return completed;
+	}
+
+	/** Returns the next incomplete trial number, or 0 when all trials are complete. */
+	public int nextTrial() {
+		for (int trial = 1; trial <= MAX_TRIALS; trial++) {
+			if (!hasCompletedTrial(trial)) {
+				return trial;
+			}
+		}
+		return 0;
+	}
+
+	/**
+	 * Completes a validated Ascendancy Trial.
+	 *
+	 * @return true when the trial was newly completed, false when it was already complete
+	 */
+	public boolean completeTrial(int trial) {
+		int requiredLevel = trialRequiredLevel(trial);
+		if (hasCompletedTrial(trial)) {
+			return false;
+		}
+		if (primary.isEmpty()) {
+			throw new IllegalStateException("Choose a primary discipline before attempting Ascendancy Trials");
+		}
+		if (level() < requiredLevel) {
+			throw new IllegalStateException(
+					"Reach ARPG level " + requiredLevel + " before attempting Trial " + trial);
+		}
+		if (trial > 1 && !hasCompletedTrial(trial - 1)) {
+			throw new IllegalStateException(
+					"Complete Trial " + (trial - 1) + " before attempting Trial " + trial);
+		}
+		return milestones.add("trial_" + trial);
+	}
+
 	public int passivePoints() {
 		return level() - 1 + (int) milestones.stream().filter(id -> id.startsWith("campaign_")).count() * 3;
 	}
 
 	public int ascendancyPoints() {
-		return Math.min(8, (int) milestones.stream().filter(id -> id.startsWith("trial_")).count() * 2);
+		return Math.min(8, completedTrials() * 2);
 	}
 
 	public int confluencePoints() {
