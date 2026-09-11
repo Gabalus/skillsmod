@@ -1,5 +1,6 @@
 package net.puffish.skillsmod.arpg.combat;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 
 import java.util.HashSet;
@@ -22,15 +23,15 @@ public final class ArpgTargetTags {
 		resolver = targetResolver == null ? entity -> Set.of() : targetResolver;
 	}
 
-	public static Set<String> get(LivingEntity target) {
-		if (target == null) {
+	public static Set<String> get(Entity target) {
+		if (!(target instanceof LivingEntity living)) {
 			return Set.of();
 		}
-		var tags = resolver.apply(target);
+		var tags = resolver.apply(living);
 		return tags == null || tags.isEmpty() ? Set.of() : Set.copyOf(tags);
 	}
 
-	public static Set<String> merge(Set<String> base, LivingEntity target) {
+	public static Set<String> merge(Set<String> base, Entity target) {
 		var external = get(target);
 		if (external.isEmpty()) {
 			return base == null ? Set.of() : Set.copyOf(base);
