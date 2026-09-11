@@ -9,7 +9,10 @@ import java.util.Set;
 public final class ArpgCharacter {
 	public static final int MAX_LEVEL = 100;
 	public static final int MAX_TRIALS = 4;
+	public static final long MAX_EXPERIENCE = 100_000_000L;
 	private static final int[] TRIAL_LEVELS = {30, 50, 70, 90};
+	private static final long KILL_XP_MULTIPLIER = 100L;
+	private static final long MAX_KILL_XP = 50_000L;
 
 	private long experience;
 	private String primary = "";
@@ -30,8 +33,34 @@ public final class ArpgCharacter {
 		return level;
 	}
 
+	/** Experience required to advance from {@code level} to the next ARPG level. */
 	public static long experienceForLevel(int level) {
 		return 75L * level * level + 25L * level;
+	}
+
+	/** Total accumulated experience at the exact start of {@code targetLevel}. */
+	public static long totalExperienceForLevel(int targetLevel) {
+		if (targetLevel < 1 || targetLevel > MAX_LEVEL) {
+			throw new IllegalArgumentException("ARPG level must be between 1 and " + MAX_LEVEL);
+		}
+		long total = 0L;
+		for (int level = 1; level < targetLevel; level++) {
+			total += experienceForLevel(level);
+		}
+		return total;
+	}
+
+	/** Converts a vanilla mob experience drop into server-authoritative ARPG kill experience. */
+	public static long killExperience(int vanillaExperience) {
+		if (vanillaExperience <= 0) {
+			return 0L;
+		}
+		return Math.min(MAX_KILL_XP, vanillaExperience * KILL_XP_MULTIPLIER);
+	}
+
+	/** Development/admin operation that moves the character to the exact start of a level. */
+	public void setLevel(int targetLevel) {
+		experience = totalExperienceForLevel(targetLevel);
 	}
 
 	public int gainExperience(long amount) {
@@ -39,7 +68,7 @@ public final class ArpgCharacter {
 			throw new IllegalArgumentException("Experience gain cannot be negative");
 		}
 		int previous = level();
-		experience = Math.min(100_000_000L, experience + Math.min(amount, 100_000_000L));
+		experience = Math.min(MAX_EXPERIENCE, experience + Math.min(amount, MAX_EXPERIENCE));
 		return level() - previous;
 	}
 
@@ -231,7 +260,7 @@ public final class ArpgCharacter {
 	public static ArpgCharacter restore(long experience, String primary, String secondary, String ascendancy,
 			Set<String> milestones, Set<String> atlas, Map<String, Integer> specializations, int corruption, int depth) {
 		var character = new ArpgCharacter();
-		character.experience = Math.max(0, Math.min(100_000_000L, experience));
+		character.experience = Math.max(0, Math.min(MAX_EXPERIENCE, experience));
 		character.primary = primary;
 		character.secondary = secondary;
 		character.ascendancy = ascendancy;
