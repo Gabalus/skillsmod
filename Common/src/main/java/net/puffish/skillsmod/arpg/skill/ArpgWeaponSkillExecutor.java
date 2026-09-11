@@ -8,6 +8,7 @@ import net.puffish.skillsmod.arpg.combat.ArpgTargetTags;
 import net.puffish.skillsmod.arpg.combat.DamagePipeline;
 import net.puffish.skillsmod.arpg.combat.HitContext;
 import net.puffish.skillsmod.arpg.data.ArpgData;
+import net.puffish.skillsmod.arpg.item.ArpgItemTags;
 import net.puffish.skillsmod.arpg.rule.ArpgRuleEngine;
 import net.puffish.skillsmod.arpg.rule.ArpgRuleRuntime;
 import net.puffish.skillsmod.arpg.stat.ArpgStat;
@@ -63,7 +64,7 @@ public final class ArpgWeaponSkillExecutor {
 			return Result.deny("A melee weapon is required.");
 		}
 
-		var ruleTags = ruleTags(skill.tags());
+		var ruleTags = ArpgItemTags.merge(ruleTags(skill.tags()), player.getMainHandStack());
 		var activationSnapshot = ArpgRuleRuntime.snapshot(
 				player, null, ArpgRuleEngine.Event.ATTACK, skill.id(), ruleTags);
 		var use = ArpgSkillRuntime.tryUse(player, skill, activationSnapshot);
