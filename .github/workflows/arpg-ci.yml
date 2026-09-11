@@ -32,7 +32,9 @@ jobs:
         run: chmod +x gradlew
 
       - name: Generate ARPG passive and ascendancy trees
-        run: python3 tools/generate_arpg_skilltrees.py
+        run: |
+          python3 tools/generate_arpg_skilltrees.py
+          python3 tools/expand_arpg_universal_tree.py
 
       - name: Run common tests
         run: ./gradlew :Common:test --stacktrace
