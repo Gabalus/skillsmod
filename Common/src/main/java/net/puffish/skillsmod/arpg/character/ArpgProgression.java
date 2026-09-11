@@ -54,7 +54,10 @@ public final class ArpgProgression {
 		unlock(player, "arpg_universal", state.passivePoints());
 		mod.unlockSkill(player, SkillsMod.createIdentifier("arpg_universal"), state.primary() + "_start");
 		if (!state.ascendancy().isEmpty()) {
-			unlock(player, "arpg_asc_" + state.ascendancy(), state.ascendancyPoints());
+			String category = "arpg_asc_" + state.ascendancy();
+			unlock(player, category, state.ascendancyPoints());
+			// The central identity node is free and acts as the shared origin for the four radial branches.
+			mod.unlockSkill(player, SkillsMod.createIdentifier(category), state.ascendancy() + "_start");
 		}
 		if (!state.secondary().isEmpty()) {
 			unlock(player, "arpg_confluence_" + state.confluence(), state.confluencePoints());

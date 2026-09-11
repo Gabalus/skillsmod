@@ -31,6 +31,9 @@ jobs:
       - name: Make Gradle wrapper executable
         run: chmod +x gradlew
 
+      - name: Generate ARPG passive and ascendancy trees
+        run: python3 tools/generate_arpg_skilltrees.py
+
       - name: Run common tests
         run: ./gradlew :Common:test --stacktrace
 

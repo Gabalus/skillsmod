@@ -2,6 +2,18 @@
 
 The normal NeoForge build deliberately keeps external ARPG providers optional. The custom ARPG core remains authoritative and loads without Iron's Spells, Better Combat, Apotheosis, L2 Hostility, L2 Artifacts or Celestial Artifacts.
 
+## Passive-tree authoring
+
+The shipped ARPG graphs are deterministic resources. Regenerate the authored passive/ascendancy layer after changing tree design data with:
+
+```bash
+python3 tools/generate_arpg_skilltrees.py
+```
+
+On Windows, `python tools/generate_arpg_skilltrees.py` is equivalent when Python is on PATH. The generator keeps the 1,602-node universal graph, replaces placeholder passive names with searchable thematic names, and authors all 24 ascendancies as radial four-branch boards. It uses the existing ARPG catalog/rule engine; it does not import Path of Exile node data or artwork.
+
+In game, **P** opens the ARPG Character hub. It provides direct Passive / Ascendancy / Confluence / Skills / Atlas navigation and full-text node search. Search results focus the selected node in the existing allocation screen. **K** still opens the classic Puffish Skills category view. Inside a tree, drag to pan and use the mouse wheel to zoom.
+
 ## Iron's integration profile
 
 Enable the spell-integration runtime with:

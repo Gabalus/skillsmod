@@ -9,6 +9,7 @@ import net.puffish.skillsmod.SkillsMod;
 import net.puffish.skillsmod.client.data.ClientSkillScreenData;
 import net.puffish.skillsmod.client.event.ClientEventListener;
 import net.puffish.skillsmod.client.event.ClientEventReceiver;
+import net.puffish.skillsmod.client.gui.ArpgHubScreen;
 import net.puffish.skillsmod.client.gui.SimpleToast;
 import net.puffish.skillsmod.client.gui.SkillsScreen;
 import net.puffish.skillsmod.client.keybinding.KeyBindingReceiver;
@@ -35,6 +36,12 @@ public class SkillsClientMod {
 			GLFW.GLFW_KEY_K,
 			"category.puffish_skills.skills"
 	);
+	public static final KeyBinding ARPG_KEY_BINDING = new KeyBinding(
+			"key.puffish_skills.arpg",
+			InputUtil.Type.KEYSYM,
+			GLFW.GLFW_KEY_P,
+			"category.puffish_skills.skills"
+	);
 
 	private static SkillsClientMod instance;
 
@@ -59,6 +66,7 @@ public class SkillsClientMod {
 		instance = new SkillsClientMod(packetSender);
 
 		keyBindingReceiver.registerKeyBinding(OPEN_KEY_BINDING, instance::onOpenKeyPress);
+		keyBindingReceiver.registerKeyBinding(ARPG_KEY_BINDING, instance::onArpgKeyPress);
 
 		registrar.registerInPacket(
 				Packets.SHOW_CATEGORY,
@@ -121,10 +129,20 @@ public class SkillsClientMod {
 	}
 
 	private void onOpenKeyPress() {
-		if (MinecraftClient.getInstance().currentScreen instanceof SkillsScreen screen) {
+		var client = MinecraftClient.getInstance();
+		if (client.currentScreen instanceof SkillsScreen screen) {
 			screen.close();
 		} else {
 			openScreen(Optional.empty());
+		}
+	}
+
+	private void onArpgKeyPress() {
+		var client = MinecraftClient.getInstance();
+		if (client.currentScreen instanceof ArpgHubScreen screen) {
+			screen.close();
+		} else {
+			openArpgScreen();
 		}
 	}
 
@@ -203,6 +221,10 @@ public class SkillsClientMod {
 
 	public void openScreen(Optional<Identifier> categoryId) {
 		MinecraftClient.getInstance().setScreen(new SkillsScreen(screenData, categoryId));
+	}
+
+	public void openArpgScreen() {
+		MinecraftClient.getInstance().setScreen(new ArpgHubScreen(screenData));
 	}
 
 	public ClientPacketSender getPacketSender() {
