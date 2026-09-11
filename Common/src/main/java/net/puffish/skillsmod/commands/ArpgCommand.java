@@ -10,6 +10,7 @@ import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
 import net.puffish.skillsmod.SkillsMod;
 import net.puffish.skillsmod.arpg.character.ArpgProgression;
+import net.puffish.skillsmod.arpg.compat.ArpgProviderRegistry;
 import net.puffish.skillsmod.arpg.data.ArpgData;
 import net.puffish.skillsmod.arpg.skill.ArpgWeaponSkillExecutor;
 
@@ -25,6 +26,8 @@ public final class ArpgCommand {
 				.executes(ArpgCommand::status)
 				.then(CommandManager.literal("status")
 						.executes(ArpgCommand::status))
+				.then(CommandManager.literal("providers")
+						.executes(ArpgCommand::providers))
 				.then(CommandManager.literal("choose")
 						.then(choice("primary"))
 						.then(choice("secondary"))
@@ -98,6 +101,15 @@ public final class ArpgCommand {
 						+ ", confluence=" + state.confluencePoints()
 						+ ", ascendancy=" + state.ascendancyPoints()
 						+ " | specializations=" + specializations), false);
+		return 1;
+	}
+
+	private static int providers(CommandContext<ServerCommandSource> context) {
+		for (var provider : ArpgProviderRegistry.all()) {
+			String state = provider.loaded() ? "LOADED" : "missing";
+			context.getSource().sendFeedback(() -> Text.literal(
+					"[" + state + "] " + provider.name() + " - " + provider.role()), false);
+		}
 		return 1;
 	}
 
