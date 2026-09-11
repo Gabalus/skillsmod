@@ -9,13 +9,17 @@ val arpgIronsRuntime = providers.gradleProperty("arpg_irons_runtime")
 val arpgFullRuntime = providers.gradleProperty("arpg_full_runtime")
 	.map(String::toBoolean)
 	.orElse(false)
-val arpgCelestialArtifactsJar = providers.gradleProperty("arpg_celestial_artifacts_jar")
 
 repositories {
 	maven(url = "https://maven.neoforged.net/releases/")
 	maven(url = "https://api.modrinth.com/maven") {
 		content {
 			includeGroup("maven.modrinth")
+		}
+	}
+	maven(url = "https://www.cursemaven.com") {
+		content {
+			includeGroup("curse.maven")
 		}
 	}
 }
@@ -72,12 +76,10 @@ dependencies {
 		add("modRuntimeOnly", "maven.modrinth:oPrh2Lz3:vxfEwwS7")
 		add("modRuntimeOnly", "maven.modrinth:CbV689EN:w8M00mGg")
 		add("modRuntimeOnly", "maven.modrinth:8RtpLoXH:IMGXB86Q")
-	}
 
-	// Celestial Artifacts currently has no pinned Maven artifact in this project. Supply its NeoForge 1.21.1 JAR explicitly.
-	arpgCelestialArtifactsJar.orNull
-		?.takeIf(String::isNotBlank)
-		?.let { add("modRuntimeOnly", files(it)) }
+		// Celestial Artifacts 2.0.4 for NeoForge 1.21.1. Curios is already supplied by the Iron's profile.
+		add("modRuntimeOnly", "curse.maven:celestial-artifacts-988784:8805750")
+	}
 }
 
 loom {
@@ -108,14 +110,14 @@ tasks.register("verifyArpgIronsRuntime") {
 
 tasks.register("verifyArpgFullRuntime") {
 	group = "verification"
-	description = "Resolves the full 1.21.1 ARPG provider runtime: Iron's, Better Combat, Apotheosis and L2 mods."
+	description = "Resolves the full 1.21.1 ARPG provider runtime: Iron's, Better Combat, Apotheosis, L2 mods and Celestial Artifacts."
 
 	doLast {
 		if (!arpgFullRuntime.get()) {
 			throw GradleException("Run with -Parpg_full_runtime=true to enable the full ARPG provider profile.")
 		}
 		val resolvedFiles = configurations.getByName("modRuntimeOnly").resolve()
-		check(resolvedFiles.size >= 14) {
+		check(resolvedFiles.size >= 15) {
 			"Full ARPG runtime resolved only ${resolvedFiles.size} files; expected provider mods and their required libraries."
 		}
 		logger.lifecycle("Resolved ${resolvedFiles.size} full ARPG provider runtime files.")
