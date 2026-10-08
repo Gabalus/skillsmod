@@ -15,7 +15,7 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertInstanceOf;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class RiftDimensionTest {
 	@Test
@@ -33,7 +33,7 @@ class RiftDimensionTest {
 			assertEquals("puffish_skills:rifts", world.get("type").getAsString());
 			var ops = RegistryOps.of(JsonOps.INSTANCE, BuiltinRegistries.createWrapperLookup());
 			var generator = ChunkGenerator.CODEC.parse(ops, world.get("generator")).getOrThrow();
-			assertInstanceOf(FlatChunkGenerator.class, generator);
+			assertTrue(generator instanceof FlatChunkGenerator);
 		}
 	}
 }
