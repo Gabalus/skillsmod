@@ -1,6 +1,8 @@
 package net.puffish.skillsmod.server.data;
 
 import net.minecraft.nbt.NbtCompound;
+import net.puffish.skillsmod.arpg.tower.TowerPuzzleState;
+import net.puffish.skillsmod.arpg.tower.TowerPuzzleStateNbt;
 import net.minecraft.util.Identifier;
 import net.puffish.skillsmod.SkillsMod;
 import net.puffish.skillsmod.arpg.combat.CombatPillar;
@@ -19,6 +21,7 @@ import java.util.Objects;
 public class PlayerData {
 	private final Map<Identifier, CategoryData> categories;
 	private ArpgCharacter arpg = new ArpgCharacter();
+	private TowerPuzzleState towerPuzzles = TowerPuzzleState.empty();
 	private SandboxState sandbox = SandboxState.empty();
 	private CombatState combat = CombatState.fresh(CombatPillar.MARTIAL);
 
@@ -42,6 +45,10 @@ public class PlayerData {
 		}
 
 		var result = new PlayerData(categories);
+		if (nbt.contains("tower_puzzles") && !(nbt.get("tower_puzzles") instanceof NbtCompound)) {
+			throw new IllegalArgumentException("Malformed tower puzzle save");
+		}
+		result.towerPuzzles = TowerPuzzleStateNbt.read(nbt.getCompound("tower_puzzles"));
 		result.sandbox = SandboxStateNbt.read(nbt.getCompound("sandbox"));
 		result.arpg = ArpgCharacterNbt.read(nbt.getCompound("arpg"));
 		result.combat = CombatStateNbt.read(
@@ -52,6 +59,7 @@ public class PlayerData {
 	}
 
 	public NbtCompound writeNbt(NbtCompound nbt) {
+		nbt.put("tower_puzzles", TowerPuzzleStateNbt.write(towerPuzzles));
 		nbt.put("sandbox", SandboxStateNbt.write(sandbox));
 		nbt.put("arpg", ArpgCharacterNbt.write(arpg));
 		nbt.put("combat", CombatStateNbt.write(combat));
@@ -73,6 +81,14 @@ public class PlayerData {
 			return categoryData.isUnlocked();
 		}
 		return category.general().unlockedByDefault();
+	}
+
+	public TowerPuzzleState getTowerPuzzles() {
+		return towerPuzzles;
+	}
+
+	public void setTowerPuzzles(TowerPuzzleState state) {
+		towerPuzzles = Objects.requireNonNull(state);
 	}
 
 	public SandboxState getSandbox() {

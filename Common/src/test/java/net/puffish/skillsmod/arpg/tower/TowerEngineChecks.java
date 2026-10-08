@@ -94,6 +94,47 @@ public final class TowerEngineChecks {
 		} catch (IllegalStateException expected) {
 			check(true);
 		}
+		var copper = new TowerPuzzle.Relay("minecraft:overworld", -4, 64, 4, "minecraft:copper_block");
+		var gold = new TowerPuzzle.Relay("minecraft:overworld", 4, 64, 4, "minecraft:gold_block");
+		var puzzle = new TowerPuzzle("arpg:relays", link.id(), List.of(copper, gold));
+		var puzzles = new TowerPuzzleCatalog(List.of(puzzle), network, protection);
+		check(puzzles.click("minecraft:overworld", -4, 64, 4).index() == 0);
+		check(puzzles.click("minecraft:the_nether", -4, 64, 4) == null);
+		check(puzzles.links().get(link.id()).equals(puzzle));
+		rejects(() -> new TowerPuzzle(puzzle.id(), link.id(), List.of(copper)));
+		rejects(() -> new TowerPuzzle(puzzle.id(), link.id(), List.of(copper, copper)));
+		rejects(() -> new TowerPuzzleCatalog(List.of(puzzle, puzzle), network, protection));
+		rejects(() -> new TowerPuzzleCatalog(List.of(puzzle), network, new TowerProtection(List.of(), network)));
+		var anchorRelay = new TowerPuzzle.Relay("minecraft:overworld", 0, 64, 0, "minecraft:lodestone");
+		rejects(() -> new TowerPuzzleCatalog(List.of(new TowerPuzzle("arpg:anchor", link.id(), List.of(copper, anchorRelay))), network, protection));
+		var otherDimension = new TowerPuzzle.Relay("minecraft:the_nether", 104, 64, 104, "minecraft:gold_block");
+		rejects(() -> new TowerPuzzleCatalog(List.of(new TowerPuzzle("arpg:cross", link.id(), List.of(copper, otherDimension))), network, protection));
+		var state = TowerPuzzleState.empty();
+		check(!state.solved(puzzle));
+		check(state.press(puzzle, 1, 10).entries().get(puzzle.id()).step() == 0);
+		state = state.press(puzzle, 0, 10);
+		check(state.entries().get(puzzle.id()).step() == 1);
+		check(state.press(puzzle, 1, 11) == state);
+		check(state.press(puzzle, 0, 14).entries().get(puzzle.id()).step() == 0);
+		check(state.press(puzzle, 1, 211).entries().get(puzzle.id()).step() == 0);
+		check(state.press(puzzle, 1, 9).entries().get(puzzle.id()).step() == 0);
+		check(!TowerPuzzleState.empty().solved(puzzle));
+		var solved = state.press(puzzle, 1, 14);
+		check(solved.solved(puzzle));
+		check(solved.press(puzzle, 0, 18) == solved);
+		check(solved.press(puzzle, 0, 1) == solved);
+		check(new TowerPuzzleState(solved.entries()).solved(puzzle));
+		var changed = new TowerPuzzle(puzzle.id(), puzzle.link(), List.of(gold, copper));
+		check(!solved.solved(changed));
+		check(solved.press(changed, 0, 14).entries().get(puzzle.id()).step() == 1);
+		var changedBlock = new TowerPuzzle(puzzle.id(), puzzle.link(), List.of(copper,
+				new TowerPuzzle.Relay(gold.dimension(), gold.x(), gold.y(), gold.z(), "minecraft:iron_block")));
+		check(!solved.solved(changedBlock));
+		rejects(() -> solved.press(puzzle, -1, 20));
+		rejects(() -> solved.press(puzzle, 2, 20));
+		rejects(() -> solved.press(puzzle, 0, -1));
+		rejects(() -> new TowerPuzzleState.Progress("bad", 0, 1));
+		rejects(() -> new TowerPuzzleState.Progress(puzzle.fingerprint(), 9, 1));
 		System.out.println("Tower network checks passed: " + checks);
 	}
 }

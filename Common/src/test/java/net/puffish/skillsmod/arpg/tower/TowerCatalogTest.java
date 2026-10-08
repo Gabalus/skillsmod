@@ -33,7 +33,22 @@ class TowerCatalogTest {
 	void legacySchemaWithoutSectorsStillLoads() {
 		var definitions = new Gson().fromJson("{\"schema\":1,\"links\":[]}", TowerData.Definitions.class);
 		assertEquals(null, definitions.sectors());
+		assertEquals(null, definitions.puzzles());
 		assertTrue(new TowerCatalog(definitions.links(), Set.of()).links().isEmpty());
+	}
+
+	@Test
+	void authoredPuzzleRecordDeserializesWithOrderedRelays() {
+		var json = """
+				{"id":"arpg:relays","link":"arpg:descent","sequence":[
+				{"dimension":"minecraft:overworld","x":1,"y":64,"z":4,"block":"minecraft:copper_block"},
+				{"dimension":"minecraft:overworld","x":4,"y":64,"z":4,"block":"minecraft:gold_block"}]}
+				""";
+		var puzzle = new Gson().fromJson(json, TowerPuzzle.class);
+		assertEquals(2, puzzle.sequence().size());
+		assertEquals("minecraft:copper_block", puzzle.sequence().get(0).block());
+		assertEquals(64, puzzle.sequence().get(1).y());
+		assertEquals(64, puzzle.fingerprint().length());
 	}
 
 	@Test

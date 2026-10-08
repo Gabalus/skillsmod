@@ -48,7 +48,8 @@ public final class ImmersiveTowerPortals {
 				&& link.eligible(character.level(), character.completions().keySet(),
 						RiftRuntime.book(player.server).get(player.getUuid()) != null,
 						player.isAlive(), !player.isCreative() && !player.isSpectator())
-				&& !RiftRuntime.inRifts(player.getWorld());
+				&& !RiftRuntime.inRifts(player.getWorld())
+				&& TowerPuzzleRuntime.solved(player, link.id());
 	}
 
 	public static void open(ServerPlayerEntity player, String id) {
@@ -58,7 +59,7 @@ public final class ImmersiveTowerPortals {
 		var link = TowerData.catalog().link(id);
 		if (!eligible(player, link) || !link.nearby(player.getWorld().getRegistryKey().getValue().toString(),
 				player.getX(), player.getY(), player.getZ(), 8)) {
-			throw new IllegalStateException("Meet this link's first-clear gates and stand within eight blocks of an anchor");
+			throw new IllegalStateException("Solve this passage's puzzle, meet its first-clear gates and stand within eight blocks of an anchor");
 		}
 		if (!PAIRS.containsKey(player.getUuid()) && PAIRS.size() >= MAX_PAIRS) {
 			throw new IllegalStateException("Tower portal capacity reached; try again later");

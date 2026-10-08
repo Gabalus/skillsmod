@@ -10,13 +10,15 @@ This development data pack supplies two enclosed tower rooms in dedicated void d
 4. As an operator, run `/function puffish_skills:tower_demo/build`. It starts construction explicitly. Installing the pack alone does not build rooms or teleport players.
 5. After the ready message, run `/function puffish_skills:tower_demo/visit` as a player. It enters the first room only when construction is complete.
 6. Use survival mode and `/arpg choose primary warrior` for the initial melee test. If the first rift is not cleared, run `/rift enter arpg:first_rift`, defeat its Warden and return. The tower passage refuses activation before that first clear.
-7. Walk to the centre lodestone at block `(100,64,100)` and right-click it. Approach the entry portal from positive Z towards negative Z. Cross into the second room and fight the Sentinel.
+7. Solve the entry relay sequence by right-clicking the floor blocks at `(96,64,104)` (copper), `(100,64,104)` (amethyst), then `(104,64,104)` (gold). Wait at least four ticks between clicks and finish within ten seconds between inputs. A wrong relay resets the attempt. Each player needs their own solve; it gives no XP or tree points. Walk to the centre lodestone at block `(100,64,100)` and right-click it. Approach the entry portal from positive Z towards negative Z. Cross into the second room and fight the Sentinel.
 8. Inspect `/arpg completions` and `/arpg progression`. Killing the Sentinel uses the authored `arpg:first_world_boss` completion, granting its first-clear rewards only if that receipt has not already been earned. It does not give another award to a character who already cleared that completion elsewhere.
 9. For the return, approach the second room's portal from negative Z towards positive Z. If your pair expired, click that room's lodestone to reopen it. `/tower close` ends your personal pair.
 
 The room dimension IDs are `puffish_skills:tower_demo_entry` and `puffish_skills:tower_demo_depth`. The portal ID is `arpg:tower_demo_descent`. Both room shells occupy blocks `(93,64,93)` through `(107,80,107)`. They have clear interiors, solid landing strips and lighted floors. Room materials differ so the destination is visually identifiable through the portal.
 
 The Sentinel is a vanilla Husk with a baseline 120 maximum health and 7 attack damage, not a bespoke tower boss. The normal L2/Apotheosis adapters can contribute encounter difficulty and XP. Public-world combat currently credits the killer; party contribution credit, personal boss instances and tower death recovery are later work. The void dimensions have no sandbox exit, bed or respawn-anchor workflow yet. Keep this in a development world and retain operator access for the test.
+
+Solves persist in the server player save across reconnects/death. Changing the ordered puzzle definition invalidates its receipt, including while a personal portal is open. Old demo worlds with completed construction can add the three new blocks using the operator function `/function puffish_skills:tower_demo/restore_relays`; the normal `/build` guard deliberately does not rebuild finished rooms.
 
 ## Construction and lifecycle
 

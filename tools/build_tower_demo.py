@@ -10,6 +10,11 @@ STORAGE = f"{NAMESPACE}:tower_demo"
 BASE = f"{NAMESPACE}:tower_demo"
 WORLDS = (f"{NAMESPACE}:tower_demo_entry", f"{NAMESPACE}:tower_demo_depth")
 MIN, MAX, FLOOR, CEILING = 93, 107, 64, 80
+RELAYS = [(96, "minecraft:copper_block"), (100, "minecraft:amethyst_block"), (104, "minecraft:gold_block")]
+
+
+def relay_commands():
+    return [f"execute in {WORLDS[0]} run setblock {x} {FLOOR} 104 {block}" for x, block in RELAYS]
 
 
 def room_stages():
@@ -33,7 +38,7 @@ def room_stages():
         fixtures.append(f"execute in {world} run setblock 100 {FLOOR} 100 minecraft:lodestone")
         for x, z in ((95, 95), (95, 105), (105, 95), (105, 105)):
             fixtures.append(f"execute in {world} run setblock {x} {FLOOR} {z} minecraft:sea_lantern")
-    stages.append(fixtures)
+    stages.append(fixtures + relay_commands())
     return stages
 
 
@@ -63,6 +68,9 @@ def pack_files():
         "schema": 1,
         "links": [{"id": "arpg:tower_demo_descent", "from": anchors[0], "to": anchors[1],
                    "width": 3, "height": 3, "minimumLevel": 1, "prerequisites": ["arpg:first_rift"]}],
+        "puzzles": [{"id": "arpg:tower_demo_relays", "link": "arpg:tower_demo_descent",
+                     "sequence": [{"dimension": WORLDS[0], "x": x, "y": FLOOR, "z": 104, "block": block}
+                                  for x, block in RELAYS]}],
         "sectors": [{"id": f"arpg:tower_demo_{index}", "dimension": world,
                      "minX": MIN, "minY": FLOOR, "minZ": MIN, "maxX": MAX, "maxY": CEILING, "maxZ": MAX}
                     for index, world in enumerate(WORLDS)],
@@ -99,7 +107,9 @@ def pack_files():
         f"schedule clear {BASE}/tick",
         'tellraw @a {"text":"Tower demo ready. Operators can use /function puffish_skills:tower_demo/visit.","color":"green"}',
     ])
+    function("restore_relays", relay_commands())
     function("visit", [
+        f'execute if data storage {STORAGE} {{ready:1b}} run tellraw @s {{"text":"Relay clue: copper, amethyst, gold. Right-click the floor relays in order, then the centre lodestone.","color":"aqua"}}',
         f"execute if data storage {STORAGE} {{ready:1b}} in {WORLDS[0]} run tp @s 100.5 65 104.5 180 0",
         f'execute unless data storage {STORAGE} {{ready:1b}} run tellraw @s {{"text":"Build the demo rooms first.","color":"red"}}',
     ])

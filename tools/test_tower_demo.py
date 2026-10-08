@@ -70,6 +70,22 @@ class TowerDemoTest(unittest.TestCase):
                 self.assertTrue(sector["min" + axis] <= anchor[axis.lower()] < sector["max" + axis] + 1)
         self.assertEqual({WORLDS[0], WORLDS[1]}, {s["dimension"] for s in data["sectors"]})
 
+    def test_puzzle_relays_match_constructed_blocks_and_remain_off_the_landing_strip(self):
+        files = pack_files()
+        puzzle = json.loads(files["data/puffish_skills/arpg/tower_links.json"])["puzzles"][0]
+        blocks = {(world, x, y, z): block for stage in room_stages()
+                  for world, x, y, z, block in writes(stage)}
+        self.assertEqual("arpg:tower_demo_descent", puzzle["link"])
+        self.assertEqual(["minecraft:copper_block", "minecraft:amethyst_block", "minecraft:gold_block"],
+                         [relay["block"] for relay in puzzle["sequence"]])
+        for relay in puzzle["sequence"]:
+            key = (relay["dimension"], relay["x"], relay["y"], relay["z"])
+            self.assertEqual(relay["block"], blocks[key])
+            self.assertNotEqual((100, 64, 100), key[1:])
+            self.assertEqual(WORLDS[0], relay["dimension"])
+        self.assertIn("copper, amethyst, gold", files["data/puffish_skills/function/tower_demo/visit.mcfunction"])
+        self.assertEqual(3, len(writes(files["data/puffish_skills/function/tower_demo/restore_relays.mcfunction"].splitlines())))
+
     def test_dispatch_cannot_cascade_multiple_stages_in_one_tick(self):
         files = pack_files()
         dispatch = files["data/puffish_skills/function/tower_demo/dispatch.mcfunction"]
