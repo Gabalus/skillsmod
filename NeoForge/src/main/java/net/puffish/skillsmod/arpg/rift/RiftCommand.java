@@ -1,6 +1,6 @@
 package net.puffish.skillsmod.arpg.rift;
 
-import com.mojang.brigadier.arguments.StringArgumentType;
+import net.minecraft.command.argument.IdentifierArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
@@ -20,7 +20,7 @@ public final class RiftCommand {
 				.executes(RiftCommand::status)
 				.then(CommandManager.literal("status").executes(RiftCommand::status))
 				.then(CommandManager.literal("leave").executes(RiftCommand::leave))
-				.then(CommandManager.literal("enter").then(CommandManager.argument("completion", StringArgumentType.word())
+				.then(CommandManager.literal("enter").then(CommandManager.argument("completion", IdentifierArgumentType.identifier())
 						.suggests((context, builder) -> CommandSource.suggestMatching(CompletionData.catalog().rewards().values().stream()
 								.filter(reward -> reward.type().equals("rift")).map(reward -> reward.id()), builder))
 						.executes(RiftCommand::enter)));
@@ -28,7 +28,7 @@ public final class RiftCommand {
 
 	private static int enter(CommandContext<ServerCommandSource> context) throws CommandSyntaxException {
 		try {
-			RiftRuntime.enter(context.getSource().getPlayerOrThrow(), StringArgumentType.getString(context, "completion"));
+			RiftRuntime.enter(context.getSource().getPlayerOrThrow(), IdentifierArgumentType.getIdentifier(context, "completion").toString());
 			return 1;
 		} catch (IllegalArgumentException | IllegalStateException error) {
 			context.getSource().sendError(Text.literal(error.getMessage()));

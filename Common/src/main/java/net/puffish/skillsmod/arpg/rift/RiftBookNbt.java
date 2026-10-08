@@ -53,7 +53,7 @@ public final class RiftBookNbt {
 		if (tag.isEmpty()) {
 			return new RiftBook(java.util.Map.of());
 		}
-		if (tag.getInt("schema") != 1) {
+		if (tag.getInt("schema") != 1 || !(tag.get("sessions") instanceof NbtCompound)) {
 			throw new IllegalArgumentException("Unsupported rift save schema");
 		}
 		var entries = tag.getCompound("sessions");

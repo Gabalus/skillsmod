@@ -107,6 +107,9 @@ public final class RiftRuntime {
 			if (!inRifts(player.getWorld()) || !session.contains(player.getX(), player.getY(), player.getZ())
 					|| player.interactionManager.getGameMode() != GameMode.ADVENTURE) {
 				leave(server, session.player(), "Rift ended: arena boundary or game mode changed");
+			} else if (session.phase() == RiftSession.Phase.RUNNING
+					&& player.getServerWorld().getEntity(session.boss()) == null) {
+				leave(server, session.player(), "Rift ended: boss is no longer present");
 			}
 		}
 		for (var player : server.getPlayerManager().getPlayerList()) {
@@ -267,7 +270,12 @@ public final class RiftRuntime {
 			}
 			markLoot(item, session.get());
 		}
-		var owner = UUID.fromString(data.getString(OWNER));
+		UUID owner;
+		try {
+			owner = UUID.fromString(data.getString(OWNER));
+		} catch (IllegalArgumentException error) {
+			return false;
+		}
 		var session = book(server).get(owner);
 		if (session == null || session.phase() == RiftSession.Phase.EXIT_PENDING || !session.id().toString().equals(data.getString(SESSION))) {
 			queueLoot(server, owner, List.of(item.getStack()));

@@ -71,7 +71,7 @@ public class ServerData extends PersistentState {
 			var entries = new NbtList();
 			for (var item : items) {
 				if (!item.isEmpty()) {
-					entries.add(item.toNbt(lookup));
+					entries.add(item.encode(lookup));
 				}
 			}
 			loot.put(player.toString(), entries);

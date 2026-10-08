@@ -31,6 +31,13 @@ class RiftBookTest {
 		assertEquals(restored.sessions(), RiftBookNbt.read(RiftBookNbt.write(restored)).sessions());
 	}
 	@Test
+	void rejectsMalformedSessionContainer() {
+		var tag = new NbtCompound();
+		tag.putInt("schema", 1);
+		tag.putString("sessions", "corrupt");
+		assertThrows(IllegalArgumentException.class, () -> RiftBookNbt.read(tag));
+	}
+	@Test
 	void refusesFutureSaveSchema() {
 		var tag = new NbtCompound();
 		tag.putInt("schema", 2);
