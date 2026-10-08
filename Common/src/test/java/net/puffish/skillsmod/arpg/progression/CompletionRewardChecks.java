@@ -76,6 +76,13 @@ public final class CompletionRewardChecks {
 		var first = new CompletionReward("test:a", "rift", 1, 1, 0, 0, Set.of("test:b"), Set.of());
 		var second = new CompletionReward("test:b", "rift", 1, 1, 0, 0, Set.of("test:a"), Set.of());
 		expectFailure(() -> new CompletionCatalog(List.of(first, second), ""));
+		var deep = new java.util.ArrayList<CompletionReward>();
+		for (int i = 0; i < 129; i++) {
+			deep.add(new CompletionReward("test:deep_" + i, "rift", 1, 1, 0, 0,
+					i == 0 ? Set.of() : Set.of("test:deep_" + (i - 1)), Set.of()));
+		}
+		expectFailure(() -> new CompletionCatalog(deep, ""));
+		check(new CompletionCatalog(deep.subList(0, 128), "").rewards().size() == 128, "Bounded deep graph remains valid");
 		expectFailure(() -> new CompletionReward("invalid", "rift", 1, 1, 0, 0, Set.of(), Set.of()));
 		expectFailure(() -> new CompletionReward("test:invalid", "rift", 1, 21, 0, 0, Set.of(), Set.of()));
 		expectFailure(() -> new CompletionReward("test:invalid", "trial", 1, 0, 0, 1, Set.of(), Set.of()));

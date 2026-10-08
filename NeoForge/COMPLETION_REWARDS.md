@@ -62,6 +62,6 @@ python3 tools/test_encounter_progression.py
 python3 tools/test_sandbox_engine.py
 ```
 
-45 completion checks cover replay and edited rewards, independent XP/point currencies, caps, recipe retention, prerequisite/trial gates and graph validation. Common JUnit adds receipt round trips, one-time legacy migration, bundled JSON checks, malformed receipt rejection and future-schema rejection. GitHub CI runs these with Java 21 and builds NeoForge.
+47 completion checks cover replay and edited rewards, independent XP/point currencies, caps, recipe retention, prerequisite/trial gates and graph validation. Common JUnit adds receipt round trips, one-time legacy migration, bundled JSON checks, malformed receipt rejection and future-schema rejection. GitHub CI runs these with Java 21 and builds NeoForge.
 
 Actual rift/monolith construction, party contribution credit, physical recipe scrolls, completion UI beyond commands and combined-provider in-game testing remain future work. The starter completion definitions provide a reward API and development fixtures; they do not generate dungeon content.

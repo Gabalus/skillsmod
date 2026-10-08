@@ -26,24 +26,30 @@ public final class CompletionCatalog {
 		if (!apotheosisWorldBoss.isEmpty() && !reward(apotheosisWorldBoss).type().equals("world_boss")) {
 			throw new IllegalArgumentException("Automatic Apotheosis reward must be a world boss");
 		}
-		var visited = new HashSet<String>();
+		var depths = new java.util.HashMap<String, Integer>();
 		for (String id : rewards.keySet()) {
-			visit(id, new HashSet<>(), visited);
+			visit(id, new HashSet<>(), depths);
 		}
 	}
 
-	private void visit(String id, Set<String> path, Set<String> visited) {
-		if (visited.contains(id)) {
-			return;
+	private int visit(String id, Set<String> path, Map<String, Integer> depths) {
+		var known = depths.get(id);
+		if (known != null) {
+			if (path.size() + known > 128) {
+				throw new IllegalArgumentException("Excessively deep completion graph");
+			}
+			return known;
 		}
 		if (path.size() >= 128 || !path.add(id)) {
 			throw new IllegalArgumentException("Cyclic or excessively deep completion graph");
 		}
+		int depth = 1;
 		for (String prerequisite : reward(id).prerequisites()) {
-			visit(prerequisite, path, visited);
+			depth = Math.max(depth, 1 + visit(prerequisite, path, depths));
 		}
 		path.remove(id);
-		visited.add(id);
+		depths.put(id, depth);
+		return depth;
 	}
 
 	public CompletionReward reward(String id) {
