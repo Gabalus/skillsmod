@@ -68,6 +68,12 @@ public final class ImmersiveTowerPortals {
 		if (!safe(from, link.from(), link) || !safe(to, link.to(), link)) {
 			throw new IllegalStateException("Both anchors need loaded chunks, clear apertures, solid landing floors and world-border clearance");
 		}
+		var existing = PAIRS.get(player.getUuid());
+		if (existing != null && existing.link().equals(link) && existing.revision() == TowerData.revision()
+				&& !existing.forward().isRemoved() && !existing.reverse().isRemoved()
+				&& player.server.getOverworld().getTime() < existing.expires()) {
+			return;
+		}
 		Entity forward = null;
 		Entity reverse = null;
 		try {

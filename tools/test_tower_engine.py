@@ -7,7 +7,8 @@ import tempfile
 root = Path(__file__).resolve().parents[1]
 main = root / "Common/src/main/java/net/puffish/skillsmod/arpg"
 sources = [main / path for path in (
-    "progression/CompletionReward.java", "tower/TowerLink.java", "tower/TowerCatalog.java")]
+    "progression/CompletionReward.java", "tower/TowerLink.java", "tower/TowerCatalog.java",
+    "tower/TowerSector.java", "tower/TowerProtection.java")]
 sources.append(root / "Common/src/test/java/net/puffish/skillsmod/arpg/tower/TowerEngineChecks.java")
 with tempfile.TemporaryDirectory(prefix="tower-engine-") as output:
     subprocess.run(["java", "com.sun.tools.javac.Main", "-d", output,

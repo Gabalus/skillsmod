@@ -16,7 +16,8 @@ public final class TowerCommand {
 		return CommandManager.literal("tower")
 				.then(CommandManager.literal("status").executes(context -> {
 					context.getSource().sendFeedback(() -> Text.literal("Immersive Portals: " + ImmersiveTowerPortals.available()
-							+ " | authored links: " + TowerData.catalog().links().keySet()), false);
+							+ " | authored links: " + TowerData.catalog().links().keySet()
+							+ " | protected sectors: " + TowerData.protection().size()), false);
 					return 1;
 				}))
 				.then(CommandManager.literal("close").executes(context -> {

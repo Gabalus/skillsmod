@@ -25,7 +25,15 @@ class TowerCatalogTest {
 				"/data/puffish_skills/arpg/tower_links.json"), StandardCharsets.UTF_8)) {
 			var definitions = new Gson().fromJson(reader, TowerData.Definitions.class);
 			assertTrue(new TowerCatalog(definitions.links(), Set.of()).links().isEmpty());
+			assertEquals(0, new TowerProtection(definitions.sectors(), new TowerCatalog(definitions.links(), Set.of())).size());
 		}
+	}
+
+	@Test
+	void legacySchemaWithoutSectorsStillLoads() {
+		var definitions = new Gson().fromJson("{\"schema\":1,\"links\":[]}", TowerData.Definitions.class);
+		assertEquals(null, definitions.sectors());
+		assertTrue(new TowerCatalog(definitions.links(), Set.of()).links().isEmpty());
 	}
 
 	@Test

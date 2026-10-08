@@ -61,6 +61,39 @@ public final class TowerEngineChecks {
 		var back = new TowerLink("arpg:return", to, from, 3, 3, 1, Set.of());
 		check(new TowerCatalog(List.of(link, back), Set.of("arpg:first_rift")).links().size() == 2);
 		check(new TowerCatalog(List.of(), Set.of()).links().isEmpty());
+		var sector = new TowerSector("arpg:entry", "minecraft:overworld", -10, 64, -10, 10, 80, 10);
+		var destination = new TowerSector("arpg:destination", "minecraft:the_nether", 90, 64, 90, 110, 80, 110);
+		var protection = new TowerProtection(List.of(sector, destination), network);
+		check(protection.size() == 2);
+		check(protection.pistonMayTouch("minecraft:overworld", -23, 70, 0));
+		check(!protection.pistonMayTouch("minecraft:overworld", -24, 70, 0));
+		check(!protection.pistonMayTouch("minecraft:the_end", 0, 70, 0));
+		check(!protection.pistonMayTouch("minecraft:overworld", Integer.MAX_VALUE, 70, 0));
+		check(protection.protects("minecraft:overworld", -10, 64, -10));
+		check(protection.protects("minecraft:overworld", 10.99, 80.99, 10.99));
+		check(!protection.protects("minecraft:overworld", 11, 70, 0));
+		check(!protection.protects("minecraft:overworld", -10.01, 70, 0));
+		check(!protection.protects("minecraft:overworld", 0, 63.99, 0));
+		check(!protection.protects("minecraft:overworld", 0, 81, 0));
+		check(!protection.protects("minecraft:the_end", 0, 70, 0));
+		check(!protection.protects("minecraft:overworld", Double.NaN, 70, 0));
+		check(protection.activation("minecraft:overworld", 0, 64, 0).equals(link.id()));
+		check(protection.activation("minecraft:the_nether", 100, 64, 100).equals(link.id()));
+		check(protection.activation("minecraft:overworld", 0, 65, 0).isEmpty());
+		check(protection.activation("minecraft:overworld", 1, 64, 0).isEmpty());
+		check(new TowerProtection(List.of(), network).activation("minecraft:overworld", 0, 64, 0).isEmpty());
+		rejects(() -> new TowerSector("arpg:bad", "puffish_skills:rifts", 0, 0, 0, 1, 1, 1));
+		rejects(() -> new TowerSector("arpg:bad", "minecraft:overworld", 1, 0, 0, 0, 1, 1));
+		rejects(() -> new TowerSector("arpg:bad", "minecraft:overworld", 0, 0, 0, 5000, 1, 1));
+		rejects(() -> new TowerProtection(List.of(sector, sector), network));
+		var duplicateAnchor = new TowerLink("arpg:other_descent", from, to, 3, 3, 1, Set.of());
+		var ambiguous = new TowerProtection(List.of(sector), new TowerCatalog(List.of(link, duplicateAnchor), Set.of("arpg:first_rift")));
+		try {
+			ambiguous.activation("minecraft:overworld", 0, 64, 0);
+			throw new AssertionError("Ambiguous anchor activated");
+		} catch (IllegalStateException expected) {
+			check(true);
+		}
 		System.out.println("Tower network checks passed: " + checks);
 	}
 }

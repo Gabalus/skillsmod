@@ -10,17 +10,29 @@ import java.util.Set;
 
 /** Atomically validates authored seams; no terrain writes or generated dimensions. */
 public final class TowerData {
-	public record Definitions(int schema, List<TowerLink> links) {
+	public record Definitions(int schema, List<TowerLink> links, List<TowerSector> sectors) {
 	}
 
-	private static volatile TowerCatalog catalog = new TowerCatalog(List.of(), Set.of());
+	private record Network(TowerCatalog catalog, TowerProtection protection) {
+	}
+
+	private static volatile Network network = empty();
 	private static long revision;
 
 	private TowerData() {
 	}
 
 	public static TowerCatalog catalog() {
-		return catalog;
+		return network.catalog();
+	}
+
+	public static TowerProtection protection() {
+		return network.protection();
+	}
+
+	private static Network empty() {
+		var catalog = new TowerCatalog(List.of(), Set.of());
+		return new Network(catalog, new TowerProtection(List.of(), catalog));
 	}
 
 	public static long revision() {
@@ -34,7 +46,9 @@ public final class TowerData {
 			if (definitions == null || definitions.schema() != 1) {
 				throw new IllegalArgumentException("Unsupported tower link schema");
 			}
-			catalog = new TowerCatalog(definitions.links(), CompletionData.catalog().rewards().keySet());
+			var catalog = new TowerCatalog(definitions.links(), CompletionData.catalog().rewards().keySet());
+			var protection = new TowerProtection(definitions.sectors() == null ? List.of() : definitions.sectors(), catalog);
+			network = new Network(catalog, protection);
 			revision++;
 		} catch (Exception error) {
 			SkillsMod.getInstance().getLogger().error("Tower reload rejected; keeping previous network: " + error.getMessage());
