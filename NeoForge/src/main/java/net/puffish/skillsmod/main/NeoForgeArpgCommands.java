@@ -26,6 +26,7 @@ public final class NeoForgeArpgCommands {
 		}
 		SandboxData.configureProviders(versions);
 		event.getDispatcher().register(CraftworkCommand.create());
+		event.getDispatcher().register(net.puffish.skillsmod.arpg.rift.RiftCommand.create());
 		event.getDispatcher().register(ArpgCommand.create());
 		event.getDispatcher().register(ArpgAdminCommand.create());
 	}

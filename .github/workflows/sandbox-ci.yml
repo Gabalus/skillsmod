@@ -32,6 +32,8 @@ jobs:
         run: python3 tools/test_encounter_progression.py
       - name: Check completion rewards
         run: python3 tools/test_completion_rewards.py
+      - name: Check rift sessions
+        run: python3 tools/test_rift_engine.py
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
       - name: Run common tests and build NeoForge
