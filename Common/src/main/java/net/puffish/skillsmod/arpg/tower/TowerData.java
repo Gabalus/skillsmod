@@ -10,10 +10,10 @@ import java.util.Set;
 
 /** Atomically validates authored seams; no terrain writes or generated dimensions. */
 public final class TowerData {
-	public record Definitions(int schema, List<TowerLink> links, List<TowerSector> sectors, List<TowerPuzzle> puzzles) {
+	public record Definitions(int schema, List<TowerLink> links, List<TowerSector> sectors, List<TowerPuzzle> puzzles, List<TowerRecovery> recovery) {
 	}
 
-	private record Network(TowerCatalog catalog, TowerProtection protection, TowerPuzzleCatalog puzzles) {
+	private record Network(TowerCatalog catalog, TowerProtection protection, TowerPuzzleCatalog puzzles, TowerRecoveryCatalog recovery) {
 	}
 
 	private static volatile Network network = empty();
@@ -34,10 +34,14 @@ public final class TowerData {
 		return network.puzzles();
 	}
 
+	public static TowerRecoveryCatalog recovery() {
+		return network.recovery();
+	}
+
 	private static Network empty() {
 		var catalog = new TowerCatalog(List.of(), Set.of());
 		var protection = new TowerProtection(List.of(), catalog);
-		return new Network(catalog, protection, new TowerPuzzleCatalog(List.of(), catalog, protection));
+		return new Network(catalog, protection, new TowerPuzzleCatalog(List.of(), catalog, protection), new TowerRecoveryCatalog(List.of(), List.of()));
 	}
 
 	public static long revision() {
@@ -54,7 +58,9 @@ public final class TowerData {
 			var catalog = new TowerCatalog(definitions.links(), CompletionData.catalog().rewards().keySet());
 			var protection = new TowerProtection(definitions.sectors() == null ? List.of() : definitions.sectors(), catalog);
 			var puzzles = new TowerPuzzleCatalog(definitions.puzzles() == null ? List.of() : definitions.puzzles(), catalog, protection);
-			network = new Network(catalog, protection, puzzles);
+			var recovery = new TowerRecoveryCatalog(definitions.recovery() == null ? List.of() : definitions.recovery(),
+					definitions.sectors() == null ? List.of() : definitions.sectors());
+			network = new Network(catalog, protection, puzzles, recovery);
 			revision++;
 		} catch (Exception error) {
 			SkillsMod.getInstance().getLogger().error("Tower reload rejected; keeping previous network: " + error.getMessage());

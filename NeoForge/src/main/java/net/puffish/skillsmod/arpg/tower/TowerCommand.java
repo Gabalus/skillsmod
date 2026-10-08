@@ -20,6 +20,8 @@ public final class TowerCommand {
 							+ " | protected sectors: " + TowerData.protection().size()), false);
 					return 1;
 				}))
+				.then(CommandManager.literal("recover").executes(context ->
+					TowerRecoveryRuntime.recover(context.getSource().getPlayerOrThrow(), true) ? 1 : 0))
 				.then(CommandManager.literal("close").executes(context -> {
 					ImmersiveTowerPortals.close(context.getSource().getPlayerOrThrow().getUuid());
 					return 1;

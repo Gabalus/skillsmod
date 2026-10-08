@@ -86,6 +86,18 @@ class TowerDemoTest(unittest.TestCase):
         self.assertIn("copper, amethyst, gold", files["data/puffish_skills/function/tower_demo/visit.mcfunction"])
         self.assertEqual(3, len(writes(files["data/puffish_skills/function/tower_demo/restore_relays.mcfunction"].splitlines())))
 
+    def test_recovery_covers_both_rooms_and_uses_the_safe_entry_checkpoint(self):
+        data = json.loads(pack_files()["data/puffish_skills/arpg/tower_links.json"])
+        policy = data["recovery"][0]
+        self.assertEqual({sector["id"] for sector in data["sectors"]}, set(policy["sectors"]))
+        point = policy["checkpoint"]
+        self.assertEqual({"dimension": WORLDS[0], "x": 100.5, "y": 65, "z": 104.5}, point)
+        blocks = {(world, x, y, z): block for stage in room_stages()
+                  for world, x, y, z, block in writes(stage)}
+        self.assertEqual("minecraft:air", blocks[WORLDS[0], 100, 65, 104])
+        self.assertEqual("minecraft:air", blocks[WORLDS[0], 100, 66, 104])
+        self.assertNotEqual("minecraft:air", blocks[WORLDS[0], 100, 64, 104])
+
     def test_dispatch_cannot_cascade_multiple_stages_in_one_tick(self):
         files = pack_files()
         dispatch = files["data/puffish_skills/function/tower_demo/dispatch.mcfunction"]

@@ -34,6 +34,7 @@ class TowerCatalogTest {
 		var definitions = new Gson().fromJson("{\"schema\":1,\"links\":[]}", TowerData.Definitions.class);
 		assertEquals(null, definitions.sectors());
 		assertEquals(null, definitions.puzzles());
+		assertEquals(null, definitions.recovery());
 		assertTrue(new TowerCatalog(definitions.links(), Set.of()).links().isEmpty());
 	}
 

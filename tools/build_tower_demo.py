@@ -68,6 +68,9 @@ def pack_files():
         "schema": 1,
         "links": [{"id": "arpg:tower_demo_descent", "from": anchors[0], "to": anchors[1],
                    "width": 3, "height": 3, "minimumLevel": 1, "prerequisites": ["arpg:first_rift"]}],
+        "recovery": [{"id": "arpg:tower_demo_recovery",
+                      "sectors": ["arpg:tower_demo_0", "arpg:tower_demo_1"],
+                      "checkpoint": {"dimension": WORLDS[0], "x": 100.5, "y": 65, "z": 104.5}}],
         "puzzles": [{"id": "arpg:tower_demo_relays", "link": "arpg:tower_demo_descent",
                      "sequence": [{"dimension": WORLDS[0], "x": x, "y": FLOOR, "z": 104, "block": block}
                                   for x, block in RELAYS]}],

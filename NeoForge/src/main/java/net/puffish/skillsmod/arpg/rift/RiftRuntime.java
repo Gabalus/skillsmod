@@ -64,6 +64,9 @@ public final class RiftRuntime {
 				|| !character.completions().keySet().containsAll(reward.prerequisites())) {
 			throw new IllegalStateException("Choose a primary discipline and meet this rift's level/first-clear prerequisites");
 		}
+		if (ServerData.getOrCreate(player.server).towerRecovery(player.getUuid()) != null) {
+			throw new IllegalStateException("Resolve pending tower recovery with /tower recover before entering a rift");
+		}
 		if (!ServerData.getOrCreate(player.server).riftLoot(player.getUuid()).isEmpty()) {
 			throw new IllegalStateException("Recover pending rift items before entering another rift");
 		}

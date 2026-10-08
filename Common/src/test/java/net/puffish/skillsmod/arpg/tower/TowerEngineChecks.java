@@ -26,6 +26,16 @@ public final class TowerEngineChecks {
 		throw new AssertionError("Expected tower rejection " + checks);
 	}
 
+	private static void rejectState(Runnable action) {
+		checks++;
+		try {
+			action.run();
+		} catch (IllegalStateException expected) {
+			return;
+		}
+		throw new AssertionError("Expected recovery state rejection " + checks);
+	}
+
 	public static void main(String[] args) {
 		checks = 0;
 		var from = new TowerLink.Anchor("minecraft:overworld", .5, 66.5, .5);
@@ -135,6 +145,40 @@ public final class TowerEngineChecks {
 		rejects(() -> solved.press(puzzle, 0, -1));
 		rejects(() -> new TowerPuzzleState.Progress("bad", 0, 1));
 		rejects(() -> new TowerPuzzleState.Progress(puzzle.fingerprint(), 9, 1));
+		var checkpoint = new TowerLink.Anchor("minecraft:overworld", .5, 65, 4.5);
+		var recovery = new TowerRecovery("arpg:recovery", Set.of(sector.id(), destination.id()), checkpoint);
+		var recoveryCatalog = new TowerRecoveryCatalog(List.of(recovery), List.of(sector, destination));
+		check(recoveryCatalog.at("minecraft:overworld", 0, 65, 4).equals(recovery));
+		check(recoveryCatalog.at("minecraft:the_nether", 100, 70, 100).equals(recovery));
+		check(recoveryCatalog.at("minecraft:the_end", 0, 65, 4) == null);
+		check(recoveryCatalog.at("minecraft:overworld", 11, 65, 4) == null);
+		check(recoveryCatalog.at("minecraft:overworld", Double.NaN, 65, 4) == null);
+		rejects(() -> new TowerRecovery("arpg:empty", Set.of(), checkpoint));
+		rejects(() -> new TowerRecoveryCatalog(List.of(recovery, recovery), List.of(sector, destination)));
+		rejects(() -> new TowerRecoveryCatalog(List.of(recovery), List.of(sector)));
+		rejects(() -> new TowerRecoveryCatalog(List.of(new TowerRecovery("arpg:outside", Set.of(sector.id()), to)), List.of(sector)));
+		var overhead = new TowerLink.Anchor("minecraft:overworld", 0, 80.5, 0);
+		rejects(() -> new TowerRecoveryCatalog(List.of(new TowerRecovery("arpg:head", Set.of(sector.id()), overhead)), List.of(sector)));
+		var overlapping = new TowerSector("arpg:overlap", "minecraft:overworld", 0, 64, 0, 15, 80, 15);
+		var conflict = new TowerRecovery("arpg:conflict", Set.of(overlapping.id()), checkpoint);
+		rejects(() -> new TowerRecoveryCatalog(List.of(recovery, conflict), List.of(sector, destination, overlapping)));
+		var samePolicyOverlap = new TowerRecovery("arpg:same", Set.of(sector.id(), overlapping.id()), checkpoint);
+		check(new TowerRecoveryCatalog(List.of(samePolicyOverlap), List.of(sector, overlapping)).at("minecraft:overworld", 0, 65, 4).equals(samePolicyOverlap));
+		var ticket = TowerRecoveryTicket.begin(recovery);
+		check(ticket.phase() == TowerRecoveryTicket.Phase.WAITING_RESPAWN && !ticket.captured());
+		var captured = ticket.capture();
+		check(captured.captured());
+		rejectState(captured::capture);
+		rejectState(ticket::returned);
+		var pending = captured.respawn();
+		check(pending.phase() == TowerRecoveryTicket.Phase.RETURN_PENDING && pending.captured());
+		check(pending.respawn() == pending);
+		rejectState(pending::capture);
+		var claimable = pending.returned();
+		check(claimable.phase() == TowerRecoveryTicket.Phase.CLAIMABLE && claimable.checkpoint().equals(checkpoint));
+		check(claimable.respawn() == claimable);
+		rejectState(claimable::returned);
+		check(ticket.respawn().returned().phase() == TowerRecoveryTicket.Phase.CLAIMABLE);
 		System.out.println("Tower network checks passed: " + checks);
 	}
 }
