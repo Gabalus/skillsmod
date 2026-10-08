@@ -20,6 +20,7 @@ import net.neoforged.neoforge.event.server.ServerStartedEvent;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
 import net.puffish.skillsmod.api.SkillsAPI;
 import net.puffish.skillsmod.arpg.rift.RiftRuntime;
+import net.puffish.skillsmod.arpg.tower.ImmersiveTowerPortals;
 
 /** Loader-owned realm protection, authoritative boss credit and disconnect/respawn recovery. */
 @EventBusSubscriber(modid = SkillsAPI.MOD_ID)
@@ -29,12 +30,14 @@ public final class NeoForgeRiftEvents {
 
 	@SubscribeEvent
 	public static void started(ServerStartedEvent event) {
+		ImmersiveTowerPortals.reset();
 		RiftRuntime.recover(event.getServer());
 	}
 
 	@SubscribeEvent
 	public static void tick(ServerTickEvent.Post event) {
 		RiftRuntime.tick(event.getServer());
+		ImmersiveTowerPortals.tick(event.getServer());
 	}
 
 	@SubscribeEvent(priority = EventPriority.HIGHEST)
@@ -47,6 +50,7 @@ public final class NeoForgeRiftEvents {
 	@SubscribeEvent(priority = EventPriority.HIGHEST)
 	public static void logout(PlayerEvent.PlayerLoggedOutEvent event) {
 		if (event.getEntity() instanceof ServerPlayerEntity player) {
+			ImmersiveTowerPortals.close(player.getUuid());
 			RiftRuntime.leave(player.server, player.getUuid(), "Rift ended on disconnect");
 		}
 	}
@@ -54,6 +58,7 @@ public final class NeoForgeRiftEvents {
 	@SubscribeEvent(priority = EventPriority.HIGHEST)
 	public static void respawn(PlayerEvent.PlayerRespawnEvent event) {
 		if (event.getEntity() instanceof ServerPlayerEntity player) {
+			ImmersiveTowerPortals.close(player.getUuid());
 			RiftRuntime.leave(player.server, player.getUuid(), "Rift failed: player died");
 			RiftRuntime.recoverPlayer(player);
 		}
@@ -103,6 +108,11 @@ public final class NeoForgeRiftEvents {
 
 	@SubscribeEvent(priority = EventPriority.HIGHEST)
 	public static void join(EntityJoinLevelEvent event) {
+		if (!event.getLevel().isClient() && event.loadedFromDisk() && event.getEntity().getCommandTags().contains(ImmersiveTowerPortals.TAG)) {
+			event.setCanceled(true);
+			event.getEntity().discard();
+			return;
+		}
 		if (!(event.getLevel() instanceof ServerWorld world) || !RiftRuntime.inRifts(world)) {
 			return;
 		}

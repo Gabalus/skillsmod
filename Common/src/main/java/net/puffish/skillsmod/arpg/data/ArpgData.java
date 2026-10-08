@@ -32,6 +32,7 @@ public final class ArpgData {
 		net.puffish.skillsmod.arpg.sandbox.SandboxData.reload(server);
 		net.puffish.skillsmod.arpg.progression.EncounterProgressionData.reload(server);
 		net.puffish.skillsmod.arpg.progression.CompletionData.reload(server);
+		net.puffish.skillsmod.arpg.tower.TowerData.reload(server);
 		var id = SkillsMod.createIdentifier("arpg/catalog.json");
 		try (var reader = server.getResourceManager().getResourceOrThrow(id).getReader()) {
 			var replacement = ArpgContent.read(reader);

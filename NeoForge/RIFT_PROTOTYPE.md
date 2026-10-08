@@ -1,5 +1,7 @@
 # Solo rift prototype
 
+For cross-dimension authored tower passages, see `TOWER_PORTALS.md`. Those optional Immersive Portals links are distinct from these owner-bound solo arenas; public tower routes cannot target this reserved dimension.
+
 Choose a primary discipline, then run `/rift enter arpg:first_rift` from survival or adventure mode. Stay within eight blocks of the entry point while the arena prepares. `/rift status` reports progress; `/rift leave` abandons the encounter. After the first clear, `/rift enter arpg:rune_rift` opens the second recipe discovery. Both currently use the same placeholder encounter.
 
 The prototype builds a 25 × 25 × 11 bedrock arena in the bundled `puffish_skills:rifts` void dimension. Eight solo arenas are available. Construction is limited to 256 block writes per server tick across all runs. This is command-based access for development; physical rifts, authored dungeon layouts and the monolith are later slices.
