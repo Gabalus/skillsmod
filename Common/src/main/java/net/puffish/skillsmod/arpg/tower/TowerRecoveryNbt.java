@@ -1,10 +1,8 @@
 package net.puffish.skillsmod.arpg.tower;
 
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtList;
-import net.minecraft.registry.RegistryWrapper;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,7 +16,7 @@ public final class TowerRecoveryNbt {
 	private TowerRecoveryNbt() {
 	}
 
-	public static NbtCompound write(Map<UUID, TowerRecoveryRecord> records, RegistryWrapper.WrapperLookup lookup) {
+	public static NbtCompound write(Map<UUID, TowerRecoveryRecord> records) {
 		if (records.size() > MAX_RECORDS) {
 			throw new IllegalArgumentException("Too many tower recovery records");
 		}
@@ -38,7 +36,7 @@ public final class TowerRecoveryNbt {
 			point.putDouble("z", ticket.checkpoint().z());
 			tag.put("checkpoint", point);
 			var items = new NbtList();
-			record.items().forEach(stack -> items.add(stack.encode(lookup)));
+			record.items().forEach(stack -> items.add(stack.copy()));
 			tag.put("items", items);
 			entries.put(owner.toString(), tag);
 		});
@@ -46,7 +44,7 @@ public final class TowerRecoveryNbt {
 		return root;
 	}
 
-	public static Map<UUID, TowerRecoveryRecord> read(NbtCompound root, RegistryWrapper.WrapperLookup lookup) {
+	public static Map<UUID, TowerRecoveryRecord> read(NbtCompound root) {
 		if (root.isEmpty()) {
 			return Map.of();
 		}
@@ -67,9 +65,9 @@ public final class TowerRecoveryNbt {
 			var checkpoint = new TowerLink.Anchor(point.getString("dimension"), point.getDouble("x"), point.getDouble("y"), point.getDouble("z"));
 			var ticket = new TowerRecoveryTicket(tag.getString("policy"), checkpoint,
 					TowerRecoveryTicket.Phase.valueOf(tag.getString("phase")), tag.getBoolean("captured"));
-			var stacks = new ArrayList<ItemStack>();
+			var stacks = new ArrayList<NbtCompound>();
 			for (var item : items) {
-				stacks.add(ItemStack.fromNbt(lookup, item).orElseThrow(() -> new IllegalArgumentException("Malformed tower recovery item")));
+				stacks.add((NbtCompound) item);
 			}
 			records.put(UUID.fromString(owner), new TowerRecoveryRecord(ticket, stacks));
 		}

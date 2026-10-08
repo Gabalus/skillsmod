@@ -38,7 +38,7 @@ public class ServerData extends PersistentState {
 		if (tag.contains("tower_recovery") && !(tag.get("tower_recovery") instanceof NbtCompound)) {
 			throw new IllegalArgumentException("Malformed tower recovery save");
 		}
-		playersData.towerRecovery.putAll(TowerRecoveryNbt.read(tag.getCompound("tower_recovery"), lookup));
+		playersData.towerRecovery.putAll(TowerRecoveryNbt.read(tag.getCompound("tower_recovery")));
 		playersData.rifts = RiftBookNbt.read(tag.getCompound("rifts"));
 		var loot = tag.getCompound("rift_loot");
 		if (loot.getKeys().size() > RiftBook.MAX_RECORDS) {
@@ -78,7 +78,7 @@ public class ServerData extends PersistentState {
 			);
 		}
 		nbt.put("players", playersNbt);
-		nbt.put("tower_recovery", TowerRecoveryNbt.write(towerRecovery, lookup));
+		nbt.put("tower_recovery", TowerRecoveryNbt.write(towerRecovery));
 		nbt.put("rifts", RiftBookNbt.write(rifts));
 		var loot = new NbtCompound();
 		riftLoot.forEach((player, items) -> {

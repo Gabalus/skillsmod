@@ -2,6 +2,7 @@ package net.puffish.skillsmod.arpg.tower;
 
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.server.MinecraftServer;
@@ -47,9 +48,17 @@ public final class TowerRecoveryRuntime {
 		if (previous != null && previous.ticket().phase() == TowerRecoveryTicket.Phase.WAITING_RESPAWN && previous.ticket().captured()) {
 			return true;
 		}
-		var items = new ArrayList<ItemStack>(previous == null ? List.of() : previous.items());
-		items.addAll(drops);
 		try {
+			var items = new ArrayList<NbtCompound>(previous == null ? List.of() : previous.items());
+			for (var stack : drops) {
+				if (!stack.isEmpty()) {
+					var encoded = stack.encode(player.server.getRegistryManager());
+					if (!(encoded instanceof NbtCompound snapshot)) {
+						throw new IllegalArgumentException("Death item did not encode to a compound");
+					}
+					items.add(snapshot);
+				}
+			}
 			data.setTowerRecovery(player.getUuid(), new TowerRecoveryRecord(TowerRecoveryTicket.begin(policy).capture(), items));
 			ImmersiveTowerPortals.close(player.getUuid());
 			return true;
@@ -130,14 +139,27 @@ public final class TowerRecoveryRuntime {
 		if (point.distanceSquared(player.getWorld().getRegistryKey().getValue().toString(), player.getX(), player.getY(), player.getZ()) > 36) {
 			return message(player, feedback, "Claim remaining tower items within six blocks of your recovery checkpoint.", false);
 		}
-		var remaining = new ArrayList<ItemStack>();
-		for (var stack : record.items()) {
+		var remaining = new ArrayList<NbtCompound>();
+		int unavailable = 0;
+		for (var snapshot : record.items()) {
+			var decoded = ItemStack.fromNbt(player.server.getRegistryManager(), snapshot);
+			if (decoded.isEmpty()) {
+				remaining.add(snapshot);
+				unavailable++;
+				continue;
+			}
+			var stack = decoded.get();
 			player.getInventory().insertStack(stack);
 			if (!stack.isEmpty()) {
-				remaining.add(stack);
+				// Only count changes during insertion; preserve the exact original component payload.
+				snapshot.putInt("count", stack.getCount());
+				remaining.add(snapshot);
 			}
 		}
 		data.setTowerRecovery(player.getUuid(), remaining.isEmpty() ? null : new TowerRecoveryRecord(record.ticket(), remaining));
+		if (unavailable > 0) {
+			player.sendMessage(Text.literal(unavailable + " saved stacks need unavailable/invalid item data. Restore their mods/data before retrying; snapshots remain saved."), false);
+		}
 		player.sendMessage(Text.literal(remaining.isEmpty() ? "Tower recovery complete."
 				: remaining.size() + " item stacks remain saved. Free inventory space, then use /tower recover here."), false);
 		return true;
