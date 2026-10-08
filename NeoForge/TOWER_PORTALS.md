@@ -1,5 +1,7 @@
 # Tower dimension network prototype
 
+For a generated, installable two-room development route, see `TOWER_DEMO.md`. Its separate opt-in data pack supplies the rooms and overrides the empty default catalog.
+
 The monolith is a network of authored spaces. A passage can carry players from an overworld tower into a Nether sector, through a second tower into another installed dimension, and back through an unlocked shortcut. Branches and cycles are valid; first-clear receipts gate each link. Crossing a portal never grants XP, points or completion rewards. Encounter rewards remain server-owned.
 
 This slice adds an optional Immersive Portals entity adapter, data-pack link definitions, authored protection sectors and physical lodestone activation. It does not generate towers, rooms, destination dimensions or landing platforms. The bundled network is empty so installing this code does not change an existing world. The command prototype is deliberately separate from the reserved solo-rift dimension and its recovery lifecycle.

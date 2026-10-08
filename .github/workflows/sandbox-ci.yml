@@ -36,6 +36,10 @@ jobs:
         run: python3 tools/test_rift_engine.py
       - name: Check tower network
         run: python3 tools/test_tower_engine.py
+      - name: Check generated tower demo
+        run: python3 tools/test_tower_demo.py
+      - name: Build opt-in tower data pack
+        run: python3 tools/build_tower_demo.py
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
       - name: Run common tests and build NeoForge
@@ -59,3 +63,9 @@ jobs:
             Common/build/reports/
             NeoForge/build/reports/
           if-no-files-found: ignore
+      - name: Upload opt-in tower demo
+        uses: actions/upload-artifact@v4
+        with:
+          name: tower-demo-datapack
+          path: build/tower-demo-datapack.zip
+          if-no-files-found: error
