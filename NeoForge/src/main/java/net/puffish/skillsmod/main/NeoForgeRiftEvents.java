@@ -17,6 +17,7 @@ import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.event.level.ExplosionEvent;
 import net.neoforged.neoforge.event.server.ServerStartedEvent;
+import net.neoforged.neoforge.event.server.ServerStoppingEvent;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
 import net.puffish.skillsmod.api.SkillsAPI;
 import net.puffish.skillsmod.arpg.rift.RiftRuntime;
@@ -32,6 +33,11 @@ public final class NeoForgeRiftEvents {
 	public static void started(ServerStartedEvent event) {
 		ImmersiveTowerPortals.reset();
 		RiftRuntime.recover(event.getServer());
+	}
+
+	@SubscribeEvent
+	public static void stopping(ServerStoppingEvent event) {
+		ImmersiveTowerPortals.reset();
 	}
 
 	@SubscribeEvent

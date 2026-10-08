@@ -6,8 +6,12 @@ import org.junit.jupiter.api.Test;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.Set;
+import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class TowerCatalogTest {
 	@Test
@@ -22,5 +26,33 @@ class TowerCatalogTest {
 			var definitions = new Gson().fromJson(reader, TowerData.Definitions.class);
 			assertTrue(new TowerCatalog(definitions.links(), Set.of()).links().isEmpty());
 		}
+	}
+
+	@Test
+	void providerGeometryKeepsPairInverseAndOwnerRestricted() {
+		var from = new TowerLink.Anchor("minecraft:overworld", 10.5, 66.5, 20.5);
+		var to = new TowerLink.Anchor("minecraft:the_nether", 100.5, 66.5, 200.5);
+		var link = new TowerLink("arpg:descent", from, to, 3, 3, 1, Set.of());
+		var owner = UUID.randomUUID();
+		var forward = TowerPortalNbt.create(link, owner, false);
+		var reverse = TowerPortalNbt.create(link, owner, true);
+		assertEquals(to.dimension(), forward.getString("dimensionTo"));
+		assertEquals(from.dimension(), reverse.getString("dimensionTo"));
+		assertEquals(to.x(), forward.getDouble("destinationX"));
+		assertEquals(from.x(), reverse.getDouble("destinationX"));
+		assertEquals(from.x(), forward.getList("Pos", 6).getDouble(0));
+		assertEquals(to.x(), reverse.getList("Pos", 6).getDouble(0));
+		assertEquals(1, forward.getDouble("axisWX"));
+		assertEquals(-1, reverse.getDouble("axisWX"));
+		assertEquals(1, forward.getDouble("axisHY"));
+		assertEquals(1, reverse.getDouble("axisHY"));
+		assertEquals(owner, new UUID(forward.getLong("specificPlayerMost"), forward.getLong("specificPlayerLeast")));
+		assertTrue(forward.getBoolean("teleportable"));
+		assertFalse(forward.getBoolean("interactable"));
+		assertFalse(forward.getBoolean("teleportChangesScale"));
+		assertFalse(forward.getBoolean("teleportChangesGravity"));
+		assertEquals(1, forward.getDouble("scale"));
+		assertFalse(forward.contains("commandsOnTeleported"));
+		assertThrows(IllegalArgumentException.class, () -> TowerPortalNbt.create(link, new UUID(0, 0), false));
 	}
 }

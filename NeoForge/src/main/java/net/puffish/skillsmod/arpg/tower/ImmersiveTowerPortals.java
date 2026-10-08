@@ -1,10 +1,6 @@
 package net.puffish.skillsmod.arpg.tower;
 
 import net.minecraft.entity.Entity;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtDouble;
-import net.minecraft.nbt.NbtFloat;
-import net.minecraft.nbt.NbtList;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
@@ -75,8 +71,8 @@ public final class ImmersiveTowerPortals {
 		Entity forward = null;
 		Entity reverse = null;
 		try {
-			forward = create(from, link.from(), link.to(), link, player.getUuid(), false);
-			reverse = create(to, link.to(), link.from(), link, player.getUuid(), true);
+			forward = create(from, link, player.getUuid(), false);
+			reverse = create(to, link, player.getUuid(), true);
 			if (!from.spawnEntity(forward) || !to.spawnEntity(reverse)) {
 				throw new IllegalStateException("Immersive Portals refused the authored link");
 			}
@@ -93,52 +89,15 @@ public final class ImmersiveTowerPortals {
 		}
 	}
 
-	private static Entity create(ServerWorld world, TowerLink.Anchor from, TowerLink.Anchor to,
-			TowerLink link, UUID owner, boolean reverse) {
+	private static Entity create(ServerWorld world, TowerLink link, UUID owner, boolean reverse) {
 		var entity = Registries.ENTITY_TYPE.getOrEmpty(TYPE).orElseThrow().create(world);
 		if (entity == null) {
 			throw new IllegalStateException("Missing portal entity factory");
 		}
-		// Do not serialize an uninitialized portal: its axis/destination fields are still null.
-		var data = new NbtCompound();
-		var position = new NbtList();
-		position.add(NbtDouble.of(from.x()));
-		position.add(NbtDouble.of(from.y()));
-		position.add(NbtDouble.of(from.z()));
-		data.put("Pos", position);
-		var motion = new NbtList();
-		motion.add(NbtDouble.of(0));
-		motion.add(NbtDouble.of(0));
-		motion.add(NbtDouble.of(0));
-		data.put("Motion", motion);
-		var rotation = new NbtList();
-		rotation.add(NbtFloat.of(0));
-		rotation.add(NbtFloat.of(0));
-		data.put("Rotation", rotation);
-		data.putDouble("width", link.width());
-		data.putDouble("height", link.height());
-		data.putDouble("thickness", 0);
-		vector(data, "axisW", reverse ? -1 : 1, 0, 0);
-		vector(data, "axisH", 0, 1, 0);
-		vector(data, "destination", to.x(), to.y(), to.z());
-		data.putString("dimensionTo", to.dimension());
-		data.putLong("specificPlayerMost", owner.getMostSignificantBits());
-		data.putLong("specificPlayerLeast", owner.getLeastSignificantBits());
-		data.putBoolean("teleportable", true);
-		data.putBoolean("interactable", false);
-		data.putBoolean("teleportChangesScale", false);
-		data.putBoolean("teleportChangesGravity", false);
-		data.putDouble("scale", 1);
-		data.putString("portalTag", link.id());
+		var data = TowerPortalNbt.create(link, owner, reverse);
 		entity.readNbt(data);
 		entity.addCommandTag(TAG);
 		return entity;
-	}
-
-	private static void vector(NbtCompound data, String key, double x, double y, double z) {
-		data.putDouble(key + "X", x);
-		data.putDouble(key + "Y", y);
-		data.putDouble(key + "Z", z);
 	}
 
 	/** Conservatively requires the whole seam and both landing strips to be clear, without terrain writes. */
