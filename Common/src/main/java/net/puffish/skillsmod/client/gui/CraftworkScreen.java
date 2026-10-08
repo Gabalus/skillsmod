@@ -57,6 +57,8 @@ public final class CraftworkScreen extends Screen {
 		int x = left() + 12;
 		int y = top();
 		int inner = panelWidth() - 24;
+		var study = button("Study recipes", x + inner - 90, y + 8, 90, () -> send("craftwork study"));
+		study.active = !pending;
 		button("<", x, y + 46, 24, () -> cycle(-1));
 		button(">", x + inner - 24, y + 46, 24, () -> cycle(1));
 		var start = button("Start " + shortId(selected), x + 28, y + 46, inner - 56,

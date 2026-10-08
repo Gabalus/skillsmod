@@ -7,6 +7,8 @@ import tempfile
 root = Path(__file__).resolve().parents[1]
 sources = [root / path for path in (
     "Common/src/main/java/net/puffish/skillsmod/arpg/character/ArpgCharacter.java",
+    "Common/src/main/java/net/puffish/skillsmod/arpg/progression/CompletionReceipt.java",
+    "Common/src/main/java/net/puffish/skillsmod/arpg/progression/CompletionReward.java",
     "Common/src/main/java/net/puffish/skillsmod/arpg/progression/EncounterThreat.java",
     "Common/src/main/java/net/puffish/skillsmod/arpg/progression/EncounterProgressionPolicy.java",
     "Common/src/test/java/net/puffish/skillsmod/arpg/progression/EncounterProgressionChecks.java")]

@@ -8,6 +8,7 @@ import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import net.minecraft.command.CommandSource;
+import net.minecraft.command.argument.EntityArgumentType;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
@@ -32,6 +33,14 @@ public final class ArpgAdminCommand {
 	 */
 	public static LiteralArgumentBuilder<ServerCommandSource> create() {
 		return CommandManager.literal("arpg")
+				.then(CommandManager.literal("completion")
+						.requires(source -> source.hasPermissionLevel(2))
+						.then(CommandManager.literal("grant")
+								.then(CommandManager.argument("player", EntityArgumentType.player())
+										.then(CommandManager.argument("completion", StringArgumentType.word())
+												.suggests((context, builder) -> CommandSource.suggestMatching(
+														net.puffish.skillsmod.arpg.progression.CompletionData.catalog().rewards().keySet(), builder))
+												.executes(ArpgAdminCommand::grantCompletion)))))
 				.then(CommandManager.literal("xp")
 						.requires(source -> source.hasPermissionLevel(2))
 						.then(CommandManager.literal("add")
@@ -72,6 +81,19 @@ public final class ArpgAdminCommand {
 						.then(CommandManager.literal("reset")
 								.requires(source -> source.hasPermissionLevel(2))
 								.executes(ArpgAdminCommand::resetCombat)));
+	}
+
+	private static int grantCompletion(CommandContext<ServerCommandSource> context) throws CommandSyntaxException {
+		var player = EntityArgumentType.getPlayer(context, "player");
+		var id = StringArgumentType.getString(context, "completion");
+		try {
+			boolean granted = net.puffish.skillsmod.arpg.progression.CompletionRuntime.complete(player, id);
+			context.getSource().sendFeedback(() -> Text.literal(granted ? "Completion granted: " + id : "Completion already settled: " + id), false);
+			return granted ? 1 : 0;
+		} catch (IllegalArgumentException | IllegalStateException error) {
+			context.getSource().sendError(Text.literal(error.getMessage()));
+			return 0;
+		}
 	}
 
 	private static int addExperience(CommandContext<ServerCommandSource> context) throws CommandSyntaxException {

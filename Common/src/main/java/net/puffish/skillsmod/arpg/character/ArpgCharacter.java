@@ -1,5 +1,7 @@
 package net.puffish.skillsmod.arpg.character;
 
+import net.puffish.skillsmod.arpg.progression.CompletionReward;
+import net.puffish.skillsmod.arpg.progression.CompletionReceipt;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -9,6 +11,8 @@ import java.util.Set;
 public final class ArpgCharacter {
 	public static final int MAX_LEVEL = 100;
 	public static final int MAX_TRIALS = 4;
+	public static final int MAX_PASSIVE_POINTS = 1500;
+	public static final int MAX_COMPLETIONS = 4096;
 	public static final long MAX_EXPERIENCE = 100_000_000L;
 	private static final int[] TRIAL_LEVELS = {30, 50, 70, 90};
 	private static final long KILL_XP_MULTIPLIER = 100L;
@@ -23,6 +27,9 @@ public final class ArpgCharacter {
 	private final Map<String, Integer> specializations = new HashMap<>();
 	private int corruption;
 	private int deepestDelve;
+	private int legacyPassivePoints;
+	private int legacyConfluencePoints;
+	private final Map<String, CompletionReceipt> completions = new HashMap<>();
 
 	public int level() {
 		long remaining = experience;
@@ -156,7 +163,7 @@ public final class ArpgCharacter {
 	}
 
 	public int passivePoints() {
-		return level() - 1 + (int) milestones.stream().filter(id -> id.startsWith("campaign_")).count() * 3;
+		return Math.min(MAX_PASSIVE_POINTS, legacyPassivePoints + completions.values().stream().mapToInt(CompletionReceipt::passivePoints).sum());
 	}
 
 	public int ascendancyPoints() {
@@ -164,7 +171,63 @@ public final class ArpgCharacter {
 	}
 
 	public int confluencePoints() {
-		return secondary.isEmpty() ? 0 : Math.min(12, 1 + (level() - 20) / 5);
+		return secondary.isEmpty() ? 0 : earnedConfluencePoints();
+	}
+
+	public int earnedConfluencePoints() {
+		return Math.min(12, legacyConfluencePoints + completions.values().stream().mapToInt(CompletionReceipt::confluencePoints).sum());
+	}
+
+	/** Trusted completion controllers call this; no client request can mint a receipt. */
+	public boolean awardCompletion(CompletionReward reward) {
+		if (completions.containsKey(reward.id())) {
+			return false;
+		}
+		if (completions.size() >= MAX_COMPLETIONS || primary.isEmpty() || level() < reward.minimumLevel()
+				|| !completions.keySet().containsAll(reward.prerequisites())) {
+			throw new IllegalStateException("Completion prerequisites, character level or receipt limit not met");
+		}
+		var receipt = new CompletionReceipt(reward.id(), Math.min(reward.passivePoints(), MAX_PASSIVE_POINTS - passivePoints()),
+				Math.min(reward.confluencePoints(), 12 - earnedConfluencePoints()), reward.trial(), reward.knowledge());
+		if (reward.trial() > 0) {
+			completeTrial(reward.trial());
+		}
+		completions.put(reward.id(), receipt);
+		return true;
+	}
+
+	public Map<String, CompletionReceipt> completions() {
+		return Map.copyOf(completions);
+	}
+
+	public Set<String> discoveredKnowledge() {
+		var discoveries = new HashSet<String>();
+		completions.values().forEach(receipt -> discoveries.addAll(receipt.knowledge()));
+		return Set.copyOf(discoveries);
+	}
+
+	public int legacyPassivePoints() {
+		return legacyPassivePoints;
+	}
+
+	public int legacyConfluencePoints() {
+		return legacyConfluencePoints;
+	}
+
+	/** Persistence-only restore. Legacy balances are a one-time snapshot, never a level formula. */
+	public void restoreCompletionProgress(int passive, int confluence, Map<String, CompletionReceipt> receipts) {
+		if (passive < 0 || passive > MAX_PASSIVE_POINTS || confluence < 0 || confluence > 12 || receipts.size() > MAX_COMPLETIONS) {
+			throw new IllegalArgumentException("Invalid completion progress");
+		}
+		receipts.forEach((id, receipt) -> {
+			if (!id.equals(receipt.id())) {
+				throw new IllegalArgumentException("Completion receipt key mismatch");
+			}
+		});
+		legacyPassivePoints = passive;
+		legacyConfluencePoints = confluence;
+		completions.clear();
+		completions.putAll(receipts);
 	}
 
 	public String confluence() {

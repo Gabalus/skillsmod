@@ -14,7 +14,7 @@ class ArpgExperienceTest {
 		character.setLevel(30);
 		assertEquals(30, character.level());
 		assertEquals(652_500L, character.experience());
-		assertEquals(29, character.passivePoints());
+		assertEquals(0, character.passivePoints());
 	}
 
 	@Test

@@ -34,6 +34,8 @@ public final class ArpgCommand {
 						.executes(ArpgCommand::providers))
 				.then(CommandManager.literal("progression")
 						.executes(ArpgCommand::progression))
+				.then(CommandManager.literal("completions")
+						.executes(ArpgCommand::completions))
 				.then(CommandManager.literal("combat")
 						.executes(ArpgCommand::combatStatus)
 						.then(CommandManager.literal("status")
@@ -75,6 +77,18 @@ public final class ArpgCommand {
 														.filter(skill -> "weapon".equals(skill.provider()))
 														.map(skill -> skill.id()), builder))
 										.executes(ArpgCommand::useSkill))));
+	}
+
+	private static int completions(CommandContext<ServerCommandSource> context) throws CommandSyntaxException {
+		var player = context.getSource().getPlayerOrThrow();
+		var state = ArpgProgression.character(player);
+		var pending = state.discoveredKnowledge().stream()
+				.filter(id -> !net.puffish.skillsmod.arpg.sandbox.CraftworkRuntime.state(player).knowledge().contains(id)).sorted().toList();
+		context.getSource().sendFeedback(() -> Text.literal("First clears: " + state.completions().size()
+				+ " | " + state.completions().keySet().stream().sorted().limit(16).toList()
+				+ " | earned passive=" + state.passivePoints() + " | earned confluence=" + state.earnedConfluencePoints()
+				+ " | pending discoveries=" + pending.stream().limit(16).toList() + " | use /craftwork study"), false);
+		return 1;
 	}
 
 	private static int progression(CommandContext<ServerCommandSource> context) {

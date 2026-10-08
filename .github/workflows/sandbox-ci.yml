@@ -30,6 +30,8 @@ jobs:
         run: python3 tools/test_sandbox_engine.py
       - name: Check encounter progression
         run: python3 tools/test_encounter_progression.py
+      - name: Check completion rewards
+        run: python3 tools/test_completion_rewards.py
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
       - name: Run common tests and build NeoForge

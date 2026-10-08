@@ -42,6 +42,7 @@ public final class CraftworkCommand {
 		var state = CraftworkRuntime.state(player);
 		var session = state.session();
 		return "Knowledge: " + state.knowledge() + " | Mastery: " + state.mastery()
+		+ " | Discoveries: " + net.puffish.skillsmod.arpg.character.ArpgProgression.character(player).discoveredKnowledge()
 		+ " | Item quality: " + player.getMainHandStack().getOrDefault(net.puffish.skillsmod.arpg.sandbox.CraftworkItems.QUALITY, net.puffish.skillsmod.arpg.sandbox.CraftedItemData.empty()).stages()
 		+ (session == null ? " | No active craft" : " | " + session.operation() + " step " + session.step() + " expected " + session.expected() + " process " + session.process() + " mistakes " + session.mistakes() + (session.failed() ? " FAILED: cancel" : ""));
 	}
@@ -61,6 +62,10 @@ public final class CraftworkCommand {
 		.then(CommandManager.literal("learn").requires(source -> source.hasPermissionLevel(2))
 		.then(CommandManager.argument("knowledge", StringArgumentType.word())
 		.executes(context -> run(context.getSource(), player -> CraftworkRuntime.learn(player, StringArgumentType.getString(context, "knowledge"))))))
+		.then(CommandManager.literal("study")
+		.executes(context -> run(context.getSource(), net.puffish.skillsmod.arpg.progression.CompletionRuntime::studyAvailable))
+		.then(CommandManager.argument("knowledge", StringArgumentType.word())
+		.executes(context -> run(context.getSource(), player -> net.puffish.skillsmod.arpg.progression.CompletionRuntime.study(player, StringArgumentType.getString(context, "knowledge"))))))
 		.then(CommandManager.literal("start").then(CommandManager.argument("operation", StringArgumentType.word())
 		.executes(context -> run(context.getSource(), player -> CraftworkRuntime.start(player, StringArgumentType.getString(context, "operation"))))))
 		.then(CommandManager.literal("act").then(CommandManager.argument("sequence", IntegerArgumentType.integer(0, 64))

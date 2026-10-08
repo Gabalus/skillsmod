@@ -87,11 +87,11 @@ class ArpgSystemsTest {
 		}
 		character.chooseAscendancy("juggernaut");
 		assertEquals(8, character.ascendancyPoints());
-		assertEquals(12, character.confluencePoints());
+		assertEquals(0, character.confluencePoints());
 		for (int i = 0; i < 6; i++) {
 			character.completeMilestone("campaign_" + i);
 		}
-		assertEquals(117, character.passivePoints());
+		assertEquals(0, character.passivePoints());
 		character.specialize("cleave");
 		character.gainSkillExperience("cleave", 100_000);
 		assertEquals(20, character.specializationPoints("cleave"));
