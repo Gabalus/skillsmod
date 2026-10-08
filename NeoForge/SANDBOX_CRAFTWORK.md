@@ -64,13 +64,13 @@ A perfect attempt awards 10 smithing mastery and quality 100. Inscription knowle
 
 Keep lapis in inventory for inscription. Leave at least four server ticks between actions. `/craftwork` reports expected step, process values, mistakes, mastery and held-item quality. `/craftwork cancel` abandons an attempt. Each operation can finish an item once, preventing repeated mastery farming from the same finishing stage.
 
-This is command-controlled equipment finishing. It is not yet the new blank-to-weapon production chain or the visual station UI.
+This is equipment finishing, available through commands or `/craftwork open`. Blank-to-weapon production remains future work.
 
 ## Extension points
 
 A data pack adds modules, nodes and operations using the shape of bundled `core.json`. `requiredVersions` maps mod IDs to exact supported versions; `masteryRequirements` maps mastery IDs to required values. A new operation selects a registered mechanic and a namespaced knowledge/mastery track. Integrations register their evaluator before catalog loading. Data packs cannot execute Java or inject arbitrary scoring code.
 
-External station/machine adapters must resolve ownership and inputs, call `SandboxState.requireRecipe` at server output creation, and preserve relevant `CraftedItemData` stages. A definition alone does not disable a mod's original recipes or gate its factories. New executable station bindings need compiled adapters; the prototype intentionally supports only forging and inscription on swords.
+External station/machine adapters must resolve ownership and inputs, call `SandboxState.requireRecipe` at server output creation, and preserve relevant `CraftedItemData` stages. A definition alone does not disable a mod's original recipes or gate its factories. Station bindings can select existing tags and ingredients without compiled adapters. New mechanic evaluators and external machine hooks need compiled adapters. The bundled profile supplies forging and inscription on swords.
 
 Existing sessions snapshot their sequence, mechanic ID and process state. Definitions reload atomically within the sandbox catalog. Existing player knowledge retains unknown IDs instead of being deleted when optional content disappears. Provider-version matching currently uses exact strings, not version ranges.
 
@@ -80,13 +80,13 @@ Existing sessions snapshot their sequence, mechanic ID and process state. Defini
 python3 tools/test_sandbox_engine.py
 ```
 
-47 engine checks pass using the local Java compiler, with no Minecraft dependencies. They cover locked recipes, module/version validation, prerequisite cycles, mastery gates, replay/rate rejection, failed sessions, repeated settlement, automation quality limits, distinct finishing stages, thermal quality, route closure and custom mechanic registration. All 17 changed Java sources were also checked by the Java compiler's parser; this checks syntax, not Minecraft API compatibility.
+47 engine checks pass using the local Java compiler, with no Minecraft dependencies. They cover locked recipes, module/version validation, prerequisite cycles, mastery gates, replay/rate rejection, failed sessions, repeated settlement, automation quality limits, distinct finishing stages, thermal quality, route closure and custom mechanic registration.
 
-JUnit persistence round-trip tests are included, but were not run here. The attempted Gradle compile/test command failed before project compilation because `services.gradle.org` was unreachable. This environment has Java 17; a complete NeoForge build requires Java 21. No Minecraft JAR, client smoke test or dedicated-server smoke test is claimed.
+GitHub CI uses Java 21 and the actual Minecraft/NeoForge dependencies. Both modules compile and the Common JUnit tests, including persistence round trips, pass. The workflow also checks code style, builds the NeoForge JAR, and uploads artifacts when successful. Client and dedicated-server smoke testing remain outstanding.
 
 ## Remaining integration work and limits
 
-- Compile against actual Minecraft/NeoForge dependencies, run NBT tests and perform client/dedicated-server testing.
+- Perform client and dedicated-server smoke testing, including reconnecting during a session and recovery after interruption.
 - Dedicated station interaction, recipe scroll loot/reward wiring and material blanks. The crafting screen is available through `/craftwork open`.
 - Create, MIAPI, magic and firearm adapters, including their original recipe/output gates and cross-mod quality effects.
 - Expand quality dimensions and connect wear/repair effects. Initial bounded melee/spell bonuses are now wired into ARPG action snapshots.
