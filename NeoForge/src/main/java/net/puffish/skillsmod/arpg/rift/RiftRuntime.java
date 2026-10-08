@@ -284,6 +284,14 @@ public final class RiftRuntime {
 		return false;
 	}
 
+	public static boolean mayPickup(ServerPlayerEntity player, ItemEntity item) {
+		var session = book(player.server).get(player.getUuid());
+		return session != null && (session.phase() == RiftSession.Phase.RUNNING || session.phase() == RiftSession.Phase.CLEARED)
+				&& player.getUuid().toString().equals(item.getPersistentData().getString(OWNER))
+				&& session.id().toString().equals(item.getPersistentData().getString(SESSION))
+				&& session.contains(player.getX(), player.getY(), player.getZ());
+	}
+
 	public static void recoverPlayer(ServerPlayerEntity player) {
 		var session = book(player.server).get(player.getUuid());
 		if (session != null && session.phase() == RiftSession.Phase.EXIT_PENDING && player.isAlive()) {

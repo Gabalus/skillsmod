@@ -29,6 +29,9 @@ public class ServerData extends PersistentState {
 
 	private static ServerData read(NbtCompound tag, RegistryWrapper.WrapperLookup lookup) {
 		var playersData = new ServerData();
+		if (tag.contains("rifts") && !(tag.get("rifts") instanceof NbtCompound)) {
+			throw new IllegalArgumentException("Malformed rift save");
+		}
 		playersData.rifts = RiftBookNbt.read(tag.getCompound("rifts"));
 		var loot = tag.getCompound("rift_loot");
 		if (loot.getKeys().size() > RiftBook.MAX_RECORDS) {
@@ -36,7 +39,10 @@ public class ServerData extends PersistentState {
 		}
 		for (String key : loot.getKeys()) {
 			var items = new ArrayList<ItemStack>();
-			var entries = loot.getList(key, NbtElement.COMPOUND_TYPE);
+			if (!(loot.get(key) instanceof NbtList entries)
+					|| (!entries.isEmpty() && entries.getHeldType() != NbtElement.COMPOUND_TYPE)) {
+				throw new IllegalArgumentException("Malformed rift recovery list");
+			}
 			if (entries.size() > 1024) {
 				throw new IllegalArgumentException("Too many rift recovery items");
 			}

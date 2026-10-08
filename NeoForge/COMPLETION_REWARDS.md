@@ -64,4 +64,4 @@ python3 tools/test_sandbox_engine.py
 
 47 completion checks cover replay and edited rewards, independent XP/point currencies, caps, recipe retention, prerequisite/trial gates and graph validation. Common JUnit adds receipt round trips, one-time legacy migration, bundled JSON checks, malformed receipt rejection and future-schema rejection. GitHub CI runs these with Java 21 and builds NeoForge.
 
-Actual rift/monolith construction, party contribution credit, physical recipe scrolls, completion UI beyond commands and combined-provider in-game testing remain future work. The starter completion definitions provide a reward API and development fixtures; they do not generate dungeon content.
+A bounded solo arena prototype now calls this reward API through `/rift enter arpg:first_rift` and `/rift enter arpg:rune_rift`; see [RIFT_PROTOTYPE.md](RIFT_PROTOTYPE.md). Authored dungeon rooms, the monolith, party contribution credit, physical recipe scrolls, completion UI beyond commands and combined-provider in-game testing remain future work.

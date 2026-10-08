@@ -11,6 +11,8 @@ import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDropsEvent;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
+import net.neoforged.neoforge.event.entity.player.ItemEntityPickupEvent;
+import net.neoforged.neoforge.common.util.TriState;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.event.level.ExplosionEvent;
@@ -109,6 +111,14 @@ public final class NeoForgeRiftEvents {
 			event.setCanceled(true);
 		} else if (event.getEntity() instanceof ItemEntity item && RiftRuntime.recoverItem(item, world.getServer())) {
 			event.setCanceled(true);
+		}
+	}
+
+	@SubscribeEvent(priority = EventPriority.LOWEST)
+	public static void pickup(ItemEntityPickupEvent.Pre event) {
+		if (RiftRuntime.inRifts(event.getItemEntity().getWorld())
+				&& (!(event.getPlayer() instanceof ServerPlayerEntity player) || !RiftRuntime.mayPickup(player, event.getItemEntity()))) {
+			event.setCanPickup(TriState.FALSE);
 		}
 	}
 
