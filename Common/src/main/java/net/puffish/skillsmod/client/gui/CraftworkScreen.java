@@ -62,8 +62,9 @@ public final class CraftworkScreen extends Screen {
 		var start = button("Start " + shortId(selected), x + 28, y + 46, inner - 56,
 				() -> send("craftwork start " + selected));
 		start.active = view.operation().isEmpty() && view.recipes().getOrDefault(selected, false) && !pending;
-		int count = Math.min(8, view.actions().size());
-		int columns = inner >= 300 ? 4 : 2;
+		int columns = inner >= 220 ? 4 : 3;
+		int rowsAvailable = Math.max(1, (height - 28 - (y + 150)) / 24);
+		int count = Math.min(Math.min(8, view.actions().size()), rowsAvailable * columns);
 		int buttonWidth = (inner - (columns - 1) * 4) / columns;
 		for (int i = 0; i < count; i++) {
 			String action = view.actions().get(i);
@@ -71,7 +72,7 @@ public final class CraftworkScreen extends Screen {
 					buttonWidth, () -> send("craftwork act " + view.step() + " " + action));
 			actionButton.active = !view.complete() && !view.failed() && !pending;
 		}
-		int footer = Math.max(y + 220, y + 150 + ((count + columns - 1) / columns) * 24);
+		int footer = Math.min(height - 28, Math.max(y + 220, y + 150 + ((count + columns - 1) / columns) * 24));
 		var finish = button("Finish", x, footer, (inner - 8) / 3, () -> send("craftwork finish"));
 		// Finish also supports recovery of a saved receipt on a pending item.
 		finish.active = (view.complete() || view.operation().isEmpty()) && !pending;
@@ -133,7 +134,7 @@ public final class CraftworkScreen extends Screen {
 		int x = left();
 		int y = top();
 		int inner = panelWidth() - 24;
-		context.fill(x, y, x + panelWidth(), y + 266, 0xEE151B25);
+		context.fill(x, y, x + panelWidth(), y + Math.min(266, height - 8), 0xEE151B25);
 		context.drawTextWithShadow(textRenderer, "CRAFTWORK", x + 12, y + 12, 0xE8C685);
 		context.drawTextWithShadow(textRenderer, "Smithing " + view.smithing() + "  |  Runecraft " + view.runecraft(), x + 12, y + 28, 0xC0C8D4);
 		String status = view.operation().isEmpty() ? (view.recipes().getOrDefault(selected, false) ? "Knowledge unlocked" : "Knowledge or mastery required")
@@ -142,7 +143,7 @@ public final class CraftworkScreen extends Screen {
 		if ("arpg:thermal_forge".equals(view.mechanic())) {
 			long now = client == null || client.world == null ? receivedTick : client.world.getTime();
 			int temperature = view.complete() ? 0 : (int) Math.max(0, view.temperature() - Math.max(0, now - receivedTick));
-			context.drawTextWithShadow(textRenderer, "Heat " + temperature + "  |  Draw 875 / Heavy 775 / Quench 600", x + 12, y + 96, 0xF3AB72);
+			context.drawTextWithShadow(textRenderer, textRenderer.trimToWidth("Heat " + temperature + "  |  Draw 875 / Heavy 775 / Quench 600", inner), x + 12, y + 96, 0xF3AB72);
 			context.fill(x + 12, y + 112, x + 12 + inner, y + 120, 0xFF343E4C);
 			context.fill(x + 12, y + 112, x + 12 + inner * Math.min(1000, temperature) / 1000, y + 120, 0xFFD57843);
 		} else if ("arpg:rune_route".equals(view.mechanic())) {
@@ -151,9 +152,9 @@ public final class CraftworkScreen extends Screen {
 			context.drawTextWithShadow(textRenderer, view.recipeCosts().getOrDefault(selected, "Hold your item near its crafting station"), x + 12, y + 96, 0xA6B4C7);
 		}
 		context.drawTextWithShadow(textRenderer, "Mistakes " + view.mistakes() + "  |  " + (view.failed() ? "FAILED — cancel" : "Quality is evaluated by the server"), x + 12, y + 132, 0xD2D9E4);
-		context.drawTextWithShadow(textRenderer, "Held item: Forge " + view.forgeQuality() + " / Rune " + view.runeQuality(), x + 12, y + 202, 0xC0C8D4);
+		context.drawTextWithShadow(textRenderer, "Held item: Forge " + view.forgeQuality() + " / Rune " + view.runeQuality(), x + 12, Math.min(y + 202, height - 42), 0xC0C8D4);
 		if (!message.isEmpty()) {
-			context.drawTextWithShadow(textRenderer, textRenderer.trimToWidth(message, inner), x + 12, y + 248, 0xFF8A80);
+			context.drawTextWithShadow(textRenderer, textRenderer.trimToWidth(message, inner), x + 12, y + 86, 0xFF8A80);
 		}
 		super.render(context, mouseX, mouseY, delta);
 	}

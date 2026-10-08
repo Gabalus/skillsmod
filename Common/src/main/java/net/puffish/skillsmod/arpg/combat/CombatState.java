@@ -70,6 +70,7 @@ public record CombatState(CombatPillar pillar, Map<CombatResource, ResourcePool>
 				pools.put(CombatResource.TISSUE_CONDITION, ResourcePool.full(100.0));
 				pools.put(CombatResource.INSTABILITY, ResourcePool.empty(100.0));
 			}
+			default -> throw new IllegalArgumentException("Unsupported combat pillar: " + pillar);
 		}
 		return new CombatState(pillar, pools, 0L);
 	}

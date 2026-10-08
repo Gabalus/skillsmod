@@ -25,7 +25,11 @@ public final class SandboxStateNbt {
 		tag.put("mastery", mastery);
 		var receipts = new NbtCompound();
 		state.receipts().forEach((id, quality) -> {
-			var entry = new NbtCompound(); entry.putString("operation", quality.operation()); entry.putInt("score", quality.score()); entry.putBoolean("automated", quality.automated()); receipts.put(id.toString(), entry);
+			var entry = new NbtCompound();
+			entry.putString("operation", quality.operation());
+			entry.putInt("score", quality.score());
+			entry.putBoolean("automated", quality.automated());
+			receipts.put(id.toString(), entry);
 		});
 		tag.put("receipts", receipts);
 		if (state.session() != null) {
