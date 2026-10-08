@@ -1,0 +1,74 @@
+{
+  "modules": [
+    {
+      "id": "arpg:craftwork",
+      "schema": 1,
+      "requiredVersions": {}
+    }
+  ],
+  "nodes": [
+    {
+      "id": "arpg:metalworking",
+      "module": "arpg:craftwork",
+      "prerequisites": [],
+      "masteryRequirements": {}
+    },
+    {
+      "id": "arpg:inscription",
+      "module": "arpg:craftwork",
+      "prerequisites": [
+        "arpg:metalworking"
+      ],
+      "masteryRequirements": {
+        "arpg:smithing": 10
+      }
+    }
+  ],
+  "operations": [
+    {
+      "id": "arpg:forge",
+      "module": "arpg:craftwork",
+      "knowledge": "arpg:metalworking",
+      "mastery": "arpg:smithing",
+      "sequence": [
+        "heat",
+        "draw",
+        "heavy",
+        "quench"
+      ],
+      "automatedCeiling": 60,
+      "mechanic": "arpg:thermal_forge"
+    },
+    {
+      "id": "arpg:inscribe",
+      "module": "arpg:craftwork",
+      "knowledge": "arpg:inscription",
+      "mastery": "arpg:runecraft",
+      "sequence": [
+        "north",
+        "east",
+        "south",
+        "west",
+        "seal"
+      ],
+      "automatedCeiling": 60,
+      "mechanic": "arpg:rune_route"
+    }
+  ],
+  "bindings": [
+    {
+      "operation": "arpg:forge",
+      "targetItemTag": "minecraft:swords",
+      "stationBlockTag": "minecraft:anvil",
+      "ingredientItem": "minecraft:iron_ingot",
+      "ingredientCount": 1
+    },
+    {
+      "operation": "arpg:inscribe",
+      "targetItemTag": "minecraft:swords",
+      "stationBlockTag": "minecraft:anvil",
+      "ingredientItem": "minecraft:lapis_lazuli",
+      "ingredientCount": 1
+    }
+  ]
+}

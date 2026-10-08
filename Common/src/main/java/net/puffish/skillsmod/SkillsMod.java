@@ -15,6 +15,7 @@ import net.puffish.skillsmod.api.Events;
 import net.puffish.skillsmod.api.Skill;
 import net.puffish.skillsmod.api.SkillsAPI;
 import net.puffish.skillsmod.arpg.character.ArpgProgression;
+import net.puffish.skillsmod.arpg.combat.ArpgCombatRuntime;
 import net.puffish.skillsmod.arpg.data.ArpgData;
 import net.puffish.skillsmod.arpg.item.ArpgItems;
 import net.puffish.skillsmod.api.config.ConfigContext;
@@ -55,6 +56,7 @@ import net.puffish.skillsmod.server.network.ServerPacketSender;
 import net.puffish.skillsmod.server.network.packets.in.BuyPointInPacket;
 import net.puffish.skillsmod.server.network.packets.in.SkillClickInPacket;
 import net.puffish.skillsmod.server.network.packets.out.ExchangeUpdateOutPacket;
+import net.puffish.skillsmod.server.network.packets.out.CombatStateOutPacket;
 import net.puffish.skillsmod.server.network.packets.out.ExperienceUpdateOutPacket;
 import net.puffish.skillsmod.server.network.packets.out.HideCategoryOutPacket;
 import net.puffish.skillsmod.server.network.packets.out.NewPointOutPacket;
@@ -175,6 +177,8 @@ public class SkillsMod {
 		registrar.registerOutPacket(Packets.SHOW_TOAST);
 		registrar.registerOutPacket(Packets.OPEN_SCREEN);
 		registrar.registerOutPacket(Packets.NEW_POINT);
+		registrar.registerOutPacket(Packets.COMBAT_STATE);
+		registrar.registerOutPacket(Packets.CRAFTWORK);
 
 		eventReceiver.registerListener(instance.new EventListener());
 
@@ -183,6 +187,7 @@ public class SkillsMod {
 
 		BuiltinRewards.register();
 		ArpgItems.register(registrar);
+		net.puffish.skillsmod.arpg.sandbox.CraftworkItems.register(registrar);
 		BuiltinOperations.register();
 		BuiltinExperienceSources.register();
 
@@ -1001,6 +1006,15 @@ public class SkillsMod {
 		packetSender.send(player, new OpenScreenOutPacket(categoryId));
 	}
 
+	public void syncCraftwork(ServerPlayerEntity player, boolean open, String message) {
+		packetSender.send(player, new net.puffish.skillsmod.server.network.packets.out.CraftworkOutPacket(
+				net.puffish.skillsmod.arpg.sandbox.CraftworkRuntime.view(player), open, message.length() > 512 ? message.substring(0, 512) : message));
+	}
+
+	public void syncCombatState(ServerPlayerEntity player) {
+		packetSender.send(player, new CombatStateOutPacket(ArpgCombatRuntime.state(player)));
+	}
+
 	private boolean isConfigValid() {
 		return categories.get().isPresent();
 	}
@@ -1051,6 +1065,7 @@ public class SkillsMod {
 		public void onPlayerJoin(ServerPlayerEntity player) {
 			PointsReward.cleanup(player);
 			updateAllCategories(player);
+			syncCombatState(player);
 		}
 
 		@Override

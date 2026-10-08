@@ -4,6 +4,7 @@ import net.minecraft.util.Identifier;
 import net.puffish.skillsmod.SkillsMod;
 
 public class Packets {
+	public static final Identifier CRAFTWORK = SkillsMod.createIdentifier("craftwork");
 	public static final Identifier SHOW_CATEGORY = SkillsMod.createIdentifier("show_category");
 	public static final Identifier HIDE_CATEGORY = SkillsMod.createIdentifier("hide_category");
 	public static final Identifier NEW_POINT = SkillsMod.createIdentifier("new_point");
@@ -15,4 +16,5 @@ public class Packets {
 	public static final Identifier BUY_POINT = SkillsMod.createIdentifier("buy_point");
 	public static final Identifier SHOW_TOAST = SkillsMod.createIdentifier("show_toast");
 	public static final Identifier OPEN_SCREEN = SkillsMod.createIdentifier("open_screen");
+	public static final Identifier COMBAT_STATE = SkillsMod.createIdentifier("combat_state");
 }

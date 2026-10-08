@@ -7,6 +7,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.puffish.skillsmod.SkillsMod;
 import net.puffish.skillsmod.client.data.ClientSkillScreenData;
+import net.puffish.skillsmod.client.data.ClientCombatStateData;
 import net.puffish.skillsmod.client.event.ClientEventListener;
 import net.puffish.skillsmod.client.event.ClientEventReceiver;
 import net.puffish.skillsmod.client.gui.ArpgHubScreen;
@@ -15,6 +16,7 @@ import net.puffish.skillsmod.client.gui.SkillsScreen;
 import net.puffish.skillsmod.client.keybinding.KeyBindingReceiver;
 import net.puffish.skillsmod.client.network.ClientPacketSender;
 import net.puffish.skillsmod.client.network.packets.in.ExchangeUpdateInPacket;
+import net.puffish.skillsmod.client.network.packets.in.CombatStateInPacket;
 import net.puffish.skillsmod.client.network.packets.in.ExperienceUpdateInPacket;
 import net.puffish.skillsmod.client.network.packets.in.HideCategoryInPacket;
 import net.puffish.skillsmod.client.network.packets.in.NewPointInPacket;
@@ -46,6 +48,7 @@ public class SkillsClientMod {
 	private static SkillsClientMod instance;
 
 	private final ClientSkillScreenData screenData = new ClientSkillScreenData();
+	private final ClientCombatStateData combatData = new ClientCombatStateData();
 
 	private final ClientPacketSender packetSender;
 
@@ -121,6 +124,15 @@ public class SkillsClientMod {
 				NewPointInPacket::read,
 				instance::onNewPointPacket
 		);
+
+		registrar.registerInPacket(
+				Packets.COMBAT_STATE,
+				CombatStateInPacket::read,
+				instance::onCombatState
+		);
+
+		registrar.registerInPacket(Packets.CRAFTWORK,
+				net.puffish.skillsmod.client.network.packets.in.CraftworkInPacket::read, instance::onCraftwork);
 
 		registrar.registerOutPacket(Packets.SKILL_CLICK);
 		registrar.registerOutPacket(Packets.BUY_POINT);
@@ -203,6 +215,19 @@ public class SkillsClientMod {
 		});
 	}
 
+	private void onCraftwork(net.puffish.skillsmod.client.network.packets.in.CraftworkInPacket packet) {
+		var client = MinecraftClient.getInstance();
+		if (packet.open()) {
+			client.setScreen(new net.puffish.skillsmod.client.gui.CraftworkScreen(packet.view(), packet.message()));
+		} else if (client.currentScreen instanceof net.puffish.skillsmod.client.gui.CraftworkScreen screen) {
+			screen.update(packet.view(), packet.message());
+		}
+	}
+
+	private void onCombatState(CombatStateInPacket packet) {
+		combatData.set(packet.state());
+	}
+
 	private void onOpenScreenPacket(OpenScreenInPacket packet) {
 		openScreen(packet.getCategoryId());
 	}
@@ -224,17 +249,22 @@ public class SkillsClientMod {
 	}
 
 	public void openArpgScreen() {
-		MinecraftClient.getInstance().setScreen(new ArpgHubScreen(screenData));
+		MinecraftClient.getInstance().setScreen(new ArpgHubScreen(screenData, combatData));
 	}
 
 	public ClientPacketSender getPacketSender() {
 		return packetSender;
 	}
 
+	public ClientCombatStateData getCombatData() {
+		return combatData;
+	}
+
 	private class EventListener implements ClientEventListener {
 		@Override
 		public void onPlayerJoin() {
 			screenData.clearCategories();
+			combatData.clear();
 		}
 	}
 }

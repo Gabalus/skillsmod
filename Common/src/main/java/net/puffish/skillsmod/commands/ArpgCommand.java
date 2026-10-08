@@ -11,11 +11,14 @@ import net.minecraft.text.Text;
 import net.puffish.skillsmod.SkillsMod;
 import net.puffish.skillsmod.arpg.character.ArpgCharacter;
 import net.puffish.skillsmod.arpg.character.ArpgProgression;
+import net.puffish.skillsmod.arpg.combat.ArpgCombatRuntime;
 import net.puffish.skillsmod.arpg.compat.ArpgProviderRegistry;
 import net.puffish.skillsmod.arpg.data.ArpgData;
 import net.puffish.skillsmod.arpg.skill.ArpgWeaponSkillExecutor;
 
 import java.util.Collection;
+import java.util.Locale;
+import java.util.stream.Collectors;
 
 /** Player-facing, server-authoritative ARPG character progression and development commands. */
 public final class ArpgCommand {
@@ -29,6 +32,10 @@ public final class ArpgCommand {
 						.executes(ArpgCommand::status))
 				.then(CommandManager.literal("providers")
 						.executes(ArpgCommand::providers))
+				.then(CommandManager.literal("combat")
+						.executes(ArpgCommand::combatStatus)
+						.then(CommandManager.literal("status")
+								.executes(ArpgCommand::combatStatus)))
 				.then(CommandManager.literal("choose")
 						.then(choice("primary"))
 						.then(choice("secondary"))
@@ -180,6 +187,24 @@ public final class ArpgCommand {
 					"[" + state + "] " + provider.name() + " - " + provider.role()), false);
 		}
 		return 1;
+	}
+
+	private static int combatStatus(CommandContext<ServerCommandSource> context) throws CommandSyntaxException {
+		var state = ArpgCombatRuntime.state(context.getSource().getPlayerOrThrow());
+		var resources = state.resources().entrySet().stream()
+				.map(entry -> entry.getKey().id() + "="
+						+ format(entry.getValue().current()) + "/" + format(entry.getValue().maximum()))
+				.sorted()
+				.collect(Collectors.joining(", "));
+		context.getSource().sendFeedback(() -> Text.literal(
+				"Combat pillar=" + state.pillar().id()
+						+ " | revision=" + state.revision()
+						+ " | " + resources), false);
+		return 1;
+	}
+
+	private static String format(double value) {
+		return String.format(Locale.ROOT, "%.1f", value);
 	}
 
 	private static int choose(

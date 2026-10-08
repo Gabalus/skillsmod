@@ -9,6 +9,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.puffish.skillsmod.client.SkillsClientMod;
 import net.puffish.skillsmod.client.data.ClientCategoryData;
+import net.puffish.skillsmod.client.data.ClientCombatStateData;
 import net.puffish.skillsmod.client.data.ClientSkillScreenData;
 
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * ARPG-first navigation layer over the normal Puffish Skills graph screen.
@@ -39,13 +41,15 @@ public final class ArpgHubScreen extends Screen {
 	);
 
 	private final ClientSkillScreenData data;
+	private final ClientCombatStateData combatData;
 	private TextFieldWidget search;
 	private List<SearchResult> results = List.of();
 	private int resultOffset = 0;
 
-	public ArpgHubScreen(ClientSkillScreenData data) {
+	public ArpgHubScreen(ClientSkillScreenData data, ClientCombatStateData combatData) {
 		super(Text.literal("ARPG Character"));
 		this.data = data;
+		this.combatData = combatData;
 	}
 
 	@Override
@@ -112,7 +116,7 @@ public final class ArpgHubScreen extends Screen {
 		}
 		int rows = (QUICK_LINKS.size() + columns - 1) / columns;
 		int buttonWidth = Math.max(34, (panelWidth - QUICK_BUTTON_GAP * (columns - 1)) / columns);
-		int quickTop = 49;
+		int quickTop = 59;
 		int searchTop = quickTop + rows * (QUICK_BUTTON_HEIGHT + QUICK_BUTTON_GAP) + 5;
 		int resultsTop = searchTop + 28;
 		int footerY = Math.max(resultsTop + 8, height - 28);
@@ -261,6 +265,21 @@ public final class ArpgHubScreen extends Screen {
 				width / 2,
 				32,
 				0xffa8a8a8
+		);
+		String combatSummary = combatData.get().map(state -> state.pillar().id().toUpperCase(Locale.ROOT)
+				+ " • " + state.resources().entrySet().stream()
+						.map(entry -> entry.getKey().id() + " "
+								+ Math.round(entry.getValue().current()) + "/"
+								+ Math.round(entry.getValue().maximum()))
+						.sorted()
+						.collect(Collectors.joining("  •  ")))
+				.orElse("COMBAT STATE • synchronizing…");
+		context.drawCenteredTextWithShadow(
+				textRenderer,
+				Text.literal(shorten(combatSummary, Math.max(30, layout.panelWidth() / 5))),
+				width / 2,
+				43,
+				0xffd6a64a
 		);
 
 		int visible = visibleRows();

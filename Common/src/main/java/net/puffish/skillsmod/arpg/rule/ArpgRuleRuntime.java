@@ -82,6 +82,16 @@ public final class ArpgRuleRuntime {
 		var modifiers = new ArrayList<>(ArpgPlayerStats.getModifiers(player));
 		modifiers.addAll(activeBuffModifiers(player));
 		modifiers.addAll(evaluation.modifiers());
+		var quality = net.puffish.skillsmod.arpg.sandbox.CraftQualityEffects.from(player.getMainHandStack().getOrDefault(
+				net.puffish.skillsmod.arpg.sandbox.CraftworkItems.QUALITY, net.puffish.skillsmod.arpg.sandbox.CraftedItemData.empty()));
+		if (tags.contains("melee") && tags.contains("attack")) {
+			modifiers.add(new net.puffish.skillsmod.arpg.stat.ArpgStatModifier(net.puffish.skillsmod.arpg.stat.ArpgStat.MELEE_DAMAGE,
+					net.puffish.skillsmod.arpg.stat.ArpgModifierOperation.INCREASED, quality.meleeDamage()));
+		}
+		if (tags.contains("spell")) {
+			modifiers.add(new net.puffish.skillsmod.arpg.stat.ArpgStatModifier(net.puffish.skillsmod.arpg.stat.ArpgStat.SPELL_DAMAGE,
+					net.puffish.skillsmod.arpg.stat.ArpgModifierOperation.INCREASED, quality.spellDamage()));
+		}
 		return ArpgStatCompiler.compile(ArpgDefenseSemantics.applyIronFortress(modifiers, evaluation.ironFortress()));
 	}
 
