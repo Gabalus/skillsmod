@@ -32,6 +32,8 @@ public final class ArpgCommand {
 						.executes(ArpgCommand::status))
 				.then(CommandManager.literal("providers")
 						.executes(ArpgCommand::providers))
+				.then(CommandManager.literal("progression")
+						.executes(ArpgCommand::progression))
 				.then(CommandManager.literal("combat")
 						.executes(ArpgCommand::combatStatus)
 						.then(CommandManager.literal("status")
@@ -45,8 +47,10 @@ public final class ArpgCommand {
 						.then(CommandManager.literal("status")
 								.executes(ArpgCommand::trialStatus))
 						.then(CommandManager.literal("complete")
+								.requires(source -> source.hasPermissionLevel(2))
 								.executes(ArpgCommand::completeTrial))
 						.then(CommandManager.literal("pass")
+								.requires(source -> source.hasPermissionLevel(2))
 								.executes(ArpgCommand::completeTrial)))
 				.then(CommandManager.literal("specialize")
 						.then(CommandManager.argument("skill", StringArgumentType.word())
@@ -71,6 +75,20 @@ public final class ArpgCommand {
 														.filter(skill -> "weapon".equals(skill.provider()))
 														.map(skill -> skill.id()), builder))
 										.executes(ArpgCommand::useSkill))));
+	}
+
+	private static int progression(CommandContext<ServerCommandSource> context) {
+		var policy = net.puffish.skillsmod.arpg.progression.EncounterProgressionData.policy();
+		context.getSource().sendFeedback(() -> Text.literal("Encounter XP: dimensions=" + policy.expeditionDimensions()
+				+ " | server markers=arpg:encounter, arpg:world_boss"
+				+ " | Apotheosis world bosses=" + policy.allowApotheosisWorldBosses()
+				+ " | XP cap=" + policy.maxKillExperience()), false);
+		context.getSource().sendFeedback(() -> Text.literal("Threat bonuses (additive): L2 level " + policy.l2PercentPerLevel()
+				+ "% (cap " + policy.maxL2Level() + "), trait rank " + policy.traitPercentPerRank()
+				+ "% (cap " + policy.maxTraitRanks() + "), Apotheosis spawn tier " + policy.apotheosisPercentPerTier()
+				+ "% (cap " + policy.maxApotheosisTier() + "), elite " + policy.elitePercent()
+				+ "%, invader " + policy.invaderPercent() + "%"), false);
+		return 1;
 	}
 
 	private static LiteralArgumentBuilder<ServerCommandSource> choice(String choice) {
@@ -109,6 +127,7 @@ public final class ArpgCommand {
 
 		context.getSource().sendFeedback(() -> Text.literal(
 				"ARPG level " + state.level()
+						+ " | XP=" + state.experience()
 						+ " | primary=" + primary
 						+ " | secondary=" + secondary
 						+ " | ascendancy=" + ascendancy), false);
@@ -140,7 +159,7 @@ public final class ArpgCommand {
 		} else if (state.level() < requiredLevel) {
 			readiness = "requires ARPG level " + requiredLevel;
 		} else {
-			readiness = "READY - use /arpg trial complete";
+			readiness = "READY - complete an authored trial (operator reward prototype)";
 		}
 		context.getSource().sendFeedback(() -> Text.literal(
 				"Ascendancy Trials: " + state.completedTrials() + "/" + ArpgCharacter.MAX_TRIALS

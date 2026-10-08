@@ -28,6 +28,8 @@ jobs:
           java-version: '21'
       - name: Check pure sandbox engine
         run: python3 tools/test_sandbox_engine.py
+      - name: Check encounter progression
+        run: python3 tools/test_encounter_progression.py
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
       - name: Run common tests and build NeoForge

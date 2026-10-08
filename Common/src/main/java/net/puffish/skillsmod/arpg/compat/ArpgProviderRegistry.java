@@ -14,8 +14,8 @@ public final class ArpgProviderRegistry {
 	private static final List<Definition> DEFINITIONS = List.of(
 			new Definition("irons_spellbooks", "Iron's Spells 'n Spellbooks", "spell execution/content"),
 			new Definition("bettercombat", "Better Combat", "basic melee/animation substrate"),
-			new Definition("apotheosis", "Apotheosis", "affix/gem/item substrate"),
-			new Definition("l2hostility", "L2 Hostility", "elite/monster trait substrate"),
+			new Definition("apotheosis", "Apotheosis", "world tiers/elites and affix/gem/item substrate"),
+			new Definition("l2hostility", "L2 Hostility", "monster levels/traits and encounter rewards"),
 			new Definition("l2artifacts", "L2 Artifacts", "artifact/set-effect substrate"),
 			new Definition("celestial_artifacts", "Celestial Artifacts", "curio/unique-effect substrate")
 	);
