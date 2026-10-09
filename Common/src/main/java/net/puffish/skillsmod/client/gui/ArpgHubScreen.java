@@ -2,6 +2,7 @@ package net.puffish.skillsmod.client.gui;
 
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.gui.screen.ChatScreen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.screen.ScreenTexts;
@@ -37,7 +38,8 @@ public final class ArpgHubScreen extends Screen {
 			new QuickLink("Ascendancy", "arpg_asc_", true),
 			new QuickLink("Confluence", "arpg_confluence_", true),
 			new QuickLink("Skills", "arpg_skill_", true),
-			new QuickLink("Atlas", "arpg_atlas", false)
+			new QuickLink("Atlas", "arpg_atlas", false),
+			new QuickLink("Towers", "", false)
 	);
 
 	private final ClientSkillScreenData data;
@@ -54,6 +56,7 @@ public final class ArpgHubScreen extends Screen {
 
 	@Override
 	protected void init() {
+		String previousSearch = search == null ? "" : search.getText();
 		var layout = layout();
 		for (int i = 0; i < QUICK_LINKS.size(); i++) {
 			var link = QUICK_LINKS.get(i);
@@ -81,6 +84,7 @@ public final class ArpgHubScreen extends Screen {
 			resultOffset = 0;
 			refreshResults();
 		});
+		search.setText(previousSearch);
 		addDrawableChild(search);
 		setInitialFocus(search);
 		refreshResults();
@@ -90,12 +94,20 @@ public final class ArpgHubScreen extends Screen {
 		var category = findCategory(link.path(), link.prefix());
 		var button = ButtonWidget.builder(
 				Text.literal(link.label()),
-				ignored -> findCategory(link.path(), link.prefix())
-						.ifPresent(categoryData -> open(categoryData, Optional.empty()))
+				ignored -> {
+					if (link.path().isEmpty()) {
+						if (client != null && client.getNetworkHandler() != null) {
+							client.getNetworkHandler().sendChatCommand("tower");
+							client.setScreen(new ChatScreen(""));
+						}
+					} else {
+						findCategory(link.path(), link.prefix()).ifPresent(categoryData -> open(categoryData, Optional.empty()));
+					}
+				}
 		)
 				.dimensions(x, y, Math.max(34, width), QUICK_BUTTON_HEIGHT)
 				.build();
-		button.active = category.isPresent();
+		button.active = link.path().isEmpty() || category.isPresent();
 		addDrawableChild(button);
 	}
 

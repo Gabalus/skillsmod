@@ -42,15 +42,40 @@ public final class ImmersiveTowerPortals {
 		return server.getWorld(RegistryKey.of(RegistryKeys.WORLD, Identifier.of(anchor.dimension())));
 	}
 
-	private static boolean eligible(ServerPlayerEntity player, TowerLink link) {
+	/** Same gate explanation for the player menu and the authoritative portal checks. */
+	public static String blockedReason(ServerPlayerEntity player, TowerLink link) {
+		if (!player.isAlive()) {
+			return "Respawn before opening a passage.";
+		}
+		if (player.isCreative() || player.isSpectator()) {
+			return "Switch to survival or adventure mode.";
+		}
+		if (RiftRuntime.inRifts(player.getWorld()) || RiftRuntime.book(player.server).get(player.getUuid()) != null) {
+			return "Finish or leave your rift first.";
+		}
+		if (!TowerRecoveryRuntime.mayTravel(player)) {
+			return "Recover your saved tower items first.";
+		}
 		var character = ArpgProgression.character(player);
-		return CompletionData.catalog().rewards().keySet().containsAll(link.prerequisites())
-				&& link.eligible(character.level(), character.completions().keySet(),
-						RiftRuntime.book(player.server).get(player.getUuid()) != null,
-						player.isAlive(), !player.isCreative() && !player.isSpectator())
-				&& !RiftRuntime.inRifts(player.getWorld())
-				&& TowerPuzzleRuntime.solved(player, link.id())
-				&& TowerRecoveryRuntime.mayTravel(player);
+		if (character.level() < link.minimumLevel()) {
+			return "Reach level " + link.minimumLevel() + " (current: " + character.level() + ").";
+		}
+		for (var prerequisite : link.prerequisites().stream().sorted().toList()) {
+			if (!CompletionData.catalog().rewards().containsKey(prerequisite)) {
+				return "This passage needs an unavailable completion; ask an operator to check its configuration.";
+			}
+			if (!character.completions().containsKey(prerequisite)) {
+				return "Complete " + TowerMenu.friendlyName(prerequisite) + " first.";
+			}
+		}
+		if (!TowerPuzzleRuntime.solved(player, link.id())) {
+			return "Solve the room's relay puzzle first.";
+		}
+		return null;
+	}
+
+	private static boolean eligible(ServerPlayerEntity player, TowerLink link) {
+		return blockedReason(player, link) == null;
 	}
 
 	public static void open(ServerPlayerEntity player, String id) {
@@ -58,9 +83,12 @@ public final class ImmersiveTowerPortals {
 			throw new IllegalStateException("Install Immersive Portals for NeoForge on server and clients; no teleport fallback is used");
 		}
 		var link = TowerData.catalog().link(id);
-		if (!eligible(player, link) || !link.nearby(player.getWorld().getRegistryKey().getValue().toString(),
-				player.getX(), player.getY(), player.getZ(), 8)) {
-			throw new IllegalStateException("Resolve pending tower recovery, solve this passage's puzzle, meet its first-clear gates and stand within eight blocks of an anchor");
+		var reason = blockedReason(player, link);
+		if (reason != null) {
+			throw new IllegalStateException(reason);
+		}
+		if (!link.nearby(player.getWorld().getRegistryKey().getValue().toString(), player.getX(), player.getY(), player.getZ(), 8)) {
+			throw new IllegalStateException("Move within eight blocks of this passage's lodestone.");
 		}
 		if (!PAIRS.containsKey(player.getUuid()) && PAIRS.size() >= MAX_PAIRS) {
 			throw new IllegalStateException("Tower portal capacity reached; try again later");

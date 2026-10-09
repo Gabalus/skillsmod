@@ -94,3 +94,11 @@ Right-click the marker with the main hand or use `/tower leave` within three blo
 Departure searches up to 81 columns in a four-block radius around overworld spawn, testing nine local heights and at most one loaded surface-height candidate per column. Landing checks use the same standing-clearance rules as checkpoint recovery and exclude protected tower space. Missing/blocked/unloaded landings fail without moving the player. Successful departure closes the personal portal pair, clears fall distance and preserves game mode. It does not create terrain, force-load chunks, grant rewards, consume items or serve as a combat-room escape command; access is limited to the authored marker.
 
 These exits complete the demo's return-to-sandbox loop. They are explicit departure actions; seamless travel between tower dimensions still uses Immersive Portals. Nearby enemies, modded hazards, spawn/teleport hooks and actual client/server behavior require a smoke test.
+
+### Player navigation
+
+The character hub's **Towers** button opens chat and requests `/tower`. Players can also use `/tower` or `/tower status` directly; press T to click the chat actions. The menu shows up to eight passages within eight blocks, with readable names, a specific progression/puzzle/recovery lock reason, and an **Open passage** action when the player meets those gates. Terrain safety and portal capacity are checked when opening; readiness in this menu does not guarantee those runtime conditions.
+
+**Recover items** appears while recovery is pending. **Leave tower** appears near a unique exit marker; otherwise the menu explains where to stand. **Refresh** and **Close passage** are always available. Clicking an action executes the ordinary server command and rechecks current state. This is a chat navigation menu, not a dedicated graphical tower screen. The hub also preserves search text across window resize.
+
+Manual client checks still required: verify chat hover/click actions, the Towers button at supported GUI scales, changing a gate between refresh and click, exit proximity, recovery with a full inventory, and operation without Immersive Portals.

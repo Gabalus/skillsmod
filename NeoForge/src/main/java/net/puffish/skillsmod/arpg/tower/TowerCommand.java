@@ -14,12 +14,8 @@ public final class TowerCommand {
 
 	public static LiteralArgumentBuilder<ServerCommandSource> create() {
 		return CommandManager.literal("tower")
-				.then(CommandManager.literal("status").executes(context -> {
-					context.getSource().sendFeedback(() -> Text.literal("Immersive Portals: " + ImmersiveTowerPortals.available()
-							+ " | authored links: " + TowerData.catalog().links().keySet()
-							+ " | protected sectors: " + TowerData.protection().size()), false);
-					return 1;
-				}))
+				.executes(context -> TowerMenu.show(context.getSource().getPlayerOrThrow()))
+				.then(CommandManager.literal("status").executes(context -> TowerMenu.show(context.getSource().getPlayerOrThrow())))
 				.then(CommandManager.literal("leave").executes(context -> {
 					try {
 						var player = context.getSource().getPlayerOrThrow();
@@ -35,6 +31,7 @@ public final class TowerCommand {
 					TowerRecoveryRuntime.recover(context.getSource().getPlayerOrThrow(), true) ? 1 : 0))
 				.then(CommandManager.literal("close").executes(context -> {
 					ImmersiveTowerPortals.close(context.getSource().getPlayerOrThrow().getUuid());
+					context.getSource().sendFeedback(() -> Text.literal("Your tower passage is closed."), false);
 					return 1;
 				}))
 				.then(CommandManager.literal("open").then(CommandManager.argument("link", IdentifierArgumentType.identifier())
