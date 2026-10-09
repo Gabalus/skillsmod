@@ -208,6 +208,10 @@ public final class TowerEngineChecks {
 		}) == null);
 		check(calls[0] == 810 && calls[1] == 81);
 		check(TowerLandingSearch.find(0, 65, 0, point -> point.x() == 5, (x, z) -> Integer.MIN_VALUE) == null);
+		var combatGate = new TowerLink("arpg:sanctum", from, to, 3, 3, 1, Set.of("arpg:first_rift", "arpg:tower_sentinel"));
+		check(!combatGate.eligible(1, Set.of("arpg:first_rift"), false, true, true));
+		check(!combatGate.eligible(1, Set.of("arpg:first_rift", "arpg:first_world_boss"), false, true, true));
+		check(combatGate.eligible(1, Set.of("arpg:first_rift", "arpg:tower_sentinel"), false, true, true));
 		System.out.println("Tower network checks passed: " + checks);
 	}
 }

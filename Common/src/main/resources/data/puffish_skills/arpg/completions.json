@@ -39,6 +39,18 @@
       "knowledge": []
     },
     {
+      "id": "arpg:tower_sentinel",
+      "type": "world_boss",
+      "minimumLevel": 1,
+      "passivePoints": 0,
+      "confluencePoints": 0,
+      "trial": 0,
+      "prerequisites": [
+        "arpg:first_rift"
+      ],
+      "knowledge": []
+    },
+    {
       "id": "arpg:trial_1",
       "type": "trial",
       "minimumLevel": 30,

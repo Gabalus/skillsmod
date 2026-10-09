@@ -91,6 +91,20 @@ public final class CompletionRewardChecks {
 		lowLevel.awardCompletion(catalog.reward("arpg:first_rift"));
 		expectFailure(() -> lowLevel.awardCompletion(catalog.reward("arpg:trial_1")));
 		check(lowLevel.completedTrials() == 0 && lowLevel.completions().size() == 1, "Trial level failure cannot partially settle");
+		var towerPlayer = new ArpgCharacter();
+		towerPlayer.choosePrimary("warrior");
+		expectFailure(() -> towerPlayer.awardCompletion(catalog.reward("arpg:tower_sentinel")));
+		check(towerPlayer.completions().isEmpty(), "Sentinel prerequisite failure retains no receipt");
+		towerPlayer.awardCompletion(catalog.reward("arpg:first_rift"));
+		towerPlayer.awardCompletion(catalog.reward("arpg:first_world_boss"));
+		check(!towerPlayer.completions().containsKey("arpg:tower_sentinel"), "Unrelated world boss cannot unlock sanctum");
+		int passiveBefore = towerPlayer.passivePoints();
+		int confluenceBefore = towerPlayer.earnedConfluencePoints();
+		check(towerPlayer.awardCompletion(catalog.reward("arpg:tower_sentinel")), "Dedicated sentinel first clear creates receipt");
+		check(towerPlayer.completions().containsKey("arpg:tower_sentinel"), "Passage can read the dedicated receipt");
+		check(towerPlayer.passivePoints() == passiveBefore && towerPlayer.earnedConfluencePoints() == confluenceBefore,
+				"Sentinel unlock cannot repay prior boss currencies");
+		check(!towerPlayer.awardCompletion(catalog.reward("arpg:tower_sentinel")), "Sentinel replay cannot settle twice");
 		System.out.println("Completion rewards: " + checks + " checks passed");
 	}
 

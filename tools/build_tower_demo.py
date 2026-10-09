@@ -8,7 +8,7 @@ import zipfile
 NAMESPACE = "puffish_skills"
 STORAGE = f"{NAMESPACE}:tower_demo"
 BASE = f"{NAMESPACE}:tower_demo"
-WORLDS = (f"{NAMESPACE}:tower_demo_entry", f"{NAMESPACE}:tower_demo_depth")
+WORLDS = (f"{NAMESPACE}:tower_demo_entry", f"{NAMESPACE}:tower_demo_depth", f"{NAMESPACE}:tower_demo_sanctum")
 MIN, MAX, FLOOR, CEILING = 93, 107, 64, 80
 RELAYS = [(96, "minecraft:copper_block"), (100, "minecraft:amethyst_block"), (104, "minecraft:gold_block")]
 
@@ -21,10 +21,14 @@ def exit_commands():
     return [f"execute in {WORLDS[0]} run setblock 100 {FLOOR} 106 minecraft:crying_obsidian"]
 
 
+def passage_commands():
+    return [f"execute in {WORLDS[1]} run setblock 100 {FLOOR} 104 minecraft:lodestone"]
+
+
 def room_stages():
     """One slice per tick across both dimensions; at most 225 block writes per slice."""
     stages = []
-    for world, material in zip(WORLDS, ("minecraft:stone_bricks", "minecraft:polished_blackstone_bricks")):
+    for world, material in zip(WORLDS, ("minecraft:stone_bricks", "minecraft:polished_blackstone_bricks", "minecraft:quartz_block")):
         for y in range(FLOOR, CEILING + 1):
             if y in (FLOOR, CEILING):
                 commands = [f"execute in {world} run fill {MIN} {y} {MIN} {MAX} {y} {MAX} {material}"]
@@ -42,7 +46,7 @@ def room_stages():
         fixtures.append(f"execute in {world} run setblock 100 {FLOOR} 100 minecraft:lodestone")
         for x, z in ((95, 95), (95, 105), (105, 95), (105, 105)):
             fixtures.append(f"execute in {world} run setblock {x} {FLOOR} {z} minecraft:sea_lantern")
-    stages.append(fixtures + relay_commands() + exit_commands())
+    stages.append(fixtures + relay_commands() + exit_commands() + passage_commands())
     return stages
 
 
@@ -56,7 +60,7 @@ def pack_files():
     def function(name, lines):
         files[f"data/{NAMESPACE}/function/tower_demo/{name}.mcfunction"] = "\n".join(lines) + "\n"
 
-    json_file("pack.mcmeta", {"pack": {"pack_format": 48, "description": "Monolith: opt-in two-dimension tower demo"}})
+    json_file("pack.mcmeta", {"pack": {"pack_format": 48, "description": "Monolith: opt-in three-dimension tower demo"}})
     root = Path(__file__).resolve().parents[1]
     dim_type = json.loads((root / "Common/src/main/resources/data/puffish_skills/dimension_type/rifts.json").read_text())
     json_file(f"data/{NAMESPACE}/dimension_type/tower_demo.json", dim_type)
@@ -71,11 +75,15 @@ def pack_files():
     json_file(f"data/{NAMESPACE}/arpg/tower_links.json", {
         "schema": 1,
         "links": [{"id": "arpg:tower_demo_descent", "from": anchors[0], "to": anchors[1],
-                   "width": 3, "height": 3, "minimumLevel": 1, "prerequisites": ["arpg:first_rift"]}],
+                   "width": 3, "height": 3, "minimumLevel": 1, "prerequisites": ["arpg:first_rift"]},
+                  {"id": "arpg:tower_demo_sanctum",
+                   "from": {"dimension": WORLDS[1], "x": 100.5, "y": 66.5, "z": 104.5}, "to": anchors[2],
+                   "width": 3, "height": 3, "minimumLevel": 1,
+                   "prerequisites": ["arpg:first_rift", "arpg:tower_sentinel"]}],
         "exits": [{"id": "arpg:tower_demo_exit", "marker": {"dimension": WORLDS[0],
                    "x": 100, "y": FLOOR, "z": 106, "block": "minecraft:crying_obsidian"}}],
         "recovery": [{"id": "arpg:tower_demo_recovery",
-                      "sectors": ["arpg:tower_demo_0", "arpg:tower_demo_1"],
+                      "sectors": [f"arpg:tower_demo_{index}" for index in range(len(WORLDS))],
                       "checkpoint": {"dimension": WORLDS[0], "x": 100.5, "y": 65, "z": 104.5}}],
         "puzzles": [{"id": "arpg:tower_demo_relays", "link": "arpg:tower_demo_descent",
                      "sequence": [{"dimension": WORLDS[0], "x": x, "y": FLOOR, "z": 104, "block": block}
@@ -85,6 +93,7 @@ def pack_files():
                     for index, world in enumerate(WORLDS)],
     })
     function("build", [
+        f"execute unless data storage {STORAGE} {{building:1b}} if data storage {STORAGE} {{ready:1b}} unless data storage {STORAGE} {{layout:2}} run function {BASE}/start_upgrade",
         f"execute unless data storage {STORAGE} {{building:1b}} unless data storage {STORAGE} {{ready:1b}} run function {BASE}/start",
         f"execute if data storage {STORAGE} {{building:1b}} run schedule function {BASE}/tick 1t replace",
     ])
@@ -94,6 +103,13 @@ def pack_files():
         f"data modify storage {STORAGE} ready set value 0b",
         f"data modify storage {STORAGE} stage set value 0",
         'tellraw @a {"text":"Tower demo construction started in dedicated dimensions.","color":"aqua"}',
+    ])
+    function("start_upgrade", [
+        *[f"execute in {world} run forceload add {MIN} {MIN} {MAX} {MAX}" for world in WORLDS],
+        f"data modify storage {STORAGE} building set value 1b",
+        f"data modify storage {STORAGE} ready set value 0b",
+        f"data modify storage {STORAGE} stage set value {(CEILING - FLOOR + 1) * 2}",
+        'tellraw @a {"text":"Upgrading tower demo: adding the sanctum and restoring authored fixtures.","color":"aqua"}',
     ])
     loaded = []
     for world in WORLDS:
@@ -113,11 +129,13 @@ def pack_files():
         f"function {BASE}/spawn_sentinel",
         f"data modify storage {STORAGE} building set value 0b",
         f"data modify storage {STORAGE} ready set value 1b",
+        f"data modify storage {STORAGE} layout set value 2",
         f"schedule clear {BASE}/tick",
         'tellraw @a {"text":"Tower demo ready. Operators can use /function puffish_skills:tower_demo/visit.","color":"green"}',
     ])
     function("restore_relays", relay_commands())
     function("restore_exit", exit_commands())
+    function("restore_passage", passage_commands())
     function("visit", [
         f'execute if data storage {STORAGE} {{ready:1b}} run tellraw @s {{"text":"Relay clue: copper, amethyst, gold. Right-click the floor relays in order, then the centre lodestone. Crying obsidian near the entry wall exits to the sandbox.","color":"aqua"}}',
         f"execute if data storage {STORAGE} {{ready:1b}} in {WORLDS[0]} run tp @s 100.5 65 104.5 180 0",
@@ -129,11 +147,16 @@ def pack_files():
     ])
     function("spawn_sentinel", [
         f"execute in {WORLDS[1]} unless entity @e[type=minecraft:husk,tag=puffish_skills:tower_demo_sentinel] run function {BASE}/create_sentinel",
+        f"function {BASE}/retag_sentinel",
+    ])
+    function("retag_sentinel", [
+        f"execute in {WORLDS[1]} run tag @e[type=minecraft:husk,tag=puffish_skills:tower_demo_sentinel] remove arpg:completion=arpg:first_world_boss",
+        f"execute in {WORLDS[1]} run tag @e[type=minecraft:husk,tag=puffish_skills:tower_demo_sentinel] add arpg:completion=arpg:tower_sentinel",
     ])
     function("create_sentinel", [
         f"execute in {WORLDS[1]} run summon minecraft:husk 104.5 65 98.5 "
         + "{PersistenceRequired:1b,CustomName:'{\"text\":\"Tower Sentinel\"}',CustomNameVisible:1b,"
-        + "Tags:[\"puffish_skills:tower_demo_sentinel\",\"arpg:encounter\",\"arpg:world_boss\",\"arpg:completion=arpg:first_world_boss\"]}",
+        + "Tags:[\"puffish_skills:tower_demo_sentinel\",\"arpg:encounter\",\"arpg:world_boss\",\"arpg:completion=arpg:tower_sentinel\"]}",
         f"execute in {WORLDS[1]} run attribute @e[type=minecraft:husk,tag=puffish_skills:tower_demo_sentinel,limit=1] minecraft:generic.max_health base set 120",
         f"execute in {WORLDS[1]} run attribute @e[type=minecraft:husk,tag=puffish_skills:tower_demo_sentinel,limit=1] minecraft:generic.attack_damage base set 7",
         f"execute in {WORLDS[1]} run data merge entity @e[type=minecraft:husk,tag=puffish_skills:tower_demo_sentinel,limit=1] {{Health:120.0f}}",

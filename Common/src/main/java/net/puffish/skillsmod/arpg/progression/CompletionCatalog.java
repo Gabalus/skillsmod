@@ -73,6 +73,7 @@ public final class CompletionCatalog {
 				new CompletionReward("arpg:first_rift", "rift", 1, 1, 0, 0, Set.of(), Set.of("arpg:metalworking")),
 				new CompletionReward("arpg:rune_rift", "rift", 1, 1, 0, 0, Set.of("arpg:first_rift"), Set.of("arpg:inscription")),
 				new CompletionReward("arpg:first_world_boss", "world_boss", 1, 2, 1, 0, Set.of(), Set.of()),
+				new CompletionReward("arpg:tower_sentinel", "world_boss", 1, 0, 0, 0, Set.of("arpg:first_rift"), Set.of()),
 				new CompletionReward("arpg:trial_1", "trial", 30, 0, 0, 1, Set.of("arpg:first_rift"), Set.of()),
 				new CompletionReward("arpg:trial_2", "trial", 50, 0, 0, 2, Set.of("arpg:trial_1"), Set.of()),
 				new CompletionReward("arpg:trial_3", "trial", 70, 0, 0, 3, Set.of("arpg:trial_2"), Set.of()),

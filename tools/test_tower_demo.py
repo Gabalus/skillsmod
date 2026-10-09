@@ -33,8 +33,8 @@ class TowerDemoTest(unittest.TestCase):
     def test_write_budget_is_global_across_both_rooms(self):
         for stage in room_stages():
             self.assertLessEqual(len(writes(stage)), 256)
-            self.assertLessEqual(len(set(world for world, *_ in writes(stage))), 2)
-        self.assertEqual(35, len(room_stages()))
+            self.assertLessEqual(len(set(world for world, *_ in writes(stage))), len(WORLDS))
+        self.assertEqual(52, len(room_stages()))
 
     def test_completed_rooms_enclose_walkable_interiors_and_portal_landing_strips(self):
         blocks = {}
@@ -63,12 +63,12 @@ class TowerDemoTest(unittest.TestCase):
         data = json.loads(pack_files()["data/puffish_skills/arpg/tower_links.json"])
         link = data["links"][0]
         self.assertEqual(["arpg:first_rift"], link["prerequisites"])
-        self.assertEqual(list(WORLDS), [link["from"]["dimension"], link["to"]["dimension"]])
+        self.assertEqual(list(WORLDS[:2]), [link["from"]["dimension"], link["to"]["dimension"]])
         for anchor, sector in zip((link["from"], link["to"]), data["sectors"]):
             self.assertEqual(anchor["dimension"], sector["dimension"])
             for axis in ("X", "Y", "Z"):
                 self.assertTrue(sector["min" + axis] <= anchor[axis.lower()] < sector["max" + axis] + 1)
-        self.assertEqual({WORLDS[0], WORLDS[1]}, {s["dimension"] for s in data["sectors"]})
+        self.assertEqual(set(WORLDS), {s["dimension"] for s in data["sectors"]})
 
     def test_puzzle_relays_match_constructed_blocks_and_remain_off_the_landing_strip(self):
         files = pack_files()
@@ -114,8 +114,8 @@ class TowerDemoTest(unittest.TestCase):
         files = pack_files()
         dispatch = files["data/puffish_skills/function/tower_demo/dispatch.mcfunction"]
         order = [int(value) for value in re.findall(r"\{stage:(\d+)\}", dispatch)]
-        self.assertEqual(list(reversed(range(35))), order)
-        for initial in range(35):
+        self.assertEqual(list(reversed(range(len(room_stages())))), order)
+        for initial in range(len(room_stages())):
             current = initial
             called = []
             for candidate in order:
@@ -133,7 +133,7 @@ class TowerDemoTest(unittest.TestCase):
             self.assertIn(f"execute in {world} run forceload add 93 93 107 107", start)
             self.assertIn(f"execute in {world} run forceload remove 93 93 107 107", release)
         tick = files["data/puffish_skills/function/tower_demo/tick.mcfunction"]
-        self.assertEqual(8, tick.count("if loaded "))
+        self.assertEqual(12, tick.count("if loaded "))
         self.assertIn("schedule clear " + BASE + "/tick", release)
         self.assertIn("schedule clear " + BASE + "/tick", files["data/puffish_skills/function/tower_demo/finish.mcfunction"])
 
@@ -152,13 +152,50 @@ class TowerDemoTest(unittest.TestCase):
     def test_sentinel_uses_authoritative_completion_marker_and_duplicate_guard(self):
         files = pack_files()
         create = files["data/puffish_skills/function/tower_demo/create_sentinel.mcfunction"]
-        self.assertIn("arpg:completion=arpg:first_world_boss", create)
+        self.assertIn("arpg:completion=arpg:tower_sentinel", create)
         self.assertIn("arpg:encounter", create)
         self.assertNotIn("completion grant", create)
         self.assertNotIn("give ", create)
         self.assertIn("unless entity", files["data/puffish_skills/function/tower_demo/spawn_sentinel.mcfunction"])
         self.assertIn("120.0f", create)
         self.assertIn(f"function {BASE}/spawn_sentinel", files["data/puffish_skills/function/tower_demo/finish.mcfunction"])
+
+    def test_sanctum_gate_matches_the_dedicated_zero_currency_completion(self):
+        files = pack_files()
+        data = json.loads(files["data/puffish_skills/arpg/tower_links.json"])
+        gate = data["links"][1]
+        self.assertEqual(["arpg:first_rift", "arpg:tower_sentinel"], gate["prerequisites"])
+        self.assertEqual([WORLDS[1], WORLDS[2]], [gate["from"]["dimension"], gate["to"]["dimension"]])
+        self.assertNotEqual(data["links"][0]["to"], gate["from"])
+        blocks = {(world, x, y, z): block for stage in room_stages()
+                  for world, x, y, z, block in writes(stage)}
+        for anchor in (gate["from"], gate["to"]):
+            x, y, z = int(anchor["x"]), 64, int(anchor["z"])
+            self.assertEqual("minecraft:lodestone", blocks[anchor["dimension"], x, y, z])
+            for dx in (-1, 0, 1):
+                for dz in (-1, 0, 1):
+                    for dy in (1, 2, 3):
+                        self.assertEqual("minecraft:air", blocks[anchor["dimension"], x + dx, y + dy, z + dz])
+        root = Path(__file__).resolve().parents[1]
+        rewards = json.loads((root / "Common/src/main/resources/data/puffish_skills/arpg/completions.json").read_text())["rewards"]
+        reward = next(value for value in rewards if value["id"] == "arpg:tower_sentinel")
+        self.assertEqual(["arpg:first_rift"], reward["prerequisites"])
+        self.assertEqual((0, 0), (reward["passivePoints"], reward["confluencePoints"]))
+        retag = files["data/puffish_skills/function/tower_demo/retag_sentinel.mcfunction"]
+        self.assertIn("remove arpg:completion=arpg:first_world_boss", retag)
+        self.assertIn("add arpg:completion=arpg:tower_sentinel", retag)
+
+    def test_finished_legacy_rooms_upgrade_only_new_room_layers_and_fixtures(self):
+        files = pack_files()
+        upgrade = files["data/puffish_skills/function/tower_demo/start_upgrade.mcfunction"]
+        self.assertIn("stage set value 34", upgrade)
+        stages = room_stages()
+        self.assertEqual({WORLDS[2]}, {world for stage in stages[34:-1] for world, *_ in writes(stage)})
+        self.assertEqual(17, len(stages[34:-1]))
+        self.assertIn("unless data storage", files["data/puffish_skills/function/tower_demo/build.mcfunction"])
+        self.assertIn("{layout:2}", files["data/puffish_skills/function/tower_demo/build.mcfunction"])
+        self.assertIn("layout set value 2", files["data/puffish_skills/function/tower_demo/finish.mcfunction"])
+        self.assertIn("function " + BASE + "/retag_sentinel", files["data/puffish_skills/function/tower_demo/spawn_sentinel.mcfunction"])
 
     def test_void_dimension_contract_and_archive_root(self):
         files = pack_files()
