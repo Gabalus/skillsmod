@@ -39,9 +39,11 @@ Launch it with:
 ./gradlew :NeoForge:runServer -Parpg_irons_runtime=true
 ```
 
-## Full ARPG provider profile
+## Legacy full ARPG provider profile
 
-Enable the complete convenience-provider stack with:
+This existing convenience profile includes Better Combat and is not the intended Epic Fight combat stack. The enemy/boss moveset core is now Epic Fight; see [EPIC_FIGHT_INTEGRATION.md](EPIC_FIGHT_INTEGRATION.md). Runtime dependency replacement and combined-mod validation remain pending.
+
+Enable the legacy convenience-provider stack with:
 
 ```bash
 ./gradlew :NeoForge:verifyArpgFullRuntime -Parpg_full_runtime=true
@@ -89,7 +91,7 @@ The first implemented gameplay slice is Martial guard resolution:
 - An unaffordable guard or a full posture meter produces a guard break.
 - Recovery rates differ in and out of combat.
 
-These rules are pure Java and provider-independent. Better Combat, Epic Fight or another action provider should translate its timing event into `MartialCombatSemantics.GuardTiming` and apply the returned result on the logical server.
+These rules are pure Java and provider-independent. The intended modpack uses Epic Fight as its action and enemy/boss moveset provider. An Epic Fight adapter must translate guard outcomes into the ARPG rules on the logical server without applying damage or resource costs twice. That bridge is not implemented yet; the current adapter below handles vanilla shields.
 
 Combat state is stored in each player's persistent `PlayerData` under a versioned `combat` compound. Existing saves without that compound migrate from their primary discipline (or to Martial when no primary is selected). Choosing a built-in primary discipline selects its default grammar: Warrior/Rogue/Templar use Martial, Ranger uses Hunter, and Arcanist/Shaman use Arcane. Explicit pillar changes reset the target pillar to its canonical meters, so stamina or mana cannot leak between grammars.
 
