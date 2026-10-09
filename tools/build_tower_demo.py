@@ -146,20 +146,20 @@ def pack_files():
         f"execute if data storage {STORAGE} {{building:1b}} run schedule function {BASE}/tick 1t replace",
     ])
     function("spawn_sentinel", [
-        f"execute in {WORLDS[1]} unless entity @e[type=minecraft:husk,tag=puffish_skills:tower_demo_sentinel] run function {BASE}/create_sentinel",
+        f"execute in {WORLDS[1]} unless entity @e[type=minecraft:husk,tag=puffish_skills:tower_demo_sentinel] unless entity @e[type=puffish_skills:tower_sentinel,tag=puffish_skills:tower_demo_sentinel] run function {BASE}/create_sentinel",
         f"function {BASE}/retag_sentinel",
     ])
     function("retag_sentinel", [
-        f"execute in {WORLDS[1]} run tag @e[type=minecraft:husk,tag=puffish_skills:tower_demo_sentinel] remove arpg:completion=arpg:first_world_boss",
-        f"execute in {WORLDS[1]} run tag @e[type=minecraft:husk,tag=puffish_skills:tower_demo_sentinel] add arpg:completion=arpg:tower_sentinel",
+        f"execute in {WORLDS[1]} run tag @e[tag=puffish_skills:tower_demo_sentinel] remove arpg:completion=arpg:first_world_boss",
+        f"execute in {WORLDS[1]} run tag @e[tag=puffish_skills:tower_demo_sentinel] add arpg:completion=arpg:tower_sentinel",
     ])
     function("create_sentinel", [
-        f"execute in {WORLDS[1]} run summon minecraft:husk 104.5 65 98.5 "
+        f"execute in {WORLDS[1]} run summon puffish_skills:tower_sentinel 104.5 65 98.5 "
         + "{PersistenceRequired:1b,CustomName:'{\"text\":\"Tower Sentinel\"}',CustomNameVisible:1b,"
         + "Tags:[\"puffish_skills:tower_demo_sentinel\",\"arpg:encounter\",\"arpg:world_boss\",\"arpg:completion=arpg:tower_sentinel\"]}",
-        f"execute in {WORLDS[1]} run attribute @e[type=minecraft:husk,tag=puffish_skills:tower_demo_sentinel,limit=1] minecraft:generic.max_health base set 120",
-        f"execute in {WORLDS[1]} run attribute @e[type=minecraft:husk,tag=puffish_skills:tower_demo_sentinel,limit=1] minecraft:generic.attack_damage base set 7",
-        f"execute in {WORLDS[1]} run data merge entity @e[type=minecraft:husk,tag=puffish_skills:tower_demo_sentinel,limit=1] {{Health:120.0f}}",
+        f"execute in {WORLDS[1]} run attribute @e[type=puffish_skills:tower_sentinel,tag=puffish_skills:tower_demo_sentinel,limit=1] minecraft:generic.max_health base set 120",
+        f"execute in {WORLDS[1]} run attribute @e[type=puffish_skills:tower_sentinel,tag=puffish_skills:tower_demo_sentinel,limit=1] minecraft:generic.attack_damage base set 7",
+        f"execute in {WORLDS[1]} run data merge entity @e[type=puffish_skills:tower_sentinel,tag=puffish_skills:tower_demo_sentinel,limit=1] {{Health:120.0f}}",
     ])
     function("release_chunks", [
         f"schedule clear {BASE}/tick",

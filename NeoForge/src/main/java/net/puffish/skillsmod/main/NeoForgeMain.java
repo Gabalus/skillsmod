@@ -56,6 +56,7 @@ public class NeoForgeMain {
 	private final List<Consumer<PayloadRegistrar>> payloadRegistrations = new ArrayList<>();
 
 	public NeoForgeMain(IEventBus modEventBus, Dist dist) {
+		net.puffish.skillsmod.arpg.tower.TowerEntities.register(modEventBus);
 		if (dist.isClient()) {
 			new NeoForgeClientMain(modEventBus);
 		}

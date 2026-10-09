@@ -41,7 +41,7 @@ Launch it with:
 
 ## Legacy full ARPG provider profile
 
-This existing convenience profile includes Better Combat and is not the intended Epic Fight combat stack. The enemy/boss moveset core is now Epic Fight; see [EPIC_FIGHT_INTEGRATION.md](EPIC_FIGHT_INTEGRATION.md). Runtime dependency replacement and combined-mod validation remain pending.
+This existing convenience profile includes Better Combat and is not the intended Epic Fight combat stack. The enemy/boss moveset core is now Epic Fight; see [EPIC_FIGHT_INTEGRATION.md](EPIC_FIGHT_INTEGRATION.md). Enable `-Parpg_epic_runtime=true` to substitute the pinned Epic Fight runtime and NeoForge 21.1.219. Dependency/asset resolution is checked separately; combined-mod gameplay validation remains pending.
 
 Enable the legacy convenience-provider stack with:
 

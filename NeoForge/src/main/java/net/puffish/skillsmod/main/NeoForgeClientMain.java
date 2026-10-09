@@ -48,10 +48,16 @@ public class NeoForgeClientMain {
 		);
 
 		modEventBus.addListener(this::onRegisterPayloadHandler);
+		modEventBus.addListener(this::onRegisterEntityRenderers);
 
 		var neoForgeEventBus = NeoForge.EVENT_BUS;
 		neoForgeEventBus.addListener(this::onPlayerLoggedIn);
 		neoForgeEventBus.addListener(this::onInputKey);
+	}
+
+	private void onRegisterEntityRenderers(net.neoforged.neoforge.client.event.EntityRenderersEvent.RegisterRenderers event) {
+		event.registerEntityRenderer(net.puffish.skillsmod.arpg.tower.TowerEntities.SENTINEL.get(),
+				net.minecraft.client.render.entity.HuskEntityRenderer::new);
 	}
 
 	private void onPlayerLoggedIn(ClientPlayerNetworkEvent.LoggingIn event) {

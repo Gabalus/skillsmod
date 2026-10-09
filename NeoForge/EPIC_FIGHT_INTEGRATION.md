@@ -4,7 +4,7 @@
 
 Epic Fight is the core for authored enemy and boss movesets on NeoForge 1.21.1. It is also the intended Martial action provider. The base ARPG module may still load without external providers for development, but an encounter advertised as an Epic Fight encounter requires the validated Epic Fight runtime. GeckoLib is not the moveset foundation for these enemies; its presence in the Iron's Spells dependency family does not change that decision.
 
-The existing full runtime profile still installs Better Combat. Treat it as a legacy convenience profile until a pinned Epic Fight profile replaces that selection. Do not combine both providers for the same melee action pipeline by default. No runtime dependency or combat adapter has been changed by this design update.
+The existing full runtime profile still installs Better Combat. Treat it as a legacy convenience profile when `arpg_epic_runtime` is disabled. Enabling that flag selects Epic Fight instead of Better Combat. Do not combine both providers for the same melee action pipeline by default. The profile and first data patch below are now implemented. The Martial guard/resource bridge remains pending.
 
 ## Ownership
 
@@ -27,16 +27,32 @@ Design each attack around a visible wind-up, an active hit phase and a recovery 
 
 ## First conversion: tower Sentinel
 
-The current Sentinel is a tagged vanilla husk with adjusted attributes and a dedicated completion receipt. It has no authored custom moveset. Preserve the receipt's first-clear and replay behavior when replacing the entity.
+New demo Sentinels use `puffish_skills:tower_sentinel`, a dedicated registry type backed by the husk entity class, with 120 health and 7 base attack damage. Its own Epic Fight mob patch selects a single strike (weight 60, cooldown 40 ticks), a two-hit sequence (weight 30, cooldown 60 ticks) or a three-hit sequence (weight 10, cooldown 100 ticks). All use existing Epic Fight zombie animations, eye-height/range conditions up to 2.2 blocks, non-looping interruptible series and one target per strike. Cooldowns apply per series, not as a guaranteed global rest window. Custom sweep/slam/charge assets and boss phases are not implemented.
 
-1. Pin and resolve a NeoForge 1.21.1 Epic Fight release and its dependencies in a separate runtime profile, excluding Better Combat.
-2. Register a dedicated Sentinel entity and matching Epic Fight patch; confirm idle, chase, hit and death behavior before custom attacks.
+The vanilla client renderer and explicit rotten-flesh loot table allow development without Epic Fight. In that case the entity retains vanilla husk behavior; it is not an Epic Fight encounter. The existing first-clear receipt remains unchanged. Living legacy husks are retained and block duplicate spawning; after their death, `/spawn_sentinel` creates the new type. Restart with the updated JAR before installing the updated demo pack. Replacing the pack alone cannot register the entity.
+
+1. Implemented: pinned Epic Fight 21.17.3.1 and NeoForge 21.1.219 profile with Better Combat excluded. Dependency/asset resolution is checked in CI.
+2. Implemented: dedicated Sentinel entity type, attributes, fallback renderer, loot table and matching Epic Fight data patch. Confirm idle, chase, hit and death behavior in game before custom attacks.
 3. Implement a sweep, slam and charge with readable telegraphs and punishable recovery. These are planned attacks, not existing animation registry entries.
 4. Add one deliberate phase transition only after the base attacks work reliably.
 5. Connect Martial guard/resource semantics without duplicate stamina costs, damage or stun resolution.
 6. Validate solo and party fights, attack collision/timing, death/interrupt/reset behavior, reconnects, first-clear rewards and tower unlocks with the actual modpack.
 
 Other combat pillars retain their distinct gun, bow and spell loops. Their attacks need compatibility with Epic Fight-patched enemies, including damage attribution and hit reactions; they are not automatically converted into melee combos.
+
+## Runtime commands and checks
+
+Use the isolated combat profile first:
+
+```bash
+./gradlew :NeoForge:verifyArpgEpicRuntime -Parpg_epic_runtime=true
+./gradlew :NeoForge:runClient -Parpg_epic_runtime=true
+./gradlew :NeoForge:runServer -Parpg_epic_runtime=true
+```
+
+Add `-Parpg_full_runtime=true` to include the remaining full provider family while substituting Epic Fight for Better Combat. That combined modpack still requires smoke testing. The isolated profile does not install Iron's runtime stack. Both profiles keep the normal build's external providers optional.
+
+The pinned artifact is `maven.modrinth:vu3NZ5Ma:8HHhJt6i`. Runtime verification resolves it, excludes Better Combat, checks fourteen model/animation resources used by the patch and writes `NeoForge/build/reports/epic-fight-runtime.txt` with the actual JAR metadata. Asset presence and dependency resolution do not prove animation registration, data-pack parsing, collision behavior or startup compatibility. CI compiles the loader code through the normal NeoForge build; an in-game client/server test remains required.
 
 ## Primary references
 

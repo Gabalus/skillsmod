@@ -1,3 +1,5 @@
+import java.util.zip.ZipFile
+
 plugins {
 	id("dev.architectury.loom")
 	id("checkstyle")
@@ -9,6 +11,11 @@ val arpgIronsRuntime = providers.gradleProperty("arpg_irons_runtime")
 val arpgFullRuntime = providers.gradleProperty("arpg_full_runtime")
 	.map(String::toBoolean)
 	.orElse(false)
+
+val arpgEpicRuntime = providers.gradleProperty("arpg_epic_runtime")
+	.map(String::toBoolean)
+	.orElse(false)
+val epicFightCoordinate = "maven.modrinth:vu3NZ5Ma:8HHhJt6i"
 
 repositories {
 	maven(url = "https://maven.neoforged.net/releases/")
@@ -42,7 +49,7 @@ dependencies {
 		mappings("dev.architectury:yarn-mappings-patch-neoforge:${project.properties["yarn_mappings_patch"]}")
 	})
 
-	neoForge("net.neoforged:neoforge:${project.properties["neoforge_version"]}")
+	neoForge("net.neoforged:neoforge:${if (arpgEpicRuntime.get()) "21.1.219" else project.properties["neoforge_version"]}")
 
 	implementation(project(path = ":Common", configuration = "namedElements"))
 
@@ -58,11 +65,18 @@ dependencies {
 		add("modRuntimeOnly", "maven.modrinth:9nfaJPtX:sQyzhxuH")
 	}
 
-	if (arpgFullRuntime.get()) {
+	if (arpgEpicRuntime.get()) {
+		add("modRuntimeOnly", epicFightCoordinate)
+	}
+
+	if (arpgFullRuntime.get() && !arpgEpicRuntime.get()) {
 		// Better Combat 2.4.0 + Cloth Config. playerAnimator is already supplied by the Iron's profile.
 		add("modRuntimeOnly", "maven.modrinth:5sy6g3kz:VhIOvcXP")
 		add("modRuntimeOnly", "maven.modrinth:9s6osm5g:izKINKFg")
 
+	}
+
+	if (arpgFullRuntime.get()) {
 		// Apotheosis 8.7.0 and all required 1.21.1 modules. Modrinth Maven does not resolve mod dependencies transitively.
 		add("modRuntimeOnly", "maven.modrinth:rqFWfVlz:wB4eASdJ")
 		add("modRuntimeOnly", "maven.modrinth:tCkE8p2N:nU7CXkMr")
@@ -121,6 +135,36 @@ tasks.register("verifyArpgFullRuntime") {
 			"Full ARPG runtime resolved only ${resolvedFiles.size} files; expected provider mods and their required libraries."
 		}
 		logger.lifecycle("Resolved ${resolvedFiles.size} full ARPG provider runtime files.")
+	}
+}
+
+tasks.register("verifyArpgEpicRuntime") {
+	group = "verification"
+	description = "Resolves the Epic Fight 21.17.3.1 / NeoForge 21.1.219 profile and checks its Sentinel assets."
+
+	doLast {
+		check(arpgEpicRuntime.get()) { "Run with -Parpg_epic_runtime=true." }
+		val configuration = configurations.getByName("modRuntimeOnly")
+		val artifacts = configuration.resolvedConfiguration.resolvedArtifacts
+		check(artifacts.none { it.moduleVersion.id.name == "5sy6g3kz" || it.moduleVersion.id.name == "better-combat" }) {
+			"Epic Fight profile must not include Better Combat."
+		}
+		val epic = artifacts.single { it.moduleVersion.id.name == "vu3NZ5Ma" && it.moduleVersion.id.version == "8HHhJt6i" }
+		val report = layout.buildDirectory.file("reports/epic-fight-runtime.txt").get().asFile
+		report.parentFile.mkdirs()
+		ZipFile(epic.file).use { jar ->
+			val metadata = jar.getEntry("META-INF/neoforge.mods.toml") ?: error("Epic Fight NeoForge metadata missing")
+			val text = jar.getInputStream(metadata).bufferedReader().use { it.readText() }
+			check(text.contains("epicfight")) { "Unexpected Epic Fight artifact metadata" }
+			val assets = listOf("entity/biped", "entity/biped_old_texture",
+					"animations/zombie/attack1", "animations/zombie/attack2", "animations/zombie/attack3",
+					"animations/biped/living/idle", "animations/biped/living/walk", "animations/biped/living/death",
+					"animations/biped/living/fall", "animations/biped/living/mount", "animations/biped/living/landing",
+					"animations/biped/combat/hit_short", "animations/biped/combat/hit_long", "animations/biped/combat/knockdown")
+			assets.forEach { asset -> check(jar.getEntry("assets/epicfight/animmodels/$asset.json") != null) { "Missing Sentinel asset: $asset" } }
+			report.writeText("Epic Fight: $epicFightCoordinate\nNeoForge: 21.1.219\nBetter Combat: excluded\nAssets checked: ${assets.size}\n\n$text")
+		}
+		logger.lifecycle("Epic Fight runtime and Sentinel assets verified. Report: $report")
 	}
 }
 

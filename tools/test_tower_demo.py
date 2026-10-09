@@ -154,6 +154,10 @@ class TowerDemoTest(unittest.TestCase):
         create = files["data/puffish_skills/function/tower_demo/create_sentinel.mcfunction"]
         self.assertIn("arpg:completion=arpg:tower_sentinel", create)
         self.assertIn("arpg:encounter", create)
+        self.assertIn("summon puffish_skills:tower_sentinel", create)
+        spawn = files["data/puffish_skills/function/tower_demo/spawn_sentinel.mcfunction"]
+        self.assertIn("unless entity @e[type=minecraft:husk,", spawn)
+        self.assertIn("unless entity @e[type=puffish_skills:tower_sentinel,", spawn)
         self.assertNotIn("completion grant", create)
         self.assertNotIn("give ", create)
         self.assertIn("unless entity", files["data/puffish_skills/function/tower_demo/spawn_sentinel.mcfunction"])

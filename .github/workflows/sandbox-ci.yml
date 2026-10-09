@@ -46,6 +46,8 @@ jobs:
         run: |
           chmod +x gradlew
           ./gradlew :Common:test :NeoForge:build --stacktrace
+      - name: Resolve Epic Fight runtime and Sentinel assets
+        run: ./gradlew :NeoForge:verifyArpgEpicRuntime -Parpg_epic_runtime=true --stacktrace
       - name: Upload NeoForge JAR
         uses: actions/upload-artifact@v4
         with:

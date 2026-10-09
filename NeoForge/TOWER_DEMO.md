@@ -40,3 +40,9 @@ python3 tools/build_tower_demo.py
 The output is `build/tower-demo-datapack.zip`. CI uploads it separately from the mod JAR. The generator uses Minecraft 1.21 data-pack format 48 and singular `function` folders. Its deterministic ZIP puts `pack.mcmeta` at the root.
 
 Automated tests reconstruct the finished rooms and verify enclosure, spawn/landing clearance, dimension isolation, per-stage write budgets, dispatcher behavior, chunk-ticket scope, function references, progression markers, provider-independent catalog definitions and reproducible packaging. These are structural/tooling tests, not a Minecraft command-parser or in-game certification. Minecraft function parsing, dimension registration, the sentinel, actual room creation, portal rendering, combat, checkpoint return, keepInventory/grave-mod interactions, death/reconnect and mod compatibility still need a client/dedicated-server smoke test. See `TOWER_PORTALS.md` for the event-protection limits.
+
+## Epic Fight Sentinel
+
+The updated demo spawns `puffish_skills:tower_sentinel`, a separate husk-backed entity type registered by the mod JAR. Install the updated JAR and restart before using this pack version. Enable the Epic Fight profile described in `EPIC_FIGHT_INTEGRATION.md` for its three attack sequences. The patch affects only this entity type. Without Epic Fight it retains vanilla husk behavior for development. Custom sweep/slam/charge animations and phases remain pending.
+
+A living legacy tagged husk blocks new spawning and keeps its existing behavior. After it dies, `/function puffish_skills:tower_demo/spawn_sentinel` creates the dedicated type. No living entity is deleted or converted during an upgrade. Retagging preserves the dedicated completion receipt; replay cannot pay it again. The new entity has an explicit rotten-flesh loot table.

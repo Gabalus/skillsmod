@@ -95,7 +95,7 @@ GitHub CI uses Java 21 and the actual Minecraft/NeoForge dependencies. Both modu
 - Minecraft administrators can still bypass knowledge with commands/creative access. Unknown future sandbox save schemas fail explicitly rather than being silently reset.
 - Commands and provider discovery are currently wired for NeoForge; the shared pure engine and persistence are loader-neutral, but the Fabric command adapter is not implemented.
 
-The existing full provider profile still includes Better Combat. This change does not select or install Epic Fight, Create, MIAPI or the gun mods. Use a separately reviewed modpack profile when assembling the intended Epic Fight stack.
+The legacy full provider profile includes Better Combat. Add `-Parpg_epic_runtime=true` to select the pinned Epic Fight profile instead; see `EPIC_FIGHT_INTEGRATION.md`. Create, MIAPI and the gun mods still need separate adapters and modpack validation.
 
 ## Crafting screen and data-driven finishing
 
