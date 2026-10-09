@@ -1,13 +1,11 @@
 package net.puffish.skillsmod.arpg.tower;
 
-import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
@@ -123,7 +121,7 @@ public final class TowerRecoveryRuntime {
 		var point = record.ticket().checkpoint();
 		var world = player.server.getWorld(RegistryKey.of(RegistryKeys.WORLD, Identifier.of(point.dimension())));
 		var feet = BlockPos.ofFloored(point.x(), point.y(), point.z());
-		if (!safe(world, feet)) {
+		if (!TowerSafeLanding.safe(world, feet)) {
 			return message(player, feedback, "Tower checkpoint is missing, unloaded, obstructed or unsafe. Items remain saved; ask an operator to restore it.", false);
 		}
 		if (record.ticket().phase() == TowerRecoveryTicket.Phase.RETURN_PENDING) {
@@ -163,14 +161,6 @@ public final class TowerRecoveryRuntime {
 		player.sendMessage(Text.literal(remaining.isEmpty() ? "Tower recovery complete."
 				: remaining.size() + " item stacks remain saved. Free inventory space, then use /tower recover here."), false);
 		return true;
-	}
-
-	private static boolean safe(ServerWorld world, BlockPos feet) {
-		return world != null && !RiftRuntime.inRifts(world) && feet.getY() > world.getBottomY() && feet.getY() + 1 < world.getTopY()
-				&& world.isChunkLoaded(feet) && world.getWorldBorder().contains(feet) && world.getWorldBorder().contains(feet.up())
-				&& world.getBlockState(feet).isAir() && world.getBlockState(feet.up()).isAir()
-				&& world.getBlockState(feet.down()).isFullCube(world, feet.down())
-				&& world.getBlockState(feet.down()).getFluidState().isEmpty() && !world.getBlockState(feet.down()).isOf(Blocks.MAGMA_BLOCK);
 	}
 
 	private static boolean message(ServerPlayerEntity player, boolean feedback, String text, boolean result) {

@@ -179,6 +179,35 @@ public final class TowerEngineChecks {
 		check(claimable.respawn() == claimable);
 		rejectState(claimable::returned);
 		check(ticket.respawn().returned().phase() == TowerRecoveryTicket.Phase.CLAIMABLE);
+		var exit = new TowerExit("arpg:exit", new TowerPuzzle.Relay("minecraft:overworld", 0, 64, 8, "minecraft:crying_obsidian"));
+		var exits = new TowerExitCatalog(List.of(exit), protection, puzzles);
+		check(exits.at("minecraft:overworld", 0, 64, 8).equals(exit));
+		check(exits.at("minecraft:the_end", 0, 64, 8) == null);
+		check(exit.nearby("minecraft:overworld", .5, 65, 11.5));
+		check(!exit.nearby("minecraft:overworld", .5, 65, 11.6));
+		check(!exit.nearby("minecraft:overworld", Double.NaN, 65, 8.5));
+		rejects(() -> new TowerExit("arpg:bad", copper));
+		rejects(() -> new TowerExitCatalog(List.of(exit, exit), protection, puzzles));
+		rejects(() -> new TowerExitCatalog(List.of(exit), new TowerProtection(List.of(), network), puzzles));
+		var relayExit = new TowerExit("arpg:relay", new TowerPuzzle.Relay(copper.dimension(), copper.x(), copper.y(), copper.z(), "minecraft:crying_obsidian"));
+		rejects(() -> new TowerExitCatalog(List.of(relayExit), protection, puzzles));
+		var anchorExit = new TowerExit("arpg:anchor", new TowerPuzzle.Relay("minecraft:overworld", 0, 64, 0, "minecraft:crying_obsidian"));
+		rejects(() -> new TowerExitCatalog(List.of(anchorExit), protection, puzzles));
+		var overlappingExit = new TowerExit("arpg:other_exit", new TowerPuzzle.Relay("minecraft:overworld", 1, 64, 8, "minecraft:crying_obsidian"));
+		var ambiguousExits = new TowerExitCatalog(List.of(exit, overlappingExit), protection, puzzles);
+		rejectState(() -> ambiguousExits.nearby("minecraft:overworld", .5, 65, 8.5));
+		check(TowerLandingSearch.find(0, 65, 0, point -> point.y() == 65, (x, z) -> 80).equals(new TowerLandingSearch.Point(0, 65, 0)));
+		check(TowerLandingSearch.find(0, 65, 0, point -> point.y() == 90, (x, z) -> 90).equals(new TowerLandingSearch.Point(0, 90, 0)));
+		var calls = new int[2];
+		check(TowerLandingSearch.find(0, 65, 0, point -> {
+			calls[0]++;
+			return false;
+		}, (x, z) -> {
+			calls[1]++;
+			return 90;
+		}) == null);
+		check(calls[0] == 810 && calls[1] == 81);
+		check(TowerLandingSearch.find(0, 65, 0, point -> point.x() == 5, (x, z) -> Integer.MIN_VALUE) == null);
 		System.out.println("Tower network checks passed: " + checks);
 	}
 }

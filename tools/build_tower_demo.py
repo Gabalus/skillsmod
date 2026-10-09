@@ -17,6 +17,10 @@ def relay_commands():
     return [f"execute in {WORLDS[0]} run setblock {x} {FLOOR} 104 {block}" for x, block in RELAYS]
 
 
+def exit_commands():
+    return [f"execute in {WORLDS[0]} run setblock 100 {FLOOR} 106 minecraft:crying_obsidian"]
+
+
 def room_stages():
     """One slice per tick across both dimensions; at most 225 block writes per slice."""
     stages = []
@@ -38,7 +42,7 @@ def room_stages():
         fixtures.append(f"execute in {world} run setblock 100 {FLOOR} 100 minecraft:lodestone")
         for x, z in ((95, 95), (95, 105), (105, 95), (105, 105)):
             fixtures.append(f"execute in {world} run setblock {x} {FLOOR} {z} minecraft:sea_lantern")
-    stages.append(fixtures + relay_commands())
+    stages.append(fixtures + relay_commands() + exit_commands())
     return stages
 
 
@@ -68,6 +72,8 @@ def pack_files():
         "schema": 1,
         "links": [{"id": "arpg:tower_demo_descent", "from": anchors[0], "to": anchors[1],
                    "width": 3, "height": 3, "minimumLevel": 1, "prerequisites": ["arpg:first_rift"]}],
+        "exits": [{"id": "arpg:tower_demo_exit", "marker": {"dimension": WORLDS[0],
+                   "x": 100, "y": FLOOR, "z": 106, "block": "minecraft:crying_obsidian"}}],
         "recovery": [{"id": "arpg:tower_demo_recovery",
                       "sectors": ["arpg:tower_demo_0", "arpg:tower_demo_1"],
                       "checkpoint": {"dimension": WORLDS[0], "x": 100.5, "y": 65, "z": 104.5}}],
@@ -111,8 +117,9 @@ def pack_files():
         'tellraw @a {"text":"Tower demo ready. Operators can use /function puffish_skills:tower_demo/visit.","color":"green"}',
     ])
     function("restore_relays", relay_commands())
+    function("restore_exit", exit_commands())
     function("visit", [
-        f'execute if data storage {STORAGE} {{ready:1b}} run tellraw @s {{"text":"Relay clue: copper, amethyst, gold. Right-click the floor relays in order, then the centre lodestone.","color":"aqua"}}',
+        f'execute if data storage {STORAGE} {{ready:1b}} run tellraw @s {{"text":"Relay clue: copper, amethyst, gold. Right-click the floor relays in order, then the centre lodestone. Crying obsidian near the entry wall exits to the sandbox.","color":"aqua"}}',
         f"execute if data storage {STORAGE} {{ready:1b}} in {WORLDS[0]} run tp @s 100.5 65 104.5 180 0",
         f'execute unless data storage {STORAGE} {{ready:1b}} run tellraw @s {{"text":"Build the demo rooms first.","color":"red"}}',
     ])

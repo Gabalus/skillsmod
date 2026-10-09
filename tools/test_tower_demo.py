@@ -98,6 +98,18 @@ class TowerDemoTest(unittest.TestCase):
         self.assertEqual("minecraft:air", blocks[WORLDS[0], 100, 66, 104])
         self.assertNotEqual("minecraft:air", blocks[WORLDS[0], 100, 64, 104])
 
+    def test_exit_marker_is_built_in_entry_room_and_can_be_restored(self):
+        files = pack_files()
+        exit = json.loads(files["data/puffish_skills/arpg/tower_links.json"])["exits"][0]
+        marker = exit["marker"]
+        self.assertEqual(WORLDS[0], marker["dimension"])
+        self.assertEqual((100, 64, 106), (marker["x"], marker["y"], marker["z"]))
+        blocks = {(world, x, y, z): block for stage in room_stages()
+                  for world, x, y, z, block in writes(stage)}
+        self.assertEqual("minecraft:crying_obsidian", blocks[WORLDS[0], 100, 64, 106])
+        self.assertEqual("minecraft:air", blocks[WORLDS[0], 100, 65, 106])
+        self.assertIn("100 64 106 minecraft:crying_obsidian", files["data/puffish_skills/function/tower_demo/restore_exit.mcfunction"])
+
     def test_dispatch_cannot_cascade_multiple_stages_in_one_tick(self):
         files = pack_files()
         dispatch = files["data/puffish_skills/function/tower_demo/dispatch.mcfunction"]

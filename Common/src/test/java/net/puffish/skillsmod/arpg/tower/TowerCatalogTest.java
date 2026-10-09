@@ -35,6 +35,7 @@ class TowerCatalogTest {
 		assertEquals(null, definitions.sectors());
 		assertEquals(null, definitions.puzzles());
 		assertEquals(null, definitions.recovery());
+		assertEquals(null, definitions.exits());
 		assertTrue(new TowerCatalog(definitions.links(), Set.of()).links().isEmpty());
 	}
 

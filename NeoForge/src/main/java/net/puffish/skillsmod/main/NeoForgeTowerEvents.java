@@ -17,6 +17,7 @@ import net.neoforged.neoforge.event.level.PistonEvent;
 import net.puffish.skillsmod.api.SkillsAPI;
 import net.puffish.skillsmod.arpg.tower.ImmersiveTowerPortals;
 import net.puffish.skillsmod.arpg.tower.TowerData;
+import net.puffish.skillsmod.arpg.tower.TowerExitRuntime;
 import net.puffish.skillsmod.arpg.tower.TowerPuzzleRuntime;
 
 /** Public authored-sector protection and physical server-owned portal activation. */
@@ -87,6 +88,11 @@ public final class NeoForgeTowerEvents {
 		}
 		try {
 			var pos = event.getPos();
+			var exit = TowerData.exits().at(world.getRegistryKey().getValue().toString(), pos.getX(), pos.getY(), pos.getZ());
+			if (exit != null) {
+				TowerExitRuntime.leave(player, exit);
+				return;
+			}
 			if (TowerPuzzleRuntime.press(player, pos) || !world.getBlockState(pos).isOf(Blocks.LODESTONE)) {
 				return;
 			}
