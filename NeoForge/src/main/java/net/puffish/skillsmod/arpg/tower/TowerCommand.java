@@ -20,6 +20,17 @@ public final class TowerCommand {
 							+ " | protected sectors: " + TowerData.protection().size()), false);
 					return 1;
 				}))
+				.then(CommandManager.literal("leave").executes(context -> {
+					try {
+						var player = context.getSource().getPlayerOrThrow();
+						TowerExitRuntime.leave(player, TowerData.exits().nearby(player.getWorld().getRegistryKey().getValue().toString(),
+								player.getX(), player.getY(), player.getZ()));
+						return 1;
+					} catch (IllegalArgumentException | IllegalStateException error) {
+						context.getSource().sendError(Text.literal(error.getMessage()));
+						return 0;
+					}
+				}))
 				.then(CommandManager.literal("recover").executes(context ->
 					TowerRecoveryRuntime.recover(context.getSource().getPlayerOrThrow(), true) ? 1 : 0))
 				.then(CommandManager.literal("close").executes(context -> {
