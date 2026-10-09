@@ -60,8 +60,7 @@ public final class TowerMenu {
 	}
 
 	private static MutableText action(String label, String command, String hint) {
-		return Text.literal("[" + label + "]").styled(style -> style.withColor(Formatting.AQUA)
-				.withUnderlined(true)
+		return Text.literal("[" + label + "]").formatted(Formatting.UNDERLINE).styled(style -> style.withColor(Formatting.AQUA)
 				.withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, command))
 				.withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(hint))));
 	}
