@@ -253,11 +253,11 @@ public final class ArpgHubScreen extends Screen {
 
 	@Override
 	public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
-		if (SkillsClientMod.ARPG_KEY_BINDING.matchesKey(keyCode, scanCode)) {
+		if ((search == null || !search.isFocused()) && SkillsClientMod.ARPG_KEY_BINDING.matchesKey(keyCode, scanCode)) {
 			close();
 			return true;
 		}
-		if (SkillsClientMod.OPEN_KEY_BINDING.matchesKey(keyCode, scanCode)) {
+		if ((search == null || !search.isFocused()) && SkillsClientMod.OPEN_KEY_BINDING.matchesKey(keyCode, scanCode)) {
 			SkillsClientMod.getInstance().openScreen(Optional.empty());
 			return true;
 		}
@@ -353,7 +353,7 @@ public final class ArpgHubScreen extends Screen {
 
 		context.drawCenteredTextWithShadow(
 				textRenderer,
-				Text.literal("P: close • K: classic categories • tree: drag to pan, wheel to zoom"),
+				Text.literal("Esc: close • search freely • tree: drag to pan, wheel to zoom"),
 				width / 2,
 				layout.footerY(),
 				0xff777777
