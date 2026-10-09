@@ -212,6 +212,19 @@ public final class TowerEngineChecks {
 		check(!combatGate.eligible(1, Set.of("arpg:first_rift"), false, true, true));
 		check(!combatGate.eligible(1, Set.of("arpg:first_rift", "arpg:first_world_boss"), false, true, true));
 		check(combatGate.eligible(1, Set.of("arpg:first_rift", "arpg:tower_sentinel"), false, true, true));
+		check(SentinelPhase.at(120, 120) == SentinelPhase.GUARDING);
+		check(SentinelPhase.at(60, 120) == SentinelPhase.GUARDING);
+		check(SentinelPhase.at(Math.nextDown(60f), 120) == SentinelPhase.ENRAGED);
+		check(SentinelPhase.at(Math.nextUp(60f), 120) == SentinelPhase.GUARDING);
+		check(SentinelPhase.at(30, 60) == SentinelPhase.GUARDING);
+		check(SentinelPhase.at(29, 60) == SentinelPhase.ENRAGED);
+		check(SentinelPhase.at(90, 120) == SentinelPhase.GUARDING);
+		check(SentinelPhase.healthFraction(180, 120) == 1);
+		check(SentinelPhase.healthFraction(-1, 120) == 0);
+		check(SentinelPhase.healthFraction(0, 120) == 0);
+		check(SentinelPhase.healthFraction(Float.NaN, 120) == 0);
+		check(SentinelPhase.healthFraction(120, 0) == 0);
+		check(SentinelPhase.healthFraction(120, Float.POSITIVE_INFINITY) == 0);
 		System.out.println("Tower network checks passed: " + checks);
 	}
 }

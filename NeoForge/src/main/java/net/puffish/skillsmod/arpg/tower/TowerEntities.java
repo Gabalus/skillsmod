@@ -3,7 +3,6 @@ package net.puffish.skillsmod.arpg.tower;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.mob.HuskEntity;
 import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.registry.RegistryKeys;
 import net.neoforged.bus.api.IEventBus;
@@ -14,8 +13,8 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 /** Separate registry type lets Epic Fight author the Sentinel without patching ordinary husks. */
 public final class TowerEntities {
 	private static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(RegistryKeys.ENTITY_TYPE, "puffish_skills");
-	public static final DeferredHolder<EntityType<?>, EntityType<HuskEntity>> SENTINEL = ENTITIES.register("tower_sentinel", () ->
-			EntityType.Builder.<HuskEntity>create(HuskEntity::new, SpawnGroup.MONSTER)
+	public static final DeferredHolder<EntityType<?>, EntityType<TowerSentinelEntity>> SENTINEL = ENTITIES.register("tower_sentinel", () ->
+			EntityType.Builder.<TowerSentinelEntity>create(TowerSentinelEntity::new, SpawnGroup.MONSTER)
 					.dimensions(.6f, 1.95f).maxTrackingRange(8).build("puffish_skills:tower_sentinel"));
 
 	private TowerEntities() {

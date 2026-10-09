@@ -43,6 +43,6 @@ Automated tests reconstruct the finished rooms and verify enclosure, spawn/landi
 
 ## Epic Fight Sentinel
 
-The updated demo spawns `puffish_skills:tower_sentinel`, a separate husk-backed entity type registered by the mod JAR. Install the updated JAR and restart before using this pack version. Enable the Epic Fight profile described in `EPIC_FIGHT_INTEGRATION.md` for its three attack sequences. The patch affects only this entity type. Without Epic Fight it retains vanilla husk behavior for development. Custom sweep/slam/charge animations and phases remain pending.
+The updated demo spawns `puffish_skills:tower_sentinel`, a separate husk-backed entity type registered by the mod JAR. Install the updated JAR and restart before using this pack version. Enable the Epic Fight profile described in `EPIC_FIGHT_INTEGRATION.md` for its baseline attack sequences and low-health additions. The patch affects only this entity type. Without Epic Fight it retains vanilla husk behavior for development. Custom sweep/slam/charge animations remain pending. The dedicated Sentinel now has a boss health bar and an Enraged attack pool below half health; healing to half health restores the Guarding label.
 
 A living legacy tagged husk blocks new spawning and keeps its existing behavior. After it dies, `/function puffish_skills:tower_demo/spawn_sentinel` creates the dedicated type. No living entity is deleted or converted during an upgrade. Retagging preserves the dedicated completion receipt; replay cannot pay it again. The new entity has an explicit rotten-flesh loot table.

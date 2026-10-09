@@ -201,6 +201,32 @@ class TowerDemoTest(unittest.TestCase):
         self.assertIn("layout set value 2", files["data/puffish_skills/function/tower_demo/finish.mcfunction"])
         self.assertIn("function " + BASE + "/retag_sentinel", files["data/puffish_skills/function/tower_demo/spawn_sentinel.mcfunction"])
 
+    def test_epic_fight_phase_keeps_attacks_at_health_boundary_and_checks_each_hit(self):
+        root = Path(__file__).resolve().parents[1]
+        patch = json.loads((root / "NeoForge/src/main/resources/data/puffish_skills/epicfight_mobpatch/tower_sentinel.json").read_text())
+        baseline, gated = [], []
+        for series in patch["combat_behavior"]:
+            self.assertGreater(series["weight"], 0)
+            self.assertGreater(series["cooldown"], 0)
+            self.assertFalse(series["looping"])
+            self.assertFalse(series["canBeInterrupted"], "AI must not randomly switch sequences between their hits")
+            health = [condition for condition in series["behaviors"][0]["conditions"]
+                      if condition["predicate"] == "health"]
+            (gated if health else baseline).append(series)
+            for behavior in series["behaviors"]:
+                predicates = {condition["predicate"]: condition for condition in behavior["conditions"]}
+                self.assertIn("within_eye_height", predicates)
+                self.assertLessEqual(predicates["within_distance"]["max"], 2.2)
+                if health:
+                    self.assertEqual({"predicate": "health", "health": 0.5, "comparator": "less_ratio"}, predicates["health"])
+                else:
+                    self.assertNotIn("health", predicates)
+        self.assertTrue(baseline, "Exactly half health must retain selectable baseline attacks")
+        self.assertTrue(gated, "Low health must unlock additional sequences")
+        self.assertEqual(100.0, sum(series["weight"] for series in baseline))
+        self.assertGreater(sum(series["weight"] for series in gated), 100.0)
+        self.assertTrue(all(len(series["behaviors"]) >= 2 for series in gated))
+
     def test_void_dimension_contract_and_archive_root(self):
         files = pack_files()
         for world in WORLDS:

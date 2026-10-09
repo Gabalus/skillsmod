@@ -27,18 +27,28 @@ Design each attack around a visible wind-up, an active hit phase and a recovery 
 
 ## First conversion: tower Sentinel
 
-New demo Sentinels use `puffish_skills:tower_sentinel`, a dedicated registry type backed by the husk entity class, with 120 health and 7 base attack damage. Its own Epic Fight mob patch selects a single strike (weight 60, cooldown 40 ticks), a two-hit sequence (weight 30, cooldown 60 ticks) or a three-hit sequence (weight 10, cooldown 100 ticks). All use existing Epic Fight zombie animations, eye-height/range conditions up to 2.2 blocks, non-looping interruptible series and one target per strike. Cooldowns apply per series, not as a guaranteed global rest window. Custom sweep/slam/charge assets and boss phases are not implemented.
+New demo Sentinels use `puffish_skills:tower_sentinel`, a dedicated registry type backed by the husk entity class, with 120 health and 7 base attack damage. Its own Epic Fight mob patch selects a single strike (weight 60, cooldown 40 ticks), a two-hit sequence (weight 30, cooldown 60 ticks) or a three-hit sequence (weight 10, cooldown 100 ticks). All use existing Epic Fight zombie animations, eye-height/range conditions up to 2.2 blocks, non-looping series and one target per strike. Cooldowns apply per series, not as a guaranteed global rest window. Custom sweep/slam/charge assets are not implemented. The health-gated second phase and boss bar below are now implemented.
 
 The vanilla client renderer and explicit rotten-flesh loot table allow development without Epic Fight. In that case the entity retains vanilla husk behavior; it is not an Epic Fight encounter. The existing first-clear receipt remains unchanged. Living legacy husks are retained and block duplicate spawning; after their death, `/spawn_sentinel` creates the new type. Restart with the updated JAR before installing the updated demo pack. Replacing the pack alone cannot register the entity.
 
 1. Implemented: pinned Epic Fight 21.17.3.1 and NeoForge 21.1.219 profile with Better Combat excluded. Dependency/asset resolution is checked in CI.
 2. Implemented: dedicated Sentinel entity type, attributes, fallback renderer, loot table and matching Epic Fight data patch. Confirm idle, chase, hit and death behavior in game before custom attacks.
-3. Implement a sweep, slam and charge with readable telegraphs and punishable recovery. These are planned attacks, not existing animation registry entries.
-4. Add one deliberate phase transition only after the base attacks work reliably.
+3. Pending: implement a sweep, slam and charge with readable telegraphs and punishable recovery. These are planned attacks, not existing animation registry entries.
+4. Implemented as a prototype: below half health, Epic Fight unlocks two additional sequences. The boss bar labels this health-derived phase; actual gameplay validation remains pending.
 5. Connect Martial guard/resource semantics without duplicate stamina costs, damage or stun resolution.
 6. Validate solo and party fights, attack collision/timing, death/interrupt/reset behavior, reconnects, first-clear rewards and tower unlocks with the actual modpack.
 
 Other combat pillars retain their distinct gun, bow and spell loops. Their attacks need compatibility with Epic Fight-patched enemies, including damage attribution and hit reactions; they are not automatically converted into melee combos.
+
+## Health phase and boss UI
+
+The dedicated type now instantiates `TowerSentinelEntity`, a husk subclass. Its standard server boss bar appears for players tracking the entity, reports health, and labels the phase **Guarding** (yellow) or **Enraged** (red). Labels and the default entity name have translation keys; an authored custom name is preserved. Tracking loss removes that viewer, death hides the bar, and entity removal clears all viewers. Phase is derived from current health, so reloads need no extra phase receipt and healing back to half health returns the UI to Guarding. Water conversion is disabled for this custom entity; ordinary husks keep their behavior.
+
+Epic Fight's `health` predicate with `less_ratio` and threshold `0.5` enables two additional sequences: attack3 → attack2 (weight 90, cooldown 50), and attack2 → attack1 → attack3 (weight 60, cooldown 80). Each hit retains the eye-height, range and health conditions. Baseline sequences remain available at all health values, including exactly half health. When all series are selectable below half health, the new sequences account for 60% of the total selection weight; cooldowns and ongoing sequence state affect actual choices. Automatic AI switching between series is disabled so a selected combo retains its authored order. This does not disable Epic Fight hit reactions or grant stun immunity. This is a change in the eligible attack pool, not an invulnerable transition or a forced mid-animation interrupt. Healing can stop an unfinished health-gated continuation when Epic Fight next checks its predicates.
+
+The threshold uses current maximum health, not a hard-coded 60 HP. The UI threshold matches the strict provider comparison. Cooldowns remain per series, and the attacks still use existing Epic Fight animations. No additional custom damage loop, phase reward or tower-unlock receipt is introduced. Existing dedicated Sentinels acquire the subclass on save reload; living legacy `minecraft:husk` Sentinels remain unchanged.
+
+Local checks cover exact/adjacent half-health boundaries, changed maximum health, bounded bar values, fallback inputs, baseline attack availability and per-hit phase predicates. Client/server smoke testing must check the real phase transition, heal reversal, late joining, tracking loss, death, removal, restart and underwater identity retention. Provider patch parsing, attack timing/collision and actual rendering remain unverified by those structural checks.
 
 ## Runtime commands and checks
 

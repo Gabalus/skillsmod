@@ -11,7 +11,7 @@ sources = [main / path for path in (
     "tower/TowerSector.java", "tower/TowerProtection.java", "tower/TowerPuzzle.java",
     "tower/TowerPuzzleCatalog.java", "tower/TowerPuzzleState.java", "tower/TowerRecovery.java",
     "tower/TowerRecoveryCatalog.java", "tower/TowerRecoveryTicket.java", "tower/TowerExit.java", "tower/TowerExitCatalog.java",
-    "tower/TowerLandingSearch.java")]
+    "tower/TowerLandingSearch.java", "tower/SentinelPhase.java")]
 sources.append(root / "Common/src/test/java/net/puffish/skillsmod/arpg/tower/TowerEngineChecks.java")
 with tempfile.TemporaryDirectory(prefix="tower-engine-") as output:
     subprocess.run(["java", "com.sun.tools.javac.Main", "-d", output,
