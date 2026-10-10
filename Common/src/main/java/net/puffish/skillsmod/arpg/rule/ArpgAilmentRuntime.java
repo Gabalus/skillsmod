@@ -8,6 +8,7 @@ import net.puffish.skillsmod.arpg.stat.ArpgStat;
 import net.puffish.skillsmod.arpg.stat.ArpgStatSnapshot;
 
 import java.util.Map;
+import java.util.Set;
 import java.util.WeakHashMap;
 
 /** Server-authoritative application state for ARPG ailments. */
@@ -34,6 +35,14 @@ public final class ArpgAilmentRuntime {
 		void tick(LivingEntity target);
 
 		void clear(LivingEntity target);
+
+		default Set<String> targetTags(LivingEntity target) {
+			return Set.of();
+		}
+	}
+
+	public static Set<String> targetTags(LivingEntity target) {
+		return backend == null ? Set.of() : backend.targetTags(target);
 	}
 
 	public static synchronized boolean apply(

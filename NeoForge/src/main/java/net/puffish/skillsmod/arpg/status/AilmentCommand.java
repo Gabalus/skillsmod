@@ -40,9 +40,26 @@ public final class AilmentCommand {
 
 	private static int show(ServerCommandSource source, LivingEntity target) {
 		var applications = NeoForgeAilments.state(target).applications();
+		var elemental = NeoForgeElementalStatuses.state(target);
 		source.sendFeedback(() -> Text.literal(target.getName().getString() + " — ARPG ailments"), false);
-		if (applications.isEmpty()) {
+		if (applications.isEmpty() && !elemental.active()) {
 			source.sendFeedback(() -> Text.literal("No active ARPG ailments. Provider-native effects are separate."), false);
+		}
+		if (elemental.wetTicks() > 0) {
+			source.sendFeedback(() -> Text.literal("Wet | " + seconds(elemental.wetTicks())
+					+ " seconds | cold builds twice as fast; ARPG ignite is extinguished"), false);
+		}
+		if (elemental.chillStacks() > 0) {
+			source.sendFeedback(() -> Text.literal("Chill | " + elemental.chillStacks()
+					+ (NeoForgeElementalStatuses.freezeImmune(target) ? " stacks (freeze immune) | " : "/3 buildup | ")
+					+ seconds(elemental.chillTicks()) + " seconds | movement -" + (15 * elemental.chillStacks()) + "%"), false);
+		}
+		if (elemental.freezeTicks() > 0) {
+			source.sendFeedback(() -> Text.literal("Frozen | " + seconds(elemental.freezeTicks())
+					+ " seconds | ordinary movement rooted; attacks and casts remain provider-owned"), false);
+		}
+		if (elemental.freezeRecoveryTicks() > 0) {
+			source.sendFeedback(() -> Text.literal("Freeze recovery | " + seconds(elemental.freezeRecoveryTicks()) + " seconds"), false);
 		}
 		for (var type : AilmentType.values()) {
 			var matching = applications.stream().filter(a -> a.type() == type).toList();
@@ -53,5 +70,9 @@ public final class AilmentCommand {
 			}
 		}
 		return 1;
+	}
+
+	private static String seconds(int ticks) {
+		return String.format(java.util.Locale.ROOT, "%.1f", ticks / 20.0);
 	}
 }

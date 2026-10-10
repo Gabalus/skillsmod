@@ -23,6 +23,7 @@ import net.puffish.skillsmod.arpg.stat.ArpgStatCompiler;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.WeakHashMap;
 
 /** Saved server status backend; provider-native statuses are left under provider ownership. */
@@ -55,6 +56,7 @@ public final class NeoForgeAilments implements ArpgAilmentRuntime.Backend {
 	public static void copyStatus(LivingEntity original, LivingEntity replacement) {
 		if (replacement.getWorld() instanceof ServerWorld) {
 			save(replacement, state(original));
+			NeoForgeElementalStatuses.copyStatus(original, replacement);
 		}
 	}
 
@@ -71,7 +73,7 @@ public final class NeoForgeAilments implements ArpgAilmentRuntime.Backend {
 				|| owner instanceof FakePlayer || target instanceof FakePlayer
 				|| owner instanceof ServerPlayerEntity ownerPlayer && (ownerPlayer.isCreative() || ownerPlayer.isSpectator())
 				|| target instanceof ServerPlayerEntity targetPlayer && (targetPlayer.isCreative() || targetPlayer.isSpectator())
-				|| type == AilmentType.IGNITE && (target.isFireImmune() || target.isTouchingWater())
+				|| type == AilmentType.IGNITE && (target.isFireImmune() || NeoForgeElementalStatuses.state(target).wetTicks() > 0)
 				|| !Double.isFinite(damage) || damage <= 0 || damage > AilmentState.MAX_DAMAGE
 				|| duration < 1 || duration > AilmentState.MAX_DURATION || skill == null || skill.length() > 128) {
 			return false;
@@ -91,13 +93,20 @@ public final class NeoForgeAilments implements ArpgAilmentRuntime.Backend {
 	}
 
 	@Override
+	public Set<String> targetTags(LivingEntity target) {
+		return NeoForgeElementalStatuses.state(target).targetTags();
+	}
+
+	@Override
 	public void clear(LivingEntity target) {
 		target.getPersistentData().remove(DATA);
 		positions.remove(target);
+		NeoForgeElementalStatuses.clear(target);
 	}
 
 	@Override
 	public void tick(LivingEntity target) {
+		NeoForgeElementalStatuses.tick(target);
 		if (!(target.getWorld() instanceof ServerWorld world) || !target.getPersistentData().contains(DATA)) {
 			return;
 		}
@@ -110,7 +119,7 @@ public final class NeoForgeAilments implements ArpgAilmentRuntime.Backend {
 		double movementX = previous == null ? 0 : position.x - previous.x;
 		double movementZ = previous == null ? 0 : position.z - previous.z;
 		var current = state(target);
-		if (target.isTouchingWater()) {
+		if (NeoForgeElementalStatuses.state(target).wetTicks() > 0) {
 			current = current.remove(AilmentType.IGNITE);
 		}
 		// Sample displacement: server player velocity does not reliably represent walking packets.

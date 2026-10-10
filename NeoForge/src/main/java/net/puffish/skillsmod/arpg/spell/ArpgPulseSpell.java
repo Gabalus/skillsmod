@@ -9,8 +9,6 @@ import io.redspace.ironsspellbooks.api.spells.CastType;
 import io.redspace.ironsspellbooks.api.spells.SpellRarity;
 import io.redspace.ironsspellbooks.damage.DamageSources;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -27,6 +25,7 @@ import net.puffish.skillsmod.arpg.rule.ArpgRuleRuntime;
 import net.puffish.skillsmod.arpg.skill.ArpgSkillDamageContext;
 import net.puffish.skillsmod.arpg.stat.ArpgStat;
 import net.puffish.skillsmod.arpg.stat.ArpgStatCompiler;
+import net.puffish.skillsmod.arpg.status.NeoForgeElementalStatuses;
 
 import java.util.List;
 import java.util.Optional;
@@ -109,7 +108,7 @@ public final class ArpgPulseSpell extends AbstractSpell {
 	private void hit(LivingEntity caster, HostileEntity target, float damage, int spellLevel) {
 		if (damage > 0.0f && Float.isFinite(damage) && DamageSources.applyDamage(target, damage, getDamageSource(caster))) {
 			if (frost) {
-				target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 40 + 10 * spellLevel, 0), caster);
+				NeoForgeElementalStatuses.applyCold(caster, target, 40 + 10 * spellLevel, getSpellId());
 			} else {
 				target.takeKnockback(0.35, caster.getX() - target.getX(), caster.getZ() - target.getZ());
 			}

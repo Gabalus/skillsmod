@@ -18,6 +18,7 @@ import net.puffish.skillsmod.arpg.stat.ArpgStatSnapshot;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -343,11 +344,15 @@ public final class ArpgRuleRuntime {
 		boolean dualWield = !player.getMainHandStack().isEmpty() && !player.getOffHandStack().isEmpty();
 		var velocity = player.getVelocity();
 		boolean moving = velocity.x * velocity.x + velocity.z * velocity.z > 0.0025;
+		var contextTags = new HashSet<>(tags == null ? Set.<String>of() : tags);
+		if (target instanceof LivingEntity living) {
+			contextTags.addAll(ArpgAilmentRuntime.targetTags(living));
+		}
 
 		return new ArpgRuleEngine.Context(
 				event,
 				skill,
-				tags,
+				contextTags,
 				lowLife,
 				fullLife,
 				lowMana,

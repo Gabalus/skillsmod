@@ -305,6 +305,7 @@ public final class NeoForgeArpgEvents {
 	@SubscribeEvent(priority = EventPriority.LOW)
 	public static void onLivingDamage(LivingDamageEvent.Post event) {
 		var source = event.getSource();
+		net.puffish.skillsmod.arpg.status.NeoForgeElementalStatuses.damaged(event.getEntity(), source, event.getNewDamage());
 		if (net.puffish.skillsmod.arpg.status.NeoForgeAilments.damageType(source) != null) {
 			return;
 		}
