@@ -86,6 +86,8 @@ public final class NeoForgeArpgEvents {
 		if (event.isWasDeath()) {
 			ArpgAilmentRuntime.clear(event.getOriginal());
 			ArpgAilmentRuntime.clear(event.getEntity());
+		} else {
+			net.puffish.skillsmod.arpg.status.NeoForgeAilments.copyStatus(event.getOriginal(), event.getEntity());
 		}
 	}
 

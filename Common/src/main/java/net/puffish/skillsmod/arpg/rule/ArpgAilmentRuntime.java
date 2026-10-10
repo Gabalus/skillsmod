@@ -86,7 +86,7 @@ public final class ArpgAilmentRuntime {
 				: type == net.puffish.skillsmod.arpg.combat.AilmentType.BLEED && bleeds.containsKey(target);
 	}
 
-	/** Ticks custom Bleed without an attacker source so DoT damage cannot recursively proc on-hit rules. */
+	/** Ticks the configured status backend, or the legacy unattributed bleed fallback. */
 	public static synchronized void tick(LivingEntity target, long now) {
 		if (backend != null) {
 			backend.tick(target);

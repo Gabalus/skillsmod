@@ -51,6 +51,13 @@ public final class NeoForgeAilments implements ArpgAilmentRuntime.Backend {
 		}
 	}
 
+	/** Non-death player replacements retain the exact saved applications without advancing time. */
+	public static void copyStatus(LivingEntity original, LivingEntity replacement) {
+		if (replacement.getWorld() instanceof ServerWorld) {
+			save(replacement, state(original));
+		}
+	}
+
 	/** Ability executors use this entry point for either a player or an enemy caster. */
 	public static boolean applyStatus(LivingEntity owner, LivingEntity target, AilmentType type,
 			double damage, int duration, String skill) {
