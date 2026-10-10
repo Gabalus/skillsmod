@@ -56,6 +56,10 @@ public class NeoForgeMain {
 	private final List<Consumer<PayloadRegistrar>> payloadRegistrations = new ArrayList<>();
 
 	public NeoForgeMain(IEventBus modEventBus, Dist dist) {
+		net.puffish.skillsmod.arpg.status.NeoForgeAilments.configure();
+		net.puffish.skillsmod.arpg.tower.TowerEntities.register(modEventBus);
+		OptionalIronsSpells.registerIfLoaded(modEventBus);
+		OptionalEpicMelee.registerIfLoaded(modEventBus);
 		if (dist.isClient()) {
 			new NeoForgeClientMain(modEventBus);
 		}
@@ -138,6 +142,9 @@ public class NeoForgeMain {
 
 	private void onRegisterCommands(RegisterCommandsEvent event) {
 		var dispatcher = event.getDispatcher();
+		dispatcher.register(net.minecraft.server.command.CommandManager.literal("arpg")
+				.then(net.puffish.skillsmod.arpg.compat.ThreatCommand.create())
+				.then(net.puffish.skillsmod.arpg.status.AilmentCommand.create()));
 		for (var listener : serverListeners) {
 			listener.onCommandsRegister(dispatcher);
 		}

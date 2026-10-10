@@ -1,0 +1,14 @@
+{
+  "title": "Rime Pulse",
+  "description": "Specialize with /arpg specialize puffish_skills:rime_pulse. Successful casts earn experience. Iron's owns mana and cooldowns.",
+  "icon": {
+    "type": "texture",
+    "data": {
+      "texture": "minecraft:textures/item/enchanted_book.png"
+    }
+  },
+  "background": "minecraft:textures/block/deepslate_tiles.png",
+  "unlocked_by_default": false,
+  "starting_points": 0,
+  "spent_points_limit": 20
+}

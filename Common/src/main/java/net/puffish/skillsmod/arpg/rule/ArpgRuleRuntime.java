@@ -18,6 +18,7 @@ import net.puffish.skillsmod.arpg.stat.ArpgStatSnapshot;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -82,6 +83,16 @@ public final class ArpgRuleRuntime {
 		var modifiers = new ArrayList<>(ArpgPlayerStats.getModifiers(player));
 		modifiers.addAll(activeBuffModifiers(player));
 		modifiers.addAll(evaluation.modifiers());
+		var quality = net.puffish.skillsmod.arpg.sandbox.CraftQualityEffects.from(player.getMainHandStack().getOrDefault(
+				net.puffish.skillsmod.arpg.sandbox.CraftworkItems.QUALITY, net.puffish.skillsmod.arpg.sandbox.CraftedItemData.empty()));
+		if (tags.contains("melee") && tags.contains("attack")) {
+			modifiers.add(new net.puffish.skillsmod.arpg.stat.ArpgStatModifier(net.puffish.skillsmod.arpg.stat.ArpgStat.MELEE_DAMAGE,
+					net.puffish.skillsmod.arpg.stat.ArpgModifierOperation.INCREASED, quality.meleeDamage()));
+		}
+		if (tags.contains("spell")) {
+			modifiers.add(new net.puffish.skillsmod.arpg.stat.ArpgStatModifier(net.puffish.skillsmod.arpg.stat.ArpgStat.SPELL_DAMAGE,
+					net.puffish.skillsmod.arpg.stat.ArpgModifierOperation.INCREASED, quality.spellDamage()));
+		}
 		return ArpgStatCompiler.compile(ArpgDefenseSemantics.applyIronFortress(modifiers, evaluation.ironFortress()));
 	}
 
@@ -134,7 +145,7 @@ public final class ArpgRuleRuntime {
 		triggerCooldowns.remove(player);
 		ward.remove(player);
 		timedBuffs.remove(player);
-		ArpgAilmentRuntime.clear(player);
+		// Saved ailments survive reconnects and build/data refreshes; death clears them in the status backend.
 	}
 
 	private static boolean executeVanilla(
@@ -201,7 +212,7 @@ public final class ArpgRuleRuntime {
 			ArpgRuleEngine.Trigger trigger
 	) {
 		var sourceSnapshot = snapshot(player, target, event, skill, tags);
-		if (!ArpgAilmentRuntime.apply(player, target, trigger, sourceSnapshot)) {
+		if (!ArpgAilmentRuntime.apply(player, target, trigger, sourceSnapshot, skill)) {
 			return false;
 		}
 		fireSupportedTriggers(
@@ -324,18 +335,24 @@ public final class ArpgRuleRuntime {
 		boolean lowMana = ArpgResourceSemantics.isLowFraction(readManaFraction(player));
 		boolean close = target != null && player.squaredDistanceTo(target) <= CLOSE_DISTANCE_SQUARED;
 		boolean distant = target != null && !close;
-		boolean ignited = target instanceof LivingEntity living && living.isOnFire();
+		boolean ignited = target instanceof LivingEntity living && (living.isOnFire()
+				|| ArpgAilmentRuntime.has(living, net.puffish.skillsmod.arpg.combat.AilmentType.IGNITE));
 		boolean bleeding = target instanceof LivingEntity living && ArpgAilmentRuntime.isBleeding(living);
-		boolean poisoned = target instanceof LivingEntity living && living.hasStatusEffect(StatusEffects.POISON);
+		boolean poisoned = target instanceof LivingEntity living && (living.hasStatusEffect(StatusEffects.POISON)
+				|| ArpgAilmentRuntime.has(living, net.puffish.skillsmod.arpg.combat.AilmentType.POISON));
 		boolean shield = player.isBlocking();
 		boolean dualWield = !player.getMainHandStack().isEmpty() && !player.getOffHandStack().isEmpty();
 		var velocity = player.getVelocity();
 		boolean moving = velocity.x * velocity.x + velocity.z * velocity.z > 0.0025;
+		var contextTags = new HashSet<>(tags == null ? Set.<String>of() : tags);
+		if (target instanceof LivingEntity living) {
+			contextTags.addAll(ArpgAilmentRuntime.targetTags(living));
+		}
 
 		return new ArpgRuleEngine.Context(
 				event,
 				skill,
-				tags,
+				contextTags,
 				lowLife,
 				fullLife,
 				lowMana,

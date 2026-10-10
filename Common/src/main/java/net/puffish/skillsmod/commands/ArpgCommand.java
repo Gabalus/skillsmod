@@ -8,14 +8,21 @@ import net.minecraft.command.CommandSource;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
+import net.minecraft.text.ClickEvent;
+import net.minecraft.text.HoverEvent;
+import net.minecraft.util.Formatting;
 import net.puffish.skillsmod.SkillsMod;
 import net.puffish.skillsmod.arpg.character.ArpgCharacter;
 import net.puffish.skillsmod.arpg.character.ArpgProgression;
+import net.puffish.skillsmod.arpg.combat.ArpgCombatRuntime;
 import net.puffish.skillsmod.arpg.compat.ArpgProviderRegistry;
 import net.puffish.skillsmod.arpg.data.ArpgData;
 import net.puffish.skillsmod.arpg.skill.ArpgWeaponSkillExecutor;
+import net.puffish.skillsmod.arpg.skill.ArpgSkillAccess;
 
 import java.util.Collection;
+import java.util.Locale;
+import java.util.stream.Collectors;
 
 /** Player-facing, server-authoritative ARPG character progression and development commands. */
 public final class ArpgCommand {
@@ -29,6 +36,16 @@ public final class ArpgCommand {
 						.executes(ArpgCommand::status))
 				.then(CommandManager.literal("providers")
 						.executes(ArpgCommand::providers))
+				.then(CommandManager.literal("spells")
+						.executes(ArpgCommand::spells))
+				.then(CommandManager.literal("progression")
+						.executes(ArpgCommand::progression))
+				.then(CommandManager.literal("completions")
+						.executes(ArpgCommand::completions))
+				.then(CommandManager.literal("combat")
+						.executes(ArpgCommand::combatStatus)
+						.then(CommandManager.literal("status")
+								.executes(ArpgCommand::combatStatus)))
 				.then(CommandManager.literal("choose")
 						.then(choice("primary"))
 						.then(choice("secondary"))
@@ -38,8 +55,10 @@ public final class ArpgCommand {
 						.then(CommandManager.literal("status")
 								.executes(ArpgCommand::trialStatus))
 						.then(CommandManager.literal("complete")
+								.requires(source -> source.hasPermissionLevel(2))
 								.executes(ArpgCommand::completeTrial))
 						.then(CommandManager.literal("pass")
+								.requires(source -> source.hasPermissionLevel(2))
 								.executes(ArpgCommand::completeTrial)))
 				.then(CommandManager.literal("specialize")
 						.then(CommandManager.argument("skill", StringArgumentType.word())
@@ -64,6 +83,58 @@ public final class ArpgCommand {
 														.filter(skill -> "weapon".equals(skill.provider()))
 														.map(skill -> skill.id()), builder))
 										.executes(ArpgCommand::useSkill))));
+	}
+
+	private static int spells(CommandContext<ServerCommandSource> context) throws CommandSyntaxException {
+		var player = context.getSource().getPlayerOrThrow();
+		var character = ArpgProgression.character(player);
+		boolean loaded = ArpgProviderRegistry.loaded("irons_spellbooks");
+		player.sendMessage(Text.literal("Spells — obtain a scroll and equip it in an Iron's spellbook; use its casting controls.")
+				.formatted(Formatting.GOLD), false);
+		for (var skill : ArpgData.content().skills().values().stream().filter(s -> "irons".equals(s.provider()))
+				.sorted(java.util.Comparator.comparingInt(net.puffish.skillsmod.arpg.data.ArpgContent.Skill::level)
+						.thenComparing(net.puffish.skillsmod.arpg.data.ArpgContent.Skill::title)).limit(32).toList()) {
+			var access = ArpgSkillAccess.check(character, skill, "irons");
+			boolean specialized = character.specializations().containsKey(skill.id());
+			String status = !loaded ? "Iron's Spells is missing" : !access.allowed() ? access.message()
+					: specialized ? "Specialized" : "Ready";
+			var row = Text.literal(skill.title() + " | level " + skill.level() + " | " + status)
+					.formatted(loaded && access.allowed() ? Formatting.GREEN : Formatting.GRAY);
+			if (loaded && access.allowed() && !specialized) {
+				row.append(Text.literal(" [Specialize]").formatted(Formatting.AQUA).styled(style -> style
+						.withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/arpg specialize " + skill.id()))
+						.withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT,
+								Text.literal("Uses a specialization slot. Manage its tree in the Character hub's Skills tab.")))));
+			}
+			player.sendMessage(row, false);
+		}
+		return 1;
+	}
+
+	private static int completions(CommandContext<ServerCommandSource> context) throws CommandSyntaxException {
+		var player = context.getSource().getPlayerOrThrow();
+		var state = ArpgProgression.character(player);
+		var pending = state.discoveredKnowledge().stream()
+				.filter(id -> !net.puffish.skillsmod.arpg.sandbox.CraftworkRuntime.state(player).knowledge().contains(id)).sorted().toList();
+		context.getSource().sendFeedback(() -> Text.literal("First clears: " + state.completions().size()
+				+ " | " + state.completions().keySet().stream().sorted().limit(16).toList()
+				+ " | earned passive=" + state.passivePoints() + " | earned confluence=" + state.earnedConfluencePoints()
+				+ " | pending discoveries=" + pending.stream().limit(16).toList() + " | use /craftwork study"), false);
+		return 1;
+	}
+
+	private static int progression(CommandContext<ServerCommandSource> context) {
+		var policy = net.puffish.skillsmod.arpg.progression.EncounterProgressionData.policy();
+		context.getSource().sendFeedback(() -> Text.literal("Encounter XP: dimensions=" + policy.expeditionDimensions()
+				+ " | server markers=arpg:encounter, arpg:world_boss"
+				+ " | Apotheosis world bosses=" + policy.allowApotheosisWorldBosses()
+				+ " | XP cap=" + policy.maxKillExperience()), false);
+		context.getSource().sendFeedback(() -> Text.literal("Threat bonuses (additive): L2 level " + policy.l2PercentPerLevel()
+				+ "% (cap " + policy.maxL2Level() + "), trait rank " + policy.traitPercentPerRank()
+				+ "% (cap " + policy.maxTraitRanks() + "), Apotheosis spawn tier " + policy.apotheosisPercentPerTier()
+				+ "% (cap " + policy.maxApotheosisTier() + "), elite " + policy.elitePercent()
+				+ "%, invader " + policy.invaderPercent() + "%"), false);
+		return 1;
 	}
 
 	private static LiteralArgumentBuilder<ServerCommandSource> choice(String choice) {
@@ -102,6 +173,7 @@ public final class ArpgCommand {
 
 		context.getSource().sendFeedback(() -> Text.literal(
 				"ARPG level " + state.level()
+						+ " | XP=" + state.experience()
 						+ " | primary=" + primary
 						+ " | secondary=" + secondary
 						+ " | ascendancy=" + ascendancy), false);
@@ -133,7 +205,7 @@ public final class ArpgCommand {
 		} else if (state.level() < requiredLevel) {
 			readiness = "requires ARPG level " + requiredLevel;
 		} else {
-			readiness = "READY - use /arpg trial complete";
+			readiness = "READY - complete an authored trial (operator reward prototype)";
 		}
 		context.getSource().sendFeedback(() -> Text.literal(
 				"Ascendancy Trials: " + state.completedTrials() + "/" + ArpgCharacter.MAX_TRIALS
@@ -180,6 +252,24 @@ public final class ArpgCommand {
 					"[" + state + "] " + provider.name() + " - " + provider.role()), false);
 		}
 		return 1;
+	}
+
+	private static int combatStatus(CommandContext<ServerCommandSource> context) throws CommandSyntaxException {
+		var state = ArpgCombatRuntime.state(context.getSource().getPlayerOrThrow());
+		var resources = state.resources().entrySet().stream()
+				.map(entry -> entry.getKey().id() + "="
+						+ format(entry.getValue().current()) + "/" + format(entry.getValue().maximum()))
+				.sorted()
+				.collect(Collectors.joining(", "));
+		context.getSource().sendFeedback(() -> Text.literal(
+				"Combat pillar=" + state.pillar().id()
+						+ " | revision=" + state.revision()
+						+ " | " + resources), false);
+		return 1;
+	}
+
+	private static String format(double value) {
+		return String.format(Locale.ROOT, "%.1f", value);
 	}
 
 	private static int choose(

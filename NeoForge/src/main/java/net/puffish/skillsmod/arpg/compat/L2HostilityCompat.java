@@ -1,6 +1,7 @@
 package net.puffish.skillsmod.arpg.compat;
 
 import net.minecraft.entity.LivingEntity;
+import net.puffish.skillsmod.SkillsMod;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -14,8 +15,13 @@ import java.util.Set;
 public final class L2HostilityCompat {
 	private static volatile Access access;
 	private static volatile boolean resolutionAttempted;
+	private static boolean warned;
 
 	private L2HostilityCompat() {
+	}
+
+	public static boolean available() {
+		return ArpgProviderRegistry.loaded("l2hostility") && resolveAccess() != null;
 	}
 
 	public static Profile profile(LivingEntity entity) {
@@ -35,9 +41,12 @@ public final class L2HostilityCompat {
 			}
 			Object cap = value.get();
 			int level = ((Number) resolved.getLevel().invoke(cap)).intValue();
+			boolean ineligible = resolved.summoned().getBoolean(cap) || resolved.minion().getBoolean(cap)
+					|| resolved.noDrop().getBoolean(cap)
+					|| (resolved.copied() != null && resolved.copied().getBoolean(cap));
 			Object rawTraits = resolved.traits().get(cap);
 			if (!(rawTraits instanceof Map<?, ?> traits)) {
-				return new Profile(level, Map.of());
+				return new Profile(level, Map.of(), ineligible);
 			}
 
 			var normalized = new HashMap<String, Integer>();
@@ -50,8 +59,9 @@ public final class L2HostilityCompat {
 					normalized.put(id, rank.intValue());
 				}
 			}
-			return new Profile(level, Map.copyOf(normalized));
-		} catch (ReflectiveOperationException | RuntimeException ignored) {
+			return new Profile(level, Map.copyOf(normalized), ineligible);
+		} catch (ReflectiveOperationException | RuntimeException | LinkageError error) {
+			warn(error);
 			return Profile.EMPTY;
 		}
 	}
@@ -85,15 +95,18 @@ public final class L2HostilityCompat {
 			try {
 				Class<?> misc = Class.forName("dev.xkmc.l2hostility.init.registrate.LHMiscs");
 				Object mobEntry = misc.getField("MOB").get(null);
-				Method type = mobEntry.getClass().getMethod("type");
+				// Invoke through the public interface, not the potentially non-public supplier class.
+				Method type = Class.forName("dev.xkmc.l2core.init.reg.simple.AttVal").getMethod("type");
 				Object capabilityType = type.invoke(mobEntry);
 				Method getExisting = findOneArg(capabilityType.getClass(), "getExisting");
 				Class<?> capClass = Class.forName("dev.xkmc.l2hostility.content.capability.mob.MobTraitCap");
 				Method getLevel = capClass.getMethod("getLevel");
 				Field traits = capClass.getField("traits");
-				access = new Access(capabilityType, getExisting, getLevel, traits);
-			} catch (ReflectiveOperationException | RuntimeException ignored) {
+				access = new Access(capabilityType, getExisting, getLevel, traits,
+						capClass.getField("summoned"), capClass.getField("minion"), capClass.getField("noDrop"), optionalField(capClass, "copied"));
+			} catch (ReflectiveOperationException | RuntimeException | LinkageError error) {
 				access = null;
+				warn(error);
 			}
 			return access;
 		}
@@ -108,6 +121,14 @@ public final class L2HostilityCompat {
 		throw new NoSuchMethodException(type.getName() + "#" + name);
 	}
 
+	private static Field optionalField(Class<?> type, String name) {
+		try {
+			return type.getField(name);
+		} catch (NoSuchFieldException ignored) {
+			return null;
+		}
+	}
+
 	private static String traitId(Object trait) {
 		if (trait == null) {
 			return "";
@@ -120,11 +141,23 @@ public final class L2HostilityCompat {
 		}
 	}
 
-	private record Access(Object capabilityType, Method getExisting, Method getLevel, Field traits) {
+	private static void warn(Throwable error) {
+		if (!warned) {
+			warned = true;
+			SkillsMod.getInstance().getLogger().warn("L2 Hostility mob adapter unavailable; using baseline threat: " + error.getClass().getSimpleName());
+		}
 	}
 
-	public record Profile(int level, Map<String, Integer> traits) {
+	private record Access(Object capabilityType, Method getExisting, Method getLevel, Field traits,
+			Field summoned, Field minion, Field noDrop, Field copied) {
+	}
+
+	public record Profile(int level, Map<String, Integer> traits, boolean ineligibleSpawn) {
 		private static final Profile EMPTY = new Profile(0, Map.of());
+
+		public Profile(int level, Map<String, Integer> traits) {
+			this(level, traits, false);
+		}
 
 		public Profile {
 			traits = traits == null ? Map.of() : Map.copyOf(traits);

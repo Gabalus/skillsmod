@@ -1,0 +1,14 @@
+{
+  "title": "Measured Strike",
+  "description": "Specialize with /arpg specialize puffish_skills:measured_strike. Accepted activations earn experience, including misses. Epic Fight owns stamina and hit collision.",
+  "icon": {
+    "type": "texture",
+    "data": {
+      "texture": "minecraft:textures/item/iron_sword.png"
+    }
+  },
+  "background": "minecraft:textures/block/deepslate_tiles.png",
+  "unlocked_by_default": false,
+  "starting_points": 0,
+  "spent_points_limit": 20
+}

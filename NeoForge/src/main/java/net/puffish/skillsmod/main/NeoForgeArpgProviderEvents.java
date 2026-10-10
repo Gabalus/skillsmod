@@ -27,6 +27,7 @@ public final class NeoForgeArpgProviderEvents {
 	private static void refreshProviders() {
 		var mods = ModList.get();
 		ArpgProviderRegistry.configure(Map.of(
+				"epicfight", mods.isLoaded("epicfight"),
 				"irons_spellbooks", mods.isLoaded("irons_spellbooks"),
 				"bettercombat", mods.isLoaded("bettercombat"),
 				"apotheosis", mods.isLoaded("apotheosis"),

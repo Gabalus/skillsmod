@@ -1,0 +1,20 @@
+# Solo rift prototype
+
+For cross-dimension authored tower passages, see `TOWER_PORTALS.md`. Those optional Immersive Portals links are distinct from these owner-bound solo arenas; public tower routes cannot target this reserved dimension.
+
+Choose a primary discipline, then run `/rift enter arpg:first_rift` from survival or adventure mode. Stay within eight blocks of the entry point while the arena prepares. `/rift status` reports progress; `/rift leave` abandons the encounter. After the first clear, `/rift enter arpg:rune_rift` opens the second recipe discovery. Both currently use the same placeholder encounter.
+
+The prototype builds a 25 × 25 × 11 bedrock arena in the bundled `puffish_skills:rifts` void dimension. Eight solo arenas are available. Construction is limited to 256 block writes per server tick across all runs. This is command-based access for development; physical rifts, authored dungeon layouts and the monolith are later slices.
+
+A Rift Warden (vanilla Husk, base 120 health and 7 attack damage) spawns after construction. The player enters adventure mode. Only that run's owner may damage its boss. Block breaking, placement, block interaction and explosion block destruction are intercepted in the rift dimension. Other mods that directly change terrain can bypass these event protections and need integration checks.
+
+Runs expire after ten minutes including construction. A clear schedules return after five seconds. Leaving, disconnecting, dying, changing game mode or escaping the arena ends the run without completion credit. Restart interrupts active runs, discards stale bosses when loaded, frees arena slots and retains pending return locations. Original survival/adventure mode is restored on return. If the original location is unsafe, return searches nearby and then the overworld spawn; an unsafe destination keeps recovery pending.
+
+Boss XP uses the existing encounter system, including the optional L2 Hostility and Apotheosis difficulty adapters. First-clear points and recipe knowledge use the existing completion receipt ledger, so replaying a rift does not grant additional progression currency. The prototype does not configure these providers to generate particular affixes or traits.
+
+Arena item entities carry owner/session IDs. Uncollected items and player death drops are queued in server persistent data for recovery on return or respawn. Pending recovery blocks entering another run. Full inventories drop overflow at the return destination. Normal world/player saves are separate: this is restart recovery, not an atomic guarantee against process crashes. Death-drop handling must be smoke-tested alongside inventory recovery/grave mods before including them in the pack.
+
+Automated checks cover allocation limits, owner/boss matching, phase transitions, timeout rejection, restart recovery, NBT persistence and dimension resource contracts (arena bounds, void terrain and disabled respawn blocks). Java 21 CI compiles the Minecraft/NeoForge integration. In-game verification remains required for teleportation, death/disconnect recovery, dimension loading, loot and combat with the intended mod list. Parties, themed bosses, physical portals and bespoke room mechanics are not implemented in this slice.
+
+
+Use `/rift tiers` to review Apotheosis tiers and activate an unlocked tier in the overworld before entry. Entry captures a persisted XP tier when arena preparation starts; `/rift status` reports it. Native difficulty and loot are still provider-controlled. See [ENCOUNTER_PROGRESSION.md](ENCOUNTER_PROGRESSION.md) for restrictions, save migration and playtest checks.

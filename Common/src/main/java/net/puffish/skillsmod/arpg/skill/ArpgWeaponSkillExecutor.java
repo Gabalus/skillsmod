@@ -42,6 +42,9 @@ public final class ArpgWeaponSkillExecutor {
 	}
 
 	public static Result use(ServerPlayerEntity player, String skillId) {
+		if (net.puffish.skillsmod.SkillsMod.getInstance().getPlatform().isModLoaded("epicfight")) {
+			return Result.deny("Epic Fight owns melee execution. Use its combat controls or /arpg melee; legacy direct-damage skills are disabled.");
+		}
 		var access = ArpgSkillAccess.check(player, skillId, "weapon");
 		if (!access.allowed()) {
 			return Result.deny(access.message());

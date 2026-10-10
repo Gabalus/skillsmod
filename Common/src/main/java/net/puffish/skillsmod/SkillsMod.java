@@ -15,6 +15,7 @@ import net.puffish.skillsmod.api.Events;
 import net.puffish.skillsmod.api.Skill;
 import net.puffish.skillsmod.api.SkillsAPI;
 import net.puffish.skillsmod.arpg.character.ArpgProgression;
+import net.puffish.skillsmod.arpg.combat.ArpgCombatRuntime;
 import net.puffish.skillsmod.arpg.data.ArpgData;
 import net.puffish.skillsmod.arpg.item.ArpgItems;
 import net.puffish.skillsmod.api.config.ConfigContext;
@@ -55,6 +56,7 @@ import net.puffish.skillsmod.server.network.ServerPacketSender;
 import net.puffish.skillsmod.server.network.packets.in.BuyPointInPacket;
 import net.puffish.skillsmod.server.network.packets.in.SkillClickInPacket;
 import net.puffish.skillsmod.server.network.packets.out.ExchangeUpdateOutPacket;
+import net.puffish.skillsmod.server.network.packets.out.CombatStateOutPacket;
 import net.puffish.skillsmod.server.network.packets.out.ExperienceUpdateOutPacket;
 import net.puffish.skillsmod.server.network.packets.out.HideCategoryOutPacket;
 import net.puffish.skillsmod.server.network.packets.out.NewPointOutPacket;
@@ -175,6 +177,13 @@ public class SkillsMod {
 		registrar.registerOutPacket(Packets.SHOW_TOAST);
 		registrar.registerOutPacket(Packets.OPEN_SCREEN);
 		registrar.registerOutPacket(Packets.NEW_POINT);
+		registrar.registerOutPacket(Packets.COMBAT_STATE);
+		registrar.registerOutPacket(Packets.CLASS_SELECTION);
+		registrar.registerOutPacket(Packets.MELEE_KIT);
+		registrar.registerInPacket(Packets.CHOOSE_CLASS,
+				net.puffish.skillsmod.server.network.packets.in.ChooseClassInPacket::read,
+				instance::onChooseClass);
+		registrar.registerOutPacket(Packets.CRAFTWORK);
 
 		eventReceiver.registerListener(instance.new EventListener());
 
@@ -183,6 +192,7 @@ public class SkillsMod {
 
 		BuiltinRewards.register();
 		ArpgItems.register(registrar);
+		net.puffish.skillsmod.arpg.sandbox.CraftworkItems.register(registrar);
 		BuiltinOperations.register();
 		BuiltinExperienceSources.register();
 
@@ -1001,6 +1011,44 @@ public class SkillsMod {
 		packetSender.send(player, new OpenScreenOutPacket(categoryId));
 	}
 
+	public void syncCraftwork(ServerPlayerEntity player, boolean open, String message) {
+		packetSender.send(player, new net.puffish.skillsmod.server.network.packets.out.CraftworkOutPacket(
+				net.puffish.skillsmod.arpg.sandbox.CraftworkRuntime.view(player), open, message.length() > 512 ? message.substring(0, 512) : message));
+	}
+
+	public void syncCombatState(ServerPlayerEntity player) {
+		packetSender.send(player, new CombatStateOutPacket(ArpgCombatRuntime.state(player)));
+	}
+
+	public void openMeleeKit(ServerPlayerEntity player, net.puffish.skillsmod.arpg.combat.MeleeKitView view, boolean open) {
+		packetSender.send(player, new net.puffish.skillsmod.server.network.packets.out.MeleeKitOutPacket(view, open));
+	}
+
+	public void syncClassSelection(ServerPlayerEntity player, String message) {
+		var order = java.util.List.of("warrior", "rogue", "templar", "ranger", "arcanist", "shaman");
+		var options = ArpgData.content().disciplines().values().stream()
+				.filter(d -> d.id().length() <= 64 && !d.title().isBlank()
+						&& d.strength() >= 0 && d.dexterity() >= 0 && d.intelligence() >= 0)
+				.sorted(java.util.Comparator.comparingInt((net.puffish.skillsmod.arpg.data.ArpgContent.Discipline d) -> {
+					int index = order.indexOf(d.id());
+					return index < 0 ? order.size() : index;
+				}).thenComparing(net.puffish.skillsmod.arpg.data.ArpgContent.Discipline::title))
+				.limit(32).map(d -> new net.puffish.skillsmod.arpg.character.ClassSelectionView.Option(
+						d.id(), d.title().substring(0, Math.min(80, d.title().length())), d.strength(), d.dexterity(), d.intelligence())).toList();
+		var primary = net.puffish.skillsmod.arpg.character.ArpgProgression.character(player).primary();
+		packetSender.send(player, new net.puffish.skillsmod.server.network.packets.out.ClassSelectionOutPacket(
+				new net.puffish.skillsmod.arpg.character.ClassSelectionView(primary, options),
+				message.substring(0, Math.min(256, message.length()))));
+	}
+
+	private void onChooseClass(ServerPlayerEntity player, net.puffish.skillsmod.server.network.packets.in.ChooseClassInPacket packet) {
+		try {
+			net.puffish.skillsmod.arpg.character.ArpgProgression.choose(player, "primary", packet.discipline());
+		} catch (IllegalArgumentException | IllegalStateException exception) {
+			syncClassSelection(player, exception.getMessage() == null ? "Class choice rejected." : exception.getMessage());
+		}
+	}
+
 	private boolean isConfigValid() {
 		return categories.get().isPresent();
 	}
@@ -1044,6 +1092,7 @@ public class SkillsMod {
 
 			for (var player : server.getPlayerManager().getPlayerList()) {
 				updateAllCategories(player);
+				syncClassSelection(player, "");
 			}
 		}
 
@@ -1051,6 +1100,8 @@ public class SkillsMod {
 		public void onPlayerJoin(ServerPlayerEntity player) {
 			PointsReward.cleanup(player);
 			updateAllCategories(player);
+			syncCombatState(player);
+			syncClassSelection(player, "");
 		}
 
 		@Override

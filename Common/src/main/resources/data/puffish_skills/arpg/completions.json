@@ -1,0 +1,102 @@
+{
+  "schema": 1,
+  "apotheosisWorldBoss": "arpg:first_world_boss",
+  "rewards": [
+    {
+      "id": "arpg:first_rift",
+      "type": "rift",
+      "minimumLevel": 1,
+      "passivePoints": 1,
+      "confluencePoints": 0,
+      "trial": 0,
+      "prerequisites": [],
+      "knowledge": [
+        "arpg:metalworking"
+      ]
+    },
+    {
+      "id": "arpg:rune_rift",
+      "type": "rift",
+      "minimumLevel": 1,
+      "passivePoints": 1,
+      "confluencePoints": 0,
+      "trial": 0,
+      "prerequisites": [
+        "arpg:first_rift"
+      ],
+      "knowledge": [
+        "arpg:inscription"
+      ]
+    },
+    {
+      "id": "arpg:first_world_boss",
+      "type": "world_boss",
+      "minimumLevel": 1,
+      "passivePoints": 2,
+      "confluencePoints": 1,
+      "trial": 0,
+      "prerequisites": [],
+      "knowledge": []
+    },
+    {
+      "id": "arpg:tower_sentinel",
+      "type": "world_boss",
+      "minimumLevel": 1,
+      "passivePoints": 0,
+      "confluencePoints": 0,
+      "trial": 0,
+      "prerequisites": [
+        "arpg:first_rift"
+      ],
+      "knowledge": []
+    },
+    {
+      "id": "arpg:trial_1",
+      "type": "trial",
+      "minimumLevel": 30,
+      "passivePoints": 0,
+      "confluencePoints": 0,
+      "trial": 1,
+      "prerequisites": [
+        "arpg:first_rift"
+      ],
+      "knowledge": []
+    },
+    {
+      "id": "arpg:trial_2",
+      "type": "trial",
+      "minimumLevel": 50,
+      "passivePoints": 0,
+      "confluencePoints": 0,
+      "trial": 2,
+      "prerequisites": [
+        "arpg:trial_1"
+      ],
+      "knowledge": []
+    },
+    {
+      "id": "arpg:trial_3",
+      "type": "trial",
+      "minimumLevel": 70,
+      "passivePoints": 0,
+      "confluencePoints": 0,
+      "trial": 3,
+      "prerequisites": [
+        "arpg:trial_2"
+      ],
+      "knowledge": []
+    },
+    {
+      "id": "arpg:trial_4",
+      "type": "trial",
+      "minimumLevel": 90,
+      "passivePoints": 0,
+      "confluencePoints": 0,
+      "trial": 4,
+      "prerequisites": [
+        "arpg:trial_3"
+      ],
+      "knowledge": []
+    }
+  ]
+}

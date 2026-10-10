@@ -8,10 +8,12 @@ import net.puffish.skillsmod.arpg.stat.ArpgStat;
 import net.puffish.skillsmod.arpg.stat.ArpgStatSnapshot;
 
 import java.util.Map;
+import java.util.Set;
 import java.util.WeakHashMap;
 
 /** Server-authoritative application state for ARPG ailments. */
 public final class ArpgAilmentRuntime {
+	private static Backend backend;
 	private static final int BLEED_TICK_INTERVAL = 20;
 	private static final double MOVING_BLEED_MULTIPLIER = 2.0;
 	private static final double EPSILON = 0.0001;
@@ -20,11 +22,35 @@ public final class ArpgAilmentRuntime {
 	private ArpgAilmentRuntime() {
 	}
 
+	public static void configure(Backend value) {
+		backend = value;
+	}
+
+	public interface Backend {
+		boolean apply(LivingEntity owner, LivingEntity target, net.puffish.skillsmod.arpg.combat.AilmentType type,
+				double damage, int duration, String skill);
+
+		boolean has(LivingEntity target, net.puffish.skillsmod.arpg.combat.AilmentType type);
+
+		void tick(LivingEntity target);
+
+		void clear(LivingEntity target);
+
+		default Set<String> targetTags(LivingEntity target) {
+			return Set.of();
+		}
+	}
+
+	public static Set<String> targetTags(LivingEntity target) {
+		return backend == null ? Set.of() : backend.targetTags(target);
+	}
+
 	public static synchronized boolean apply(
 			ServerPlayerEntity player,
 			LivingEntity target,
 			ArpgRuleEngine.Trigger trigger,
-			ArpgStatSnapshot snapshot
+			ArpgStatSnapshot snapshot,
+			String skill
 	) {
 		if (!target.isAlive()) {
 			return false;
@@ -45,6 +71,13 @@ public final class ArpgAilmentRuntime {
 		}
 
 		int duration = scaledDuration(trigger.duration(), snapshot);
+		if (backend != null) {
+			var type = net.puffish.skillsmod.arpg.combat.AilmentType.valueOf(trigger.action().name());
+			var damageStat = ArpgStat.valueOf(type.name() + "_DAMAGE");
+			double damage = snapshot.apply(ArpgStat.DAMAGE_OVER_TIME,
+					snapshot.apply(type.damage().damageStat(), snapshot.apply(damageStat, 1.0)));
+			return backend.apply(player, target, type, damage, duration, skill);
+		}
 		return switch (trigger.action()) {
 			case IGNITE -> ignite(target, duration);
 			case BLEED -> bleed(target, duration, snapshot, player.getServerWorld().getTime());
@@ -54,11 +87,20 @@ public final class ArpgAilmentRuntime {
 	}
 
 	public static synchronized boolean isBleeding(LivingEntity target) {
-		return bleeds.containsKey(target);
+		return has(target, net.puffish.skillsmod.arpg.combat.AilmentType.BLEED);
 	}
 
-	/** Ticks custom Bleed without an attacker source so DoT damage cannot recursively proc on-hit rules. */
+	public static boolean has(LivingEntity target, net.puffish.skillsmod.arpg.combat.AilmentType type) {
+		return backend != null ? backend.has(target, type)
+				: type == net.puffish.skillsmod.arpg.combat.AilmentType.BLEED && bleeds.containsKey(target);
+	}
+
+	/** Ticks the configured status backend, or the legacy unattributed bleed fallback. */
 	public static synchronized void tick(LivingEntity target, long now) {
+		if (backend != null) {
+			backend.tick(target);
+			return;
+		}
 		var bleed = bleeds.get(target);
 		if (bleed == null) {
 			return;
@@ -85,6 +127,9 @@ public final class ArpgAilmentRuntime {
 	}
 
 	public static synchronized void clear(LivingEntity target) {
+		if (backend != null) {
+			backend.clear(target);
+		}
 		bleeds.remove(target);
 	}
 
@@ -126,7 +171,7 @@ public final class ArpgAilmentRuntime {
 	private static int scaledDuration(int baseDuration, ArpgStatSnapshot snapshot) {
 		double scaled = snapshot.apply(ArpgStat.AILMENT_DURATION, Math.max(1, baseDuration));
 		if (!Double.isFinite(scaled)) {
-			return Math.max(1, baseDuration);
+			return Math.max(1, Math.min(20 * 60, baseDuration));
 		}
 		return (int) Math.max(1, Math.min(20 * 60, Math.round(scaled)));
 	}

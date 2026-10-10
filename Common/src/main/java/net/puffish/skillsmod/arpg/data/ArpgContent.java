@@ -169,7 +169,7 @@ public record ArpgContent(Map<String, Discipline> disciplines, Map<String, Skill
 	public record Skill(String id, String title, String provider, Set<SkillTag> tags, DamageType damageType,
 			double coefficient, double cost, int cooldown, double range, int level, String discipline, String weapon, String effect) {
 		public Skill {
-			if (!Set.of("weapon", "irons").contains(provider) || coefficient < 0 || cost < 0 || cooldown < 1 || range <= 0 || range > 64 || level < 1 || level > 100) {
+			if (!Set.of("weapon", "irons", "epicfight").contains(provider) || coefficient < 0 || cost < 0 || cooldown < 1 || range <= 0 || range > 64 || level < 1 || level > 100) {
 				throw new IllegalArgumentException("Invalid skill " + id);
 			}
 		}

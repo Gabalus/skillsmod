@@ -1,0 +1,71 @@
+{
+  "list": [
+    {
+      "entities": "puffish_skills:tower_sentinel",
+      "specialConditions": [],
+      "traits": [
+        {
+          "trait": "l2hostility:tank",
+          "free": 1,
+          "min": 1,
+          "cap": true
+        }
+      ],
+      "blacklist": [
+        "l2hostility:adaptive",
+        "l2hostility:arena",
+        "l2hostility:blindness",
+        "l2hostility:corrosion",
+        "l2hostility:counter_strike",
+        "l2hostility:cursed",
+        "l2hostility:dementor",
+        "l2hostility:dispell",
+        "l2hostility:drain",
+        "l2hostility:erosion",
+        "l2hostility:fiery",
+        "l2hostility:freezing",
+        "l2hostility:gravity",
+        "l2hostility:grenade",
+        "l2hostility:growth",
+        "l2hostility:invisible",
+        "l2hostility:killer_aura",
+        "l2hostility:levitation",
+        "l2hostility:master",
+        "l2hostility:moonwalk",
+        "l2hostility:nausea",
+        "l2hostility:poison",
+        "l2hostility:protection",
+        "l2hostility:pulling",
+        "l2hostility:ragnarok",
+        "l2hostility:reflect",
+        "l2hostility:regenerate",
+        "l2hostility:repelling",
+        "l2hostility:reprint",
+        "l2hostility:shulker",
+        "l2hostility:slowness",
+        "l2hostility:soul_burner",
+        "l2hostility:speedy",
+        "l2hostility:split",
+        "l2hostility:teleport",
+        "l2hostility:undying",
+        "l2hostility:weakness",
+        "l2hostility:wither"
+      ],
+      "difficulty": {
+        "apply_chance": 1.0,
+        "base": 20,
+        "min": 20,
+        "scale": 0.0,
+        "suppression": 0.0,
+        "trait_chance": 1.0,
+        "variation": 0.0
+      },
+      "items": [],
+      "minSpawnLevel": 0,
+      "maxLevel": 20,
+      "maxTraitCount": 1,
+      "healthScale": 0.25,
+      "attackScale": 0.25
+    }
+  ]
+}

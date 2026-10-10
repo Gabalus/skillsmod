@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "puffish_skills:bleed",
+    "puffish_skills:ignite",
+    "puffish_skills:poison"
+  ]
+}

@@ -2,6 +2,7 @@ package net.puffish.skillsmod.client.gui;
 
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.gui.screen.ChatScreen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.screen.ScreenTexts;
@@ -9,6 +10,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.puffish.skillsmod.client.SkillsClientMod;
 import net.puffish.skillsmod.client.data.ClientCategoryData;
+import net.puffish.skillsmod.client.data.ClientCombatStateData;
 import net.puffish.skillsmod.client.data.ClientSkillScreenData;
 
 import java.util.ArrayList;
@@ -16,6 +18,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * ARPG-first navigation layer over the normal Puffish Skills graph screen.
@@ -35,21 +38,27 @@ public final class ArpgHubScreen extends Screen {
 			new QuickLink("Ascendancy", "arpg_asc_", true),
 			new QuickLink("Confluence", "arpg_confluence_", true),
 			new QuickLink("Skills", "arpg_skill_", true),
-			new QuickLink("Atlas", "arpg_atlas", false)
+			new QuickLink("Atlas", "arpg_atlas", false),
+			new QuickLink("Towers", "", false),
+			new QuickLink("Spells", "", false, "arpg spells"),
+			new QuickLink("Melee", "", false, "arpg melee screen")
 	);
 
 	private final ClientSkillScreenData data;
+	private final ClientCombatStateData combatData;
 	private TextFieldWidget search;
 	private List<SearchResult> results = List.of();
 	private int resultOffset = 0;
 
-	public ArpgHubScreen(ClientSkillScreenData data) {
+	public ArpgHubScreen(ClientSkillScreenData data, ClientCombatStateData combatData) {
 		super(Text.literal("ARPG Character"));
 		this.data = data;
+		this.combatData = combatData;
 	}
 
 	@Override
 	protected void init() {
+		String previousSearch = search == null ? "" : search.getText();
 		var layout = layout();
 		for (int i = 0; i < QUICK_LINKS.size(); i++) {
 			var link = QUICK_LINKS.get(i);
@@ -77,6 +86,7 @@ public final class ArpgHubScreen extends Screen {
 			resultOffset = 0;
 			refreshResults();
 		});
+		search.setText(previousSearch);
 		addDrawableChild(search);
 		setInitialFocus(search);
 		refreshResults();
@@ -86,12 +96,20 @@ public final class ArpgHubScreen extends Screen {
 		var category = findCategory(link.path(), link.prefix());
 		var button = ButtonWidget.builder(
 				Text.literal(link.label()),
-				ignored -> findCategory(link.path(), link.prefix())
-						.ifPresent(categoryData -> open(categoryData, Optional.empty()))
+				ignored -> {
+					if (link.path().isEmpty()) {
+						if (client != null && client.getNetworkHandler() != null) {
+							client.getNetworkHandler().sendChatCommand(link.command());
+							client.setScreen(link.command().equals("arpg melee screen") ? null : new ChatScreen(""));
+						}
+					} else {
+						findCategory(link.path(), link.prefix()).ifPresent(categoryData -> open(categoryData, Optional.empty()));
+					}
+				}
 		)
 				.dimensions(x, y, Math.max(34, width), QUICK_BUTTON_HEIGHT)
 				.build();
-		button.active = category.isPresent();
+		button.active = link.path().isEmpty() || category.isPresent();
 		addDrawableChild(button);
 	}
 
@@ -112,7 +130,7 @@ public final class ArpgHubScreen extends Screen {
 		}
 		int rows = (QUICK_LINKS.size() + columns - 1) / columns;
 		int buttonWidth = Math.max(34, (panelWidth - QUICK_BUTTON_GAP * (columns - 1)) / columns);
-		int quickTop = 49;
+		int quickTop = 59;
 		int searchTop = quickTop + rows * (QUICK_BUTTON_HEIGHT + QUICK_BUTTON_GAP) + 5;
 		int resultsTop = searchTop + 28;
 		int footerY = Math.max(resultsTop + 8, height - 28);
@@ -237,11 +255,11 @@ public final class ArpgHubScreen extends Screen {
 
 	@Override
 	public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
-		if (SkillsClientMod.ARPG_KEY_BINDING.matchesKey(keyCode, scanCode)) {
+		if ((search == null || !search.isFocused()) && SkillsClientMod.ARPG_KEY_BINDING.matchesKey(keyCode, scanCode)) {
 			close();
 			return true;
 		}
-		if (SkillsClientMod.OPEN_KEY_BINDING.matchesKey(keyCode, scanCode)) {
+		if ((search == null || !search.isFocused()) && SkillsClientMod.OPEN_KEY_BINDING.matchesKey(keyCode, scanCode)) {
 			SkillsClientMod.getInstance().openScreen(Optional.empty());
 			return true;
 		}
@@ -261,6 +279,21 @@ public final class ArpgHubScreen extends Screen {
 				width / 2,
 				32,
 				0xffa8a8a8
+		);
+		String combatSummary = combatData.get().map(state -> state.pillar().id().toUpperCase(Locale.ROOT)
+				+ " • " + state.resources().entrySet().stream()
+						.map(entry -> entry.getKey().id() + " "
+								+ Math.round(entry.getValue().current()) + "/"
+								+ Math.round(entry.getValue().maximum()))
+						.sorted()
+						.collect(Collectors.joining("  •  ")))
+				.orElse("COMBAT STATE • synchronizing…");
+		context.drawCenteredTextWithShadow(
+				textRenderer,
+				Text.literal(shorten(combatSummary, Math.max(30, layout.panelWidth() / 5))),
+				width / 2,
+				43,
+				0xffd6a64a
 		);
 
 		int visible = visibleRows();
@@ -322,7 +355,7 @@ public final class ArpgHubScreen extends Screen {
 
 		context.drawCenteredTextWithShadow(
 				textRenderer,
-				Text.literal("P: close • K: classic categories • tree: drag to pan, wheel to zoom"),
+				Text.literal("Esc: close • search freely • tree: drag to pan, wheel to zoom"),
 				width / 2,
 				layout.footerY(),
 				0xff777777
@@ -343,7 +376,11 @@ public final class ArpgHubScreen extends Screen {
 		return value.substring(0, Math.max(1, length - 1)) + "…";
 	}
 
-	private record QuickLink(String label, String path, boolean prefix) { }
+	private record QuickLink(String label, String path, boolean prefix, String command) {
+		private QuickLink(String label, String path, boolean prefix) {
+			this(label, path, prefix, path.isEmpty() ? "tower" : "");
+		}
+	}
 
 	private record Layout(
 			int left,

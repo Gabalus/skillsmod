@@ -1,0 +1,482 @@
+{
+  "puffish_skills_storm_pulse_0": {
+    "title": "Storm Pulse 1",
+    "description": "4% increased spell damage for Storm Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_storm_pulse_0"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_storm_pulse_1": {
+    "title": "Storm Pulse 2",
+    "description": "4% increased spell damage for Storm Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_storm_pulse_1"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_storm_pulse_2": {
+    "title": "Storm Pulse 3",
+    "description": "4% increased spell damage for Storm Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_storm_pulse_2"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_storm_pulse_3": {
+    "title": "Storm Pulse 4",
+    "description": "4% increased spell damage for Storm Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_storm_pulse_3"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_storm_pulse_4": {
+    "title": "Storm Pulse 5",
+    "description": "4% increased spell damage for Storm Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_storm_pulse_4"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_storm_pulse_5": {
+    "title": "Storm Pulse 6",
+    "description": "4% increased spell damage for Storm Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_storm_pulse_5"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_storm_pulse_6": {
+    "title": "Storm Pulse 7",
+    "description": "4% increased spell damage for Storm Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_storm_pulse_6"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_storm_pulse_7": {
+    "title": "Storm Pulse 8",
+    "description": "4% increased spell damage for Storm Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_storm_pulse_7"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_storm_pulse_8": {
+    "title": "Storm Pulse 9",
+    "description": "4% increased lightning damage for Storm Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_storm_pulse_8"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_storm_pulse_9": {
+    "title": "Storm Pulse 10",
+    "description": "4% increased lightning damage for Storm Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_storm_pulse_9"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_storm_pulse_10": {
+    "title": "Storm Pulse 11",
+    "description": "4% increased lightning damage for Storm Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_storm_pulse_10"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_storm_pulse_11": {
+    "title": "Storm Pulse 12",
+    "description": "4% increased lightning damage for Storm Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_storm_pulse_11"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_storm_pulse_12": {
+    "title": "Storm Pulse 13",
+    "description": "4% increased lightning damage for Storm Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_storm_pulse_12"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_storm_pulse_13": {
+    "title": "Storm Pulse 14",
+    "description": "4% increased lightning damage for Storm Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_storm_pulse_13"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_storm_pulse_14": {
+    "title": "Storm Pulse 15",
+    "description": "4% increased lightning damage for Storm Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_storm_pulse_14"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_storm_pulse_15": {
+    "title": "Storm Pulse 16",
+    "description": "4% increased lightning damage for Storm Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_storm_pulse_15"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_storm_pulse_16": {
+    "title": "Storm Pulse 17",
+    "description": "4% increased area damage for Storm Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_storm_pulse_16"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_storm_pulse_17": {
+    "title": "Storm Pulse 18",
+    "description": "4% increased area damage for Storm Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_storm_pulse_17"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_storm_pulse_18": {
+    "title": "Storm Pulse 19",
+    "description": "4% increased area damage for Storm Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_storm_pulse_18"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_storm_pulse_19": {
+    "title": "Storm Pulse 20",
+    "description": "4% increased area damage for Storm Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_storm_pulse_19"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_storm_pulse_20": {
+    "title": "Storm Pulse 21",
+    "description": "4% increased area damage for Storm Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_storm_pulse_20"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_storm_pulse_21": {
+    "title": "Storm Pulse 22",
+    "description": "4% increased area damage for Storm Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_storm_pulse_21"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_storm_pulse_22": {
+    "title": "Storm Pulse 23",
+    "description": "4% increased area damage for Storm Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_storm_pulse_22"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_storm_pulse_23": {
+    "title": "Storm Pulse 24",
+    "description": "4% increased area damage for Storm Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_storm_pulse_23"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  }
+}

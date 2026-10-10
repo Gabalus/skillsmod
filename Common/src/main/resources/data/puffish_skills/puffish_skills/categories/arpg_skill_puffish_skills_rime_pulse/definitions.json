@@ -1,0 +1,482 @@
+{
+  "puffish_skills_rime_pulse_0": {
+    "title": "Rime Pulse 1",
+    "description": "4% increased spell damage for Rime Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_rime_pulse_0"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_rime_pulse_1": {
+    "title": "Rime Pulse 2",
+    "description": "4% increased spell damage for Rime Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_rime_pulse_1"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_rime_pulse_2": {
+    "title": "Rime Pulse 3",
+    "description": "4% increased spell damage for Rime Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_rime_pulse_2"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_rime_pulse_3": {
+    "title": "Rime Pulse 4",
+    "description": "4% increased spell damage for Rime Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_rime_pulse_3"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_rime_pulse_4": {
+    "title": "Rime Pulse 5",
+    "description": "4% increased spell damage for Rime Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_rime_pulse_4"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_rime_pulse_5": {
+    "title": "Rime Pulse 6",
+    "description": "4% increased spell damage for Rime Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_rime_pulse_5"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_rime_pulse_6": {
+    "title": "Rime Pulse 7",
+    "description": "4% increased spell damage for Rime Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_rime_pulse_6"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_rime_pulse_7": {
+    "title": "Rime Pulse 8",
+    "description": "4% increased spell damage for Rime Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_rime_pulse_7"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_rime_pulse_8": {
+    "title": "Rime Pulse 9",
+    "description": "4% increased cold damage for Rime Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_rime_pulse_8"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_rime_pulse_9": {
+    "title": "Rime Pulse 10",
+    "description": "4% increased cold damage for Rime Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_rime_pulse_9"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_rime_pulse_10": {
+    "title": "Rime Pulse 11",
+    "description": "4% increased cold damage for Rime Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_rime_pulse_10"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_rime_pulse_11": {
+    "title": "Rime Pulse 12",
+    "description": "4% increased cold damage for Rime Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_rime_pulse_11"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_rime_pulse_12": {
+    "title": "Rime Pulse 13",
+    "description": "4% increased cold damage for Rime Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_rime_pulse_12"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_rime_pulse_13": {
+    "title": "Rime Pulse 14",
+    "description": "4% increased cold damage for Rime Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_rime_pulse_13"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_rime_pulse_14": {
+    "title": "Rime Pulse 15",
+    "description": "4% increased cold damage for Rime Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_rime_pulse_14"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_rime_pulse_15": {
+    "title": "Rime Pulse 16",
+    "description": "4% increased cold damage for Rime Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_rime_pulse_15"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_rime_pulse_16": {
+    "title": "Rime Pulse 17",
+    "description": "4% increased area damage for Rime Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_rime_pulse_16"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_rime_pulse_17": {
+    "title": "Rime Pulse 18",
+    "description": "4% increased area damage for Rime Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_rime_pulse_17"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_rime_pulse_18": {
+    "title": "Rime Pulse 19",
+    "description": "4% increased area damage for Rime Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_rime_pulse_18"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_rime_pulse_19": {
+    "title": "Rime Pulse 20",
+    "description": "4% increased area damage for Rime Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_rime_pulse_19"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_rime_pulse_20": {
+    "title": "Rime Pulse 21",
+    "description": "4% increased area damage for Rime Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_rime_pulse_20"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_rime_pulse_21": {
+    "title": "Rime Pulse 22",
+    "description": "4% increased area damage for Rime Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_rime_pulse_21"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_rime_pulse_22": {
+    "title": "Rime Pulse 23",
+    "description": "4% increased area damage for Rime Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_rime_pulse_22"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_rime_pulse_23": {
+    "title": "Rime Pulse 24",
+    "description": "4% increased area damage for Rime Pulse",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_rime_pulse_23"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/enchanted_book.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  }
+}

@@ -7,6 +7,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.puffish.skillsmod.SkillsMod;
 import net.puffish.skillsmod.client.data.ClientSkillScreenData;
+import net.puffish.skillsmod.client.data.ClientCombatStateData;
 import net.puffish.skillsmod.client.event.ClientEventListener;
 import net.puffish.skillsmod.client.event.ClientEventReceiver;
 import net.puffish.skillsmod.client.gui.ArpgHubScreen;
@@ -15,6 +16,7 @@ import net.puffish.skillsmod.client.gui.SkillsScreen;
 import net.puffish.skillsmod.client.keybinding.KeyBindingReceiver;
 import net.puffish.skillsmod.client.network.ClientPacketSender;
 import net.puffish.skillsmod.client.network.packets.in.ExchangeUpdateInPacket;
+import net.puffish.skillsmod.client.network.packets.in.CombatStateInPacket;
 import net.puffish.skillsmod.client.network.packets.in.ExperienceUpdateInPacket;
 import net.puffish.skillsmod.client.network.packets.in.HideCategoryInPacket;
 import net.puffish.skillsmod.client.network.packets.in.NewPointInPacket;
@@ -43,9 +45,22 @@ public class SkillsClientMod {
 			"category.puffish_skills.skills"
 	);
 
+	public static final KeyBinding MELEE_INNATE_KEY_BINDING = new KeyBinding(
+			"key.puffish_skills.melee_innate", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, "category.puffish_skills.skills");
+	public static final KeyBinding WEAPON_STANCE_KEY_BINDING = new KeyBinding(
+			"key.puffish_skills.weapon_stance", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, "category.puffish_skills.skills");
+
+	public static final KeyBinding HEAVY_STRIKE_KEY_BINDING = new KeyBinding(
+			"key.puffish_skills.heavy_strike", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, "category.puffish_skills.skills");
+	public static final KeyBinding DRIVING_SLASH_KEY_BINDING = new KeyBinding(
+			"key.puffish_skills.driving_slash", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, "category.puffish_skills.skills");
+
 	private static SkillsClientMod instance;
 
 	private final ClientSkillScreenData screenData = new ClientSkillScreenData();
+	private final ClientCombatStateData combatData = new ClientCombatStateData();
+	private net.puffish.skillsmod.arpg.character.ClassSelectionView classSelection;
+	private boolean pendingClassSelection;
 
 	private final ClientPacketSender packetSender;
 
@@ -67,6 +82,10 @@ public class SkillsClientMod {
 
 		keyBindingReceiver.registerKeyBinding(OPEN_KEY_BINDING, instance::onOpenKeyPress);
 		keyBindingReceiver.registerKeyBinding(ARPG_KEY_BINDING, instance::onArpgKeyPress);
+		keyBindingReceiver.registerKeyBinding(MELEE_INNATE_KEY_BINDING, () -> instance.sendCombatCommand("arpg melee innate"));
+		keyBindingReceiver.registerKeyBinding(WEAPON_STANCE_KEY_BINDING, () -> instance.sendCombatCommand("arpg melee stance"));
+		keyBindingReceiver.registerKeyBinding(HEAVY_STRIKE_KEY_BINDING, () -> instance.sendCombatCommand("arpg melee heavy"));
+		keyBindingReceiver.registerKeyBinding(DRIVING_SLASH_KEY_BINDING, () -> instance.sendCombatCommand("arpg melee driving"));
 
 		registrar.registerInPacket(
 				Packets.SHOW_CATEGORY,
@@ -122,10 +141,31 @@ public class SkillsClientMod {
 				instance::onNewPointPacket
 		);
 
+		registrar.registerInPacket(
+				Packets.COMBAT_STATE,
+				CombatStateInPacket::read,
+				instance::onCombatState
+		);
+
+		registrar.registerInPacket(Packets.CRAFTWORK,
+				net.puffish.skillsmod.client.network.packets.in.CraftworkInPacket::read, instance::onCraftwork);
+
 		registrar.registerOutPacket(Packets.SKILL_CLICK);
+		registrar.registerOutPacket(Packets.CHOOSE_CLASS);
+		registrar.registerInPacket(Packets.MELEE_KIT,
+				net.puffish.skillsmod.client.network.packets.in.MeleeKitInPacket::read, instance::onMeleeKit);
+		registrar.registerInPacket(Packets.CLASS_SELECTION,
+				net.puffish.skillsmod.client.network.packets.in.ClassSelectionInPacket::read, instance::onClassSelection);
 		registrar.registerOutPacket(Packets.BUY_POINT);
 
 		eventReceiver.registerListener(instance.new EventListener());
+	}
+
+	private void sendCombatCommand(String command) {
+		var client = MinecraftClient.getInstance();
+		if (client.currentScreen == null && client.player != null && client.getNetworkHandler() != null) {
+			client.getNetworkHandler().sendChatCommand(command);
+		}
 	}
 
 	private void onOpenKeyPress() {
@@ -203,6 +243,45 @@ public class SkillsClientMod {
 		});
 	}
 
+	private void onCraftwork(net.puffish.skillsmod.client.network.packets.in.CraftworkInPacket packet) {
+		var client = MinecraftClient.getInstance();
+		if (packet.open()) {
+			client.setScreen(new net.puffish.skillsmod.client.gui.CraftworkScreen(packet.view(), packet.message()));
+		} else if (client.currentScreen instanceof net.puffish.skillsmod.client.gui.CraftworkScreen screen) {
+			screen.update(packet.view(), packet.message());
+		}
+	}
+
+	private void onCombatState(CombatStateInPacket packet) {
+		combatData.set(packet.state());
+	}
+
+	private void onMeleeKit(net.puffish.skillsmod.client.network.packets.in.MeleeKitInPacket packet) {
+		var client = MinecraftClient.getInstance();
+		if (client.currentScreen instanceof net.puffish.skillsmod.client.gui.MeleeKitScreen screen) {
+			screen.update(packet.view());
+		} else if (packet.open() && client.player != null && client.world != null) {
+			client.setScreen(new net.puffish.skillsmod.client.gui.MeleeKitScreen(packet.view()));
+		}
+	}
+
+	private void onClassSelection(net.puffish.skillsmod.client.network.packets.in.ClassSelectionInPacket packet) {
+		classSelection = packet.view();
+		var client = MinecraftClient.getInstance();
+		if (client.currentScreen instanceof net.puffish.skillsmod.client.gui.ClassSelectionScreen screen) {
+			if (classSelection.primary().isEmpty()) {
+				screen.update(classSelection, packet.message());
+			} else {
+				pendingClassSelection = false;
+				openArpgScreen();
+			}
+		} else if (classSelection.primary().isEmpty()) {
+			pendingClassSelection = true;
+		} else {
+			pendingClassSelection = false;
+		}
+	}
+
 	private void onOpenScreenPacket(OpenScreenInPacket packet) {
 		openScreen(packet.getCategoryId());
 	}
@@ -224,17 +303,39 @@ public class SkillsClientMod {
 	}
 
 	public void openArpgScreen() {
-		MinecraftClient.getInstance().setScreen(new ArpgHubScreen(screenData));
+		if (classSelection != null && classSelection.primary().isEmpty()) {
+			pendingClassSelection = false;
+			MinecraftClient.getInstance().setScreen(new net.puffish.skillsmod.client.gui.ClassSelectionScreen(classSelection));
+			return;
+		}
+		MinecraftClient.getInstance().setScreen(new ArpgHubScreen(screenData, combatData));
 	}
 
 	public ClientPacketSender getPacketSender() {
 		return packetSender;
 	}
 
+	public ClientCombatStateData getCombatData() {
+		return combatData;
+	}
+
 	private class EventListener implements ClientEventListener {
 		@Override
 		public void onPlayerJoin() {
 			screenData.clearCategories();
+			combatData.clear();
+			classSelection = null;
+			pendingClassSelection = false;
+		}
+
+		@Override
+		public void onClientTick() {
+			var client = MinecraftClient.getInstance();
+			if (pendingClassSelection && classSelection != null && classSelection.primary().isEmpty()
+					&& client.player != null && client.world != null && client.currentScreen == null) {
+				pendingClassSelection = false;
+				client.setScreen(new net.puffish.skillsmod.client.gui.ClassSelectionScreen(classSelection));
+			}
 		}
 	}
 }

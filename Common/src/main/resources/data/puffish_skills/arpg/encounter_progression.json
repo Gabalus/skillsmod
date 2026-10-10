@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "expeditionDimensions": [],
+  "allowApotheosisWorldBosses": true,
+  "maxL2Level": 100,
+  "maxTraitRanks": 20,
+  "maxApotheosisTier": 4,
+  "l2PercentPerLevel": 1,
+  "traitPercentPerRank": 3,
+  "apotheosisPercentPerTier": 20,
+  "elitePercent": 25,
+  "invaderPercent": 100,
+  "maxKillExperience": 50000
+}

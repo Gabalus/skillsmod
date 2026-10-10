@@ -1,5 +1,6 @@
 package net.puffish.skillsmod.arpg.mechanics;
 
+import net.puffish.skillsmod.arpg.combat.CombatState;
 import net.puffish.skillsmod.arpg.metric.QualifierSet;
 
 import java.util.Collections;
@@ -66,6 +67,20 @@ public record ActionContext(
 				resourceState,
 				TriggerTrace.root(normalizedAction, normalizedOwner)
 		);
+	}
+
+	public static ActionContext root(
+			String actionId,
+			String ownerId,
+			String sourceEntityId,
+			String weaponKey,
+			QualifierSet tags,
+			CombatState combatState
+	) {
+		if (combatState == null) {
+			throw new IllegalArgumentException("combatState cannot be null");
+		}
+		return root(actionId, ownerId, sourceEntityId, weaponKey, tags, combatState.snapshot());
 	}
 
 	public ActionContext child(

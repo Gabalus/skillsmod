@@ -1,0 +1,83 @@
+name: Sandbox craftwork CI
+
+on:
+  push:
+    branches:
+      - feature/arpg-sandbox-craftwork
+  pull_request:
+    branches:
+      - feature/arpg-core-1.21.1
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sandbox-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Java 21
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Check pure sandbox engine
+        run: python3 tools/test_sandbox_engine.py
+      - name: Check encounter progression
+        run: python3 tools/test_encounter_progression.py
+      - name: Check completion rewards
+        run: python3 tools/test_completion_rewards.py
+      - name: Check rift sessions
+        run: python3 tools/test_rift_engine.py
+      - name: Check tower network
+        run: python3 tools/test_tower_engine.py
+      - name: Check generated tower demo
+        run: python3 tools/test_tower_demo.py
+      - name: Check custom spell content
+        run: python3 tools/test_arpg_spells.py
+      - name: Check Epic Fight melee specializations
+        run: python3 tools/test_arpg_melee.py
+      - name: Build opt-in tower data pack
+        run: python3 tools/build_tower_demo.py
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+      - name: Run common tests and build NeoForge
+        run: |
+          chmod +x gradlew
+          ./gradlew :Common:test :NeoForge:build --stacktrace
+      - name: Resolve Epic Fight runtime and Sentinel assets
+        run: ./gradlew :NeoForge:verifyArpgEpicRuntime -Parpg_epic_runtime=true --stacktrace
+      - name: Resolve Iron's spell runtime
+        run: ./gradlew :NeoForge:verifyArpgIronsRuntime -Parpg_irons_runtime=true --stacktrace
+      - name: Verify L2 Hostility runtime and API
+        run: ./gradlew :NeoForge:verifyArpgL2Runtime -Parpg_l2_runtime=true --stacktrace
+      - name: Verify Apotheosis tier API and full provider runtime
+        run: ./gradlew :NeoForge:verifyArpgFullRuntime -Parpg_full_runtime=true --stacktrace
+      - name: Upload NeoForge JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: sandbox-craftwork-neoforge
+          path: |
+            NeoForge/build/libs/*.jar
+            !NeoForge/build/libs/*-sources.jar
+          if-no-files-found: error
+      - name: Upload test reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sandbox-craftwork-reports
+          path: |
+            Common/build/reports/
+            NeoForge/build/reports/
+          if-no-files-found: ignore
+      - name: Upload opt-in tower demo
+        uses: actions/upload-artifact@v4
+        with:
+          name: tower-demo-datapack
+          path: build/tower-demo-datapack.zip
+          if-no-files-found: error

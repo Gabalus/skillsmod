@@ -1,0 +1,482 @@
+{
+  "puffish_skills_measured_strike_0": {
+    "title": "Measured Strike 1",
+    "description": "4% increased melee damage for Measured Strike",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_measured_strike_0"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_measured_strike_1": {
+    "title": "Measured Strike 2",
+    "description": "4% increased melee damage for Measured Strike",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_measured_strike_1"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_measured_strike_2": {
+    "title": "Measured Strike 3",
+    "description": "4% increased melee damage for Measured Strike",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_measured_strike_2"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_measured_strike_3": {
+    "title": "Measured Strike 4",
+    "description": "4% increased melee damage for Measured Strike",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_measured_strike_3"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_measured_strike_4": {
+    "title": "Measured Strike 5",
+    "description": "4% increased melee damage for Measured Strike",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_measured_strike_4"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_measured_strike_5": {
+    "title": "Measured Strike 6",
+    "description": "4% increased melee damage for Measured Strike",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_measured_strike_5"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_measured_strike_6": {
+    "title": "Measured Strike 7",
+    "description": "4% increased melee damage for Measured Strike",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_measured_strike_6"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_measured_strike_7": {
+    "title": "Measured Strike 8",
+    "description": "4% increased melee damage for Measured Strike",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_measured_strike_7"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_measured_strike_8": {
+    "title": "Measured Strike 9",
+    "description": "4% increased physical damage for Measured Strike",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_measured_strike_8"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_measured_strike_9": {
+    "title": "Measured Strike 10",
+    "description": "4% increased physical damage for Measured Strike",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_measured_strike_9"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_measured_strike_10": {
+    "title": "Measured Strike 11",
+    "description": "4% increased physical damage for Measured Strike",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_measured_strike_10"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_measured_strike_11": {
+    "title": "Measured Strike 12",
+    "description": "4% increased physical damage for Measured Strike",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_measured_strike_11"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_measured_strike_12": {
+    "title": "Measured Strike 13",
+    "description": "4% increased physical damage for Measured Strike",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_measured_strike_12"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_measured_strike_13": {
+    "title": "Measured Strike 14",
+    "description": "4% increased physical damage for Measured Strike",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_measured_strike_13"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_measured_strike_14": {
+    "title": "Measured Strike 15",
+    "description": "4% increased physical damage for Measured Strike",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_measured_strike_14"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_measured_strike_15": {
+    "title": "Measured Strike 16",
+    "description": "4% increased physical damage for Measured Strike",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_measured_strike_15"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_measured_strike_16": {
+    "title": "Measured Strike 17",
+    "description": "2.5% reduced stamina cost for Measured Strike",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_measured_strike_16"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_measured_strike_17": {
+    "title": "Measured Strike 18",
+    "description": "2.5% reduced stamina cost for Measured Strike",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_measured_strike_17"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_measured_strike_18": {
+    "title": "Measured Strike 19",
+    "description": "2.5% reduced stamina cost for Measured Strike",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_measured_strike_18"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_measured_strike_19": {
+    "title": "Measured Strike 20",
+    "description": "2.5% reduced stamina cost for Measured Strike",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_measured_strike_19"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_measured_strike_20": {
+    "title": "Measured Strike 21",
+    "description": "2.5% reduced stamina cost for Measured Strike",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_measured_strike_20"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_measured_strike_21": {
+    "title": "Measured Strike 22",
+    "description": "2.5% reduced stamina cost for Measured Strike",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_measured_strike_21"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_measured_strike_22": {
+    "title": "Measured Strike 23",
+    "description": "2.5% reduced stamina cost for Measured Strike",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_measured_strike_22"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  },
+  "puffish_skills_measured_strike_23": {
+    "title": "Measured Strike 24",
+    "description": "2.5% reduced stamina cost for Measured Strike",
+    "rewards": [
+      {
+        "type": "puffish_skills:arpg_rule",
+        "data": {
+          "rule": "specialization/puffish_skills_measured_strike_23"
+        }
+      }
+    ],
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/iron_sword.png"
+      }
+    },
+    "size": 1,
+    "cost": 1
+  }
+}

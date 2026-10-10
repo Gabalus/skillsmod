@@ -4,6 +4,8 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
 import net.puffish.skillsmod.SkillsMod;
 import net.puffish.skillsmod.arpg.data.ArpgData;
+import net.puffish.skillsmod.arpg.combat.ArpgCombatRuntime;
+import net.puffish.skillsmod.arpg.combat.CombatPillar;
 import net.puffish.skillsmod.server.data.ServerData;
 
 public final class ArpgProgression {
@@ -48,6 +50,7 @@ public final class ArpgProgression {
 	public static void sync(ServerPlayerEntity player) {
 		var state = character(player);
 		var mod = SkillsMod.getInstance();
+		mod.syncClassSelection(player, "");
 		if (state.primary().isEmpty()) {
 			return;
 		}
@@ -94,6 +97,7 @@ public final class ArpgProgression {
 			}
 			if (choice.equals("primary")) {
 				state.choosePrimary(id);
+				ArpgCombatRuntime.setPillar(player, CombatPillar.forDiscipline(id));
 			} else {
 				state.chooseSecondary(id);
 			}
