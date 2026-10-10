@@ -34,7 +34,7 @@ class ArpgSkillUseSemanticsTest {
 	@Test
 	void providerAdjustedCostIsTheBaseAndInvalidCostsCannotBecomeFree() {
 		var snapshot = ArpgStatCompiler.compile(List.of(
-				new ArpgStatModifier(ArpgStat.RESOURCE_COST, ArpgModifierOperation.INCREASED, -0.20)
+				new ArpgStatModifier(ArpgStat.RESOURCE_COST, ArpgModifierOperation.REDUCED, 0.20)
 		));
 		assertEquals(9.6, ArpgSkillUseSemantics.resourceCost(12.0, snapshot), 0.00001);
 		assertEquals(Double.POSITIVE_INFINITY, ArpgSkillUseSemantics.resourceCost(Double.NaN, snapshot));

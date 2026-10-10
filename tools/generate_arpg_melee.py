@@ -6,7 +6,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1] / "Common/src/main/resources/data/puffish_skills"
 ATTACKS = (("measured_strike", "Measured Strike", 3, 8, 80),
            ("driving_slash", "Driving Slash", 5, 6, 60))
-BRANCHES = (("melee_damage", .04), ("physical_damage", .04), ("resource_cost", -.025))
+BRANCHES = (("melee_damage", "increased", .04), ("physical_damage", "increased", .04),
+            ("resource_cost", "reduced", .025))
 
 
 def write(path, data):
@@ -31,13 +32,13 @@ def generate(root=ROOT):
         nodes, definitions, edges = {}, {}, []
         for j in range(24):
             key = safe + "_" + str(j)
-            stat, value = BRANCHES[j // 8]
+            stat, operation, value = BRANCHES[j // 8]
             description = ("2.5% reduced stamina cost" if stat == "resource_cost"
                            else "4% increased " + stat.replace("_", " ")) + " for " + title
             rid = "specialization/" + key
             catalog["rules"].append(dict(id=rid, title=title + " Specialization " + str(j + 1),
                 description=description, kind="conditional", condition="always", skill=sid,
-                modifiers=[dict(stat=stat, operation="increased", value=value)]))
+                modifiers=[dict(stat=stat, operation=operation, value=value)]))
             definitions[key] = dict(title=title + " " + str(j + 1), description=description,
                 rewards=[dict(type="puffish_skills:arpg_rule", data=dict(rule=rid))],
                 icon=dict(type="texture", data=dict(texture="minecraft:textures/item/iron_sword.png")), size=1, cost=1)

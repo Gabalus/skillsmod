@@ -41,8 +41,8 @@ class MeleeContentChecks(unittest.TestCase):
                 rule = rules[definition["rewards"][0]["data"]["rule"]]
                 self.assertEqual(sid, rule["skill"])
                 self.assertEqual("conditional", rule["kind"])
-                stat, value = BRANCHES[j // 8]
-                self.assertEqual([dict(stat=stat, operation="increased", value=value)], rule["modifiers"])
+                stat, operation, value = BRANCHES[j // 8]
+                self.assertEqual([dict(stat=stat, operation=operation, value=value)], rule["modifiers"])
         self.assertEqual(len(skills), json.loads((ROOT / "arpg/manifest.json").read_text())["skills"])
 
     def test_regeneration_preserves_other_graphs_and_is_idempotent(self):
