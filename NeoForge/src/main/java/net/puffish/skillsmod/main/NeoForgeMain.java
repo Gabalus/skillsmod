@@ -57,6 +57,7 @@ public class NeoForgeMain {
 
 	public NeoForgeMain(IEventBus modEventBus, Dist dist) {
 		net.puffish.skillsmod.arpg.tower.TowerEntities.register(modEventBus);
+		OptionalIronsSpells.registerIfLoaded(modEventBus);
 		if (dist.isClient()) {
 			new NeoForgeClientMain(modEventBus);
 		}

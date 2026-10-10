@@ -39,7 +39,8 @@ public final class ArpgHubScreen extends Screen {
 			new QuickLink("Confluence", "arpg_confluence_", true),
 			new QuickLink("Skills", "arpg_skill_", true),
 			new QuickLink("Atlas", "arpg_atlas", false),
-			new QuickLink("Towers", "", false)
+			new QuickLink("Towers", "", false),
+			new QuickLink("Spells", "", false, "arpg spells")
 	);
 
 	private final ClientSkillScreenData data;
@@ -97,7 +98,7 @@ public final class ArpgHubScreen extends Screen {
 				ignored -> {
 					if (link.path().isEmpty()) {
 						if (client != null && client.getNetworkHandler() != null) {
-							client.getNetworkHandler().sendChatCommand("tower");
+							client.getNetworkHandler().sendChatCommand(link.command());
 							client.setScreen(new ChatScreen(""));
 						}
 					} else {
@@ -374,7 +375,11 @@ public final class ArpgHubScreen extends Screen {
 		return value.substring(0, Math.max(1, length - 1)) + "…";
 	}
 
-	private record QuickLink(String label, String path, boolean prefix) { }
+	private record QuickLink(String label, String path, boolean prefix, String command) {
+		private QuickLink(String label, String path, boolean prefix) {
+			this(label, path, prefix, path.isEmpty() ? "tower" : "");
+		}
+	}
 
 	private record Layout(
 			int left,

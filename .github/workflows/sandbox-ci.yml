@@ -38,6 +38,8 @@ jobs:
         run: python3 tools/test_tower_engine.py
       - name: Check generated tower demo
         run: python3 tools/test_tower_demo.py
+      - name: Check custom spell content
+        run: python3 tools/test_arpg_spells.py
       - name: Build opt-in tower data pack
         run: python3 tools/build_tower_demo.py
       - name: Set up Gradle
@@ -48,6 +50,8 @@ jobs:
           ./gradlew :Common:test :NeoForge:build --stacktrace
       - name: Resolve Epic Fight runtime and Sentinel assets
         run: ./gradlew :NeoForge:verifyArpgEpicRuntime -Parpg_epic_runtime=true --stacktrace
+      - name: Resolve Iron's spell runtime
+        run: ./gradlew :NeoForge:verifyArpgIronsRuntime -Parpg_irons_runtime=true --stacktrace
       - name: Upload NeoForge JAR
         uses: actions/upload-artifact@v4
         with:

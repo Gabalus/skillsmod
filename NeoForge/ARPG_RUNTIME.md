@@ -16,6 +16,8 @@ In game, **P** opens the ARPG Character hub. It provides direct Passive / Ascend
 
 ## Iron's integration profile
 
+The two custom pulse spells, progression gates, spell browser and specialization trees are documented in [ARPG_SPELLS.md](ARPG_SPELLS.md).
+
 Enable the spell-integration runtime with:
 
 ```bash

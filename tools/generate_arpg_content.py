@@ -384,4 +384,6 @@ write(ROOT/'puffish_skills/config.json',{'version':3,'categories':['arpg_test']+
 old=json.loads((TREE/'arpg_test/category.json').read_text());old['unlocked_by_default']=False;write(TREE/'arpg_test/category.json',old)
 write(ROOT/'arpg/manifest.json',dict(schema=1,universal_nodes=1602,notables=270,keystones=66,jewel_sockets=6,
     disciplines=6,ascendancies=24,confluences=15,skills=len(CATALOG['skills']),affixes=len(CATALOG['affixes']),bases=len(CATALOG['bases']),uniques=3))
+from generate_arpg_spells import generate as generate_spells
+generate_spells(ROOT)
 print(json.dumps(json.loads((ROOT/'arpg/manifest.json').read_text())))

@@ -8,6 +8,9 @@ import net.minecraft.command.CommandSource;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
+import net.minecraft.text.ClickEvent;
+import net.minecraft.text.HoverEvent;
+import net.minecraft.util.Formatting;
 import net.puffish.skillsmod.SkillsMod;
 import net.puffish.skillsmod.arpg.character.ArpgCharacter;
 import net.puffish.skillsmod.arpg.character.ArpgProgression;
@@ -15,6 +18,7 @@ import net.puffish.skillsmod.arpg.combat.ArpgCombatRuntime;
 import net.puffish.skillsmod.arpg.compat.ArpgProviderRegistry;
 import net.puffish.skillsmod.arpg.data.ArpgData;
 import net.puffish.skillsmod.arpg.skill.ArpgWeaponSkillExecutor;
+import net.puffish.skillsmod.arpg.skill.ArpgSkillAccess;
 
 import java.util.Collection;
 import java.util.Locale;
@@ -32,6 +36,8 @@ public final class ArpgCommand {
 						.executes(ArpgCommand::status))
 				.then(CommandManager.literal("providers")
 						.executes(ArpgCommand::providers))
+				.then(CommandManager.literal("spells")
+						.executes(ArpgCommand::spells))
 				.then(CommandManager.literal("progression")
 						.executes(ArpgCommand::progression))
 				.then(CommandManager.literal("completions")
@@ -77,6 +83,32 @@ public final class ArpgCommand {
 														.filter(skill -> "weapon".equals(skill.provider()))
 														.map(skill -> skill.id()), builder))
 										.executes(ArpgCommand::useSkill))));
+	}
+
+	private static int spells(CommandContext<ServerCommandSource> context) throws CommandSyntaxException {
+		var player = context.getSource().getPlayerOrThrow();
+		var character = ArpgProgression.character(player);
+		boolean loaded = ArpgProviderRegistry.loaded("irons_spellbooks");
+		player.sendMessage(Text.literal("Spells — obtain a scroll and equip it in an Iron's spellbook; use its casting controls.")
+				.formatted(Formatting.GOLD), false);
+		for (var skill : ArpgData.content().skills().values().stream().filter(s -> "irons".equals(s.provider()))
+				.sorted(java.util.Comparator.comparingInt(net.puffish.skillsmod.arpg.data.ArpgContent.Skill::level)
+						.thenComparing(net.puffish.skillsmod.arpg.data.ArpgContent.Skill::title)).limit(32).toList()) {
+			var access = ArpgSkillAccess.check(character, skill, "irons");
+			boolean specialized = character.specializations().containsKey(skill.id());
+			String status = !loaded ? "Iron's Spells is missing" : !access.allowed() ? access.message()
+					: specialized ? "Specialized" : "Ready";
+			var row = Text.literal(skill.title() + " | level " + skill.level() + " | " + status)
+					.formatted(loaded && access.allowed() ? Formatting.GREEN : Formatting.GRAY);
+			if (loaded && access.allowed() && !specialized) {
+				row.append(Text.literal(" [Specialize]").formatted(Formatting.AQUA).styled(style -> style
+						.withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/arpg specialize " + skill.id()))
+						.withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT,
+								Text.literal("Uses a specialization slot. Manage its tree in the Character hub's Skills tab.")))));
+			}
+			player.sendMessage(row, false);
+		}
+		return 1;
 	}
 
 	private static int completions(CommandContext<ServerCommandSource> context) throws CommandSyntaxException {

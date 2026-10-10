@@ -469,6 +469,46 @@
       "discipline": "",
       "weapon": "any",
       "effect": "hit"
+    },
+    {
+      "id": "puffish_skills:storm_pulse",
+      "title": "Storm Pulse",
+      "provider": "irons",
+      "tags": [
+        "spell",
+        "lightning",
+        "area",
+        "hit"
+      ],
+      "damage_type": "lightning",
+      "coefficient": 1,
+      "cost": 0,
+      "cooldown": 1,
+      "range": 4,
+      "level": 3,
+      "discipline": "arcanist",
+      "weapon": "any",
+      "effect": "pulse"
+    },
+    {
+      "id": "puffish_skills:rime_pulse",
+      "title": "Rime Pulse",
+      "provider": "irons",
+      "tags": [
+        "spell",
+        "cold",
+        "area",
+        "hit"
+      ],
+      "damage_type": "cold",
+      "coefficient": 1,
+      "cost": 0,
+      "cooldown": 1,
+      "range": 4,
+      "level": 5,
+      "discipline": "shaman",
+      "weapon": "any",
+      "effect": "pulse"
     }
   ],
   "rules": [
@@ -7239,6 +7279,726 @@
           "stat": "area_damage",
           "operation": "increased",
           "value": 0.08
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_storm_pulse_0",
+      "title": "Storm Pulse Specialization 1",
+      "description": "4% increased spell damage for Storm Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:storm_pulse",
+      "modifiers": [
+        {
+          "stat": "spell_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_storm_pulse_1",
+      "title": "Storm Pulse Specialization 2",
+      "description": "4% increased spell damage for Storm Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:storm_pulse",
+      "modifiers": [
+        {
+          "stat": "spell_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_storm_pulse_2",
+      "title": "Storm Pulse Specialization 3",
+      "description": "4% increased spell damage for Storm Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:storm_pulse",
+      "modifiers": [
+        {
+          "stat": "spell_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_storm_pulse_3",
+      "title": "Storm Pulse Specialization 4",
+      "description": "4% increased spell damage for Storm Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:storm_pulse",
+      "modifiers": [
+        {
+          "stat": "spell_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_storm_pulse_4",
+      "title": "Storm Pulse Specialization 5",
+      "description": "4% increased spell damage for Storm Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:storm_pulse",
+      "modifiers": [
+        {
+          "stat": "spell_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_storm_pulse_5",
+      "title": "Storm Pulse Specialization 6",
+      "description": "4% increased spell damage for Storm Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:storm_pulse",
+      "modifiers": [
+        {
+          "stat": "spell_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_storm_pulse_6",
+      "title": "Storm Pulse Specialization 7",
+      "description": "4% increased spell damage for Storm Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:storm_pulse",
+      "modifiers": [
+        {
+          "stat": "spell_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_storm_pulse_7",
+      "title": "Storm Pulse Specialization 8",
+      "description": "4% increased spell damage for Storm Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:storm_pulse",
+      "modifiers": [
+        {
+          "stat": "spell_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_storm_pulse_8",
+      "title": "Storm Pulse Specialization 9",
+      "description": "4% increased lightning damage for Storm Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:storm_pulse",
+      "modifiers": [
+        {
+          "stat": "lightning_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_storm_pulse_9",
+      "title": "Storm Pulse Specialization 10",
+      "description": "4% increased lightning damage for Storm Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:storm_pulse",
+      "modifiers": [
+        {
+          "stat": "lightning_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_storm_pulse_10",
+      "title": "Storm Pulse Specialization 11",
+      "description": "4% increased lightning damage for Storm Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:storm_pulse",
+      "modifiers": [
+        {
+          "stat": "lightning_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_storm_pulse_11",
+      "title": "Storm Pulse Specialization 12",
+      "description": "4% increased lightning damage for Storm Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:storm_pulse",
+      "modifiers": [
+        {
+          "stat": "lightning_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_storm_pulse_12",
+      "title": "Storm Pulse Specialization 13",
+      "description": "4% increased lightning damage for Storm Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:storm_pulse",
+      "modifiers": [
+        {
+          "stat": "lightning_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_storm_pulse_13",
+      "title": "Storm Pulse Specialization 14",
+      "description": "4% increased lightning damage for Storm Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:storm_pulse",
+      "modifiers": [
+        {
+          "stat": "lightning_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_storm_pulse_14",
+      "title": "Storm Pulse Specialization 15",
+      "description": "4% increased lightning damage for Storm Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:storm_pulse",
+      "modifiers": [
+        {
+          "stat": "lightning_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_storm_pulse_15",
+      "title": "Storm Pulse Specialization 16",
+      "description": "4% increased lightning damage for Storm Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:storm_pulse",
+      "modifiers": [
+        {
+          "stat": "lightning_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_storm_pulse_16",
+      "title": "Storm Pulse Specialization 17",
+      "description": "4% increased area damage for Storm Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:storm_pulse",
+      "modifiers": [
+        {
+          "stat": "area_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_storm_pulse_17",
+      "title": "Storm Pulse Specialization 18",
+      "description": "4% increased area damage for Storm Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:storm_pulse",
+      "modifiers": [
+        {
+          "stat": "area_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_storm_pulse_18",
+      "title": "Storm Pulse Specialization 19",
+      "description": "4% increased area damage for Storm Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:storm_pulse",
+      "modifiers": [
+        {
+          "stat": "area_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_storm_pulse_19",
+      "title": "Storm Pulse Specialization 20",
+      "description": "4% increased area damage for Storm Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:storm_pulse",
+      "modifiers": [
+        {
+          "stat": "area_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_storm_pulse_20",
+      "title": "Storm Pulse Specialization 21",
+      "description": "4% increased area damage for Storm Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:storm_pulse",
+      "modifiers": [
+        {
+          "stat": "area_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_storm_pulse_21",
+      "title": "Storm Pulse Specialization 22",
+      "description": "4% increased area damage for Storm Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:storm_pulse",
+      "modifiers": [
+        {
+          "stat": "area_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_storm_pulse_22",
+      "title": "Storm Pulse Specialization 23",
+      "description": "4% increased area damage for Storm Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:storm_pulse",
+      "modifiers": [
+        {
+          "stat": "area_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_storm_pulse_23",
+      "title": "Storm Pulse Specialization 24",
+      "description": "4% increased area damage for Storm Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:storm_pulse",
+      "modifiers": [
+        {
+          "stat": "area_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_rime_pulse_0",
+      "title": "Rime Pulse Specialization 1",
+      "description": "4% increased spell damage for Rime Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:rime_pulse",
+      "modifiers": [
+        {
+          "stat": "spell_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_rime_pulse_1",
+      "title": "Rime Pulse Specialization 2",
+      "description": "4% increased spell damage for Rime Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:rime_pulse",
+      "modifiers": [
+        {
+          "stat": "spell_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_rime_pulse_2",
+      "title": "Rime Pulse Specialization 3",
+      "description": "4% increased spell damage for Rime Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:rime_pulse",
+      "modifiers": [
+        {
+          "stat": "spell_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_rime_pulse_3",
+      "title": "Rime Pulse Specialization 4",
+      "description": "4% increased spell damage for Rime Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:rime_pulse",
+      "modifiers": [
+        {
+          "stat": "spell_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_rime_pulse_4",
+      "title": "Rime Pulse Specialization 5",
+      "description": "4% increased spell damage for Rime Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:rime_pulse",
+      "modifiers": [
+        {
+          "stat": "spell_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_rime_pulse_5",
+      "title": "Rime Pulse Specialization 6",
+      "description": "4% increased spell damage for Rime Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:rime_pulse",
+      "modifiers": [
+        {
+          "stat": "spell_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_rime_pulse_6",
+      "title": "Rime Pulse Specialization 7",
+      "description": "4% increased spell damage for Rime Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:rime_pulse",
+      "modifiers": [
+        {
+          "stat": "spell_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_rime_pulse_7",
+      "title": "Rime Pulse Specialization 8",
+      "description": "4% increased spell damage for Rime Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:rime_pulse",
+      "modifiers": [
+        {
+          "stat": "spell_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_rime_pulse_8",
+      "title": "Rime Pulse Specialization 9",
+      "description": "4% increased cold damage for Rime Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:rime_pulse",
+      "modifiers": [
+        {
+          "stat": "cold_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_rime_pulse_9",
+      "title": "Rime Pulse Specialization 10",
+      "description": "4% increased cold damage for Rime Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:rime_pulse",
+      "modifiers": [
+        {
+          "stat": "cold_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_rime_pulse_10",
+      "title": "Rime Pulse Specialization 11",
+      "description": "4% increased cold damage for Rime Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:rime_pulse",
+      "modifiers": [
+        {
+          "stat": "cold_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_rime_pulse_11",
+      "title": "Rime Pulse Specialization 12",
+      "description": "4% increased cold damage for Rime Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:rime_pulse",
+      "modifiers": [
+        {
+          "stat": "cold_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_rime_pulse_12",
+      "title": "Rime Pulse Specialization 13",
+      "description": "4% increased cold damage for Rime Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:rime_pulse",
+      "modifiers": [
+        {
+          "stat": "cold_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_rime_pulse_13",
+      "title": "Rime Pulse Specialization 14",
+      "description": "4% increased cold damage for Rime Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:rime_pulse",
+      "modifiers": [
+        {
+          "stat": "cold_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_rime_pulse_14",
+      "title": "Rime Pulse Specialization 15",
+      "description": "4% increased cold damage for Rime Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:rime_pulse",
+      "modifiers": [
+        {
+          "stat": "cold_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_rime_pulse_15",
+      "title": "Rime Pulse Specialization 16",
+      "description": "4% increased cold damage for Rime Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:rime_pulse",
+      "modifiers": [
+        {
+          "stat": "cold_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_rime_pulse_16",
+      "title": "Rime Pulse Specialization 17",
+      "description": "4% increased area damage for Rime Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:rime_pulse",
+      "modifiers": [
+        {
+          "stat": "area_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_rime_pulse_17",
+      "title": "Rime Pulse Specialization 18",
+      "description": "4% increased area damage for Rime Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:rime_pulse",
+      "modifiers": [
+        {
+          "stat": "area_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_rime_pulse_18",
+      "title": "Rime Pulse Specialization 19",
+      "description": "4% increased area damage for Rime Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:rime_pulse",
+      "modifiers": [
+        {
+          "stat": "area_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_rime_pulse_19",
+      "title": "Rime Pulse Specialization 20",
+      "description": "4% increased area damage for Rime Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:rime_pulse",
+      "modifiers": [
+        {
+          "stat": "area_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_rime_pulse_20",
+      "title": "Rime Pulse Specialization 21",
+      "description": "4% increased area damage for Rime Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:rime_pulse",
+      "modifiers": [
+        {
+          "stat": "area_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_rime_pulse_21",
+      "title": "Rime Pulse Specialization 22",
+      "description": "4% increased area damage for Rime Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:rime_pulse",
+      "modifiers": [
+        {
+          "stat": "area_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_rime_pulse_22",
+      "title": "Rime Pulse Specialization 23",
+      "description": "4% increased area damage for Rime Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:rime_pulse",
+      "modifiers": [
+        {
+          "stat": "area_damage",
+          "operation": "increased",
+          "value": 0.04
+        }
+      ]
+    },
+    {
+      "id": "specialization/puffish_skills_rime_pulse_23",
+      "title": "Rime Pulse Specialization 24",
+      "description": "4% increased area damage for Rime Pulse",
+      "kind": "conditional",
+      "condition": "always",
+      "skill": "puffish_skills:rime_pulse",
+      "modifiers": [
+        {
+          "stat": "area_damage",
+          "operation": "increased",
+          "value": 0.04
         }
       ]
     }

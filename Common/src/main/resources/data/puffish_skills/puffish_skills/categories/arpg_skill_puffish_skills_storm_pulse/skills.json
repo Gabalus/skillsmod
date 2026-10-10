@@ -1,0 +1,146 @@
+{
+  "puffish_skills_storm_pulse_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "puffish_skills_storm_pulse_0",
+    "root": true
+  },
+  "puffish_skills_storm_pulse_1": {
+    "x": 0,
+    "y": 60,
+    "definition": "puffish_skills_storm_pulse_1",
+    "root": false
+  },
+  "puffish_skills_storm_pulse_2": {
+    "x": 0,
+    "y": 120,
+    "definition": "puffish_skills_storm_pulse_2",
+    "root": false
+  },
+  "puffish_skills_storm_pulse_3": {
+    "x": 0,
+    "y": 180,
+    "definition": "puffish_skills_storm_pulse_3",
+    "root": false
+  },
+  "puffish_skills_storm_pulse_4": {
+    "x": 0,
+    "y": 240,
+    "definition": "puffish_skills_storm_pulse_4",
+    "root": false
+  },
+  "puffish_skills_storm_pulse_5": {
+    "x": 0,
+    "y": 300,
+    "definition": "puffish_skills_storm_pulse_5",
+    "root": false
+  },
+  "puffish_skills_storm_pulse_6": {
+    "x": 0,
+    "y": 360,
+    "definition": "puffish_skills_storm_pulse_6",
+    "root": false
+  },
+  "puffish_skills_storm_pulse_7": {
+    "x": 0,
+    "y": 420,
+    "definition": "puffish_skills_storm_pulse_7",
+    "root": false
+  },
+  "puffish_skills_storm_pulse_8": {
+    "x": 100,
+    "y": 0,
+    "definition": "puffish_skills_storm_pulse_8",
+    "root": true
+  },
+  "puffish_skills_storm_pulse_9": {
+    "x": 100,
+    "y": 60,
+    "definition": "puffish_skills_storm_pulse_9",
+    "root": false
+  },
+  "puffish_skills_storm_pulse_10": {
+    "x": 100,
+    "y": 120,
+    "definition": "puffish_skills_storm_pulse_10",
+    "root": false
+  },
+  "puffish_skills_storm_pulse_11": {
+    "x": 100,
+    "y": 180,
+    "definition": "puffish_skills_storm_pulse_11",
+    "root": false
+  },
+  "puffish_skills_storm_pulse_12": {
+    "x": 100,
+    "y": 240,
+    "definition": "puffish_skills_storm_pulse_12",
+    "root": false
+  },
+  "puffish_skills_storm_pulse_13": {
+    "x": 100,
+    "y": 300,
+    "definition": "puffish_skills_storm_pulse_13",
+    "root": false
+  },
+  "puffish_skills_storm_pulse_14": {
+    "x": 100,
+    "y": 360,
+    "definition": "puffish_skills_storm_pulse_14",
+    "root": false
+  },
+  "puffish_skills_storm_pulse_15": {
+    "x": 100,
+    "y": 420,
+    "definition": "puffish_skills_storm_pulse_15",
+    "root": false
+  },
+  "puffish_skills_storm_pulse_16": {
+    "x": 200,
+    "y": 0,
+    "definition": "puffish_skills_storm_pulse_16",
+    "root": true
+  },
+  "puffish_skills_storm_pulse_17": {
+    "x": 200,
+    "y": 60,
+    "definition": "puffish_skills_storm_pulse_17",
+    "root": false
+  },
+  "puffish_skills_storm_pulse_18": {
+    "x": 200,
+    "y": 120,
+    "definition": "puffish_skills_storm_pulse_18",
+    "root": false
+  },
+  "puffish_skills_storm_pulse_19": {
+    "x": 200,
+    "y": 180,
+    "definition": "puffish_skills_storm_pulse_19",
+    "root": false
+  },
+  "puffish_skills_storm_pulse_20": {
+    "x": 200,
+    "y": 240,
+    "definition": "puffish_skills_storm_pulse_20",
+    "root": false
+  },
+  "puffish_skills_storm_pulse_21": {
+    "x": 200,
+    "y": 300,
+    "definition": "puffish_skills_storm_pulse_21",
+    "root": false
+  },
+  "puffish_skills_storm_pulse_22": {
+    "x": 200,
+    "y": 360,
+    "definition": "puffish_skills_storm_pulse_22",
+    "root": false
+  },
+  "puffish_skills_storm_pulse_23": {
+    "x": 200,
+    "y": 420,
+    "definition": "puffish_skills_storm_pulse_23",
+    "root": false
+  }
+}
