@@ -144,7 +144,7 @@ public final class ArpgRuleRuntime {
 		triggerCooldowns.remove(player);
 		ward.remove(player);
 		timedBuffs.remove(player);
-		ArpgAilmentRuntime.clear(player);
+		// Saved ailments survive reconnects and build/data refreshes; death clears them in the status backend.
 	}
 
 	private static boolean executeVanilla(
@@ -211,7 +211,7 @@ public final class ArpgRuleRuntime {
 			ArpgRuleEngine.Trigger trigger
 	) {
 		var sourceSnapshot = snapshot(player, target, event, skill, tags);
-		if (!ArpgAilmentRuntime.apply(player, target, trigger, sourceSnapshot)) {
+		if (!ArpgAilmentRuntime.apply(player, target, trigger, sourceSnapshot, skill)) {
 			return false;
 		}
 		fireSupportedTriggers(
@@ -334,9 +334,11 @@ public final class ArpgRuleRuntime {
 		boolean lowMana = ArpgResourceSemantics.isLowFraction(readManaFraction(player));
 		boolean close = target != null && player.squaredDistanceTo(target) <= CLOSE_DISTANCE_SQUARED;
 		boolean distant = target != null && !close;
-		boolean ignited = target instanceof LivingEntity living && living.isOnFire();
+		boolean ignited = target instanceof LivingEntity living && (living.isOnFire()
+				|| ArpgAilmentRuntime.has(living, net.puffish.skillsmod.arpg.combat.AilmentType.IGNITE));
 		boolean bleeding = target instanceof LivingEntity living && ArpgAilmentRuntime.isBleeding(living);
-		boolean poisoned = target instanceof LivingEntity living && living.hasStatusEffect(StatusEffects.POISON);
+		boolean poisoned = target instanceof LivingEntity living && (living.hasStatusEffect(StatusEffects.POISON)
+				|| ArpgAilmentRuntime.has(living, net.puffish.skillsmod.arpg.combat.AilmentType.POISON));
 		boolean shield = player.isBlocking();
 		boolean dualWield = !player.getMainHandStack().isEmpty() && !player.getOffHandStack().isEmpty();
 		var velocity = player.getVelocity();

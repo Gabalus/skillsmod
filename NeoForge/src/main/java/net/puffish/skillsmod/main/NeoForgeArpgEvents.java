@@ -82,6 +82,14 @@ public final class NeoForgeArpgEvents {
 	}
 
 	@SubscribeEvent(priority = EventPriority.LOWEST)
+	public static void onPlayerClone(PlayerEvent.Clone event) {
+		if (event.isWasDeath()) {
+			ArpgAilmentRuntime.clear(event.getOriginal());
+			ArpgAilmentRuntime.clear(event.getEntity());
+		}
+	}
+
+	@SubscribeEvent(priority = EventPriority.LOWEST)
 	public static void onEntityTick(EntityTickEvent.Post event) {
 		if (event.getEntity() instanceof LivingEntity living && living.getWorld() instanceof ServerWorld world) {
 			ArpgAilmentRuntime.tick(living, world.getTime());
@@ -295,6 +303,9 @@ public final class NeoForgeArpgEvents {
 	@SubscribeEvent(priority = EventPriority.LOW)
 	public static void onLivingDamage(LivingDamageEvent.Post event) {
 		var source = event.getSource();
+		if (net.puffish.skillsmod.arpg.status.NeoForgeAilments.damageType(source) != null) {
+			return;
+		}
 		var skillDamage = skillDamage(source);
 		var baseTags = skillDamage == null ? damageTags(source) : skillDamage.tags();
 		var tags = ArpgTargetTags.merge(baseTags, event.getEntity());
@@ -310,6 +321,13 @@ public final class NeoForgeArpgEvents {
 
 		if (event.getNewDamage() <= 0.0f) {
 			return;
+		}
+
+		if (source.getAttacker() instanceof net.puffish.skillsmod.arpg.tower.TowerSentinelEntity sentinel
+				&& source.getSource() == sentinel && defensiveDelivery(source) == ArpgAttackScaling.Delivery.MELEE
+				&& sentinel.getRandom().nextFloat() < .1f) {
+			net.puffish.skillsmod.arpg.status.NeoForgeAilments.applyStatus(sentinel, event.getEntity(),
+					net.puffish.skillsmod.arpg.combat.AilmentType.BLEED, 1, 60, "puffish_skills:sentinel_slash");
 		}
 
 		if (event.getEntity() instanceof ServerPlayerEntity victim) {
@@ -423,6 +441,10 @@ public final class NeoForgeArpgEvents {
 	}
 
 	private static Set<String> damageTags(DamageSource source) {
+		var ailment = net.puffish.skillsmod.arpg.status.NeoForgeAilments.damageType(source);
+		if (ailment != null) {
+			return ailment.tags();
+		}
 		var skillDamage = skillDamage(source);
 		if (skillDamage != null) {
 			return skillDamage.tags();
