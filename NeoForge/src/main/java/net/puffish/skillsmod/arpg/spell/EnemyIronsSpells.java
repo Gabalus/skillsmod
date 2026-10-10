@@ -4,6 +4,7 @@ import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.api.spells.CastSource;
 import io.redspace.ironsspellbooks.api.spells.CastType;
+import io.redspace.ironsspellbooks.capabilities.magic.SyncedSpellData;
 import net.minecraft.entity.LivingEntity;
 
 /** Narrow native mob-spell release, isolated from installations without Iron's. */
@@ -23,6 +24,7 @@ public final class EnemyIronsSpells {
 		}
 		var spell = SpellRegistry.ICICLE_SPELL.get();
 		var magic = new MagicData(true);
+		magic.setSyncedData(new SyncedSpellData(caster));
 		if (!spell.checkPreCastConditions(caster.getWorld(), 1, caster, magic)) {
 			return false;
 		}
