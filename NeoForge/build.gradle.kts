@@ -181,7 +181,11 @@ tasks.register("verifyArpgEpicRuntime") {
 		val javap = ProcessBuilder(File(System.getProperty("java.home"), "bin/javap").absolutePath,
 				"-classpath", epic.file.absolutePath, "-s",
 				"yesman.epicfight.world.capabilities.EpicFightCapabilities",
-				"yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch")
+				"yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch",
+				"yesman.epicfight.world.capabilities.entitypatch.LivingEntityPatch",
+				"yesman.epicfight.skill.SkillContainer", "yesman.epicfight.skill.SkillSlots",
+				"yesman.epicfight.skill.Skill", "yesman.epicfight.world.capabilities.item.CapabilityItem",
+				"yesman.epicfight.api.animation.types.EntityState")
 			.redirectErrorStream(true).start()
 		val api = javap.inputStream.bufferedReader().use { it.readText() }
 		check(javap.waitFor() == 0) { "Epic Fight API inspection failed: $api" }
@@ -191,6 +195,16 @@ tasks.register("verifyArpgEpicRuntime") {
 		check(api.contains("public float getStamina();") && api.contains("public float getMaxStamina();")) {
 			"Pinned Epic Fight no longer exposes the expected read-only stamina accessors."
 		}
+		val meleeSignatures = listOf(
+				"getItemStackCapability(net.minecraft.world.item.ItemStack)",
+				"getSkill(yesman.epicfight.skill.SkillSlot)", "isEpicFightMode();", "isHoldingAny();",
+				"getPrimaryHand();", "getEntityState();", "getWeaponCategory();",
+				"getStyle(yesman.epicfight.world.capabilities.entitypatch.LivingEntityPatch",
+				"getInnateSkill(yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch",
+				"getRegistryName();", "getResourceType();", "getSkill();", "isDisabled();", "isActivated();",
+				"getRemainDuration();", "getStack();", "canUseSkill();", " WEAPON_INNATE;",
+				"requestCasting(yesman.epicfight.world.capabilities.entitypatch.player.ServerPlayerPatch, net.minecraft.nbt.CompoundTag)")
+		meleeSignatures.forEach { signature -> check(api.contains(signature)) { "Missing melee API: $signature" } }
 		layout.buildDirectory.file("reports/epic-fight-stamina-api.txt").get().asFile.apply {
 			parentFile.mkdirs()
 			writeText(api)
@@ -205,11 +219,16 @@ tasks.register("verifyArpgEpicRuntime") {
 					"animations/zombie/attack1", "animations/zombie/attack2", "animations/zombie/attack3",
 					"animations/biped/living/idle", "animations/biped/living/walk", "animations/biped/living/death",
 					"animations/biped/living/fall", "animations/biped/living/mount", "animations/biped/living/landing",
-					"animations/biped/combat/hit_short", "animations/biped/combat/hit_long", "animations/biped/combat/knockdown")
+					"animations/biped/combat/hit_short", "animations/biped/combat/hit_long", "animations/biped/combat/knockdown",
+					"animations/biped/combat/longsword_auto1", "animations/biped/combat/longsword_auto2", "animations/biped/combat/longsword_auto3",
+					"animations/biped/combat/longsword_liechtenauer_auto1", "animations/biped/combat/longsword_liechtenauer_auto2",
+					"animations/biped/combat/longsword_liechtenauer_auto3", "animations/biped/living/liechtenauer_ready",
+					"animations/biped/living/hold_liechtenauer", "animations/biped/living/walk_liechtenauer",
+					"animations/biped/skill/sweeping_edge", "animations/biped/skill/guard_longsword")
 			assets.forEach { asset -> check(jar.getEntry("assets/epicfight/animmodels/$asset.json") != null) { "Missing Sentinel asset: $asset" } }
 			report.writeText("Epic Fight: $epicFightCoordinate\nNeoForge: 21.1.219\nBetter Combat: excluded\nAssets checked: ${assets.size}\n\n$text")
 		}
-		logger.lifecycle("Epic Fight runtime and Sentinel assets verified. Report: $report")
+		logger.lifecycle("Epic Fight runtime, melee API and Sentinel/weapon assets verified. Report: $report")
 	}
 }
 

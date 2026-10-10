@@ -21,6 +21,8 @@
 	"category.puffish_skills.skills": "Skills",
 	"key.puffish_skills.open": "Open Skill Tree",
 	"key.puffish_skills.arpg": "Open ARPG Character",
+	"key.puffish_skills.melee_innate": "ARPG Melee Innate",
+	"key.puffish_skills.weapon_stance": "ARPG Weapon Stance",
 
 	"chat.puffish_skills.new_point": "You have a new skill point. Press %s to open your skill tree.",
 

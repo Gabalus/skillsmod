@@ -81,3 +81,8 @@ The pinned artifact is `maven.modrinth:vu3NZ5Ma:8HHhJt6i`. Runtime verification 
 - Version-specific source: https://github.com/Antikythera-Studios/epicfight/tree/1.21.1
 
 These references establish the available integration mechanisms. They do not establish compatibility of the current project, its mappings, Iron's Spells, gun mods or other installed providers. No Epic Fight encounter has been runtime-tested in this project yet.
+
+
+## First player stance and innate controls
+
+The optional ARPG melee bridge now requests the equipped longsword's Liechtenauer stance or sword's Sweeping Edge through Epic Fight's authoritative skill container. The Melee hub entry, command menu and optional keybinds inspect live provider state. Legacy direct-damage weapon skills are blocked while Epic Fight is installed. See `EPIC_FIGHT_MELEE.md` for exact scope and smoke tests. Custom melee kits, broad stance selection and exact-ID specialization remain pending. Runtime verification now checks 19 additional melee API signatures and 11 weapon animations in addition to the earlier three stamina accessors and 14 Sentinel assets.

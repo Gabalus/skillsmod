@@ -45,6 +45,11 @@ public class SkillsClientMod {
 			"category.puffish_skills.skills"
 	);
 
+	public static final KeyBinding MELEE_INNATE_KEY_BINDING = new KeyBinding(
+			"key.puffish_skills.melee_innate", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, "category.puffish_skills.skills");
+	public static final KeyBinding WEAPON_STANCE_KEY_BINDING = new KeyBinding(
+			"key.puffish_skills.weapon_stance", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, "category.puffish_skills.skills");
+
 	private static SkillsClientMod instance;
 
 	private final ClientSkillScreenData screenData = new ClientSkillScreenData();
@@ -72,6 +77,8 @@ public class SkillsClientMod {
 
 		keyBindingReceiver.registerKeyBinding(OPEN_KEY_BINDING, instance::onOpenKeyPress);
 		keyBindingReceiver.registerKeyBinding(ARPG_KEY_BINDING, instance::onArpgKeyPress);
+		keyBindingReceiver.registerKeyBinding(MELEE_INNATE_KEY_BINDING, () -> instance.sendCombatCommand("arpg melee innate"));
+		keyBindingReceiver.registerKeyBinding(WEAPON_STANCE_KEY_BINDING, () -> instance.sendCombatCommand("arpg melee stance"));
 
 		registrar.registerInPacket(
 				Packets.SHOW_CATEGORY,
@@ -143,6 +150,13 @@ public class SkillsClientMod {
 		registrar.registerOutPacket(Packets.BUY_POINT);
 
 		eventReceiver.registerListener(instance.new EventListener());
+	}
+
+	private void sendCombatCommand(String command) {
+		var client = MinecraftClient.getInstance();
+		if (client.currentScreen == null && client.player != null && client.getNetworkHandler() != null) {
+			client.getNetworkHandler().sendChatCommand(command);
+		}
 	}
 
 	private void onOpenKeyPress() {

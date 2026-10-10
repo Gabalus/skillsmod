@@ -29,6 +29,8 @@ public final class NeoForgeArpgCommands {
 		event.getDispatcher().register(net.puffish.skillsmod.arpg.rift.RiftCommand.create());
 		event.getDispatcher().register(net.puffish.skillsmod.arpg.tower.TowerCommand.create());
 		event.getDispatcher().register(ArpgCommand.create());
+		event.getDispatcher().register(net.minecraft.server.command.CommandManager.literal("arpg")
+				.then(net.puffish.skillsmod.arpg.compat.MeleeCommand.create()));
 		event.getDispatcher().register(ArpgAdminCommand.create());
 	}
 }

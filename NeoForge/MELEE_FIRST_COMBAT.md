@@ -13,7 +13,7 @@ Choices paginate at smaller GUI sizes. A class choice is permanent under normal 
 | System | Authority | Current boundary |
 | --- | --- | --- |
 | Enemy levels and traits | L2 Hostility | Read-only adapter, encounter reward metrics and `/arpg threat`; authored tower curves/pools pending |
-| Melee animation, attack windows, collision and stamina | Epic Fight | Sentinel patch and provider stamina display exist; player stance/active-skill bridge pending |
+| Melee animation, attack windows, collision and stamina | Epic Fight | Sentinel patch and provider stamina display exist; longsword Liechtenauer stance and sword Sweeping Edge request bridge; custom skills pending |
 | Character classes, XP and specialization | ARPG core | Authoritative saved progression and primary chooser |
 | Prepared spells, spell schools, mana and cooldowns | Iron's Spells | Existing provider integration plus two original pulse spells |
 | Element composition during combat | Future ARPG weaving system | Design below; no weaving runtime yet |
@@ -24,9 +24,9 @@ Tower floor and encounter definitions should establish intended threat bands and
 
 Early melee rooms should favor clear, limited modifiers and readable counterplay. Adaptive, Reflect, Regenerating and Undying need encounter-specific rank limits and combination restrictions: stacking damage reduction, reflected melee damage, rapid regeneration and revival can make melee ineffective. Boss traits should support authored phases and punish avoidable mistakes, with visible warnings and recovery opportunities. These rules are proposed, not a shipped trait configuration.
 
-## Weapon stances and melee skills: next combat implementation
+## Weapon stances and melee skills: first provider bridge implemented
 
-Use Epic Fight capabilities/skills for real attack execution, animation, collision and stamina spending. Replace the legacy direct-damage melee executor rather than presenting it as an Epic Fight combo. Stance switching must be authoritative, verify the equipped weapon, respect attack/recovery states and prevent cost/cooldown resets.
+The first optional bridge executes the equipped longsword Liechtenauer or sword Sweeping Edge through Epic Fight `SkillContainer.requestCasting`. The legacy direct-damage executor is disabled whenever Epic Fight is installed. See `EPIC_FIGHT_MELEE.md` for controls, boundaries and testing. Continue using Epic Fight capabilities/skills for attack execution, animation, collision and resource spending. Stance switching must be authoritative, verify the equipped weapon, respect attack/recovery states and prevent cost/cooldown resets.
 
 Initial candidates are a balanced stance, a defensive stance and an aggressive stance, restricted by weapon support. They should change animation/skill availability and commitment, not only damage percentages. Defensive sword-and-shield play can emphasize guard and counter; aggressive two-handed play can emphasize committed heavy attacks and armor pressure. Exact movesets depend on the pinned Epic Fight API and must be tested before promising all combinations.
 

@@ -40,7 +40,8 @@ public final class ArpgHubScreen extends Screen {
 			new QuickLink("Skills", "arpg_skill_", true),
 			new QuickLink("Atlas", "arpg_atlas", false),
 			new QuickLink("Towers", "", false),
-			new QuickLink("Spells", "", false, "arpg spells")
+			new QuickLink("Spells", "", false, "arpg spells"),
+			new QuickLink("Melee", "", false, "arpg melee")
 	);
 
 	private final ClientSkillScreenData data;

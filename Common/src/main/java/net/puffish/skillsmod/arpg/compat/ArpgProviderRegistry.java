@@ -12,6 +12,7 @@ import java.util.Map;
  */
 public final class ArpgProviderRegistry {
 	private static final List<Definition> DEFINITIONS = List.of(
+			new Definition("epicfight", "Epic Fight", "melee movesets, weapon stances and provider skills"),
 			new Definition("irons_spellbooks", "Iron's Spells 'n Spellbooks", "spell execution/content"),
 			new Definition("bettercombat", "Better Combat", "basic melee/animation substrate"),
 			new Definition("apotheosis", "Apotheosis", "world tiers/elites and affix/gem/item substrate"),
