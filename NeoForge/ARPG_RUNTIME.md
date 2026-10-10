@@ -55,7 +55,7 @@ This profile includes the Iron's stack plus:
 
 - Better Combat 2.4.0
 - Apotheosis 8.7.0 and its required 1.21.1 modules
-- L2 Hostility 3.0.13
+- L2 Hostility 3.0.16 (L2 Library 3.0.8, L2 Complements 3.1.2)
 - L2 Artifacts 3.0.x and the shared L2 libraries
 - Celestial Artifacts 2.0.4 for NeoForge 1.21.1
 
@@ -145,3 +145,8 @@ Operator diagnostics can exercise the provider contract without installing a gun
 ## Sandbox craftwork
 
 The initial module/knowledge/mastery and craftwork implementation is documented in [SANDBOX_CRAFTWORK.md](SANDBOX_CRAFTWORK.md). It includes thermal forging and rune-route evaluators, persistent quality, data-pack extension definitions and a NeoForge command prototype. External machine recipe adapters and a visual station UI remain separate implementation work.
+
+
+## Isolated L2 runtime verification
+
+`./gradlew :NeoForge:verifyArpgL2Runtime -Parpg_l2_runtime=true` resolves Hostility 3.0.16, Library 3.0.8, Complements 3.1.2, Curios 9.5.1 and Patchouli 93. It checks actual JAR metadata, Hostility's required dependency declarations and the reflection API, including the nested L2 Core interface. The former Complements 3.0.18 pin did not satisfy Hostility's >=3.1.2 requirement and is replaced in the full profile too. This verification does not launch Minecraft or prove combined-mod compatibility.

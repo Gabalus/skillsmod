@@ -53,6 +53,13 @@ public class NeoForgeClientMain {
 		var neoForgeEventBus = NeoForge.EVENT_BUS;
 		neoForgeEventBus.addListener(this::onPlayerLoggedIn);
 		neoForgeEventBus.addListener(this::onInputKey);
+		neoForgeEventBus.addListener(this::onClientTick);
+	}
+
+	private void onClientTick(net.neoforged.neoforge.client.event.ClientTickEvent.Post event) {
+		for (var listener : clientListeners) {
+			listener.onClientTick();
+		}
 	}
 
 	private void onRegisterEntityRenderers(net.neoforged.neoforge.client.event.EntityRenderersEvent.RegisterRenderers event) {

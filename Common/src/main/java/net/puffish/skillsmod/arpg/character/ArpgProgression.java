@@ -50,6 +50,7 @@ public final class ArpgProgression {
 	public static void sync(ServerPlayerEntity player) {
 		var state = character(player);
 		var mod = SkillsMod.getInstance();
+		mod.syncClassSelection(player, "");
 		if (state.primary().isEmpty()) {
 			return;
 		}

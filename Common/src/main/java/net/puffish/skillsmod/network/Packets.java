@@ -4,6 +4,8 @@ import net.minecraft.util.Identifier;
 import net.puffish.skillsmod.SkillsMod;
 
 public class Packets {
+	public static final Identifier CLASS_SELECTION = SkillsMod.createIdentifier("class_selection");
+	public static final Identifier CHOOSE_CLASS = SkillsMod.createIdentifier("choose_class");
 	public static final Identifier CRAFTWORK = SkillsMod.createIdentifier("craftwork");
 	public static final Identifier SHOW_CATEGORY = SkillsMod.createIdentifier("show_category");
 	public static final Identifier HIDE_CATEGORY = SkillsMod.createIdentifier("hide_category");

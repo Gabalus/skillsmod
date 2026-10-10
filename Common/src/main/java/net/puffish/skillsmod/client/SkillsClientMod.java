@@ -49,6 +49,8 @@ public class SkillsClientMod {
 
 	private final ClientSkillScreenData screenData = new ClientSkillScreenData();
 	private final ClientCombatStateData combatData = new ClientCombatStateData();
+	private net.puffish.skillsmod.arpg.character.ClassSelectionView classSelection;
+	private boolean pendingClassSelection;
 
 	private final ClientPacketSender packetSender;
 
@@ -135,6 +137,9 @@ public class SkillsClientMod {
 				net.puffish.skillsmod.client.network.packets.in.CraftworkInPacket::read, instance::onCraftwork);
 
 		registrar.registerOutPacket(Packets.SKILL_CLICK);
+		registrar.registerOutPacket(Packets.CHOOSE_CLASS);
+		registrar.registerInPacket(Packets.CLASS_SELECTION,
+				net.puffish.skillsmod.client.network.packets.in.ClassSelectionInPacket::read, instance::onClassSelection);
 		registrar.registerOutPacket(Packets.BUY_POINT);
 
 		eventReceiver.registerListener(instance.new EventListener());
@@ -228,6 +233,23 @@ public class SkillsClientMod {
 		combatData.set(packet.state());
 	}
 
+	private void onClassSelection(net.puffish.skillsmod.client.network.packets.in.ClassSelectionInPacket packet) {
+		classSelection = packet.view();
+		var client = MinecraftClient.getInstance();
+		if (client.currentScreen instanceof net.puffish.skillsmod.client.gui.ClassSelectionScreen screen) {
+			if (classSelection.primary().isEmpty()) {
+				screen.update(classSelection, packet.message());
+			} else {
+				pendingClassSelection = false;
+				openArpgScreen();
+			}
+		} else if (classSelection.primary().isEmpty()) {
+			pendingClassSelection = true;
+		} else {
+			pendingClassSelection = false;
+		}
+	}
+
 	private void onOpenScreenPacket(OpenScreenInPacket packet) {
 		openScreen(packet.getCategoryId());
 	}
@@ -249,6 +271,11 @@ public class SkillsClientMod {
 	}
 
 	public void openArpgScreen() {
+		if (classSelection != null && classSelection.primary().isEmpty()) {
+			pendingClassSelection = false;
+			MinecraftClient.getInstance().setScreen(new net.puffish.skillsmod.client.gui.ClassSelectionScreen(classSelection));
+			return;
+		}
 		MinecraftClient.getInstance().setScreen(new ArpgHubScreen(screenData, combatData));
 	}
 
@@ -265,6 +292,18 @@ public class SkillsClientMod {
 		public void onPlayerJoin() {
 			screenData.clearCategories();
 			combatData.clear();
+			classSelection = null;
+			pendingClassSelection = false;
+		}
+
+		@Override
+		public void onClientTick() {
+			var client = MinecraftClient.getInstance();
+			if (pendingClassSelection && classSelection != null && classSelection.primary().isEmpty()
+					&& client.player != null && client.world != null && client.currentScreen == null) {
+				pendingClassSelection = false;
+				client.setScreen(new net.puffish.skillsmod.client.gui.ClassSelectionScreen(classSelection));
+			}
 		}
 	}
 }

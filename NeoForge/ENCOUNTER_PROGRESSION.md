@@ -6,7 +6,7 @@ The custom character owns XP, levels and tree allocation. L2 Hostility supplies 
 
 The former global mob-kill XP hook is replaced. Kills qualify if the entity has an operator/server-authored `arpg:encounter` or `arpg:world_boss` command tag, belongs to a configured expedition dimension, or is an Apotheosis invader while automatic world-boss rewards are enabled. Ordinary overworld kills and random L2/Apotheosis elites do not qualify by default. Vanilla XP orbs are unaffected.
 
-Automatic qualification rejects recognized spawner, trial-spawner, spawn-egg, dispenser, breeding, summon, conversion and reinforcement spawn origins. L2 `summoned`, `minion`, `noDrop` and `copied` flags also reject automatic qualification. Explicit encounter/boss tags override those exclusions so authored trial-spawner encounters remain possible. Markers are a trusted server authoring API, not a player request. Fake players, creative players, spectators and player victims cannot earn these rewards. An entity stores a settlement flag to reject repeated XP-drop callbacks.
+Automatic qualification rejects recognized spawner, trial-spawner, spawn-egg, dispenser, breeding, summon, conversion and reinforcement spawn origins. L2 `summoned`, `minion` and `noDrop` flags also reject automatic qualification. A `copied` flag is read only when present; pinned Hostility 3.0.16 does not expose it. Explicit encounter/boss tags override those exclusions so authored trial-spawner encounters remain possible. Markers are a trusted server authoring API, not a player request. Fake players, creative players, spectators and player victims cannot earn these rewards. An entity stores a settlement flag to reject repeated XP-drop callbacks.
 
 The default dimension allowlist is empty: no existing sandbox dimension is silently reclassified as a dungeon. Populate it only with real expedition dimension IDs supplied by the eventual dungeon implementation. Without that configuration or explicit tags, only eligible natural Apotheosis invaders provide character XP.
 
@@ -61,3 +61,10 @@ Upstream APIs inspected:
 - https://github.com/Shadows-of-Fire/Apotheosis/blob/1.21/src/main/java/dev/shadowsoffire/apotheosis/tiers/WorldTier.java
 - https://github.com/Shadows-of-Fire/Apotheosis/blob/1.21/src/main/java/dev/shadowsoffire/apotheosis/mobs/types/Invader.java
 - https://github.com/Shadows-of-Fire/Apotheosis/blob/1.21/src/main/java/dev/shadowsoffire/apotheosis/mobs/types/Elite.java
+
+
+## Read-only threat inspection
+
+With Hostility installed, look at a living target within 16 blocks and run `/arpg threat`. The first intersected living entity before terrain is reported with L2 level, health, sorted trait IDs/ranks (up to 20), and any provider summon/minion/no-drop exclusion. This does not assign traits, modify health/damage or grant rewards. Trait IDs are diagnostic labels, not yet a polished tooltip overlay. The adapter now invokes `AttVal.type()` through its public interface and treats the removed `copied` field as optional, so its absence no longer disables the entire bridge.
+
+Dungeon-authored level curves, trait pools/rank limits and coordination with L2 regional/player difficulty remain pending. See `MELEE_FIRST_COMBAT.md` for the melee-first direction. Do not duplicate L2's attribute scaling with another blanket multiplier.

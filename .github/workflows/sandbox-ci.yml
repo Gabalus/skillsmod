@@ -52,6 +52,8 @@ jobs:
         run: ./gradlew :NeoForge:verifyArpgEpicRuntime -Parpg_epic_runtime=true --stacktrace
       - name: Resolve Iron's spell runtime
         run: ./gradlew :NeoForge:verifyArpgIronsRuntime -Parpg_irons_runtime=true --stacktrace
+      - name: Verify L2 Hostility runtime and API
+        run: ./gradlew :NeoForge:verifyArpgL2Runtime -Parpg_l2_runtime=true --stacktrace
       - name: Upload NeoForge JAR
         uses: actions/upload-artifact@v4
         with:

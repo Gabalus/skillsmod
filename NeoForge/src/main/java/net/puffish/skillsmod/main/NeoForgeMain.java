@@ -140,6 +140,8 @@ public class NeoForgeMain {
 
 	private void onRegisterCommands(RegisterCommandsEvent event) {
 		var dispatcher = event.getDispatcher();
+		dispatcher.register(net.minecraft.server.command.CommandManager.literal("arpg")
+				.then(net.puffish.skillsmod.arpg.compat.ThreatCommand.create()));
 		for (var listener : serverListeners) {
 			listener.onCommandsRegister(dispatcher);
 		}

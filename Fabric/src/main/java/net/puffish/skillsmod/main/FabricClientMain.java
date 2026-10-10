@@ -61,6 +61,7 @@ public class FabricClientMain implements ClientModInitializer {
 	private static class ClientEventReceiverImpl implements ClientEventReceiver {
 		@Override
 		public void registerListener(ClientEventListener eventListener) {
+			ClientTickEvents.END_CLIENT_TICK.register(client -> eventListener.onClientTick());
 			ClientPlayConnectionEvents.JOIN.register(
 					(handler, sender, client) -> eventListener.onPlayerJoin()
 			);

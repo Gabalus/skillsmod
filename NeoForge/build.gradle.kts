@@ -13,6 +13,10 @@ val arpgFullRuntime = providers.gradleProperty("arpg_full_runtime")
 	.map(String::toBoolean)
 	.orElse(false)
 
+val arpgL2Runtime = providers.gradleProperty("arpg_l2_runtime")
+	.map(String::toBoolean)
+	.orElse(false)
+
 val arpgEpicRuntime = providers.gradleProperty("arpg_epic_runtime")
 	.map(String::toBoolean)
 	.orElse(false)
@@ -77,6 +81,15 @@ dependencies {
 
 	}
 
+	if (arpgL2Runtime.get() || arpgFullRuntime.get()) {
+		// Hostility 3.0.16 requires Complements >=3.1.2, Curios and Patchouli.
+		add("modRuntimeOnly", "maven.modrinth:4Vh3BQ3F:640EOvKh")
+		add("modRuntimeOnly", "maven.modrinth:oPrh2Lz3:cXczjZfn")
+		add("modRuntimeOnly", "maven.modrinth:CbV689EN:w8M00mGg")
+		add("modRuntimeOnly", "maven.modrinth:vvuO3ImH:yohfFbgD")
+		add("modRuntimeOnly", "maven.modrinth:nU0bVIaL:BIogJv2D")
+	}
+
 	if (arpgFullRuntime.get()) {
 		// Apotheosis 8.7.0 and all required 1.21.1 modules. Modrinth Maven does not resolve mod dependencies transitively.
 		add("modRuntimeOnly", "maven.modrinth:rqFWfVlz:wB4eASdJ")
@@ -86,10 +99,7 @@ dependencies {
 		add("modRuntimeOnly", "maven.modrinth:pL8MtgqY:56c0M28v")
 		add("modRuntimeOnly", "maven.modrinth:nU0bVIaL:BIogJv2D")
 
-		// L2 Hostility / L2 Artifacts substrate and required shared libraries.
-		add("modRuntimeOnly", "maven.modrinth:4Vh3BQ3F:640EOvKh")
-		add("modRuntimeOnly", "maven.modrinth:oPrh2Lz3:vxfEwwS7")
-		add("modRuntimeOnly", "maven.modrinth:CbV689EN:w8M00mGg")
+		// L2 Artifacts is optional in the isolated Hostility profile.
 		add("modRuntimeOnly", "maven.modrinth:8RtpLoXH:IMGXB86Q")
 
 		// Celestial Artifacts 2.0.4 for NeoForge 1.21.1. Curios is already supplied by the Iron's profile.
@@ -136,6 +146,23 @@ tasks.register("verifyArpgFullRuntime") {
 			"Full ARPG runtime resolved only ${resolvedFiles.size} files; expected provider mods and their required libraries."
 		}
 		logger.lifecycle("Resolved ${resolvedFiles.size} full ARPG provider runtime files.")
+	}
+}
+
+tasks.register("verifyArpgL2Runtime") {
+	group = "verification"
+	description = "Checks pinned L2 Hostility metadata, required providers and the reflection API."
+	doLast {
+		check(arpgL2Runtime.get() || arpgFullRuntime.get()) { "Run with -Parpg_l2_runtime=true or -Parpg_full_runtime=true." }
+		val jars = configurations.getByName("modRuntimeOnly").resolve().map { it.absolutePath }
+		val reportDir = layout.buildDirectory.dir("reports/l2-runtime").get().asFile
+		val command = listOf("python3", rootProject.file("tools/verify_l2_runtime.py").absolutePath,
+				"--javap", File(System.getProperty("java.home"), "bin/javap").absolutePath,
+				"--report-dir", reportDir.absolutePath) + jars
+		val process = ProcessBuilder(command).redirectErrorStream(true).start()
+		val output = process.inputStream.bufferedReader().use { it.readText() }
+		check(process.waitFor() == 0) { "L2 runtime verification failed: $output" }
+		logger.lifecycle(output)
 	}
 }
 
