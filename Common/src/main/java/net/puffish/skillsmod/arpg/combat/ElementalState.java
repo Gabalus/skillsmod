@@ -57,6 +57,12 @@ public record ElementalState(int wetTicks, int chillStacks, int chillTicks, int 
 				freezeRecoveryTicks > 0 ? coldOwner : null, freezeRecoveryTicks > 0 ? coldSkill : "");
 	}
 
+	/** Shatter consumes only freeze, retaining wetness, attribution and freeze recovery. */
+	public ElementalState shatter() {
+		return freezeTicks == 0 ? this : new ElementalState(wetTicks, chillStacks, chillTicks, 0,
+				freezeRecoveryTicks, coldOwner, coldSkill);
+	}
+
 	public ElementalState tick(boolean touchingWater) {
 		int wet = touchingWater ? Math.max(wetTicks - 1, WET_DURATION) : Math.max(0, wetTicks - 1);
 		int chill = Math.max(0, chillTicks - 1);

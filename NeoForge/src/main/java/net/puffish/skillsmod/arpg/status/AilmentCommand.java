@@ -47,7 +47,7 @@ public final class AilmentCommand {
 		}
 		if (elemental.wetTicks() > 0) {
 			source.sendFeedback(() -> Text.literal("Wet | " + seconds(elemental.wetTicks())
-					+ " seconds | cold builds twice as fast; ARPG ignite is extinguished"), false);
+					+ " seconds | cold buildup x2; lightning hit +20%; ARPG ignite extinguished"), false);
 		}
 		if (elemental.chillStacks() > 0) {
 			source.sendFeedback(() -> Text.literal("Chill | " + elemental.chillStacks()
@@ -56,7 +56,7 @@ public final class AilmentCommand {
 		}
 		if (elemental.freezeTicks() > 0) {
 			source.sendFeedback(() -> Text.literal("Frozen | " + seconds(elemental.freezeTicks())
-					+ " seconds | ordinary movement rooted; attacks and casts remain provider-owned"), false);
+					+ " seconds | movement rooted; physical melee shatter +25%"), false);
 		}
 		if (elemental.freezeRecoveryTicks() > 0) {
 			source.sendFeedback(() -> Text.literal("Freeze recovery | " + seconds(elemental.freezeRecoveryTicks()) + " seconds"), false);

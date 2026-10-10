@@ -284,9 +284,11 @@ public final class NeoForgeArpgEvents {
 		event.setAmount((float) scaled);
 	}
 
-	/** Ward is consumed after armor/resistance reductions but before health and vanilla absorption are touched. */
+	/** Reactions adjust the existing reduced hit before ward, health and vanilla absorption. */
 	@SubscribeEvent(priority = EventPriority.LOWEST)
 	public static void onLivingDamagePre(LivingDamageEvent.Pre event) {
+		event.setNewDamage(net.puffish.skillsmod.arpg.status.NeoForgeElementalStatuses.prepareHit(
+				event.getEntity(), event.getSource(), event.getNewDamage()));
 		if (!(event.getEntity() instanceof ServerPlayerEntity defender) || event.getNewDamage() <= 0.0f) {
 			return;
 		}

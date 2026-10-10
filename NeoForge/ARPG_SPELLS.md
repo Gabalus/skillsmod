@@ -4,7 +4,7 @@ Iron's Spells 'n Spellbooks 1.21.1-3.16.3 is the spell execution substrate. The 
 
 | Spell | ARPG gate | Iron's defaults | Effect |
 | --- | --- | --- | --- |
-| `puffish_skills:storm_pulse` | Arcanist, level 3 | 20–40 mana, levels 1–5, 8-second cooldown | 6–14 base lightning damage to visible hostile mobs within four blocks; successful hits push back |
+| `puffish_skills:storm_pulse` | Arcanist, level 3 | 20–40 mana, levels 1–5, 8-second cooldown | 6–14 base lightning damage to visible hostile mobs within four blocks; successful hits push back; wet targets receive a 20% hit bonus before ward/absorption |
 | `puffish_skills:rime_pulse` | Shaman, level 5 | 25–45 mana, levels 1–5, 10-second cooldown | 4–12 base ice damage to visible hostile mobs within four blocks; accepted hits apply ARPG chill for 2.5–4.5 seconds, with wet-enhanced buildup and bounded freeze |
 
 Either primary or secondary discipline can satisfy the discipline gate. ARPG character level and Iron's spell level are distinct. Both spells use a 15-tick long cast (before provider cast-speed changes), Uncommon minimum rarity and the provider's school/power/config system. Iron's charges mana and cooldowns; the catalog adds no second resource charge. Existing Blood Magic handling applies through the same cast bridge.
