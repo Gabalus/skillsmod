@@ -6,6 +6,8 @@ import tomllib
 import zipfile
 from pathlib import Path
 
+from verify_l2_encounter import verify_sentinel_profile
+
 
 def main():
     parser = argparse.ArgumentParser()
@@ -34,6 +36,7 @@ def main():
     for name, version in expected.items():
         if name not in mods or mods[name][0].lower() != version.lower():
             raise ValueError(f"Expected {name} {version}; found {mods.get(name)}")
+    sentinel = verify_sentinel_profile(mods["l2hostility"][1])
     # Check declared provider requirements as well as the coordinate pins. A new
     # required mod or version range must be reviewed, not silently ignored.
     supported_ranges = {"neoforge": "[21.1.61,)", "minecraft": "[1.21.1,1.22)",
@@ -71,8 +74,10 @@ def main():
         if signature not in api:
             raise ValueError(f"Missing L2 reflection API signature: {signature}")
     (args.report_dir / "api.txt").write_text(api)
+    import json
+    (args.report_dir / "sentinel-profile.json").write_text(json.dumps(sentinel, indent=2) + "\n")
     (args.report_dir / "versions.txt").write_text("\n".join(f"{name} {mods[name][0]}" for name in expected))
-    print("Verified five pinned L2 runtime mods, Hostility dependency requirements and reflection API.")
+    print("Verified five pinned L2 runtime mods, Hostility dependencies, reflection API and bounded Sentinel profile.")
 
 
 if __name__ == "__main__":

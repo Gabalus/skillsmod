@@ -67,4 +67,21 @@ Upstream APIs inspected:
 
 With Hostility installed, look at a living target within 16 blocks and run `/arpg threat`. The first intersected living entity before terrain is reported with L2 level, health, sorted trait IDs/ranks (up to 20), and any provider summon/minion/no-drop exclusion. This does not assign traits, modify health/damage or grant rewards. Trait IDs are diagnostic labels, not yet a polished tooltip overlay. The adapter now invokes `AttVal.type()` through its public interface and treats the removed `copied` field as optional, so its absence no longer disables the entire bridge.
 
-Dungeon-authored level curves, trait pools/rank limits and coordination with L2 regional/player difficulty remain pending. See `MELEE_FIRST_COMBAT.md` for the melee-first direction. Do not duplicate L2's attribute scaling with another blanket multiplier.
+The dedicated early Sentinel now has a bounded native L2 profile. Broader dungeon-authored curves and trait pools remain pending. See `MELEE_FIRST_COMBAT.md` for the melee-first direction. Do not duplicate L2's attribute scaling with another blanket multiplier.
+
+
+## Authored early Sentinel profile
+
+The NeoForge mod bundles `data/puffish_skills/l2hostility_config/entity/tower_sentinel.json`, an additive L2 entity profile selecting only `puffish_skills:tower_sentinel`. With the pinned Hostility 3.0.16 installed, its native difficulty has base/minimum 20, maximum level 20, zero extra variation and zero extra player scaling. L2 levels are separate from ARPG character levels. Global provider caps, bans and entity eligibility still apply; a server cap below 20 can prevent Tank from meeting its native minimum level.
+
+The profile authors Tank rank I (`free: 1`, `min: 1`, `cap: true`) and a trait count of one. Every other trait in the pinned provider is blacklisted for this entity. L2's `cap` removes Tank from subsequent random selection, so it cannot roll extra ranks. The explicit blacklist also keeps the pool empty if player difficulty modifies the native trait-count budget. Native health/attack scaling weights are 0.25; these weight L2's own bonuses, rather than multiplying the Sentinel's baseline stats again. No custom capability mutation, tick-time reinitialization, phase healing, equipment pool or extra reward grant is added. Epic Fight retains attack animations and hit handling. Existing threat inspection and encounter XP read the resulting native level/trait capability.
+
+Without Hostility, the file has no consumer and the baseline Sentinel remains available. This type-specific profile applies wherever the dedicated Sentinel is created, including operator summons; it does not modify ordinary husks or other dimension occupants. L2 stores initialized mob capabilities, so existing Sentinels are not retuned by resource reloads. Test with a fresh Sentinel after restarting the server; a tower replay creates a fresh entity. Legacy husks also retain their original profile.
+
+`verifyArpgL2Runtime` now compares the authored schema with the pinned JAR's own boss/difficulty data, verifies all trait IDs and native minimum/max-rank bounds, and requires the blacklist to cover every other pinned trait. Its report includes `sentinel-profile.json`. For a quick check against an already downloaded JAR:
+
+```bash
+python3 tools/verify_l2_encounter.py /path/to/l2hostility-3.0.16.jar
+```
+
+In-game validation remains required: create a fresh Sentinel with L2 and Epic Fight installed, wait for native initialization, then inspect `/arpg threat` for level 20 and `l2hostility:tank` rank 1 under default provider settings. Compare its live maximum health and damage, cross the half-health phase boundary, reconnect and restart mid-fight, then verify the same profile persists without healing or accumulating modifiers. Complete and replay the tower to check encounter XP and the existing one-time receipt. Repeat without Hostility, and with a global L2 level cap below 20. Third-party trait registrations or higher-priority profile overrides require their own pool review.
