@@ -43,3 +43,27 @@ CI compiles the normal optional-provider build, runs three Common validation tes
 6. Repeat with the full provider stack on a dedicated server and verify other players see the provider's stance/attack state. No in-game or combined-mod compatibility claim follows from the compile/API tests.
 
 The next combat work is a custom weapon kit with heavy and active melee attacks, followed by provider guard/parry outcome translation and broader stance support. Mage live weaving remains a later distinct mechanic alongside prepared spells.
+
+
+## Additive sword kit: Measured Strike and Driving Slash
+
+Two original registered skills now occupy dedicated `ARPG_HEAVY` and `ARPG_DRIVING` slots. They do not replace the weapon's native WEAPON_INNATE, guard, mover or passive containers. The extra slots register through Epic Fight's extensible-enum setup on both client and server. Their shared category uses native synchronization and does not save loadout entries; first use installs only the requested skill in its empty dedicated slot and sends normal local/remote provider sync packets. A conflicting occupied slot is rejected rather than overwritten.
+
+| Action | Command | Minimum ARPG level | Default provider stamina | Cooldown |
+| --- | --- | --- | --- | --- |
+| Measured Strike | `/arpg melee heavy` | 3 | 8 | 80 ticks / 4 seconds |
+| Driving Slash | `/arpg melee driving` | 5 | 6 | 60 ticks / 3 seconds |
+
+Both require a chosen class, Martial pillar, real alive survival player, Epic Fight combat mode, a main-hand sword/longsword and empty offhand. Held skills, item use, riding, airborne state and provider animation recovery deny execution. Mirror/offhand and dual-weapon support are deliberately outside this first kit; the earlier native stance bridge retains its own scope. Commands, optional **ARPG Heavy Strike** / **ARPG Driving Slash** keybinds and Melee menu actions use the same server validation. The menu reports levels, default costs and live cooldowns; being off cooldown alone does not imply sufficient stamina or eligibility.
+
+Measured Strike uses the sword/longsword's existing third combo animation as a deliberate finisher input. An active Liechtenauer longsword uses its corresponding defensive third animation. Driving Slash uses the appropriate existing sword/longsword dash attack animation. Neither adds bespoke motion, guaranteed travel distance, armor bypass, a damage multiplier or a separate damage cone. They reuse provider-authored damage/collision/timing and the existing ordinary ARPG attack-scaling path. Exact-ID specialization and separate skill XP are not implemented for these two actions, and they are not exposed as catalog specialization trees yet.
+
+The registered skills declare `Resource.STAMINA`; `requestCasting` invokes native cast validation and resource consumption once before execution. No second stamina deduction or legacy ARPG resource pool is used. Provider attribute/event modifications remain effective. Parameter JSONs live under `data/puffish_skills/skill_parameters`; base stamina overrides are bounded to 1–30, while duration/stacks remain fixed for these instant actions. Cooldowns and progression levels are code-defined for this prototype.
+
+Cooldowns are versioned in the existing UUID-owned ARPG player save, using overworld game time. They survive ordinary saves, death/player replacement, reconnect and weapon/container changes. An eight-tick shared commitment window prevents a same-tick second kit action. Provider animation eligibility can impose longer recovery. Interrupted or missed accepted attacks still consume their cost and cooldown. Cooldowns are not reset by generic combat-meter reset. Legacy saves default to zero; malformed/future schemas reject explicitly. If the saved clock moves backward, normalization caps remaining cooldown to each action's duration, preventing an unbounded wait. No cooldown or stamina refund is awarded.
+
+Epic Fight is now a compile-only dependency for the addon classes and remains optional at runtime. The guarded entry point only loads/registers them when the provider is present. Startup registration failure stops that provider-enabled installation with a clear error rather than claiming a working kit. Base builds retain their existing development behavior without the provider.
+
+Validation now includes five additional Common tests for kit gates, exact cooldown boundaries, shared commitment, PlayerData save round-trip/legacy defaults and corrupt/rollback bounds. Runtime verification checks 30 melee signatures and 28 model/animation assets. Actual addon registry startup, slot allocation/synchronization, resource consumption, hit phases, interruption and save/reconnect behavior still require Minecraft client and dedicated-server tests.
+
+Extend the smoke test above: use `/arpg level set 5` only as an operator development setup, equip one supported sword/longsword, bind the two new inputs and compare live Epic Fight stamina before/after accepted and rejected requests. Test heavy followed immediately by driving, missed/interrupted attacks, defensive longsword selection, weapon changes, reconnect and restart mid-cooldown. Confirm no extra hit or native-slot replacement. Removing the provider must still permit the base installation to start.

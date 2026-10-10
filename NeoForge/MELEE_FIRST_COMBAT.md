@@ -13,7 +13,7 @@ Choices paginate at smaller GUI sizes. A class choice is permanent under normal 
 | System | Authority | Current boundary |
 | --- | --- | --- |
 | Enemy levels and traits | L2 Hostility | Read-only adapter, encounter reward metrics and `/arpg threat`; authored tower curves/pools pending |
-| Melee animation, attack windows, collision and stamina | Epic Fight | Sentinel patch and provider stamina display exist; longsword Liechtenauer stance and sword Sweeping Edge request bridge; custom skills pending |
+| Melee animation, attack windows, collision and stamina | Epic Fight | Sentinel patch and provider stamina display exist; native stance/cleave bridge plus Measured Strike and Driving Slash addon skills; broader kits pending |
 | Character classes, XP and specialization | ARPG core | Authoritative saved progression and primary chooser |
 | Prepared spells, spell schools, mana and cooldowns | Iron's Spells | Existing provider integration plus two original pulse spells |
 | Element composition during combat | Future ARPG weaving system | Design below; no weaving runtime yet |
@@ -30,7 +30,7 @@ The first optional bridge executes the equipped longsword Liechtenauer or sword 
 
 Initial candidates are a balanced stance, a defensive stance and an aggressive stance, restricted by weapon support. They should change animation/skill availability and commitment, not only damage percentages. Defensive sword-and-shield play can emphasize guard and counter; aggressive two-handed play can emphasize committed heavy attacks and armor pressure. Exact movesets depend on the pinned Epic Fight API and must be tested before promising all combinations.
 
-Ship one supported weapon with a basic combo, one heavy attack and two active melee skills before broad weapon coverage. Provide visible stance selection, stamina/cooldown feedback and clear input hints. Integrate successful Epic Fight guard/parry outcomes into posture/counter mechanics without retaining the vanilla shield override alongside the provider.
+The initial sword/longsword kit now adds Measured Strike and Driving Slash alongside native combos, stance and innate actions. Validate that kit in game, then add further active attacks before broad weapon coverage. Provide visible stance selection, stamina/cooldown feedback and clear input hints. Integrate successful Epic Fight guard/parry outcomes into posture/counter mechanics without retaining the vanilla shield override alongside the provider.
 
 ## Mage: prepared spells and live weaving
 

@@ -50,6 +50,11 @@ public class SkillsClientMod {
 	public static final KeyBinding WEAPON_STANCE_KEY_BINDING = new KeyBinding(
 			"key.puffish_skills.weapon_stance", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, "category.puffish_skills.skills");
 
+	public static final KeyBinding HEAVY_STRIKE_KEY_BINDING = new KeyBinding(
+			"key.puffish_skills.heavy_strike", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, "category.puffish_skills.skills");
+	public static final KeyBinding DRIVING_SLASH_KEY_BINDING = new KeyBinding(
+			"key.puffish_skills.driving_slash", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, "category.puffish_skills.skills");
+
 	private static SkillsClientMod instance;
 
 	private final ClientSkillScreenData screenData = new ClientSkillScreenData();
@@ -79,6 +84,8 @@ public class SkillsClientMod {
 		keyBindingReceiver.registerKeyBinding(ARPG_KEY_BINDING, instance::onArpgKeyPress);
 		keyBindingReceiver.registerKeyBinding(MELEE_INNATE_KEY_BINDING, () -> instance.sendCombatCommand("arpg melee innate"));
 		keyBindingReceiver.registerKeyBinding(WEAPON_STANCE_KEY_BINDING, () -> instance.sendCombatCommand("arpg melee stance"));
+		keyBindingReceiver.registerKeyBinding(HEAVY_STRIKE_KEY_BINDING, () -> instance.sendCombatCommand("arpg melee heavy"));
+		keyBindingReceiver.registerKeyBinding(DRIVING_SLASH_KEY_BINDING, () -> instance.sendCombatCommand("arpg melee driving"));
 
 		registrar.registerInPacket(
 				Packets.SHOW_CATEGORY,

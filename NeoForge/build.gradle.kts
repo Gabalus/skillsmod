@@ -60,6 +60,7 @@ dependencies {
 
 	// Compile against Iron's exact 1.21.1 API for narrow optional mixins; it remains optional at runtime.
 	add("modCompileOnly", "maven.modrinth:s4OWxYQQ:slKLosTb")
+	add("modCompileOnly", epicFightCoordinate)
 
 	if (arpgIronsRuntime.get() || arpgFullRuntime.get()) {
 		// Iron's Spells 'n Spellbooks 1.21.1-3.16.3 and its runtime dependency family.
@@ -185,7 +186,10 @@ tasks.register("verifyArpgEpicRuntime") {
 				"yesman.epicfight.world.capabilities.entitypatch.LivingEntityPatch",
 				"yesman.epicfight.skill.SkillContainer", "yesman.epicfight.skill.SkillSlots",
 				"yesman.epicfight.skill.Skill", "yesman.epicfight.world.capabilities.item.CapabilityItem",
-				"yesman.epicfight.api.animation.types.EntityState")
+				"yesman.epicfight.api.animation.types.EntityState",
+				"yesman.epicfight.skill.SkillBuilder", "yesman.epicfight.skill.SkillSlot",
+				"yesman.epicfight.api.utils.ExtensibleEnumManager", "yesman.epicfight.registry.EpicFightRegistries\$Keys",
+				"yesman.epicfight.gameasset.Animations")
 			.redirectErrorStream(true).start()
 		val api = javap.inputStream.bufferedReader().use { it.readText() }
 		check(javap.waitFor() == 0) { "Epic Fight API inspection failed: $api" }
@@ -203,7 +207,10 @@ tasks.register("verifyArpgEpicRuntime") {
 				"getInnateSkill(yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch",
 				"getRegistryName();", "getResourceType();", "getSkill();", "isDisabled();", "isActivated();",
 				"getRemainDuration();", "getStack();", "canUseSkill();", " WEAPON_INNATE;",
-				"requestCasting(yesman.epicfight.world.capabilities.entitypatch.player.ServerPlayerPatch, net.minecraft.nbt.CompoundTag)")
+				"requestCasting(yesman.epicfight.world.capabilities.entitypatch.player.ServerPlayerPatch, net.minecraft.nbt.CompoundTag)",
+				"registerEnumCls(java.lang.String, java.lang.Class", "assign(T)", "loadDatapackParameters(net.minecraft.nbt.CompoundTag)",
+				"createSyncPacketToLocalPlayer();", "createSyncPacketToRemotePlayer();", "setSkill(yesman.epicfight.skill.Skill)",
+				"build(net.minecraft.resources.ResourceLocation)", " SKILL;", " SWORD_AUTO3;", " SWORD_DASH;", " LONGSWORD_DASH;")
 		meleeSignatures.forEach { signature -> check(api.contains(signature)) { "Missing melee API: $signature" } }
 		layout.buildDirectory.file("reports/epic-fight-stamina-api.txt").get().asFile.apply {
 			parentFile.mkdirs()
@@ -224,7 +231,8 @@ tasks.register("verifyArpgEpicRuntime") {
 					"animations/biped/combat/longsword_liechtenauer_auto1", "animations/biped/combat/longsword_liechtenauer_auto2",
 					"animations/biped/combat/longsword_liechtenauer_auto3", "animations/biped/living/liechtenauer_ready",
 					"animations/biped/living/hold_liechtenauer", "animations/biped/living/walk_liechtenauer",
-					"animations/biped/skill/sweeping_edge", "animations/biped/skill/guard_longsword")
+					"animations/biped/skill/sweeping_edge", "animations/biped/skill/guard_longsword",
+					"animations/biped/combat/sword_auto3", "animations/biped/combat/sword_dash", "animations/biped/combat/longsword_dash")
 			assets.forEach { asset -> check(jar.getEntry("assets/epicfight/animmodels/$asset.json") != null) { "Missing Sentinel asset: $asset" } }
 			report.writeText("Epic Fight: $epicFightCoordinate\nNeoForge: 21.1.219\nBetter Combat: excluded\nAssets checked: ${assets.size}\n\n$text")
 		}

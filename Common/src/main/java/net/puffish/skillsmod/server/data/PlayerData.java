@@ -24,6 +24,7 @@ public class PlayerData {
 	private TowerPuzzleState towerPuzzles = TowerPuzzleState.empty();
 	private SandboxState sandbox = SandboxState.empty();
 	private CombatState combat = CombatState.fresh(CombatPillar.MARTIAL);
+	private net.puffish.skillsmod.arpg.combat.MeleeCooldowns meleeCooldowns = net.puffish.skillsmod.arpg.combat.MeleeCooldowns.empty();
 
 	private PlayerData(Map<Identifier, CategoryData> categories) {
 		this.categories = categories;
@@ -45,6 +46,10 @@ public class PlayerData {
 		}
 
 		var result = new PlayerData(categories);
+		if (nbt.contains("melee_cooldowns") && !(nbt.get("melee_cooldowns") instanceof NbtCompound)) {
+			throw new IllegalArgumentException("Malformed melee cooldown save");
+		}
+		result.meleeCooldowns = net.puffish.skillsmod.arpg.combat.MeleeCooldownsNbt.read(nbt.getCompound("melee_cooldowns"));
 		if (nbt.contains("tower_puzzles") && !(nbt.get("tower_puzzles") instanceof NbtCompound)) {
 			throw new IllegalArgumentException("Malformed tower puzzle save");
 		}
@@ -59,6 +64,7 @@ public class PlayerData {
 	}
 
 	public NbtCompound writeNbt(NbtCompound nbt) {
+		nbt.put("melee_cooldowns", net.puffish.skillsmod.arpg.combat.MeleeCooldownsNbt.write(meleeCooldowns));
 		nbt.put("tower_puzzles", TowerPuzzleStateNbt.write(towerPuzzles));
 		nbt.put("sandbox", SandboxStateNbt.write(sandbox));
 		nbt.put("arpg", ArpgCharacterNbt.write(arpg));
@@ -105,6 +111,14 @@ public class PlayerData {
 
 	public CombatState getCombat() {
 		return combat;
+	}
+
+	public net.puffish.skillsmod.arpg.combat.MeleeCooldowns getMeleeCooldowns() {
+		return meleeCooldowns;
+	}
+
+	public void setMeleeCooldowns(net.puffish.skillsmod.arpg.combat.MeleeCooldowns state) {
+		meleeCooldowns = Objects.requireNonNull(state);
 	}
 
 	public boolean setCombat(CombatState combat) {

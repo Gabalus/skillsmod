@@ -23,6 +23,10 @@
 	"key.puffish_skills.arpg": "Open ARPG Character",
 	"key.puffish_skills.melee_innate": "ARPG Melee Innate",
 	"key.puffish_skills.weapon_stance": "ARPG Weapon Stance",
+	"key.puffish_skills.heavy_strike": "ARPG Heavy Strike",
+	"key.puffish_skills.driving_slash": "ARPG Driving Slash",
+	"skill.puffish_skills.measured_strike": "Measured Strike",
+	"skill.puffish_skills.driving_slash": "Driving Slash",
 
 	"chat.puffish_skills.new_point": "You have a new skill point. Press %s to open your skill tree.",
 

@@ -86,3 +86,6 @@ These references establish the available integration mechanisms. They do not est
 ## First player stance and innate controls
 
 The optional ARPG melee bridge now requests the equipped longsword's Liechtenauer stance or sword's Sweeping Edge through Epic Fight's authoritative skill container. The Melee hub entry, command menu and optional keybinds inspect live provider state. Legacy direct-damage weapon skills are blocked while Epic Fight is installed. See `EPIC_FIGHT_MELEE.md` for exact scope and smoke tests. Custom melee kits, broad stance selection and exact-ID specialization remain pending. Runtime verification now checks 19 additional melee API signatures and 11 weapon animations in addition to the earlier three stamina accessors and 14 Sentinel assets.
+
+
+The next additive player slice registers Measured Strike and Driving Slash in two separate provider slots, with native stamina spending and saved ARPG cooldowns. It reuses existing finisher/dash attack animations; bespoke heavy assets and exact-ID specializations remain pending. See the kit section in `EPIC_FIGHT_MELEE.md`. The provider stays optional through compile-only dependency and guarded registration. Current verification totals are 30 melee signatures and 28 model/animation assets.

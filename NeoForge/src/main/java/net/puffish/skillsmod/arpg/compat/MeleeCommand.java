@@ -20,7 +20,9 @@ public final class MeleeCommand {
 		return CommandManager.literal("melee").executes(MeleeCommand::status)
 				.then(CommandManager.literal("status").executes(MeleeCommand::status))
 				.then(CommandManager.literal("innate").executes(c -> use(c, MeleeActionPolicy.Action.INNATE)))
-				.then(CommandManager.literal("stance").executes(c -> use(c, MeleeActionPolicy.Action.STANCE)));
+				.then(CommandManager.literal("stance").executes(c -> use(c, MeleeActionPolicy.Action.STANCE)))
+				.then(CommandManager.literal("heavy").executes(c -> kit(c, "heavy")))
+				.then(CommandManager.literal("driving").executes(c -> kit(c, "driving")));
 	}
 
 	private static int status(CommandContext<ServerCommandSource> context) throws CommandSyntaxException {
@@ -46,14 +48,26 @@ public final class MeleeCommand {
 			}
 			player.sendMessage(row, false);
 		}
+		for (var attack : new String[]{"heavy", "driving"}) {
+			player.sendMessage(Text.literal(net.puffish.skillsmod.main.OptionalEpicMelee.invoke(player, "status", attack))
+					.append(" ").append(action("[Use]", "/arpg melee " + attack)), false);
+		}
 		player.sendMessage(action("[Refresh]", "/arpg melee status"), false);
-		player.sendMessage(Text.literal("Bind ARPG Melee Innate / ARPG Weapon Stance in Controls for use during combat. Epic Fight validates charge and costs."), false);
+		player.sendMessage(Text.literal("Bind ARPG Melee Innate, Weapon Stance, Heavy Strike and Driving Slash in Controls for combat. Epic Fight validates charge and costs."), false);
 		return 1;
 	}
 
 	private static net.minecraft.text.MutableText action(String label, String command) {
 		return Text.literal(label).formatted(Formatting.AQUA).styled(style -> style
 				.withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, command)));
+	}
+
+	private static int kit(CommandContext<ServerCommandSource> context, String attack) throws CommandSyntaxException {
+		var player = context.getSource().getPlayerOrThrow();
+		String result = net.puffish.skillsmod.main.OptionalEpicMelee.invoke(player, "use", attack);
+		player.sendMessage(Text.literal(result.isEmpty() ? "heavy".equals(attack) ? "Measured Strike accepted." : "Driving Slash accepted." : result)
+				.formatted(result.isEmpty() ? Formatting.GREEN : Formatting.RED), true);
+		return result.isEmpty() ? 1 : 0;
 	}
 
 	private static int use(CommandContext<ServerCommandSource> context, MeleeActionPolicy.Action action) throws CommandSyntaxException {
