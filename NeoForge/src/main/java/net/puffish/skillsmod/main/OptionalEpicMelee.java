@@ -8,6 +8,8 @@ import net.neoforged.fml.ModList;
 /** Keeps addon classes out of the base installation's class loading path. */
 public final class OptionalEpicMelee {
 	private static java.lang.reflect.Method damageSkill;
+	private static java.lang.reflect.Method enemyReady;
+	private static boolean enemyFailureLogged;
 	private static boolean attributionFailureLogged;
 	private OptionalEpicMelee() {
 	}
@@ -19,8 +21,25 @@ public final class OptionalEpicMelee {
 		try {
 			Class.forName("net.puffish.skillsmod.arpg.melee.ArpgEpicMelee").getMethod("register", IEventBus.class).invoke(null, bus);
 			damageSkill = Class.forName("net.puffish.skillsmod.arpg.melee.ArpgMeleeAttribution").getMethod("skillId", DamageSource.class);
+			enemyReady = Class.forName("net.puffish.skillsmod.arpg.melee.EpicEnemyActions").getMethod("ready", net.minecraft.entity.LivingEntity.class);
 		} catch (ReflectiveOperationException | LinkageError error) {
 			throw new IllegalStateException("Cannot register the ARPG melee kit with Epic Fight", error);
+		}
+	}
+
+	public static boolean enemyReady(net.minecraft.entity.LivingEntity entity) {
+		if (!ModList.get().isLoaded("epicfight")) {
+			return true;
+		}
+		if (enemyReady == null || enemyFailureLogged) {
+			return false;
+		}
+		try {
+			return (boolean) enemyReady.invoke(null, entity);
+		} catch (ReflectiveOperationException | RuntimeException | LinkageError error) {
+			enemyFailureLogged = true;
+			net.puffish.skillsmod.SkillsMod.getInstance().getLogger().error("Enemy Epic Fight spell gate disabled: " + error);
+			return false;
 		}
 	}
 

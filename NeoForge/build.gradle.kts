@@ -130,6 +130,24 @@ tasks.register("verifyArpgIronsRuntime") {
 		}
 		val resolvedFiles = configurations.getByName("modRuntimeOnly").resolve()
 		check(resolvedFiles.isNotEmpty()) { "Iron's runtime profile resolved no mod files." }
+		val apiJars = configurations.getByName("modCompileOnly").resolve()
+		val classpath = apiJars.joinToString(File.pathSeparator) { it.absolutePath }
+		val command = listOf(File(System.getProperty("java.home"), "bin/javap").absolutePath,
+				"-classpath", classpath, "io.redspace.ironsspellbooks.api.registry.SpellRegistry",
+				"io.redspace.ironsspellbooks.api.magic.MagicData", "io.redspace.ironsspellbooks.api.spells.AbstractSpell",
+				"io.redspace.ironsspellbooks.api.spells.CastSource")
+		val process = ProcessBuilder(command).redirectErrorStream(true).start()
+		val api = process.inputStream.bufferedReader().use { it.readText() }
+		check(process.waitFor() == 0) { "Iron's enemy API inspection failed: $api" }
+		listOf(" ICICLE_SPELL;", " MOB;", "MagicData(boolean)", "initiateCast(",
+				"checkPreCastConditions(", "onServerPreCast(", "onCast(", "onServerCastComplete(",
+				"isEnabled();", "getCastType();", "getMinLevel();", "getMaxLevel();").forEach { signature ->
+			check(api.contains(signature)) { "Missing Iron's enemy API: $signature" }
+		}
+		layout.buildDirectory.file("reports/irons-enemy-spell-api.txt").get().asFile.apply {
+			parentFile.mkdirs()
+			writeText(api)
+		}
 		logger.lifecycle("Resolved ${resolvedFiles.size} Iron's/ARPG runtime mod files.")
 	}
 }
@@ -205,6 +223,7 @@ tasks.register("verifyArpgEpicRuntime") {
 				"getItemStackCapability(net.minecraft.world.item.ItemStack)",
 				"getSkill(yesman.epicfight.skill.SkillSlot)", "isEpicFightMode();", "isHoldingAny();",
 				"getPrimaryHand();", "getEntityState();", "getWeaponCategory();",
+				"isStunned();", "inaction();", "canUseSkill();",
 				"getStyle(yesman.epicfight.world.capabilities.entitypatch.LivingEntityPatch",
 				"getInnateSkill(yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch",
 				"getRegistryName();", "getResourceType();", "getSkill();", "isDisabled();", "isActivated();",

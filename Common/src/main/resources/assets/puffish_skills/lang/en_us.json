@@ -7,6 +7,7 @@
 	"entity.puffish_skills.tower_sentinel": "Tower Sentinel",
 	"text.puffish_skills.sentinel.guarding": "%s — Guarding",
 	"text.puffish_skills.sentinel.enraged": "%s — Enraged",
+	"text.puffish_skills.sentinel.casting": "%s — Icicle: interrupt or sidestep",
 	"text.puffish_skills.skills": "Skills",
 	"text.puffish_skills.points_left": "Points left: ",
 	"text.puffish_skills.buy_point": "Buy point",
