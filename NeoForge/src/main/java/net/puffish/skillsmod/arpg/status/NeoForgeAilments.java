@@ -7,6 +7,7 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.Vec3d;
 import net.neoforged.neoforge.common.util.FakePlayer;
 import net.puffish.skillsmod.arpg.combat.AilmentState;
 import net.puffish.skillsmod.arpg.combat.AilmentStateNbt;
@@ -21,11 +22,14 @@ import net.puffish.skillsmod.arpg.skill.ArpgSkillDamageContext;
 import net.puffish.skillsmod.arpg.stat.ArpgStatCompiler;
 
 import java.util.List;
+import java.util.Map;
+import java.util.WeakHashMap;
 
 /** Saved server status backend; provider-native statuses are left under provider ownership. */
 public final class NeoForgeAilments implements ArpgAilmentRuntime.Backend {
 	private static final String DATA = "puffish_skills.ailments";
 	private static final NeoForgeAilments INSTANCE = new NeoForgeAilments();
+	private final Map<LivingEntity, Vec3d> positions = new WeakHashMap<>();
 
 	private NeoForgeAilments() {
 	}
@@ -41,6 +45,7 @@ public final class NeoForgeAilments implements ArpgAilmentRuntime.Backend {
 	private static void save(LivingEntity target, AilmentState state) {
 		if (state.applications().isEmpty()) {
 			target.getPersistentData().remove(DATA);
+			INSTANCE.positions.remove(target);
 		} else {
 			target.getPersistentData().put(DATA, AilmentStateNbt.write(state));
 		}
@@ -81,6 +86,7 @@ public final class NeoForgeAilments implements ArpgAilmentRuntime.Backend {
 	@Override
 	public void clear(LivingEntity target) {
 		target.getPersistentData().remove(DATA);
+		positions.remove(target);
 	}
 
 	@Override
@@ -92,12 +98,16 @@ public final class NeoForgeAilments implements ArpgAilmentRuntime.Backend {
 			clear(target);
 			return;
 		}
-		var velocity = target.getVelocity();
+		var position = target.getPos();
+		var previous = positions.put(target, position);
+		double movementX = previous == null ? 0 : position.x - previous.x;
+		double movementZ = previous == null ? 0 : position.z - previous.z;
 		var current = state(target);
 		if (target.isTouchingWater()) {
 			current = current.remove(AilmentType.IGNITE);
 		}
-		var step = current.tick(velocity.x * velocity.x + velocity.z * velocity.z > .0025);
+		// Sample displacement: server player velocity does not reliably represent walking packets.
+		var step = current.tick(movementX * movementX + movementZ * movementZ > .0025);
 		// Settle time before callbacks: no reentrant damage can replay the same pulse.
 		save(target, step.state());
 		for (var pulse : step.pulses()) {

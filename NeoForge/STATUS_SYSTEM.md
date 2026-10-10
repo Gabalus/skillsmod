@@ -4,7 +4,7 @@ NeoForge owns a saved ARPG ailment backend for players and living enemies. Playe
 
 | Ailment | Damage type | Stacking | Current interaction |
 | --- | --- | --- | --- |
-| Bleed | Physical | One strongest application | Double pulse damage while horizontal velocity exceeds 0.05 blocks/tick |
+| Bleed | Physical | One strongest application | Double pulse damage when horizontal displacement since the previous sampled tick exceeds 0.05 blocks |
 | Ignite | Fire | One strongest application | Removed when touching water |
 | Poison | Nature | Up to eight independent applications | Stronger incoming applications replace the weakest at the cap |
 
