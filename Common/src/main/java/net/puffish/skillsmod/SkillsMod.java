@@ -179,6 +179,7 @@ public class SkillsMod {
 		registrar.registerOutPacket(Packets.NEW_POINT);
 		registrar.registerOutPacket(Packets.COMBAT_STATE);
 		registrar.registerOutPacket(Packets.CLASS_SELECTION);
+		registrar.registerOutPacket(Packets.MELEE_KIT);
 		registrar.registerInPacket(Packets.CHOOSE_CLASS,
 				net.puffish.skillsmod.server.network.packets.in.ChooseClassInPacket::read,
 				instance::onChooseClass);
@@ -1017,6 +1018,10 @@ public class SkillsMod {
 
 	public void syncCombatState(ServerPlayerEntity player) {
 		packetSender.send(player, new CombatStateOutPacket(ArpgCombatRuntime.state(player)));
+	}
+
+	public void openMeleeKit(ServerPlayerEntity player, net.puffish.skillsmod.arpg.combat.MeleeKitView view, boolean open) {
+		packetSender.send(player, new net.puffish.skillsmod.server.network.packets.out.MeleeKitOutPacket(view, open));
 	}
 
 	public void syncClassSelection(ServerPlayerEntity player, String message) {

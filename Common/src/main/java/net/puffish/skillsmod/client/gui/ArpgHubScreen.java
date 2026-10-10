@@ -41,7 +41,7 @@ public final class ArpgHubScreen extends Screen {
 			new QuickLink("Atlas", "arpg_atlas", false),
 			new QuickLink("Towers", "", false),
 			new QuickLink("Spells", "", false, "arpg spells"),
-			new QuickLink("Melee", "", false, "arpg melee")
+			new QuickLink("Melee", "", false, "arpg melee screen")
 	);
 
 	private final ClientSkillScreenData data;
@@ -100,7 +100,7 @@ public final class ArpgHubScreen extends Screen {
 					if (link.path().isEmpty()) {
 						if (client != null && client.getNetworkHandler() != null) {
 							client.getNetworkHandler().sendChatCommand(link.command());
-							client.setScreen(new ChatScreen(""));
+							client.setScreen(link.command().equals("arpg melee screen") ? null : new ChatScreen(""));
 						}
 					} else {
 						findCategory(link.path(), link.prefix()).ifPresent(categoryData -> open(categoryData, Optional.empty()));

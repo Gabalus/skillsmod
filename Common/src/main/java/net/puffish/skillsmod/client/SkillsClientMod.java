@@ -152,6 +152,8 @@ public class SkillsClientMod {
 
 		registrar.registerOutPacket(Packets.SKILL_CLICK);
 		registrar.registerOutPacket(Packets.CHOOSE_CLASS);
+		registrar.registerInPacket(Packets.MELEE_KIT,
+				net.puffish.skillsmod.client.network.packets.in.MeleeKitInPacket::read, instance::onMeleeKit);
 		registrar.registerInPacket(Packets.CLASS_SELECTION,
 				net.puffish.skillsmod.client.network.packets.in.ClassSelectionInPacket::read, instance::onClassSelection);
 		registrar.registerOutPacket(Packets.BUY_POINT);
@@ -252,6 +254,15 @@ public class SkillsClientMod {
 
 	private void onCombatState(CombatStateInPacket packet) {
 		combatData.set(packet.state());
+	}
+
+	private void onMeleeKit(net.puffish.skillsmod.client.network.packets.in.MeleeKitInPacket packet) {
+		var client = MinecraftClient.getInstance();
+		if (client.currentScreen instanceof net.puffish.skillsmod.client.gui.MeleeKitScreen screen) {
+			screen.update(packet.view());
+		} else if (packet.open() && client.player != null && client.world != null) {
+			client.setScreen(new net.puffish.skillsmod.client.gui.MeleeKitScreen(packet.view()));
+		}
 	}
 
 	private void onClassSelection(net.puffish.skillsmod.client.network.packets.in.ClassSelectionInPacket packet) {

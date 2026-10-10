@@ -51,4 +51,17 @@ public final class OptionalEpicMelee {
 			return "ARPG melee kit is unavailable; check the server log.";
 		}
 	}
+
+	public static net.puffish.skillsmod.arpg.combat.MeleeKitView view(ServerPlayerEntity player) {
+		if (!ModList.get().isLoaded("epicfight")) {
+			return net.puffish.skillsmod.arpg.combat.MeleeKitView.unavailable("Epic Fight is not installed.");
+		}
+		try {
+			return (net.puffish.skillsmod.arpg.combat.MeleeKitView) Class.forName("net.puffish.skillsmod.arpg.melee.ArpgEpicMelee")
+					.getMethod("view", ServerPlayerEntity.class).invoke(null, player);
+		} catch (ReflectiveOperationException | RuntimeException | LinkageError error) {
+			net.puffish.skillsmod.SkillsMod.getInstance().getLogger().error("ARPG melee snapshot failed: " + error);
+			return net.puffish.skillsmod.arpg.combat.MeleeKitView.unavailable("The melee adapter is unavailable. Check the server log.");
+		}
+	}
 }

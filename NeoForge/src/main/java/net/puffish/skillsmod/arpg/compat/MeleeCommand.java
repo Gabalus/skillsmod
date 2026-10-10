@@ -18,11 +18,45 @@ public final class MeleeCommand {
 
 	public static LiteralArgumentBuilder<ServerCommandSource> create() {
 		return CommandManager.literal("melee").executes(MeleeCommand::status)
+				.then(CommandManager.literal("screen").executes(c -> screen(c, true)))
+				.then(CommandManager.literal("refresh").executes(c -> screen(c, false)))
+				.then(CommandManager.literal("tree")
+						.then(CommandManager.literal("heavy").executes(c -> tree(c, net.puffish.skillsmod.arpg.combat.MeleeKit.Attack.HEAVY)))
+						.then(CommandManager.literal("driving").executes(c -> tree(c, net.puffish.skillsmod.arpg.combat.MeleeKit.Attack.DRIVING))))
 				.then(CommandManager.literal("status").executes(MeleeCommand::status))
 				.then(CommandManager.literal("innate").executes(c -> use(c, MeleeActionPolicy.Action.INNATE)))
 				.then(CommandManager.literal("stance").executes(c -> use(c, MeleeActionPolicy.Action.STANCE)))
 				.then(CommandManager.literal("heavy").executes(c -> kit(c, "heavy")))
 				.then(CommandManager.literal("driving").executes(c -> kit(c, "driving")));
+	}
+
+	private static int screen(CommandContext<ServerCommandSource> context, boolean open) throws CommandSyntaxException {
+		var player = context.getSource().getPlayerOrThrow();
+		net.puffish.skillsmod.SkillsMod.getInstance().openMeleeKit(player, net.puffish.skillsmod.main.OptionalEpicMelee.view(player), open);
+		return 1;
+	}
+
+	private static int tree(CommandContext<ServerCommandSource> context, net.puffish.skillsmod.arpg.combat.MeleeKit.Attack attack) throws CommandSyntaxException {
+		var player = context.getSource().getPlayerOrThrow();
+		var mod = net.puffish.skillsmod.SkillsMod.getInstance();
+		var access = net.puffish.skillsmod.arpg.skill.ArpgSkillAccess.check(player, attack.id(), "epicfight");
+		if (!mod.getPlatform().isModLoaded("epicfight") || !access.allowed()) {
+			context.getSource().sendError(Text.literal(access.allowed() ? "Epic Fight is not installed." : access.message()));
+			return 0;
+		}
+		try {
+			var character = net.puffish.skillsmod.arpg.character.ArpgProgression.character(player);
+			if (!character.specializations().containsKey(attack.id())) {
+				character.specialize(attack.id());
+			}
+			net.puffish.skillsmod.arpg.character.ArpgProgression.sync(player);
+			mod.openScreen(player, java.util.Optional.of(net.puffish.skillsmod.SkillsMod.createIdentifier(
+					net.puffish.skillsmod.arpg.character.ArpgProgression.skillCategory(attack.id()))));
+			return 1;
+		} catch (IllegalStateException exception) {
+			context.getSource().sendError(Text.literal(exception.getMessage()));
+			return 0;
+		}
 	}
 
 	private static int status(CommandContext<ServerCommandSource> context) throws CommandSyntaxException {
