@@ -27,6 +27,10 @@ public final class RiftBook {
 	}
 
 	public RiftSession reserve(UUID player, UUID id, String completion, RiftSession.ReturnPoint origin, long now) {
+		return reserve(player, id, completion, origin, now, 0);
+	}
+
+	public RiftSession reserve(UUID player, UUID id, String completion, RiftSession.ReturnPoint origin, long now, int apotheosisTier) {
 		if (sessions.containsKey(player) || sessions.size() >= MAX_RECORDS || now < 0
 				|| now > Long.MAX_VALUE - 12_000
 				|| sessions.values().stream().anyMatch(session -> session.id().equals(id))) {
@@ -35,7 +39,7 @@ public final class RiftBook {
 		for (int slot = 0; slot < RiftSession.MAX_SLOTS; slot++) {
 			int candidate = slot;
 			if (sessions.values().stream().noneMatch(session -> session.slot() == candidate && session.phase() != RiftSession.Phase.EXIT_PENDING)) {
-				var session = new RiftSession(id, player, slot, completion, RiftSession.Phase.BUILDING, origin, null, 0, now + 12_000);
+				var session = new RiftSession(id, player, slot, completion, RiftSession.Phase.BUILDING, origin, null, 0, now + 12_000, apotheosisTier);
 				sessions.put(player, session);
 				return session;
 			}
@@ -54,6 +58,7 @@ public final class RiftBook {
 	public void update(RiftSession next) {
 		var current = sessions.get(next.player());
 		if (current == null || !current.id().equals(next.id()) || current.slot() != next.slot()
+				|| current.apotheosisTier() != next.apotheosisTier()
 				|| !current.completion().equals(next.completion()) || !current.origin().equals(next.origin())) {
 			throw new IllegalStateException("Rift update changed reserved ownership");
 		}

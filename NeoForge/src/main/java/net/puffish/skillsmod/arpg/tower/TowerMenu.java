@@ -53,6 +53,7 @@ public final class TowerMenu {
 		} catch (IllegalArgumentException | IllegalStateException error) {
 			player.sendMessage(Text.literal("Exit markers overlap here; ask an operator to check this room."), false);
 		}
+		player.sendMessage(action("World tiers", "/rift tiers", "Reviews Apotheosis unlocks and your reserved rift XP tier."), false);
 		player.sendMessage(action("Refresh", "/tower", "Checks nearby passages and your current progress.")
 				.append(Text.literal("  "))
 				.append(action("Close passage", "/tower close", "Closes your current portal pair.")), false);

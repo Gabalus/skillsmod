@@ -166,6 +166,22 @@ tasks.register("verifyArpgFullRuntime") {
 		check(resolvedFiles.size >= 15) {
 			"Full ARPG runtime resolved only ${resolvedFiles.size} files; expected provider mods and their required libraries."
 		}
+		val classpath = resolvedFiles.joinToString(File.pathSeparator) { it.absolutePath }
+		val javap = File(System.getProperty("java.home"), "bin/javap").absolutePath
+		val process = ProcessBuilder(javap, "-classpath", classpath,
+				"dev.shadowsoffire.apotheosis.tiers.WorldTier").redirectErrorStream(true).start()
+		val api = process.inputStream.bufferedReader().use { it.readText() }
+		check(process.waitFor() == 0) { "Cannot inspect pinned Apotheosis tier API: $api" }
+		listOf(" HAVEN;", " FRONTIER;", " ASCENT;", " SUMMIT;", " PINNACLE;",
+				" getTier(net.minecraft.world.entity.player.Player);",
+				" setTier(net.minecraft.world.entity.player.Player, dev.shadowsoffire.apotheosis.tiers.WorldTier);",
+				" isUnlocked(net.minecraft.world.entity.player.Player, dev.shadowsoffire.apotheosis.tiers.WorldTier);").forEach { signature ->
+			check(api.contains(signature)) { "Missing Apotheosis tier API: $signature" }
+		}
+		layout.buildDirectory.file("reports/apotheosis-tier-api.txt").get().asFile.apply {
+			parentFile.mkdirs()
+			writeText(api)
+		}
 		logger.lifecycle("Resolved ${resolvedFiles.size} full ARPG provider runtime files.")
 	}
 }

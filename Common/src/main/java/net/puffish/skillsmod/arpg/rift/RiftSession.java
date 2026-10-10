@@ -6,7 +6,7 @@ import java.util.UUID;
 
 /** Bounded solo encounter state; coordinates refer only to the dedicated rift dimension. */
 public record RiftSession(UUID id, UUID player, int slot, String completion, Phase phase,
-		ReturnPoint origin, UUID boss, int buildIndex, long deadline) {
+		ReturnPoint origin, UUID boss, int buildIndex, long deadline, int apotheosisTier) {
 	public static final int MAX_SLOTS = 8;
 	public static final int RADIUS = 12;
 	public static final int FLOOR = 64;
@@ -29,9 +29,15 @@ public record RiftSession(UUID id, UUID player, int slot, String completion, Pha
 		}
 	}
 
+	public RiftSession(UUID id, UUID player, int slot, String completion, Phase phase,
+			ReturnPoint origin, UUID boss, int buildIndex, long deadline) {
+		this(id, player, slot, completion, phase, origin, boss, buildIndex, deadline, 0);
+	}
+
 	public RiftSession {
 		if (id == null || player == null || phase == null || origin == null || slot < 0 || slot >= MAX_SLOTS
 				|| (phase == Phase.BUILDING && boss != null)
+				|| apotheosisTier < 0 || apotheosisTier > 4
 				|| buildIndex < 0 || buildIndex > BUILD_VOLUME || deadline < 0
 				|| ((phase == Phase.RUNNING || phase == Phase.CLEARED) && (boss == null || buildIndex != BUILD_VOLUME))) {
 			throw new IllegalArgumentException("Invalid rift session");
@@ -57,24 +63,24 @@ public record RiftSession(UUID id, UUID player, int slot, String completion, Pha
 		if (phase != Phase.BUILDING || count < 1 || count > 256) {
 			throw new IllegalStateException("Invalid rift build step");
 		}
-		return new RiftSession(id, player, slot, completion, phase, origin, boss, Math.min(BUILD_VOLUME, buildIndex + count), deadline);
+		return new RiftSession(id, player, slot, completion, phase, origin, boss, Math.min(BUILD_VOLUME, buildIndex + count), deadline, apotheosisTier);
 	}
 
 	public RiftSession start(UUID bossId) {
 		if (phase != Phase.BUILDING || buildIndex != BUILD_VOLUME || bossId == null) {
 			throw new IllegalStateException("Rift is not ready to start");
 		}
-		return new RiftSession(id, player, slot, completion, Phase.RUNNING, origin, bossId, buildIndex, deadline);
+		return new RiftSession(id, player, slot, completion, Phase.RUNNING, origin, bossId, buildIndex, deadline, apotheosisTier);
 	}
 
 	public RiftSession clear(UUID killer, UUID defeatedBoss, long now) {
 		if (now < 0 || now > Long.MAX_VALUE - 100 || phase != Phase.RUNNING || !player.equals(killer) || !boss.equals(defeatedBoss) || now >= deadline) {
 			throw new IllegalStateException("Rift clear does not match its live encounter");
 		}
-		return new RiftSession(id, player, slot, completion, Phase.CLEARED, origin, boss, buildIndex, now + 100);
+		return new RiftSession(id, player, slot, completion, Phase.CLEARED, origin, boss, buildIndex, now + 100, apotheosisTier);
 	}
 
 	public RiftSession exit() {
-		return new RiftSession(id, player, slot, completion, Phase.EXIT_PENDING, origin, boss, buildIndex, deadline);
+		return new RiftSession(id, player, slot, completion, Phase.EXIT_PENDING, origin, boss, buildIndex, deadline, apotheosisTier);
 	}
 }

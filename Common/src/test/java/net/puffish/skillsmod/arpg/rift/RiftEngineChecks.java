@@ -26,7 +26,10 @@ public final class RiftEngineChecks {
 		var origin = new RiftSession.ReturnPoint("minecraft:overworld", 10, 70, -20, 90, 0, "survival");
 		var player = UUID.randomUUID();
 		var book = new RiftBook(Map.of());
-		var preparing = book.reserve(player, UUID.randomUUID(), "arpg:first_rift", origin, 100);
+		var preparing = book.reserve(player, UUID.randomUUID(), "arpg:first_rift", origin, 100, 4);
+		check(preparing.apotheosisTier() == 4);
+		rejects(() -> book.update(new RiftSession(preparing.id(), player, preparing.slot(), preparing.completion(), preparing.phase(),
+				origin, null, 0, preparing.deadline(), 0)));
 		check(preparing.slot() == 0 && preparing.deadline() == 12100);
 		rejects(() -> book.reserve(player, UUID.randomUUID(), "arpg:first_rift", origin, 100));
 		rejects(() -> preparing.start(UUID.randomUUID()));
@@ -48,14 +51,14 @@ public final class RiftEngineChecks {
 		rejects(() -> live.clear(player, boss, -1));
 		var cleared = live.clear(player, boss, 200);
 		book.update(cleared);
-		check(cleared.deadline() == 300);
+		check(cleared.deadline() == 300 && cleared.apotheosisTier() == 4);
 		rejects(() -> cleared.clear(player, boss, 201));
 		rejects(() -> book.update(live));
 		rejects(() -> book.returned(player));
 		book.update(cleared.exit());
 		var second = book.reserve(UUID.randomUUID(), UUID.randomUUID(), "arpg:first_rift", origin, 300);
 		check(second.slot() == live.slot());
-		check(book.get(player).origin().equals(origin));
+		check(book.get(player).origin().equals(origin) && book.get(player).apotheosisTier() == 4);
 		book.returned(player);
 		check(book.get(player) == null);
 		book.recoverAfterRestart();
@@ -72,6 +75,8 @@ public final class RiftEngineChecks {
 		rejects(() -> new RiftSession.ReturnPoint("minecraft:overworld", Double.NaN, 70, 0, 0, 0, "survival"));
 		rejects(() -> new RiftSession.ReturnPoint("minecraft:overworld", 0, 70, 0, 0, 0, null));
 		rejects(() -> new RiftBook(Map.of(UUID.randomUUID(), live)));
+		rejects(() -> new RiftBook(Map.of()).reserve(UUID.randomUUID(), UUID.randomUUID(), "arpg:first_rift", origin, 0, -1));
+		rejects(() -> new RiftBook(Map.of()).reserve(UUID.randomUUID(), UUID.randomUUID(), "arpg:first_rift", origin, 0, 5));
 		System.out.println("Rift session checks passed: " + checks);
 	}
 }

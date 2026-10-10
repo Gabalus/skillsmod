@@ -72,7 +72,7 @@ public final class RiftRuntime {
 		}
 		var origin = new RiftSession.ReturnPoint(player.getWorld().getRegistryKey().getValue().toString(),
 				player.getX(), player.getY(), player.getZ(), player.getYaw(), player.getPitch(), player.interactionManager.getGameMode().getName());
-		book(player.server).reserve(player.getUuid(), UUID.randomUUID(), completion, origin, player.server.getOverworld().getTime());
+		book(player.server).reserve(player.getUuid(), UUID.randomUUID(), completion, origin, player.server.getOverworld().getTime(), ApotheosisProgressionCompat.currentTier(player));
 		player.sendMessage(Text.literal("Preparing rift arena. Stay near your entry position; /rift leave cancels."), false);
 	}
 
@@ -165,7 +165,7 @@ public final class RiftRuntime {
 		boss.addCommandTag("arpg:encounter");
 		boss.getPersistentData().putString(OWNER, player.getUuid().toString());
 		boss.getPersistentData().putString(SESSION, session.id().toString());
-		boss.getPersistentData().putInt(ApotheosisProgressionCompat.SPAWN_TIER, ApotheosisProgressionCompat.currentTier(player));
+		boss.getPersistentData().putInt(ApotheosisProgressionCompat.SPAWN_TIER, session.apotheosisTier());
 		var running = session.start(boss.getUuid());
 		book(server).update(running);
 		if (!world.spawnEntity(boss)) {
