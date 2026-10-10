@@ -100,6 +100,9 @@ public final class NeoForgeArpgEvents {
 	/** Applies the Martial guard result through NeoForge's canonical shield-block stage. */
 	@SubscribeEvent(priority = EventPriority.LOW)
 	public static void onShieldBlock(LivingShieldBlockEvent event) {
+		if (EpicFightStaminaBridge.ownsMartialCombat()) {
+			return;
+		}
 		if (!(event.getEntity() instanceof ServerPlayerEntity defender)
 				|| event.getDamageSource().getAttacker() == null
 				|| event.getOriginalBlockedDamage() <= 0.0f) {
@@ -440,6 +443,13 @@ public final class NeoForgeArpgEvents {
 			MARTIAL_WINDOWS.remove(player.getUuid());
 			return;
 		}
+		if (EpicFightStaminaBridge.ownsMartialCombat()) {
+			MARTIAL_WINDOWS.remove(player.getUuid());
+			if (now % 5L == 0L) {
+				EpicFightStaminaBridge.sync(player);
+			}
+			return;
+		}
 
 		var window = martialWindow(player, now).observeGuard(now, player.isBlocking());
 		if (window.recoveryDue(now)) {
@@ -461,7 +471,8 @@ public final class NeoForgeArpgEvents {
 			ArpgAttackScaling.Delivery delivery,
 			double damage
 	) {
-		if (delivery != ArpgAttackScaling.Delivery.MELEE
+		if (EpicFightStaminaBridge.ownsMartialCombat()
+				|| delivery != ArpgAttackScaling.Delivery.MELEE
 				|| ArpgCombatRuntime.state(attacker).pillar() != CombatPillar.MARTIAL) {
 			return damage;
 		}

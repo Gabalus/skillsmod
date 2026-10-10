@@ -1,3 +1,4 @@
+import java.io.File
 import java.util.zip.ZipFile
 
 plugins {
@@ -150,6 +151,23 @@ tasks.register("verifyArpgEpicRuntime") {
 			"Epic Fight profile must not include Better Combat."
 		}
 		val epic = artifacts.single { it.moduleVersion.id.name == "vu3NZ5Ma" && it.moduleVersion.id.version == "8HHhJt6i" }
+		val javap = ProcessBuilder(File(System.getProperty("java.home"), "bin/javap").absolutePath,
+				"-classpath", epic.file.absolutePath, "-s",
+				"yesman.epicfight.world.capabilities.EpicFightCapabilities",
+				"yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch")
+			.redirectErrorStream(true).start()
+		val api = javap.inputStream.bufferedReader().use { it.readText() }
+		check(javap.waitFor() == 0) { "Epic Fight API inspection failed: $api" }
+		check(api.contains("getEntityPatch(net.minecraft.world.entity.Entity, java.lang.Class")) {
+			"Pinned Epic Fight no longer exposes the expected entity-patch accessor."
+		}
+		check(api.contains("public float getStamina();") && api.contains("public float getMaxStamina();")) {
+			"Pinned Epic Fight no longer exposes the expected read-only stamina accessors."
+		}
+		layout.buildDirectory.file("reports/epic-fight-stamina-api.txt").get().asFile.apply {
+			parentFile.mkdirs()
+			writeText(api)
+		}
 		val report = layout.buildDirectory.file("reports/epic-fight-runtime.txt").get().asFile
 		report.parentFile.mkdirs()
 		ZipFile(epic.file).use { jar ->

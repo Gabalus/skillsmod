@@ -4,7 +4,7 @@
 
 Epic Fight is the core for authored enemy and boss movesets on NeoForge 1.21.1. It is also the intended Martial action provider. The base ARPG module may still load without external providers for development, but an encounter advertised as an Epic Fight encounter requires the validated Epic Fight runtime. GeckoLib is not the moveset foundation for these enemies; its presence in the Iron's Spells dependency family does not change that decision.
 
-The existing full runtime profile still installs Better Combat. Treat it as a legacy convenience profile when `arpg_epic_runtime` is disabled. Enabling that flag selects Epic Fight instead of Better Combat. Do not combine both providers for the same melee action pipeline by default. The profile and first data patch below are now implemented. The Martial guard/resource bridge remains pending.
+The existing full runtime profile still installs Better Combat. Treat it as a legacy convenience profile when `arpg_epic_runtime` is disabled. Enabling that flag selects Epic Fight instead of Better Combat. Do not combine both providers for the same melee action pipeline by default. The profile and first data patch below are now implemented. The first Martial ownership/stamina display bridge is implemented; guard/parry-to-posture translation remains pending.
 
 ## Ownership
 
@@ -13,9 +13,19 @@ The existing full runtime profile still installs Better Combat. Treat it as a le
 | Epic Fight entity patch | Attack animation, attack-phase collision, combat behavior selection and supported hit reactions |
 | Enemy/boss addon | Custom attacks, phase transitions, telegraphs, encounter targeting, cooldowns and arena mechanics through Epic Fight patches |
 | ARPG core | Character progression, completion receipts, loot/recipe rewards, tower gates and encounter lifecycle |
-| Martial bridge | Map Epic Fight guard/parry outcomes and resource costs into the chosen authoritative ARPG resource model |
+| Martial bridge | Epic Fight owns stamina, guard and recovery; the character meter displays its stamina fraction. Outcome-to-posture translation remains pending. |
 
 The bridge must reconcile Epic Fight stamina/stun semantics with ARPG stamina/posture. Do not run two independent player stamina budgets or apply one attack twice through Epic Fight and a second custom damage loop. The existing vanilla shield adapter is not proof of Epic Fight guard compatibility. Determine supported events and cancellation order against a pinned 1.21.1 release before writing that bridge.
+
+## Martial ownership and stamina display
+
+When Epic Fight is installed, it owns Martial combat in both Epic Fight and vanilla player modes. The vanilla ARPG shield guard adjustment, perfect-parry counter multiplier and Martial recovery loop are bypassed. Old vanilla guard windows are cleared on the next Martial tick. Toggling player mode cannot switch between two independent stamina budgets. Vanilla shields retain their ordinary provider/vanilla behavior without the ARPG guard modifier.
+
+Every five server ticks, Martial players mirror `PlayerPatch.getStamina() / getMaxStamina()` onto the existing character screen stamina meter (0–100 by default). The display uses the provider fraction, including attribute changes, instead of presenting Epic Fight stamina points as ARPG points. Unchanged samples do not increment combat revision or send duplicate snapshots. Other pillar meters, posture and momentum remain unchanged. This bridge never writes provider stamina, applies health damage, cancels a provider event or grants a counter.
+
+Access is optional and cached through reflection; a base build does not load Epic Fight classes. The exact pinned JAR's public entity-patch and stamina methods are checked during runtime verification. A missing player patch waits for a later sample. An API/invocation error is logged once and retains the last display snapshot; ownership stays with Epic Fight rather than re-enabling a second budget. Invalid non-finite samples or a non-positive maximum also retain the previous snapshot. The character display can lag the provider by up to five ticks. Saved display values are refreshed from the live provider after reconnect or respawn; they do not restore provider resources.
+
+This is an ownership/display bridge, not a completed guard/parry integration. ARPG posture and momentum currently receive no Epic Fight guard outcomes or recovery. Rule/skill operations on the displayed ARPG stamina do not spend Epic Fight stamina and must not be used as authoritative Martial costs until a provider-backed spending adapter exists. Guard/parry event ordering, posture semantics, skill spending and live client/server behavior still require implementation and validation. If Epic Fight is removed between restarts, the existing normalized stamina meter resumes the vanilla adapter.
 
 ## Content workflow
 
@@ -35,7 +45,7 @@ The vanilla client renderer and explicit rotten-flesh loot table allow developme
 2. Implemented: dedicated Sentinel entity type, attributes, fallback renderer, loot table and matching Epic Fight data patch. Confirm idle, chase, hit and death behavior in game before custom attacks.
 3. Pending: implement a sweep, slam and charge with readable telegraphs and punishable recovery. These are planned attacks, not existing animation registry entries.
 4. Implemented as a prototype: below half health, Epic Fight unlocks two additional sequences. The boss bar labels this health-derived phase; actual gameplay validation remains pending.
-5. Connect Martial guard/resource semantics without duplicate stamina costs, damage or stun resolution.
+5. Implemented first slice: hand Martial guard/counter/recovery ownership to Epic Fight and mirror stamina. Pending: provider guard/parry outcome translation to ARPG posture/momentum.
 6. Validate solo and party fights, attack collision/timing, death/interrupt/reset behavior, reconnects, first-clear rewards and tower unlocks with the actual modpack.
 
 Other combat pillars retain their distinct gun, bow and spell loops. Their attacks need compatibility with Epic Fight-patched enemies, including damage attribution and hit reactions; they are not automatically converted into melee combos.
@@ -62,7 +72,7 @@ Use the isolated combat profile first:
 
 Add `-Parpg_full_runtime=true` to include the remaining full provider family while substituting Epic Fight for Better Combat. That combined modpack still requires smoke testing. The isolated profile does not install Iron's runtime stack. Both profiles keep the normal build's external providers optional.
 
-The pinned artifact is `maven.modrinth:vu3NZ5Ma:8HHhJt6i`. Runtime verification resolves it, excludes Better Combat, checks fourteen model/animation resources used by the patch and writes `NeoForge/build/reports/epic-fight-runtime.txt` with the actual JAR metadata. Asset presence and dependency resolution do not prove animation registration, data-pack parsing, collision behavior or startup compatibility. CI compiles the loader code through the normal NeoForge build; an in-game client/server test remains required.
+The pinned artifact is `maven.modrinth:vu3NZ5Ma:8HHhJt6i`. Runtime verification resolves it, excludes Better Combat, checks the three read-only bridge API methods plus fourteen model/animation resources used by the patch and writes `NeoForge/build/reports/epic-fight-runtime.txt` with the actual JAR metadata. Asset presence and dependency resolution do not prove animation registration, data-pack parsing, collision behavior or startup compatibility. CI compiles the loader code through the normal NeoForge build; an in-game client/server test remains required.
 
 ## Primary references
 
