@@ -40,6 +40,8 @@ jobs:
         run: python3 tools/test_tower_demo.py
       - name: Check custom spell content
         run: python3 tools/test_arpg_spells.py
+      - name: Check Epic Fight melee specializations
+        run: python3 tools/test_arpg_melee.py
       - name: Build opt-in tower data pack
         run: python3 tools/build_tower_demo.py
       - name: Set up Gradle

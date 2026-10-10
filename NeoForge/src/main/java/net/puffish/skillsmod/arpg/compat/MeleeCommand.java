@@ -49,8 +49,10 @@ public final class MeleeCommand {
 			player.sendMessage(row, false);
 		}
 		for (var attack : new String[]{"heavy", "driving"}) {
+			String skill = "puffish_skills:" + ("heavy".equals(attack) ? "measured_strike" : "driving_slash");
 			player.sendMessage(Text.literal(net.puffish.skillsmod.main.OptionalEpicMelee.invoke(player, "status", attack))
-					.append(" ").append(action("[Use]", "/arpg melee " + attack)), false);
+					.append(" ").append(action("[Use]", "/arpg melee " + attack))
+					.append(" ").append(action("[Specialize]", "/arpg specialize " + skill)), false);
 		}
 		player.sendMessage(action("[Refresh]", "/arpg melee status"), false);
 		player.sendMessage(Text.literal("Bind ARPG Melee Innate, Weapon Stance, Heavy Strike and Driving Slash in Controls for combat. Epic Fight validates charge and costs."), false);

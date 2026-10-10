@@ -386,4 +386,6 @@ write(ROOT/'arpg/manifest.json',dict(schema=1,universal_nodes=1602,notables=270,
     disciplines=6,ascendancies=24,confluences=15,skills=len(CATALOG['skills']),affixes=len(CATALOG['affixes']),bases=len(CATALOG['bases']),uniques=3))
 from generate_arpg_spells import generate as generate_spells
 generate_spells(ROOT)
+from generate_arpg_melee import generate as generate_melee
+generate_melee(ROOT)
 print(json.dumps(json.loads((ROOT/'arpg/manifest.json').read_text())))

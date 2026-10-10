@@ -263,7 +263,7 @@ public final class NeoForgeArpgEvents {
 				attacker,
 				event.getEntity(),
 				ArpgRuleEngine.Event.ATTACK,
-				"",
+				OptionalEpicMelee.skillId(source),
 				tags
 		);
 		double scaled = ArpgAttackScaling.scaleExistingPhysicalAttack(event.getAmount(), snapshot, delivery);
@@ -323,7 +323,7 @@ public final class NeoForgeArpgEvents {
 		}
 
 		if (source.getAttacker() instanceof ServerPlayerEntity attacker) {
-			String skill = skillDamage == null ? "" : skillDamage.skill();
+			String skill = skillDamage == null ? OptionalEpicMelee.skillId(source) : skillDamage.skill();
 			if (skillDamage == null && attackDelivery(source) == ArpgAttackScaling.Delivery.PROJECTILE) {
 				GunnerCombatRuntime.registerProjectileHit(
 						attacker,
@@ -368,7 +368,7 @@ public final class NeoForgeArpgEvents {
 					attacker,
 					event.getEntity(),
 					ArpgRuleEngine.Event.KILL,
-					skillDamage == null ? "" : skillDamage.skill(),
+					skillDamage == null ? OptionalEpicMelee.skillId(source) : skillDamage.skill(),
 					tags
 			);
 		}

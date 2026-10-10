@@ -61,6 +61,8 @@
     "arpg_skill_irons_spellbooks_fortify",
     "arpg_atlas",
     "arpg_skill_puffish_skills_storm_pulse",
-    "arpg_skill_puffish_skills_rime_pulse"
+    "arpg_skill_puffish_skills_rime_pulse",
+    "arpg_skill_puffish_skills_measured_strike",
+    "arpg_skill_puffish_skills_driving_slash"
   ]
 }

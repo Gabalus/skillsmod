@@ -73,7 +73,11 @@ public final class ArpgEpicMelee {
 	public static String status(ServerPlayerEntity player, String name) {
 		var attack = "heavy".equals(name) ? MeleeKit.Attack.HEAVY : MeleeKit.Attack.DRIVING;
 		int remaining = MeleeKitRuntime.remaining(player, attack);
-		return attack.title() + " | level " + attack.level() + " | base stamina " + attack.stamina()
+		var patch = EpicFightCapabilities.getServerPlayerPatch(player);
+		var skill = attack == MeleeKit.Attack.HEAVY ? HEAVY.get() : DRIVING.get();
+		String cost = patch == null ? "base stamina " + attack.stamina()
+				: "stamina " + String.format(java.util.Locale.ROOT, "%.1f", skill.staminaCost(patch));
+		return attack.title() + " | level " + attack.level() + " | " + cost
 				+ " | " + (remaining == 0 ? "off cooldown" : remaining / 20.0 + "s recovery");
 	}
 }

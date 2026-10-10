@@ -12,7 +12,15 @@ public final class ArpgSkillUseSemantics {
 	}
 
 	public static double resourceCost(ArpgContent.Skill skill, ArpgStatSnapshot snapshot) {
-		double cost = snapshot.apply(ArpgStat.RESOURCE_COST, skill.cost());
+		return resourceCost(skill.cost(), snapshot);
+	}
+
+	/** Applies ARPG modifiers to an already provider-adjusted cost without paying another resource pool. */
+	public static double resourceCost(double providerCost, ArpgStatSnapshot snapshot) {
+		if (!Double.isFinite(providerCost) || providerCost < 0) {
+			return Double.POSITIVE_INFINITY;
+		}
+		double cost = snapshot.apply(ArpgStat.RESOURCE_COST, providerCost);
 		return Double.isFinite(cost) ? Math.max(0.0, cost) : Double.POSITIVE_INFINITY;
 	}
 

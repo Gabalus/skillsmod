@@ -101,4 +101,26 @@ class ArpgRuleEngineTest {
 			return ArpgContent.read(reader);
 		}
 	}
+
+	@Test
+	void meleeSpecializationsDoNotLeakIntoBasicAttacksOrOtherSkills() throws Exception {
+		var catalog = catalog();
+		for (var name : List.of("measured_strike", "driving_slash")) {
+			String id = "puffish_skills:" + name;
+			assertEquals("epicfight", catalog.skills().get(id).provider());
+			var rules = List.of("specialization/puffish_skills_" + name + "_0",
+					"specialization/puffish_skills_" + name + "_8", "specialization/puffish_skills_" + name + "_16");
+			var tags = Set.of("attack", "melee", "physical", "hit");
+			var active = ArpgRuleEngine.evaluate(catalog, rules, ArpgRuleEngine.Context.of(ArpgRuleEngine.Event.ATTACK, id, tags));
+			var snapshot = net.puffish.skillsmod.arpg.stat.ArpgStatCompiler.compile(active.modifiers());
+			assertEquals(108.0, net.puffish.skillsmod.arpg.combat.ArpgAttackScaling.scaleExistingPhysicalAttack(
+					100.0, snapshot, net.puffish.skillsmod.arpg.combat.ArpgAttackScaling.Delivery.MELEE), .00001);
+			assertEquals(7.8, net.puffish.skillsmod.arpg.skill.ArpgSkillUseSemantics.resourceCost(8.0, snapshot), .00001);
+			for (var other : List.of("", "epicfight:sweeping_edge", "puffish_skills:storm_pulse",
+					"puffish_skills:" + (name.equals("measured_strike") ? "driving_slash" : "measured_strike"))) {
+				assertTrue(ArpgRuleEngine.evaluate(catalog, rules,
+						ArpgRuleEngine.Context.of(ArpgRuleEngine.Event.ATTACK, other, tags)).modifiers().isEmpty());
+			}
+		}
+	}
 }

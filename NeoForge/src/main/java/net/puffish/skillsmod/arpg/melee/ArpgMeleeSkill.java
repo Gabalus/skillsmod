@@ -8,6 +8,11 @@ import net.puffish.skillsmod.arpg.combat.ArpgCombatRuntime;
 import net.puffish.skillsmod.arpg.combat.CombatPillar;
 import net.puffish.skillsmod.arpg.combat.MeleeKit;
 import net.puffish.skillsmod.arpg.combat.MeleeKitRuntime;
+import net.puffish.skillsmod.arpg.rule.ArpgRuleEngine;
+import net.puffish.skillsmod.arpg.rule.ArpgRuleRuntime;
+import net.puffish.skillsmod.arpg.skill.ArpgSkillAccess;
+import net.puffish.skillsmod.arpg.skill.ArpgSkillUseSemantics;
+import yesman.epicfight.api.event.types.player.SkillCastEvent;
 import yesman.epicfight.gameasset.Animations;
 import yesman.epicfight.skill.Skill;
 import yesman.epicfight.skill.SkillBuilder;
@@ -16,11 +21,13 @@ import yesman.epicfight.skill.SkillContainer;
 import yesman.epicfight.skill.SkillSlots;
 import yesman.epicfight.world.capabilities.EpicFightCapabilities;
 import yesman.epicfight.world.capabilities.entitypatch.player.ServerPlayerPatch;
+import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
 
 import java.util.Locale;
 
 /** Stamina-paid addon action; damage is exclusively the selected provider animation's hit phase. */
 public final class ArpgMeleeSkill extends Skill {
+	private static final java.util.Set<String> TAGS = java.util.Set.of("attack", "melee", "physical", "hit");
 	private final MeleeKit.Attack attack;
 
 	public static final class Builder extends SkillBuilder<Builder> {
@@ -49,6 +56,10 @@ public final class ArpgMeleeSkill extends Skill {
 
 	public String rejection(ServerPlayerPatch patch) {
 		var player = patch.getOriginal();
+		var access = ArpgSkillAccess.check(player, attack.id(), "epicfight");
+		if (!access.allowed()) {
+			return access.message();
+		}
 		var character = ArpgProgression.character(player);
 		var category = EpicFightCapabilities.getItemStackCapability(player.getMainHandStack()).getWeaponCategory();
 		var input = new MeleeKit.Input(player.isAlive() && !player.isCreative() && !player.isSpectator()
@@ -62,6 +73,21 @@ public final class ArpgMeleeSkill extends Skill {
 		}
 		int remaining = MeleeKitRuntime.remaining(player, attack);
 		return remaining == 0 ? "" : "Recovering for " + remaining + " ticks.";
+	}
+
+	public double staminaCost(ServerPlayerPatch patch) {
+		return ArpgSkillUseSemantics.resourceCost(getDefaultConsumptionAmount(patch),
+				ArpgRuleRuntime.snapshot(patch.getOriginal(), null, ArpgRuleEngine.Event.ATTACK, attack.id(), TAGS));
+	}
+
+	@Override
+	public boolean resourcePredicate(PlayerPatch<?> patch, SkillCastEvent event) {
+		if (!(patch instanceof ServerPlayerPatch server)) {
+			return false;
+		}
+		double cost = staminaCost(server);
+		return Double.isFinite(cost) && cost <= Float.MAX_VALUE
+				&& patch.consumeForSkill(this, resource, (float) cost, false, event.getArguments());
 	}
 
 	@Override
@@ -81,16 +107,22 @@ public final class ArpgMeleeSkill extends Skill {
 		boolean longsword = "longsword".equals(EpicFightCapabilities.getItemStackCapability(
 				patch.getOriginal().getMainHandStack()).getWeaponCategory().toString().toLowerCase(Locale.ROOT));
 		if (attack == MeleeKit.Attack.DRIVING) {
-			patch.playAnimationSynchronized(longsword ? Animations.LONGSWORD_DASH : Animations.SWORD_DASH, 0.0f);
+			ArpgMeleeAttribution.play(patch, longsword ? Animations.LONGSWORD_DASH : Animations.SWORD_DASH, attack.id());
 		} else {
 			var innate = patch.getSkill(SkillSlots.WEAPON_INNATE);
 			boolean defensive = innate != null && innate.getSkill() != null && innate.isActivated()
 					&& "epicfight:liechtenauer".equals(innate.getSkill().getRegistryName().toString());
 			if (longsword) {
-				patch.playAnimationSynchronized(defensive ? Animations.LONGSWORD_LIECHTENAUER_AUTO3 : Animations.LONGSWORD_AUTO3, 0.0f);
+				ArpgMeleeAttribution.play(patch, defensive ? Animations.LONGSWORD_LIECHTENAUER_AUTO3 : Animations.LONGSWORD_AUTO3, attack.id());
 			} else {
-				patch.playAnimationSynchronized(Animations.SWORD_AUTO3, 0.0f);
+				ArpgMeleeAttribution.play(patch, Animations.SWORD_AUTO3, attack.id());
 			}
+		}
+		var character = ArpgProgression.character(patch.getOriginal());
+		int before = character.specializationPoints(attack.id());
+		character.gainSkillExperience(attack.id(), 10);
+		if (before != character.specializationPoints(attack.id())) {
+			ArpgProgression.sync(patch.getOriginal());
 		}
 	}
 }

@@ -189,7 +189,9 @@ tasks.register("verifyArpgEpicRuntime") {
 				"yesman.epicfight.api.animation.types.EntityState",
 				"yesman.epicfight.skill.SkillBuilder", "yesman.epicfight.skill.SkillSlot",
 				"yesman.epicfight.api.utils.ExtensibleEnumManager", "yesman.epicfight.registry.EpicFightRegistries\$Keys",
-				"yesman.epicfight.gameasset.Animations")
+				"yesman.epicfight.gameasset.Animations", "yesman.epicfight.api.animation.Animator",
+				"yesman.epicfight.api.animation.AnimationVariables", "yesman.epicfight.world.damagesource.EpicFightDamageSource",
+				"yesman.epicfight.api.event.types.player.SkillCastEvent")
 			.redirectErrorStream(true).start()
 		val api = javap.inputStream.bufferedReader().use { it.readText() }
 		check(javap.waitFor() == 0) { "Epic Fight API inspection failed: $api" }
@@ -210,7 +212,13 @@ tasks.register("verifyArpgEpicRuntime") {
 				"requestCasting(yesman.epicfight.world.capabilities.entitypatch.player.ServerPlayerPatch, net.minecraft.nbt.CompoundTag)",
 				"registerEnumCls(java.lang.String, java.lang.Class", "assign(T)", "loadDatapackParameters(net.minecraft.nbt.CompoundTag)",
 				"createSyncPacketToLocalPlayer();", "createSyncPacketToRemotePlayer();", "setSkill(yesman.epicfight.skill.Skill)",
-				"build(net.minecraft.resources.ResourceLocation)", " SKILL;", " SWORD_AUTO3;", " SWORD_DASH;", " LONGSWORD_DASH;")
+				"build(net.minecraft.resources.ResourceLocation)", " SKILL;", " SWORD_AUTO3;", " SWORD_DASH;", " LONGSWORD_DASH;",
+				"getAnimator();", "getVariables();", "unsyncIndependent(java.util.function.Function",
+				"get(yesman.epicfight.api.animation.AnimationVariables\$IndependentVariableKey",
+				"put(yesman.epicfight.api.animation.AnimationVariables\$IndependentVariableKey",
+				"removeAll(yesman.epicfight.api.animation.AnimationManager\$AnimationAccessor",
+				"getAnimation();", "getArguments();", "getDefaultConsumptionAmount(yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch",
+				"consumeForSkill(yesman.epicfight.skill.Skill, yesman.epicfight.skill.Skill\$Resource, float, boolean, net.minecraft.nbt.CompoundTag)")
 		meleeSignatures.forEach { signature -> check(api.contains(signature)) { "Missing melee API: $signature" } }
 		layout.buildDirectory.file("reports/epic-fight-stamina-api.txt").get().asFile.apply {
 			parentFile.mkdirs()

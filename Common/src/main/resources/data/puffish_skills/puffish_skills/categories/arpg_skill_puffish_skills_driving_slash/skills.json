@@ -1,0 +1,146 @@
+{
+  "puffish_skills_driving_slash_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "puffish_skills_driving_slash_0",
+    "root": true
+  },
+  "puffish_skills_driving_slash_1": {
+    "x": 0,
+    "y": 60,
+    "definition": "puffish_skills_driving_slash_1",
+    "root": false
+  },
+  "puffish_skills_driving_slash_2": {
+    "x": 0,
+    "y": 120,
+    "definition": "puffish_skills_driving_slash_2",
+    "root": false
+  },
+  "puffish_skills_driving_slash_3": {
+    "x": 0,
+    "y": 180,
+    "definition": "puffish_skills_driving_slash_3",
+    "root": false
+  },
+  "puffish_skills_driving_slash_4": {
+    "x": 0,
+    "y": 240,
+    "definition": "puffish_skills_driving_slash_4",
+    "root": false
+  },
+  "puffish_skills_driving_slash_5": {
+    "x": 0,
+    "y": 300,
+    "definition": "puffish_skills_driving_slash_5",
+    "root": false
+  },
+  "puffish_skills_driving_slash_6": {
+    "x": 0,
+    "y": 360,
+    "definition": "puffish_skills_driving_slash_6",
+    "root": false
+  },
+  "puffish_skills_driving_slash_7": {
+    "x": 0,
+    "y": 420,
+    "definition": "puffish_skills_driving_slash_7",
+    "root": false
+  },
+  "puffish_skills_driving_slash_8": {
+    "x": 100,
+    "y": 0,
+    "definition": "puffish_skills_driving_slash_8",
+    "root": true
+  },
+  "puffish_skills_driving_slash_9": {
+    "x": 100,
+    "y": 60,
+    "definition": "puffish_skills_driving_slash_9",
+    "root": false
+  },
+  "puffish_skills_driving_slash_10": {
+    "x": 100,
+    "y": 120,
+    "definition": "puffish_skills_driving_slash_10",
+    "root": false
+  },
+  "puffish_skills_driving_slash_11": {
+    "x": 100,
+    "y": 180,
+    "definition": "puffish_skills_driving_slash_11",
+    "root": false
+  },
+  "puffish_skills_driving_slash_12": {
+    "x": 100,
+    "y": 240,
+    "definition": "puffish_skills_driving_slash_12",
+    "root": false
+  },
+  "puffish_skills_driving_slash_13": {
+    "x": 100,
+    "y": 300,
+    "definition": "puffish_skills_driving_slash_13",
+    "root": false
+  },
+  "puffish_skills_driving_slash_14": {
+    "x": 100,
+    "y": 360,
+    "definition": "puffish_skills_driving_slash_14",
+    "root": false
+  },
+  "puffish_skills_driving_slash_15": {
+    "x": 100,
+    "y": 420,
+    "definition": "puffish_skills_driving_slash_15",
+    "root": false
+  },
+  "puffish_skills_driving_slash_16": {
+    "x": 200,
+    "y": 0,
+    "definition": "puffish_skills_driving_slash_16",
+    "root": true
+  },
+  "puffish_skills_driving_slash_17": {
+    "x": 200,
+    "y": 60,
+    "definition": "puffish_skills_driving_slash_17",
+    "root": false
+  },
+  "puffish_skills_driving_slash_18": {
+    "x": 200,
+    "y": 120,
+    "definition": "puffish_skills_driving_slash_18",
+    "root": false
+  },
+  "puffish_skills_driving_slash_19": {
+    "x": 200,
+    "y": 180,
+    "definition": "puffish_skills_driving_slash_19",
+    "root": false
+  },
+  "puffish_skills_driving_slash_20": {
+    "x": 200,
+    "y": 240,
+    "definition": "puffish_skills_driving_slash_20",
+    "root": false
+  },
+  "puffish_skills_driving_slash_21": {
+    "x": 200,
+    "y": 300,
+    "definition": "puffish_skills_driving_slash_21",
+    "root": false
+  },
+  "puffish_skills_driving_slash_22": {
+    "x": 200,
+    "y": 360,
+    "definition": "puffish_skills_driving_slash_22",
+    "root": false
+  },
+  "puffish_skills_driving_slash_23": {
+    "x": 200,
+    "y": 420,
+    "definition": "puffish_skills_driving_slash_23",
+    "root": false
+  }
+}
